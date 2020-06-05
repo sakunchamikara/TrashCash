@@ -3,20 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DefaultModule } from './layouts/default/default.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    SidebarComponent,
-    DashboardComponent
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    DefaultModule // default component and dashboard component has declared here
   ],
   providers: [],
   bootstrap: [AppComponent]

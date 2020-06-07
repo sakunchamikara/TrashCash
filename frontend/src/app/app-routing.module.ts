@@ -4,11 +4,18 @@ import { DefaultComponent } from './layouts/default/default.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { PostsComponent } from './modules/posts/posts.component';
 import { HomeComponent } from './webportal/layouts/home/home.component';
+import { WelcomeComponent } from './webportal/modules/welcome/welcome.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    children:[
+      {
+        path: 'welcome',
+        component: WelcomeComponent
+      }
+    ]
   },
   {
     path: 'system',

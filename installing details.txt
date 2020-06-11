@@ -1,2 +1,7 @@
 
 npm install --save @angular/flex-layout@8.0.0-beta.27
+
+npm install bootstrap
+npm install jquery
+
+and then add them in the angular.json file as in the image

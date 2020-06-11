@@ -5,17 +5,18 @@ import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { PostsComponent } from './modules/posts/posts.component';
 import { HomeComponent } from './webportal/layouts/home/home.component';
 import { WelcomeComponent } from './webportal/modules/welcome/welcome.component';
+import { LoginComponent } from './modules/login/login.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    children:[
+    children: [
       {
         path: 'welcome',
-        component: WelcomeComponent
-      }
-    ]
+        component: WelcomeComponent,
+      },
+    ],
   },
   {
     path: 'system',
@@ -28,6 +29,10 @@ const routes: Routes = [
       {
         path: 'posts',
         component: PostsComponent,
+      },
+      {
+        path: 'login',
+        component: LoginComponent,
       },
     ],
   },

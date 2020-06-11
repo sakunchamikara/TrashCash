@@ -5,30 +5,46 @@ import { DashboardComponent } from 'src/app/modules/dashboard/dashboard.componen
 import { RouterModule } from '@angular/router';
 import { PostsComponent } from 'src/app/modules/posts/posts.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { MatSidenavModule, MatDividerModule, MatCardModule, MatPaginatorModule, MatTableModule } from '@angular/material';
+import {
+  MatSidenavModule,
+  MatDividerModule,
+  MatCardModule,
+  MatPaginatorModule,
+  MatTableModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatButtonModule,
+} from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DashboardService } from 'src/app/modules/dashboard.service';
-
+import { LoginComponent } from 'src/app/modules/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     DefaultComponent,
     DashboardComponent,
-    PostsComponent
+    PostsComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule,
     RouterModule, // to use router-outlet
+    HttpClientModule,
     SharedModule,
     MatSidenavModule,
     MatDividerModule,
     FlexLayoutModule,
     MatCardModule,
     MatPaginatorModule,
-    MatTableModule
+    MatTableModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
   ],
-  providers: [
-    DashboardService
-  ]
+  providers: [DashboardService],
 })
-export class DefaultModule { }
+export class DefaultModule {}

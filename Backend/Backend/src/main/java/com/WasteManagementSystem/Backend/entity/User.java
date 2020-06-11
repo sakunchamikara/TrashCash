@@ -34,7 +34,7 @@ public class User {
 		this.birthday = birthday;
 		this.userType = userType;
 		this.gender = gender;
-		this.email=email;
+		this.email = email;
 		this.password=password;
 	}
 
@@ -97,7 +97,7 @@ public class User {
 	}
 
 	public void setEmail(String email) {
-		email = email;
+		this.email = email;
 	}
 
 	public String getPassword() {

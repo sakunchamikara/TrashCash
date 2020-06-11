@@ -11,7 +11,6 @@ import { HomeModule } from './webportal/layouts/home/home.module';
 @NgModule({
   declarations: [
     AppComponent,
-
   ],
   imports: [
     BrowserModule,

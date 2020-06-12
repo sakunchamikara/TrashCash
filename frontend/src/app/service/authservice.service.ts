@@ -10,6 +10,10 @@ export class AuthserviceService {
   constructor(private http: HttpClient) {}
 
   public loginUserFromRemote(user: User): Observable<any> {
-    return this.http.post<any>("http://localhost:8080/loginUser", user);
+    return this.http.post<any>('http://localhost:8080/loginUser', user);
+  }
+
+  public registerUserFromRemote(user: User): Observable<any> {
+    return this.http.post<any>('http://localhost:8080/registerUser', user);
   }
 }

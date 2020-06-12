@@ -14,12 +14,17 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatButtonModule,
+  MatSelectModule,
+  MatIconModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DashboardService } from 'src/app/modules/dashboard.service';
 import { LoginComponent } from 'src/app/modules/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RegisterComponent } from 'src/app/modules/register/register.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardComponent,
     PostsComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     CommonModule,
@@ -44,6 +50,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatSelectModule,
+    MatIconModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [DashboardService],
 })

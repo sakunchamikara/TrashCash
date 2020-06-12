@@ -1,34 +1,42 @@
-<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+<div class="body">
 
-  <mat-card class="box">
-    <mat-card-header>
-      <mat-card-title>Log in</mat-card-title>
-    </mat-card-header>
-    <small class="text-danger">{{msg}}</small>
-    <form class="example-form" #loginform="ngForm" (ngSubmit)="loginUser()">
-      <mat-card-content>
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Email" type="email" name="email"
-          [(ngModel)]="user.email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
-          required #email="ngModel" [class.is-invalid]="email.invalid && email.touched">
-        </mat-form-field>
+  <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
 
-        <!-- <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email a is required field</small> -->
-        <div *ngIf="email.errors && (email.invalid && email.touched)">
-          <small class="text-danger" *ngIf="email.errors.required">Email is a required field</small>
-          <small class="text-danger" *ngIf="email.errors.pattern">Enter valid email pattern</small>
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-title>Log in</mat-card-title>
+      </mat-card-header>
+      <small class="text-danger">{{msg}}</small>
+      <form class="example-form" #loginform="ngForm" (ngSubmit)="loginUser()">
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Email" type="email" name="email" [(ngModel)]="user.email"
+              pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required #email="ngModel"
+              [class.is-invalid]="email.invalid && email.touched">
+          </mat-form-field>
+
+          <!-- <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email a is required field</small> -->
+          <div *ngIf="email.errors && (email.invalid && email.touched)">
+            <small class="text-danger" *ngIf="email.errors.required">Email is a required field</small>
+            <small class="text-danger" *ngIf="email.errors.pattern">Enter valid email pattern</small>
+          </div>
+
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Password" type="password" name="password" [(ngModel)]="user.password" required
+              #password="ngModel" [class.is-invalid]="password.invalid && password.touched">
+          </mat-form-field>
+          <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is a required
+            field</small>
+
+        </mat-card-content>
+        <div class="col text-center">
+          <button class="btn btn-info btn-center" [disabled]="loginform.form.invalid">Log in</button>
+          <br><br>
+          <a class="text-success" [routerLink]="['/system/register']">Not registered ? Click here to Register!!!</a>
         </div>
+      </form>
+    </mat-card>
 
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Password" type="password" name="password"
-          [(ngModel)]="user.password"
-          required #password="ngModel" [class.is-invalid]="password.invalid && password.touched">
-        </mat-form-field>
-        <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is a required field</small>
-
-      </mat-card-content>
-      <button mat-stroked-button color="accent" class="btn-block" [disabled]="loginform.form.invalid">Log in</button>
-    </form>
-  </mat-card>
+  </div>
 
 </div>

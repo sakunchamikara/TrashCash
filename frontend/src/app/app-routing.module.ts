@@ -6,6 +6,7 @@ import { PostsComponent } from './modules/posts/posts.component';
 import { HomeComponent } from './webportal/layouts/home/home.component';
 import { WelcomeComponent } from './webportal/modules/welcome/welcome.component';
 import { LoginComponent } from './modules/login/login.component';
+import { RegisterComponent } from './modules/register/register.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,10 @@ const routes: Routes = [
         path: 'login',
         component: LoginComponent,
       },
+      {
+        path: 'register',
+        component: RegisterComponent
+      }
     ],
   },
 ];

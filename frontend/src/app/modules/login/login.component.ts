@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     this.service.loginUserFromRemote(this.user).subscribe(
       (data) => {
         console.log('success');
-        this.route.navigate(['/system']);
+        this.route.navigate(['/system/dashboard']);
       },
       (error) => {
         console.log('unsuccess');

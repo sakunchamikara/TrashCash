@@ -23,9 +23,17 @@
             <mat-icon>person_outline</mat-icon>
           </button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item>
+            <button mat-menu-item routerLink="/system/login" *ngIf="!this.authservice.isUserLoggedIn()" >
+              <mat-icon>login</mat-icon>
+              Login
+            </button>
+            <button mat-menu-item routerLink="/system/register" *ngIf="!this.authservice.isUserLoggedIn()">
+              <mat-icon>person_outline</mat-icon>
+              Register
+            </button>
+            <button mat-menu-item routerLink="/system/logout" *ngIf="this.authservice.isUserLoggedIn()">
               <mat-icon>exit_to_app</mat-icon>
-              Sign out
+              Logout
             </button>
           </mat-menu>
         </li>

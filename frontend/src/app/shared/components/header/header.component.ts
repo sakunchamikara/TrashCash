@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { AuthserviceService } from 'src/app/service/authservice.service';
 
 @Component({
   selector: 'app-header',
@@ -6,7 +7,9 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor() {}
+  constructor(
+    private authservice: AuthserviceService
+  ) {}
 
   @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
 
@@ -18,4 +21,5 @@ export class HeaderComponent implements OnInit {
       window.dispatchEvent(new Event("resize"));
     }, 300);
   }
+
 }

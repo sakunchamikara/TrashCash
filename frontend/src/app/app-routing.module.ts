@@ -13,6 +13,11 @@ import { LogoutComponent } from './modules/logout/logout.component';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'customer/welcome',
+    pathMatch: 'full',
+  },
+  {
+    path: 'customer',
     component: HomeComponent,
     children: [
       {
@@ -24,6 +29,8 @@ const routes: Routes = [
   {
     path: 'system',
     component: DefaultComponent,
+    // redirectTo: 'system/dashboard',
+    // pathMatch: 'full',
     children: [
       {
         path: 'dashboard',
@@ -41,7 +48,7 @@ const routes: Routes = [
       },
       {
         path: 'logout',
-        component: LogoutComponent
+        component: LogoutComponent,
       },
       {
         path: 'register',

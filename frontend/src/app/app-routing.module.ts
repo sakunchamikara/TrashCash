@@ -29,8 +29,6 @@ const routes: Routes = [
   {
     path: 'system',
     component: DefaultComponent,
-    // redirectTo: 'system/dashboard',
-    // pathMatch: 'full',
     children: [
       {
         path: 'dashboard',

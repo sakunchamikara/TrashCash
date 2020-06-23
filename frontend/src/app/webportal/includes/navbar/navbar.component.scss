@@ -1,4 +1,26 @@
+.mat-toolbar-row-1{
+background-color: #555555;
+color: white;
+padding-left: 100px;
+padding-right: 100px;
+}
+.mat-toolbar-row-2{
+background-color: #f5f5f5;
+color: black;
+padding-left: 100px;
+padding-right: 100px;
+}
 ul li
 {
   list-style: none;
+}
+.example-button-row
+{
+  padding-left: 50px;
+  color: #777777;
+
+}
+.example-button-row button:hover {
+  background-color: #777474;
+  color: white;
 }

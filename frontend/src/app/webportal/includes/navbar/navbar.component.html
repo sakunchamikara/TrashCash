@@ -1,25 +1,21 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <button mat-icon-button>
-      <mat-icon>menu</mat-icon>
-    </button>
-
-    <span> APP LOGO </span>
+<mat-toolbar>
+  <mat-toolbar-row class="mat-toolbar-row-1">
+    <button mat-flat-button style="background-color: #5cb85c;color: white;">WELCOME GUEST</button>
 
     <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
       <ul fxLayout="row" fxLayoutGap="20px">
         <li>
-          <button mat-icon-button>
+          <button mat-icon-button color="warn">
             <mat-icon>settings</mat-icon>
           </button>
         </li>
         <li>
-          <button mat-icon-button>
+          <button mat-icon-button color="warn">
             <mat-icon>help_outline</mat-icon>
           </button>
         </li>
         <li>
-          <button mat-button [matMenuTriggerFor]="menu">
+          <button mat-button [matMenuTriggerFor]="menu" color="warn">
             <mat-icon>person_outline</mat-icon>
           </button>
           <mat-menu #menu="matMenu">
@@ -29,6 +25,32 @@
             </button>
           </mat-menu>
         </li>
+      </ul>
+    </div>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row class="mat-toolbar-row-2">
+    <div fxFlex fxLayout="row" fxLayoutAlign="start center">
+      <span style="font-weight: 600;"> TrashCash </span>
+      <div class="example-button-row">
+        <button mat-button>HOME</button>
+        <button mat-button>SHOP</button>
+        <button mat-button>MY ACCOUNT</button>
+        <button mat-button>SHOPPING CART</button>
+        <button mat-button>CONTACT US</button>
+        <button mat-button>EVENTS & CAMPAIGNS</button>
+      </div>
+    </div>
+
+    <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+      <ul fxLayout="row" fxLayoutGap="20px">
+        <li>
+          <button mat-flat-button style="background-color: rgb(2, 205, 219);color: white;">
+            <mat-icon>shopping_cart</mat-icon>
+            5 items in your shopping cart
+          </button>
+        </li>
+
       </ul>
     </div>
   </mat-toolbar-row>

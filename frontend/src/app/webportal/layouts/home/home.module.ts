@@ -6,11 +6,12 @@ import { IncludeModule } from '../../includes/include.module';
 import { MatSidenavModule, MatDividerModule, MatCardModule, MatPaginatorModule, MatTableModule } from '@angular/material';
 import { WelcomeComponent } from '../../modules/welcome/welcome.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ShopComponent } from '../../modules/shop/shop.component';
 
 
 
 @NgModule({
-  declarations: [HomeComponent, WelcomeComponent],
+  declarations: [HomeComponent, WelcomeComponent, ShopComponent],
   imports: [
     CommonModule,
     RouterModule,

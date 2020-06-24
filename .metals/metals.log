@@ -1,0 +1,9 @@
+2020.06.23 18:40:49 INFO  started: Metals version 0.9.0 in workspace 'G:\projects\GroupProject2'
+2020.06.23 18:40:51 INFO  time: initialize in 1.43s
+2020.06.23 18:41:00 WARN  no build tool detected in workspace 'G:\projects\GroupProject2'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+Jun 23, 2020 8:57:15 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTraceNotification
+Jun 24, 2020 2:05:30 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTraceNotification
+Jun 24, 2020 9:08:06 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTraceNotification

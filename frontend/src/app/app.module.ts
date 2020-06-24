@@ -7,12 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DefaultModule } from './layouts/default/default.module';
 import { HomeModule } from './webportal/layouts/home/home.module';
 import { LogoutComponent } from './modules/logout/logout.component';
+import { ShopComponent } from './modules/shop/shop.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LogoutComponent,
+    ShopComponent,
   ],
   imports: [
     BrowserModule,

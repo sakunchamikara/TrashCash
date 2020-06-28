@@ -7,12 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DefaultModule } from './layouts/default/default.module';
 import { HomeModule } from './webportal/layouts/home/home.module';
 import { LogoutComponent } from './modules/logout/logout.component';
+import { CollectedWasteComponent } from './modules/collected-waste/collected-waste.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LogoutComponent,
+    CollectedWasteComponent,
   ],
   imports: [
     BrowserModule,

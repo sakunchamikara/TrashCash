@@ -10,52 +10,57 @@ import { RegisterComponent } from './modules/register/register.component';
 import { RouteGuardService } from './service/route-guard.service';
 import { LogoutComponent } from './modules/logout/logout.component';
 import { ShopComponent } from './webportal/modules/shop/shop.component';
+import { ProfileComponent } from './modules/profile/profile.component';
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'customer/welcome',
-    pathMatch: 'full',
+    path: "",
+    redirectTo: "customer/welcome",
+    pathMatch: "full",
   },
   {
-    path: 'customer',
+    path: "customer",
     component: HomeComponent,
     children: [
       {
-        path: 'welcome',
+        path: "welcome",
         component: WelcomeComponent,
       },
       {
-        path: 'shop',
+        path: "shop",
         component: ShopComponent,
       },
     ],
   },
   {
-    path: 'system',
+    path: "system",
     component: DefaultComponent,
     children: [
       {
-        path: 'dashboard',
+        path: "dashboard",
         component: DashboardComponent,
         canActivate: [RouteGuardService],
       },
       {
-        path: 'posts',
+        path: "posts",
         component: PostsComponent,
         canActivate: [RouteGuardService],
       },
       {
-        path: 'login',
+        path: "login",
         component: LoginComponent,
       },
       {
-        path: 'logout',
+        path: "logout",
         component: LogoutComponent,
       },
       {
-        path: 'register',
+        path: "register",
         component: RegisterComponent,
+      },
+      {
+        path: "profile",
+        component: ProfileComponent,
       },
     ],
   },

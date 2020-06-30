@@ -60,7 +60,7 @@ const routes: Routes = [
         component: RegisterComponent,
       },
       {
-        path: 'collectedWaste',
+        path: "collectedWaste",
         component: CollectedWasteComponent,
       },{
         path: "profile",

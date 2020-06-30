@@ -26,7 +26,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from 'src/app/modules/register/register.component';
 import { ProfileComponent } from 'src/app/modules/profile/profile.component';
-
+import { CollectedWasteComponent } from 'src/app/modules/collected-waste/collected-waste.component';
 @NgModule({
   declarations: [
     DefaultComponent,
@@ -35,6 +35,7 @@ import { ProfileComponent } from 'src/app/modules/profile/profile.component';
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
+    CollectedWasteComponent,
   ],
   imports: [
     CommonModule,

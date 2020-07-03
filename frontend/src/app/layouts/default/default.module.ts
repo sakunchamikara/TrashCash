@@ -18,6 +18,7 @@ import {
   MatIconModule,
   MatDatepickerModule,
   MatNativeDateModule,
+  MatMenuModule,
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DashboardService } from 'src/app/modules/dashboard.service';
@@ -27,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from 'src/app/modules/register/register.component';
 import { ProfileComponent } from 'src/app/modules/profile/profile.component';
 import { CollectedWasteComponent } from 'src/app/modules/collected-waste/collected-waste.component';
+
 @NgModule({
   declarations: [
     DefaultComponent,
@@ -57,6 +59,7 @@ import { CollectedWasteComponent } from 'src/app/modules/collected-waste/collect
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatMenuModule
   ],
   providers: [DashboardService],
 })

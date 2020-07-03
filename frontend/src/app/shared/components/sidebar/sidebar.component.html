@@ -9,12 +9,19 @@
 
   <mat-divider></mat-divider>
 
+
   <h2 matSubheader>Pages</h2>
 
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/dashboard">Dashboard</a>
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/posts">Posts</a>
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/articles">Articles</a>
-  <a mat-list-item routerLinkActivate="list-item-active" routerLink="/system/collectedWaste">Waste Stock</a>
+  
+ 
+  <button mat-menu-item [matMenuTriggerFor]="wasteStock">Waste Stock</button>
+    <mat-menu #wasteStock="matMenu">
+         <button  mat-menu-item [routerLink]="'/system/insertCollectedWaste'" class="btn btn-primary-outline pull-right">  Insert Waste</button>  
+         <button  mat-menu-item [routerLink]="'/system/viewCollectedWaste'" class="btn btn-primary-outline pull-right">  View waste stock</button>  
+    </mat-menu>
 
   <mat-divider></mat-divider>
 
@@ -30,4 +37,11 @@
     Leads
   </a>
 
+ 
+
 </mat-nav-list>
+
+
+
+
+

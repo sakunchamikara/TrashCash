@@ -1,22 +1,22 @@
-
-.edit-user {
-  // height: 430px;
+.p1{
+  margin-left: 25px;
 }
 
-.profile-card {
-  max-height: 430px;
+.p2{
+  margin-left: 25px;
+
 }
 
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
+.p3{
+  // max-width: 400px;
+  margin-right: 25px;
+
 }
 
-.example-form .card-content mat-form-field {
-  padding-left: 50px;
-  width: 400px;
+.col-container {
+  display: table;
+  width: 100%;
 }
-
-.button {
-text-align: center;
+.col {
+  display: table-cell;
 }

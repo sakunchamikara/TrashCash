@@ -29,9 +29,9 @@
             </button>
             <button mat-menu-item routerLink="/system/register" *ngIf="!this.authservice.isUserLoggedIn()">
               <i class="fas fa-user"></i>
-               Register
+              Register
             </button>
-            <button mat-menu-item routerLink="/system/profile" *ngIf="!this.authservice.isUserLoggedIn()">
+            <button mat-menu-item routerLink="/system/profile" *ngIf="this.authservice.isUserLoggedIn()">
               <i class="fas fa-user"></i>
               profile
             </button>

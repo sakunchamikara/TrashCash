@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,7 +12,17 @@ import { LogoutComponent } from './modules/logout/logout.component';
 // import { UpdateProductComponent } from './modules/products/view-product/update-product/update-product.component';
 // import { ViewProductComponent } from './modules/products/view-product/view-product.component';
 // import { InsertProductsComponent } from './modules/products/insert-products/insert-products.component';
+import { ProfileComponent } from './modules/profile/profile.component';
 
+
+
+
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import { MatSliderModule } from '@angular/material/slider';
+import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
+import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
 
 @NgModule({
   declarations: [
@@ -23,14 +33,24 @@ import { LogoutComponent } from './modules/logout/logout.component';
     // UpdateProductComponent,
     // ViewProductComponent,
     // InsertProductsComponent,
+    InsertCollectedWasteComponent,
+    ViewCollectedWasteComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     DefaultModule, // default component and dashboard component has declared here
-    HomeModule
+    HomeModule,
+
+    //material
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    
   ],
+  
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [],
   bootstrap: [AppComponent]
 })

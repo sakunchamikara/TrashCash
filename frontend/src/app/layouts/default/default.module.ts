@@ -22,6 +22,7 @@ import {
   MatIconModule,
   MatDatepickerModule,
   MatNativeDateModule,
+  MatMenuModule,
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DashboardService } from 'src/app/modules/dashboard.service';
@@ -29,6 +30,8 @@ import { LoginComponent } from 'src/app/modules/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from 'src/app/modules/register/register.component';
+import { ProfileComponent } from 'src/app/modules/profile/profile.component';
+import { CollectedWasteComponent } from 'src/app/modules/collected-waste/collected-waste.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,9 @@ import { RegisterComponent } from 'src/app/modules/register/register.component';
     PostsComponent,
     LoginComponent,
     RegisterComponent,
-    InsertProductsComponent,ViewProductComponent,UpdateProductComponent
+    InsertProductsComponent,ViewProductComponent,UpdateProductComponent,
+    ProfileComponent,
+    CollectedWasteComponent,
   ],
   imports: [
     CommonModule,
@@ -59,6 +64,7 @@ import { RegisterComponent } from 'src/app/modules/register/register.component';
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatMenuModule
   ],
   providers: [DashboardService],
 })

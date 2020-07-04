@@ -5,17 +5,17 @@
     <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
       <ul fxLayout="row" fxLayoutGap="20px">
         <li>
-          <button mat-icon-button color="warn">
+          <button mat-icon-button color="rgba(255,255,255,.8)">
             <mat-icon>settings</mat-icon>
           </button>
         </li>
         <li>
-          <button mat-icon-button color="warn">
+          <button mat-icon-button color="rgba(255,255,255,.8)">
             <mat-icon>help_outline</mat-icon>
           </button>
         </li>
         <li>
-          <button mat-button [matMenuTriggerFor]="menu" color="warn">
+          <button mat-button [matMenuTriggerFor]="menu" color="rgba(255,255,255,.8)">
             <mat-icon>person_outline</mat-icon>
           </button>
           <mat-menu #menu="matMenu">
@@ -30,8 +30,10 @@
   </mat-toolbar-row>
 
   <mat-toolbar-row class="mat-toolbar-row-2">
+    <img mat-card-image style="padding-top: 30px;width: 300px;height: 100px;"
+      src="/assets/images/logo/trashcash_logo.png" alt="TrashCash">
     <div fxFlex fxLayout="row" fxLayoutAlign="start center">
-      <span style="font-weight: 600;"> TrashCash </span>
+      <!-- <span style="font-weight: 600;"> TrashCash </span> -->
       <div class="example-button-row">
         <button mat-button routerLink="/customer/welcome">HOME</button>
         <button mat-button routerLink="/customer/shop">SHOP</button>
@@ -45,7 +47,8 @@
     <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
       <ul fxLayout="row" fxLayoutGap="20px">
         <li>
-          <button mat-flat-button style="background-color: rgb(2, 205, 219);color: white;">
+          <button mat-flat-button style="background-color: #9CC026;color: white;">
+            <!-- rgb(2, 205, 219) -->
             <mat-icon>shopping_cart</mat-icon>
             5 items in your shopping cart
           </button>

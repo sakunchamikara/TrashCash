@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
   Gender: any = ['male', 'female'];
   hide = true;
   msg = '';
-  user = new User();
+  user = new User(0, '', '', new Date(), '', '', '', '', null, '');
 
   constructor(private authService: AuthserviceService, private route: Router) {}
 
@@ -33,4 +33,3 @@ export class RegisterComponent implements OnInit {
     );
   }
 }
-

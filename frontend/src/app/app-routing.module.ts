@@ -12,8 +12,10 @@ import { LogoutComponent } from './modules/logout/logout.component';
 import { ShopComponent } from './webportal/modules/shop/shop.component';
 import { CollectedWasteComponent } from './modules/collected-waste/collected-waste.component';
 import { ProfileComponent } from './modules/profile/profile.component';
+import { ProductCatComponent } from './modules/product-cat/product-cat.component';
 import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
 import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
+import { InsertProductCatComponent } from './modules/product-cat/insert-product-cat/insert-product-cat.component';
 
 const routes: Routes = [
   {
@@ -75,6 +77,14 @@ const routes: Routes = [
       {
         path: "viewCollectedWaste",
         component:  ViewCollectedWasteComponent,
+      },
+      {
+        path: "productCat",
+        component:  ProductCatComponent,
+      },
+      {
+        path: "insertProductCat",
+        component:  InsertProductCatComponent,
       }
     ],
   },

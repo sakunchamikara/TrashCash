@@ -18,6 +18,8 @@ import {MatSelectModule} from '@angular/material/select';
 import { MatSliderModule } from '@angular/material/slider';
 import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
 import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
+import { InsertProductCatComponent } from './modules/product-cat/insert-product-cat/insert-product-cat.component';
+
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { ViewCollectedWasteComponent } from './modules/collected-waste/view-coll
     LogoutComponent,
     InsertCollectedWasteComponent,
     ViewCollectedWasteComponent,
+    InsertProductCatComponent,
+    
   ],
   imports: [
     BrowserModule,

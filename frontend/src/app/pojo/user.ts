@@ -1,12 +1,14 @@
 export class User {
-  id: number;
-  fisrtName: string;
-  lastName: string;
-  birthday: Date;
-  userType: string;
-  gender: string;
-  email: string;
-  password: string;
-
-  constructor() { }
+  constructor(
+    public id: number,
+    public fisrtName: string,
+    public lastName: string,
+    public birthday: Date,
+    public userType: string,
+    public gender: string,
+    public email: string,
+    public password: string,
+    public contactNumber: number,
+    public imageUrl: string
+  ) {}
 }

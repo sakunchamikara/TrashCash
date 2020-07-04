@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  user = new User();
+  user = new User(null, '', '', new Date(), '', '', '', '', null, '');
   msg = '';
 
   constructor(private service: AuthserviceService, private route: Router) {}
@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     this.service.loginUserFromRemote(this.user).subscribe(
       (data) => {
         console.log('success');
-        this.route.navigate(['/system/dashboard']);
+        this.route.navigate([`/system/dashboard/`]);
       },
       (error) => {
         console.log('unsuccess');

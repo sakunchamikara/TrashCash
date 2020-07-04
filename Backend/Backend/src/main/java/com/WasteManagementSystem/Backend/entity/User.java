@@ -22,11 +22,14 @@ public class User {
 	private String gender;
 	private String email;
 	private String password;
+	private String imageUrl;
+	private int contactNumber;
 
 	public User() {
 	}
 
-	public User(int id, String fisrtName, String lastName, Date birthday, String userType, String gender,String email,String password) {
+	public User(int id, String fisrtName, String lastName, Date birthday, String userType, String gender, String email,
+			String password, String imageUrl, int contactNumber) {
 		super();
 		this.id = id;
 		this.fisrtName = fisrtName;
@@ -35,7 +38,9 @@ public class User {
 		this.userType = userType;
 		this.gender = gender;
 		this.email = email;
-		this.password=password;
+		this.password = password;
+		this.imageUrl = imageUrl;
+		this.contactNumber = contactNumber;
 	}
 
 	public int getId() {
@@ -88,8 +93,9 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", fisrtName=" + fisrtName + ", lastName=" + lastName + ", birthday=" + birthday
-				+ ", userType=" + userType + ", gender=" + gender + "]";
+		return "User [birthday=" + birthday + ", contactNumber=" + contactNumber + ", email=" + email + ", fisrtName="
+				+ fisrtName + ", gender=" + gender + ", id=" + id + ", imageUrl=" + imageUrl + ", lastName=" + lastName
+				+ ", password=" + password + ", userType=" + userType + "]";
 	}
 
 	public String getEmail() {
@@ -107,5 +113,24 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
+	public int getContactNumber() {
+		return contactNumber;
+	}
+
+	public void setContactNumber(int contactNumber) {
+		this.contactNumber = contactNumber;
+	}
+
+	
+
 
 }

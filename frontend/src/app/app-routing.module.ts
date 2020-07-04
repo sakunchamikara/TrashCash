@@ -10,6 +10,10 @@ import { RegisterComponent } from './modules/register/register.component';
 import { RouteGuardService } from './service/route-guard.service';
 import { LogoutComponent } from './modules/logout/logout.component';
 import { ShopComponent } from './webportal/modules/shop/shop.component';
+import { CollectedWasteComponent } from './modules/collected-waste/collected-waste.component';
+import { ProfileComponent } from './modules/profile/profile.component';
+import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
+import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
 
 const routes: Routes = [
   {
@@ -57,6 +61,21 @@ const routes: Routes = [
         path: 'register',
         component: RegisterComponent,
       },
+      {
+        path: 'collectedWaste',
+        component: CollectedWasteComponent,
+      },{
+        path: 'profile',
+        component: ProfileComponent,
+      },
+      {
+        path: "insertCollectedWaste",
+        component: InsertCollectedWasteComponent,
+      },
+      {
+        path: "viewCollectedWaste",
+        component:  ViewCollectedWasteComponent,
+      }
     ],
   },
 ];

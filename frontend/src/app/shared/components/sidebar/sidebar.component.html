@@ -1,20 +1,31 @@
 <mat-nav-list>
   <div class="profile-card">
     <div class="header">
-      <h2>Soufiane FADIL</h2>
-      <h4>example@email.com</h4>
+      <h5>Soufiane FADIL</h5>
+      <h6>{{email}}</h6>
     </div>
     <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Soufiane FADIL">
   </div>
 
   <mat-divider></mat-divider>
 
+
   <h2 matSubheader>Pages</h2>
 
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/dashboard">Dashboard</a>
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/posts">Posts</a>
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/articles">Articles</a>
+<<<<<<< HEAD
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/productCat">Recycled Product Categories</a>
+=======
+  
+ 
+  <button mat-menu-item [matMenuTriggerFor]="wasteStock">Waste Stock</button>
+    <mat-menu #wasteStock="matMenu">
+         <button  mat-menu-item [routerLink]="'/system/insertCollectedWaste'" class="btn btn-primary-outline pull-right">  Insert Waste</button>  
+         <button  mat-menu-item [routerLink]="'/system/viewCollectedWaste'" class="btn btn-primary-outline pull-right">  View waste stock</button>  
+    </mat-menu>
+>>>>>>> 46294c6948d831bc49d1291a282a1a38934879ec
 
   <mat-divider></mat-divider>
 
@@ -30,4 +41,11 @@
     Leads
   </a>
 
+ 
+
 </mat-nav-list>
+
+
+
+
+

@@ -14,6 +14,8 @@ import { CollectedWasteComponent } from './modules/collected-waste/collected-was
 import { ProfileComponent } from './modules/profile/profile.component';
 import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
 import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
+import { AddEventComponent } from './modules/events/add-event/add-event.component';
+import { ViewEventComponent } from './modules/events/view-event/view-event.component';
 
 const routes: Routes = [
   {
@@ -75,6 +77,14 @@ const routes: Routes = [
       {
         path: "viewCollectedWaste",
         component:  ViewCollectedWasteComponent,
+      },
+      {
+        path: "addEvent",
+        component: AddEventComponent,
+      },
+      {
+        path: "viewEvent",
+        component:  ViewEventComponent,
       }
     ],
   },

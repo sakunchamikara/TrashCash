@@ -25,6 +25,9 @@ import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-
 import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
 import { AddEventComponent } from './modules/events/add-event/add-event.component';
 import { ViewEventComponent } from './modules/events/view-event/view-event.component';
+import { TermsComponent } from './modules/terms/terms.component';
+import { AddtermsComponent } from './modules/terms/addterms/addterms.component';
+import { ViewtermsComponent } from './modules/terms/viewterms/viewterms.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,9 @@ import { ViewEventComponent } from './modules/events/view-event/view-event.compo
     ViewCollectedWasteComponent,
     AddEventComponent,
     ViewEventComponent,
+    TermsComponent,
+    AddtermsComponent,
+    ViewtermsComponent,
   ],
   imports: [
     BrowserModule,

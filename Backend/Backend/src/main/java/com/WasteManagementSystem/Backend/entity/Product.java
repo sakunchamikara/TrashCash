@@ -1,7 +1,11 @@
 package com.WasteManagementSystem.Backend.entity;
+import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.Range;
 
-
+//import javax.validation.constraints.NotEmpty;
+//import javax.validation.constraints.Min;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,11 +17,21 @@ import javax.persistence.Table;
 public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@NotNull
 	private int id;
+	@NotNull
 	private String title;
+	@NotNull
     private String category;
+	
     private String image1;
+	
 	private String image2;
+//	@NotEmpty
+//	@Min(10)
+	@Column(name = "price", nullable = false)
+	@NotNull
+	@Range(min = 1)
 	private int price;
     private String details;
 	

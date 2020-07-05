@@ -10,13 +10,24 @@ import { RegisterComponent } from './modules/register/register.component';
 import { RouteGuardService } from './service/route-guard.service';
 import { LogoutComponent } from './modules/logout/logout.component';
 import { ShopComponent } from './webportal/modules/shop/shop.component';
+import { InsertProductsComponent } from './modules/products/insert-products/insert-products.component';
+import { ViewProductComponent } from './modules/products/view-product/view-product.component';
+import { UpdateProductComponent } from './modules/products/view-product/update-product/update-product.component';
+
+
+
 import { CollectedWasteComponent } from './modules/collected-waste/collected-waste.component';
 import { ProfileComponent } from './modules/profile/profile.component';
 import { ProductCatComponent } from './modules/product-cat/product-cat.component';
 import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
 import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
+<<<<<<< HEAD
 import { InsertProductCatComponent } from './modules/product-cat/insert-product-cat/insert-product-cat.component';
 import { ViewProductCatComponent } from './modules/product-cat/view-product-cat/view-product-cat.component';
+=======
+import { AddEventComponent } from './modules/events/add-event/add-event.component';
+import { ViewEventComponent } from './modules/events/view-event/view-event.component';
+>>>>>>> 243cccfd66b2b85244fefe32db0bc0b6d113d347
 
 const routes: Routes = [
   {
@@ -65,9 +76,22 @@ const routes: Routes = [
         component: RegisterComponent,
       },
       {
+        path:'products',
+        component:InsertProductsComponent,
+      },
+      {
+        path:'ViewProducts',
+        component:ViewProductComponent,
+       },
+      {
+        path:'UpdateProducts/:id',
+        component:UpdateProductComponent,
+      },
+      {
         path: 'collectedWaste',
         component: CollectedWasteComponent,
-      },{
+      },
+      {
         path: 'profile',
         component: ProfileComponent,
       },
@@ -80,6 +104,7 @@ const routes: Routes = [
         component:  ViewCollectedWasteComponent,
       },
       {
+<<<<<<< HEAD
         path: "productCat",
         component:  ProductCatComponent,
       },
@@ -90,6 +115,14 @@ const routes: Routes = [
       {
         path: "viewProductCat",
         component:  ViewProductCatComponent,
+=======
+        path: "addEvent",
+        component: AddEventComponent,
+      },
+      {
+        path: "viewEvent",
+        component:  ViewEventComponent,
+>>>>>>> 243cccfd66b2b85244fefe32db0bc0b6d113d347
       }
     ],
   },

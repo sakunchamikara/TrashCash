@@ -27,6 +27,12 @@
          <button  mat-menu-item [routerLink]="'/system/viewCollectedWaste'" class="btn btn-primary-outline pull-right">  View waste stock</button>  
     </mat-menu>
 
+    <button mat-menu-item [matMenuTriggerFor]="events">Events</button>
+    <mat-menu #events="matMenu">
+         <button  mat-menu-item [routerLink]="'/system/addEvent'" class="btn btn-primary-outline pull-right">  Add Event</button>  
+         <button  mat-menu-item [routerLink]="'/system/viewEvent'" class="btn btn-primary-outline pull-right">  View Events</button>  
+    </mat-menu>
+
   <mat-divider></mat-divider>
 
   <h2 matSubheader>Tools</h2>

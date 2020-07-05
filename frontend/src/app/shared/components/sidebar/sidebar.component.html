@@ -15,10 +15,12 @@
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/dashboard">Dashboard</a>
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/posts">Posts</a>
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/articles">Articles</a>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/products">Products</a>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/ViewProducts">View Products</a>
+  <button mat-menu-item [matMenuTriggerFor]="product">Products</button>
+    <mat-menu #product="matMenu">
+         <button  mat-menu-item [routerLink]="'/system/products'" class="btn btn-primary-outline pull-right">  Insert Product</button>  
+         <button  mat-menu-item [routerLink]="'/system/ViewProducts'" class="btn btn-primary-outline pull-right">  View Products</button>  
+    </mat-menu>
   
- 
   <button mat-menu-item [matMenuTriggerFor]="wasteStock">Waste Stock</button>
     <mat-menu #wasteStock="matMenu">
          <button  mat-menu-item [routerLink]="'/system/insertCollectedWaste'" class="btn btn-primary-outline pull-right">  Insert Waste</button>  

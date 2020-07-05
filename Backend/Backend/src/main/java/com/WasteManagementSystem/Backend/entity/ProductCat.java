@@ -2,7 +2,7 @@ package com.WasteManagementSystem.Backend.entity;
 
 
 
-import java.sql.Blob;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,12 +19,12 @@ public class ProductCat {
 	private int PCatId;
 	private String Name;
 	private String Description;
-	private Blob Img;
+	private String Img;
 	
 	public ProductCat() {
 	}
 
-	public ProductCat(int PCatId, String Name, String Description, Blob Img) {
+	public ProductCat(int PCatId, String Name, String Description, String Img) {
 		super();
 		this.PCatId = PCatId;
 		this.Name = Name;
@@ -56,11 +56,11 @@ public class ProductCat {
 		this.Description = Description;
 	}
 	
-	public Blob getImg() {
+	public String getImg() {
 		return Img;
 	}
 
-	public void setImg(Blob Img) {
+	public void setImg(String Img) {
 		this.Img = Img;
 	}
 

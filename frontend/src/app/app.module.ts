@@ -19,7 +19,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
 import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
 import { InsertProductCatComponent } from './modules/product-cat/insert-product-cat/insert-product-cat.component';
-
+import { ViewProductCatComponent } from './modules/product-cat/view-product-cat/view-product-cat.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { InsertProductCatComponent } from './modules/product-cat/insert-product-
     InsertCollectedWasteComponent,
     ViewCollectedWasteComponent,
     InsertProductCatComponent,
+    ViewProductCatComponent,
     
   ],
   imports: [
@@ -36,6 +38,7 @@ import { InsertProductCatComponent } from './modules/product-cat/insert-product-
     BrowserAnimationsModule,
     DefaultModule, // default component and dashboard component has declared here
     HomeModule,
+    FormsModule,
 
     //material
     MatFormFieldModule,

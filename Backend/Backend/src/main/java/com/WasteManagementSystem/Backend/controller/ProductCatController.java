@@ -25,12 +25,12 @@ public class ProductCatController {
 	private ProductCatRepository productcatRepository;
 	
 	
-	@PostMapping("/product-category")
+	@PostMapping("/productCats")
     public ProductCat createProductCat(@RequestBody ProductCat productcat) {
         return productcatRepository.save(productcat);
     }
 	
-	@GetMapping("/product-category")
+	@GetMapping("/productCats")
     public List<ProductCat> getAllProductCat() {
         return productcatRepository.findAll();
     }

@@ -2,7 +2,10 @@ package com.WasteManagementSystem.Backend.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 243cccfd66b2b85244fefe32db0bc0b6d113d347
 =======
 >>>>>>> 243cccfd66b2b85244fefe32db0bc0b6d113d347
 import org.springframework.web.bind.annotation.CrossOrigin;

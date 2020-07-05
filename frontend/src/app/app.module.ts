@@ -24,9 +24,14 @@ import { MatSliderModule } from '@angular/material/slider';
 import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
 import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { InsertProductCatComponent } from './modules/product-cat/insert-product-cat/insert-product-cat.component';
 import { ViewProductCatComponent } from './modules/product-cat/view-product-cat/view-product-cat.component';
 import { FormsModule } from '@angular/forms';
+=======
+import { AddEventComponent } from './modules/events/add-event/add-event.component';
+import { ViewEventComponent } from './modules/events/view-event/view-event.component';
+>>>>>>> 243cccfd66b2b85244fefe32db0bc0b6d113d347
 =======
 import { AddEventComponent } from './modules/events/add-event/add-event.component';
 import { ViewEventComponent } from './modules/events/view-event/view-event.component';
@@ -44,9 +49,14 @@ import { ViewEventComponent } from './modules/events/view-event/view-event.compo
     InsertCollectedWasteComponent,
     ViewCollectedWasteComponent,
 <<<<<<< HEAD
+<<<<<<< HEAD
     InsertProductCatComponent,
     ViewProductCatComponent,
     
+=======
+    AddEventComponent,
+    ViewEventComponent,
+>>>>>>> 243cccfd66b2b85244fefe32db0bc0b6d113d347
 =======
     AddEventComponent,
     ViewEventComponent,

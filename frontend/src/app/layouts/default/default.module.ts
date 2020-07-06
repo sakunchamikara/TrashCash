@@ -32,7 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from 'src/app/modules/register/register.component';
 import { ProfileComponent } from 'src/app/modules/profile/profile.component';
 import { CollectedWasteComponent } from 'src/app/modules/collected-waste/collected-waste.component';
-import { ProductCatComponent } from 'src/app/modules/product-cat/product-cat.component';
+//import { ProductCatComponent } from 'src/app/modules/product-cat/product-cat.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +44,7 @@ import { ProductCatComponent } from 'src/app/modules/product-cat/product-cat.com
     InsertProductsComponent,ViewProductComponent,UpdateProductComponent,
     ProfileComponent,
     CollectedWasteComponent,
-    ProductCatComponent,
+   // ProductCatComponent,
   ],
   imports: [
     CommonModule,

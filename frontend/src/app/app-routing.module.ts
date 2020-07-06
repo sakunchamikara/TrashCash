@@ -18,21 +18,16 @@ import { UpdateProductComponent } from './modules/products/view-product/update-p
 
 import { CollectedWasteComponent } from './modules/collected-waste/collected-waste.component';
 import { ProfileComponent } from './modules/profile/profile.component';
-import { ProductCatComponent } from './modules/product-cat/product-cat.component';
+//import { ProductCatComponent } from './modules/product-cat/product-cat.component';
 import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
 import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 import { InsertProductCatComponent } from './modules/product-cat/insert-product-cat/insert-product-cat.component';
 import { ViewProductCatComponent } from './modules/product-cat/view-product-cat/view-product-cat.component';
-=======
+
 import { AddEventComponent } from './modules/events/add-event/add-event.component';
 import { ViewEventComponent } from './modules/events/view-event/view-event.component';
->>>>>>> 243cccfd66b2b85244fefe32db0bc0b6d113d347
-=======
-import { AddEventComponent } from './modules/events/add-event/add-event.component';
-import { ViewEventComponent } from './modules/events/view-event/view-event.component';
->>>>>>> 243cccfd66b2b85244fefe32db0bc0b6d113d347
+
 
 const routes: Routes = [
   {
@@ -108,32 +103,27 @@ const routes: Routes = [
         path: "viewCollectedWaste",
         component:  ViewCollectedWasteComponent,
       },
+      // {
+
+      //   path: "productCat",
+      //   component:  ProductCatComponent,
+      // },
       {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        path: "productCat",
-        component:  ProductCatComponent,
-      },
-      {
-        path: "insertProductCat",
+        path: "productCats",
         component:  InsertProductCatComponent,
       },
       {
         path: "viewProductCat",
         component:  ViewProductCatComponent,
-=======
-=======
->>>>>>> 243cccfd66b2b85244fefe32db0bc0b6d113d347
+      },
+      {
         path: "addEvent",
         component: AddEventComponent,
       },
       {
         path: "viewEvent",
         component:  ViewEventComponent,
-<<<<<<< HEAD
->>>>>>> 243cccfd66b2b85244fefe32db0bc0b6d113d347
-=======
->>>>>>> 243cccfd66b2b85244fefe32db0bc0b6d113d347
+
       }
     ],
   },

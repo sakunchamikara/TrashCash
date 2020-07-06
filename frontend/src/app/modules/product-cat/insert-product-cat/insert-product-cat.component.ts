@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductcatService } from 'src/app/service/productcat.service';
 
-import { ItemCat } from 'src/app/pojo/item-cat';
+import { Category } from 'src/app/pojo/category';
 import { Router } from '@angular/router';
+import { debuglog } from 'util';
 
 
 @Component({
@@ -12,8 +13,11 @@ import { Router } from '@angular/router';
 })
 export class InsertProductCatComponent implements OnInit {
 
-  productCat = new ItemCat();
+  productCat = new Category();
   submitted = false;
+
+  successMsg: any;
+  errorMsg: any;
 
   constructor(private productcatService: ProductcatService,
     private router: Router) { }
@@ -23,14 +27,16 @@ export class InsertProductCatComponent implements OnInit {
 
   newProductCat(): void {
     this.submitted = false;
-   this.productCat = new ItemCat();
+   this.productCat = new Category();
   }
-
+  
   save() {
-    console.log('#got');
-    this.productcatService.createProductCat(this.productCat);
-    this.productCat = new ItemCat();
-    this.gotoList();
+   
+    this.productcatService.createProductCat(this.productCat)
+    .subscribe(data => console.log(data), error => console.log(error));
+    this.productCat = new Category();
+   // this.gotoList();
+   // console.log('#got');
   }
 
   onSubmit() {
@@ -40,7 +46,7 @@ export class InsertProductCatComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['/system/insertProductCat']);
+    this.router.navigate(['/system/productCats']);
   }
 
 }

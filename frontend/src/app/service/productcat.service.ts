@@ -9,16 +9,18 @@ import { Observable } from 'rxjs';
 })
 export class ProductcatService {
 
-  private baseUrl = 'http://localhost:8080/product-cat/';
+  private baseUrl = 'http://localhost:8080/productCats/';
 
   constructor(private http:HttpClient) { }
 
-  getProductCat(): Observable<any> {  
-    return this.http.get(`${this.baseUrl}`+'products-list');  
+  getProductCatList(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`);
   }
 
   createProductCat(productcat: object): Observable<object> {  
-    return this.http.post(`${this.baseUrl}` , productcat);  
+    return this.http.post<any>(`${this.baseUrl}` , productcat);  
   }  
+
+ 
 
 }

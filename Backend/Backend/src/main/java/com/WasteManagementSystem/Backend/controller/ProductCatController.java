@@ -1,19 +1,32 @@
 package com.WasteManagementSystem.Backend.controller;
 
+import javax.validation.Valid;
+
+import java.util.HashMap;
+//import java.util.HashMap;
 import java.util.List;
 //import java.util.Map;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.rest.webmvc.ResourceNotFoundException;
+import org.springframework.http.ResponseEntity;
+//import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 //import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+//import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-//import org.springframework.http.ResponseEntity;
-//import org.springframework.web.bind.annotation.PathVariable;
 
 import com.WasteManagementSystem.Backend.entity.ProductCat;
 import com.WasteManagementSystem.Backend.repository.ProductCatRepository;
+//import com.WasteManagementSystem.Backend.service.ProductService;
+
 
 
 
@@ -26,12 +39,12 @@ public class ProductCatController {
 	
 	
 	@PostMapping("/productCats")
-    public ProductCat createProductCat(@RequestBody ProductCat productcat) {
+    public ProductCat createProductCat(@Valid @RequestBody ProductCat productcat) {
         return productcatRepository.save(productcat);
     }
 	
 	@GetMapping("/productCats")
-    public List<ProductCat> getAllProductCat() {
+    public List<ProductCat> getAllProductCats() {
         return productcatRepository.findAll();
     }
 	

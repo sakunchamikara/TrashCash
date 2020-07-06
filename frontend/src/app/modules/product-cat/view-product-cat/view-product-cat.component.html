@@ -1,26 +1,33 @@
+
 <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h2>ProductCat List</h2>
-    </div>
-    <div class="panel-body">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Description</th>
-            
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let product-cat of productCats | async">
-            <td>{{product-cat.Name}}</td>
-            <td>{{product-cat.Description}}</td>
-            <!-- <td>{{employee.emailId}}</td> -->
-            <!-- <td><button (click)="deleteEmployee(employee.id)" class="btn btn-danger">Delete</button>
-                <button (click)="employeeDetails(employee.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
-            </td> -->
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <div class="panel-heading">
+    <h2>Prdouct Category List</h2>
   </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Image</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let productCat of productCats | async">
+          <td>{{productCat.pCatId}}</td>
+          <td>{{productCat.name}}</td>
+          <td>{{productCat.description}}</td>
+          <td>{{productCat.img}}</td>
+          <td><button  class="btn btn-danger">Delete</button>
+            <!-- (click)="deleteProduct(product.id)" -->
+
+              <button  class="btn btn-info" style="margin-left: 10px">Update</button>
+              <!-- (click)="updateProduct(product.id)" -->
+              
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

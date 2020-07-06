@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductcatService } from 'src/app/service/productcat.service';
+import { Category } from 'src/app/pojo/category';
 import { Observable } from "rxjs";
+import { ProductcatService } from 'src/app/service/productcat.service';
 
 import { Router } from '@angular/router';
-//import { ItemCat } from 'src/app/pojo/item-cat';
+
 
 
 @Component({
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class ViewProductCatComponent implements OnInit {
 
- // productCats: Observable<ItemCat[]>;
+productCats: Observable<Category[]>;
 
   constructor(private productcatService: ProductcatService,
     private router: Router) { }
@@ -23,7 +24,7 @@ export class ViewProductCatComponent implements OnInit {
   }
 
   reloadData() {
-   // this.productCats = this.productcatService.getEmployeesList();
+    this.productCats = this.productcatService.getProductCatList();
   }
 
 

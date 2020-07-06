@@ -3,6 +3,7 @@ package com.WasteManagementSystem.Backend.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -58,7 +59,6 @@ public class AuthController {
 		return userObj;
 	}
 
-
 	@GetMapping("/getUser/{email}")
 	public User getUser(@PathVariable String email) {
 		return service.fetchUserByEmail(email);
@@ -71,9 +71,11 @@ public class AuthController {
 	}
 
 	// @PutMapping("/updateUserProfileWithImage")
-	// public  ResponseEntity<User> updateUserProfileWithImage(@RequestParam("file") MultipartFile file,@RequestParam("user") String user) throws JsonParseException,JsonMappingException,IOException {
-	// 	User person = new ObjectMapper().readValue(user, User.class); 
-		 
-	// 	return new ResponseEntity<User>(new User(""),HttpStatus.OK);
+	// public ResponseEntity<User> updateUserProfileWithImage(@RequestParam("file")
+	// MultipartFile file,@RequestParam("user") String user) throws
+	// JsonParseException,JsonMappingException,IOException {
+	// User person = new ObjectMapper().readValue(user, User.class);
+
+	// return new ResponseEntity<User>(new User(""),HttpStatus.OK);
 	// }
 }

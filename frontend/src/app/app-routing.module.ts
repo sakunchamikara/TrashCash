@@ -14,8 +14,6 @@ import { InsertProductsComponent } from './modules/products/insert-products/inse
 import { ViewProductComponent } from './modules/products/view-product/view-product.component';
 import { UpdateProductComponent } from './modules/products/view-product/update-product/update-product.component';
 
-
-
 import { CollectedWasteComponent } from './modules/collected-waste/collected-waste.component';
 import { ProfileComponent } from './modules/profile/profile.component';
 import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
@@ -70,16 +68,16 @@ const routes: Routes = [
         component: RegisterComponent,
       },
       {
-        path:'products',
-        component:InsertProductsComponent,
+        path: 'products',
+        component: InsertProductsComponent,
       },
       {
-        path:'ViewProducts',
-        component:ViewProductComponent,
-       },
+        path: 'ViewProducts',
+        component: ViewProductComponent,
+      },
       {
-        path:'UpdateProducts/:id',
-        component:UpdateProductComponent,
+        path: 'UpdateProducts/:id',
+        component: UpdateProductComponent,
       },
       {
         path: 'collectedWaste',
@@ -90,21 +88,21 @@ const routes: Routes = [
         component: ProfileComponent,
       },
       {
-        path: "insertCollectedWaste",
+        path: 'insertCollectedWaste',
         component: InsertCollectedWasteComponent,
       },
       {
-        path: "viewCollectedWaste",
-        component:  ViewCollectedWasteComponent,
+        path: 'viewCollectedWaste',
+        component: ViewCollectedWasteComponent,
       },
       {
-        path: "addEvent",
+        path: 'addEvent',
         component: AddEventComponent,
       },
       {
-        path: "viewEvent",
-        component:  ViewEventComponent,
-      }
+        path: 'viewEvent',
+        component: ViewEventComponent,
+      },
     ],
   },
 ];

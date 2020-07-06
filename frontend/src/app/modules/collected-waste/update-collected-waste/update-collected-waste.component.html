@@ -8,7 +8,7 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb shadow p-3 mb-5 bg-white rounded">
             <li class="breadcrumb-item"><a href="#"><i class="fad fa-tachometer-alt-fastest"></i> Dashboard</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Insert collected waste</li>
+            <li class="breadcrumb-item active" aria-current="page">Update collected waste</li>
           </ol>
         </nav>
       </div>
@@ -37,9 +37,9 @@
       <div class="card p2">
         <div class="card-body ">
           <h4 class="card-title">
-            Insert Waste Details
+            Update Waste Details
           </h4>
-    <form (ngSubmit)="onSubmit()"  #wasteForm="ngForm">
+    <form (ngSubmit)="onSubmit(wasteForm)"  #wasteForm="ngForm">
 
       <div class="form-row">
         <div class="form-group col-md-12">
@@ -54,7 +54,12 @@
       <div class="form-row">
         <div class="form-group col-md-12">
         <label for="quantity">Quantity</label>
-        <input type="number" class="form-control" name="quantity" id="quantity"  min="0" oninput="validity.valid||(value='');" placeholder="Enter Waste Quantity" [(ngModel)]="collectedWaste.quantity" required>
+        <input type="number" class="form-control" name="quantity" id="quantity"  min="0" oninput="validity.valid||(value='');" placeholder="Enter Waste Quantity"  [pattern]="NumberPattern" [(ngModel)]="collectedWaste.quantity" #iNumber="ngModel" required>
+        <!-- <div *ngIf="iNumber.errors && wasteForm.submitted && !isValidFormSubmitted" [ngClass] = "'error'">  
+          <div *ngIf="iNumber.errors.pattern">  
+            Enter a positive values  
+          </div>   
+        </div>   -->
       
         </div>
       </div>

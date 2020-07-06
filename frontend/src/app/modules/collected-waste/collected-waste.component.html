@@ -1,36 +1,75 @@
-<p>collected-waste works!</p>
 
-
- <!-- <mat-nav-list>
-  <div class="profile-card">
-    <div class="header">
-      <h5>Soufiane FADIL</h5>
-      <h6>example@email.com</h6>
+  <div class="col-container">
+   
+    <br>
+    <div class="row p1">
+      <div class="">
+  
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb shadow p-3 mb-5 bg-white rounded">
+            <li class="breadcrumb-item"><a href="#"><i class="fad fa-tachometer-alt-fastest"></i> Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">View collected waste</li>
+          </ol>
+        </nav>
+      </div>
+      <div *ngIf="successMsg" class="col-md-6">
+        <div  class="alert alert-success alert-dismissible fade show" role="alert">
+          {{successMsg}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+      <div *ngIf="errorMsg" class="col-md-6">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          {{errorMsg}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
     </div>
-    <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Soufiane FADIL">
+
+
+    <div class="row">
+      <div class="col-lg-9 col-md-9">
+        <div class="card p2">
+          <div class="card-body ">
+            <h4 class="card-title">
+              Insert Waste Details
+            </h4>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Wast Type</th>
+          <th>Quantity</th>
+          <th>Amount</th>
+          <th>Invoice No</th>
+          <th>Date</th>
+          <th>Action</th>
+        
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let collectedWaste of collectedWastes | async">
+          <td>{{collectedWaste.wasteType}}</td>
+          <td>{{collectedWaste.quantity}}</td>
+          <td>{{collectedWaste.amount}}</td>
+          <td>{{collectedWaste.invoiceNo}}</td>
+          <td>{{collectedWaste.date}}</td>
+         
+          <td><button (click)="deleteCollectedWaste(collectedWaste.id)" class="btn btn-danger">Delete</button>
+            <button (click)="updateCollectedWaste(collectedWaste.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+              
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
-  <mat-divider></mat-divider>
+</div>
+</div>
 
-  <h2 matSubheader>Pages</h2>
-
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/dashboard">Dashboard</a>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/posts">Posts</a>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/articles">Articles</a>
-  <a mat-list-item routerLinkActivate="list-item-active" routerLink="/system/collectedWaste">Waste Stock</a>
-
-  <mat-divider></mat-divider>
-
-  <h2 matSubheader>Tools</h2>
-
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
-    <mat-icon>import_contacts</mat-icon>
-    Contacts
-  </a>
-
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
-    <mat-icon>contact_phone</mat-icon>
-    Leads
-  </a>
-
-</mat-nav-list> -->
+</div>
+</div>

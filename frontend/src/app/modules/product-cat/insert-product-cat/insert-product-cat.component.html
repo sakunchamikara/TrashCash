@@ -38,22 +38,23 @@
           <h4 class="card-title">
             Add Category
           </h4>
-          <div [hidden]="submitted" >       
+          <div >  
+            <!-- [hidden]="submitted"      -->
 <form (ngSubmit)="onSubmit()">
     <div class="form-row">
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-9">
           <label for="">Category Name</label>
           <input type="text" class="form-control" name="name" id="name" [(ngModel)]="productCat.name">
         </div>
     </div>
     <div class="form-row">
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-9">
           <label for="">Description</label>
           <textarea rows="4" cols="50" name="description" id="description" class="form-control" [(ngModel)]="productCat.description"></textarea>
         </div>        
     </div>
     <div class="form-row">
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-9">
         <label for="">Image</label>
         <input type="file" class="form-control" name="img">
         </div>
@@ -62,7 +63,7 @@
   </form> 
 </div>  
 
-<div [hidden]="!submitted">
+<div >
   <!-- <h4>You submitted successfully!</h4> -->
   <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
 </div>

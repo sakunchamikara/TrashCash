@@ -29,14 +29,18 @@ import { InsertProductCatComponent } from './modules/product-cat/insert-product-
 import { ViewProductCatComponent } from './modules/product-cat/view-product-cat/view-product-cat.component';
 import { FormsModule } from '@angular/forms';
 
-import { AddEventComponent } from './modules/events/add-event/add-event.component';
-import { ViewEventComponent } from './modules/events/view-event/view-event.component';
+//import { AddEventComponent } from './modules/events/add-event/add-event.component';
+//import { ViewEventComponent } from './modules/events/view-event/view-event.component';
 // >>>>>>> 243cccfd66b2b85244fefe32db0bc0b6d113d347
 // =======
 // import { AddEventComponent } from './modules/events/add-event/add-event.component';
 // import { ViewEventComponent } from './modules/events/view-event/view-event.component';
 // >>>>>>> 243cccfd66b2b85244fefe32db0bc0b6d113d347
 
+import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
+import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
+import { AddEventComponent } from './modules/events/add-event/add-event.component';
+import { ViewEventComponent } from './modules/events/view-event/view-event.component';
 
 
 @NgModule({
@@ -72,6 +76,10 @@ import { ViewEventComponent } from './modules/events/view-event/view-event.compo
 // >>>>>>> 0ad62ffe9c04afa2b7ef7d485ac59c24a4390201
 // =======
 // >>>>>>> 0ad62ffe9c04afa2b7ef7d485ac59c24a4390201
+    AddEventComponent,
+    ViewEventComponent,
+    
+   
   ],
   imports: [
     BrowserModule,

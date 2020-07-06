@@ -20,6 +20,8 @@ import { ProfileComponent } from './modules/profile/profile.component';
 //import { ProductCatComponent } from './modules/product-cat/product-cat.component';
 import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
 import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
+//import { AddEventComponent } from './modules/events/add-event/add-event.component';
+//import { ViewEventComponent } from './modules/events/view-event/view-event.component';
 
 import { InsertProductCatComponent } from './modules/product-cat/insert-product-cat/insert-product-cat.component';
 import { ViewProductCatComponent } from './modules/product-cat/view-product-cat/view-product-cat.component';
@@ -130,6 +132,10 @@ const routes: Routes = [
       //   path: 'viewEvent',
       //   component: ViewEventComponent,
       // },
+      {
+        path: 'viewEvent',
+        component: ViewEventComponent,
+      },
       {
         path: 'UpdateCollectedWastes/:id',
         component: UpdateCollectedWasteComponent,

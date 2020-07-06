@@ -1,5 +1,6 @@
+
 export class CollectedWaste {
-    
+  
       id: number;
       wasteType: string;
       quantity: number;

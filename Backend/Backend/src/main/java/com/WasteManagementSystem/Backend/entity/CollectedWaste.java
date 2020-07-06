@@ -27,7 +27,7 @@ public class CollectedWaste {
     @Column(name = "amount", nullable = false)
     @NotNull
     @Range(min = 1)
-    private int amount;
+    private float amount;
 
     @NotNull
     private int invoiceNo;
@@ -76,11 +76,11 @@ public class CollectedWaste {
 		this.quantity = quantity;
     }
     
-    public int getAmount() {
+    public float getAmount() {
 		return amount;
 	}
 
-	public void setAmount(int amount) {
+	public void setAmount(Float amount) {
 		this.amount = amount;
     }
     

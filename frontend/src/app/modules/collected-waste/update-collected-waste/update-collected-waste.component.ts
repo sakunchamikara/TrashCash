@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CollectedWaste } from 'src/app/pojo/collectedWaste';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CollectedWasteServiceService } from 'src/app/service/collected-waste-service.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-update-collected-waste',
@@ -10,6 +11,7 @@ import { CollectedWasteServiceService } from 'src/app/service/collected-waste-se
 })
 export class UpdateCollectedWasteComponent implements OnInit {
 
+  Types: any = ['Plastic', 'Paper', 'E-Waste'];
   id : number;
   collectedWaste : CollectedWaste;
 
@@ -32,10 +34,12 @@ export class UpdateCollectedWasteComponent implements OnInit {
     this.collectedWasteService.updateCollectedWaste(this.id, this.collectedWaste)
       .subscribe(data => console.log(data), error => console.log(error));
     this.collectedWaste = new CollectedWaste();
+    console.log("testing floaaaat"+this.collectedWaste);
     this.gotoList();
   }
 
-  onSubmit() {
+  onSubmit(form:NgForm) {
+    
     this.updateCollectedWaste();    
   }
   gotoList(){

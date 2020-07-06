@@ -71,42 +71,52 @@ const routes: Routes = [
       {
         path: 'products',
         component: InsertProductsComponent,
+        canActivate: [RouteGuardService],
       },
       {
         path: 'ViewProducts',
         component: ViewProductComponent,
+        canActivate: [RouteGuardService],
       },
       {
         path: 'UpdateProducts/:id',
         component: UpdateProductComponent,
+        canActivate: [RouteGuardService],
       },
       {
         path: 'collectedWaste',
         component: CollectedWasteComponent,
+        canActivate: [RouteGuardService],
       },
       {
         path: 'profile',
         component: ProfileComponent,
+        canActivate: [RouteGuardService],
       },
       {
         path: 'insertCollectedWaste',
         component: InsertCollectedWasteComponent,
+        canActivate: [RouteGuardService],
       },
       {
         path: 'viewCollectedWaste',
         component: ViewCollectedWasteComponent,
+        canActivate: [RouteGuardService],
       },
       {
         path: 'addEvent',
         component: AddEventComponent,
+        canActivate: [RouteGuardService],
       },
       {
         path: 'viewEvent',
         component: ViewEventComponent,
+        canActivate: [RouteGuardService],
       },
       {
         path: 'UpdateCollectedWastes/:id',
         component: UpdateCollectedWasteComponent,
+        canActivate: [RouteGuardService],
       },
     ],
   },

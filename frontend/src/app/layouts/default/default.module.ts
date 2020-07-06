@@ -43,12 +43,14 @@ import { ViewCollectedWasteComponent } from 'src/app/modules/collected-waste/vie
     PostsComponent,
     LoginComponent,
     RegisterComponent,
-    InsertProductsComponent,ViewProductComponent,UpdateProductComponent,
+    InsertProductsComponent,
+    ViewProductComponent,
+    UpdateProductComponent,
     ProfileComponent,
     CollectedWasteComponent,
     InsertCollectedWasteComponent,
     ViewCollectedWasteComponent,
-    UpdateCollectedWasteComponent 
+    UpdateCollectedWasteComponent,
   ],
   imports: [
     CommonModule,
@@ -70,7 +72,7 @@ import { ViewCollectedWasteComponent } from 'src/app/modules/collected-waste/vie
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatMenuModule
+    MatMenuModule,
   ],
   providers: [DashboardService],
 })

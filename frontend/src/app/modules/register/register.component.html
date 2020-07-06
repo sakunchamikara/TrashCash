@@ -7,7 +7,12 @@
     <form class="example-form" #registerform="ngForm" (ngSubmit)="registerUser()">
       <!-- <small [class.text-danger]="msg.status==500">{{msg.message}}</small> -->
       <mat-card-content class="card-content">
-
+<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="errorMessage">
+  {{errorMessage}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
         <mat-form-field>
           <input matInput placeholder="First Name" name="fname" [(ngModel)]="user.fisrtName" required>
         </mat-form-field>

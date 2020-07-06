@@ -25,24 +25,27 @@ export class InsertCollectedWasteComponent implements OnInit {
 
   save(){
     this.collectedWasteService.createCollectedWaste(this.collectedWaste)
-    .subscribe((data)=>{
-      console.log(data)
-      this.collectedWaste = new CollectedWaste();
-      this.successMsg = `waste added successfully !`;
-      this.gotoList();
-      
-    },
-    (error)=>{
-      this.router.navigate(['system']);
-    });
-  }
+    .subscribe(
+      (data)=>{console.log(data);
+        this.collectedWaste = new CollectedWaste();
+        this.successMsg = `waste added successfully !`;
+        console.log(this.successMsg)
+        this.gotoList();
+      },
+    
+        (error)=>{ 
+          console.log(error); 
+           this.errorMsg = `Something went Wrong !!!`;
+          }
+          );     
+    }
 
   onSubmit(){
     this.submitted = true;
     this.save();
   }
   gotoList(){
-    this.router.navigate(['system/collectedWaste'])
+     this.router.navigate(['system/collectedWaste']);
   }
 
 }

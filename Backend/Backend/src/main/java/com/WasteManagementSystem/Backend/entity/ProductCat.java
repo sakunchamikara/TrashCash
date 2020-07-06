@@ -2,7 +2,7 @@ package com.WasteManagementSystem.Backend.entity;
 
 
 
-import java.sql.Blob;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,59 +16,59 @@ public class ProductCat {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int PCatId;
-	private String Name;
-	private String Description;
-	private Blob Img;
+	private int pCatId;
+	private String name;
+	private String description;
+	private String img;
 	
 	public ProductCat() {
 	}
 
-	public ProductCat(int PCatId, String Name, String Description, Blob Img) {
+	public ProductCat(int pCatId, String name, String description, String img) {
 		super();
-		this.PCatId = PCatId;
-		this.Name = Name;
-		this.Description = Description;
-		this.Img = Img;
+		this.pCatId = pCatId;
+		this.name = name;
+		this.description = description;
+		this.img = img;
 	}
 
-	public int getId() {
-		return PCatId;
+	public int getPCatId() {
+		return pCatId;
 	}
 
-	public void setId(int PCatId) {
-		this.PCatId = PCatId;
+	public void setPCatId(int pCatId) {
+		this.pCatId = pCatId;
 	}
 
-	public String gettName() {
-		return Name;
+	public String getName() {
+		return name;
 	}
 
-	public void setName(String Name) {
-		this.Name = Name;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getDescription() {
-		return Description;
+		return description;
 	}
 
-	public void setDescription(String Description) {
-		this.Description = Description;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
-	public Blob getImg() {
-		return Img;
+	public String getImg() {
+		return img;
 	}
 
-	public void setImg(Blob Img) {
-		this.Img = Img;
+	public void setImg(String img) {
+		this.img = img;
 	}
 
 
 
 	@Override
 	public String toString() {
-		return "ProductCat [PCatId=" + PCatId + ", Name=" + Name + ", Description=" + Description + ", Img=" + Img + " ]";
+		return "ProductCat [pCatId=" + pCatId + ", name=" + name + ", description=" + description + ", img=" + img + " ]";
 	}
 
 }

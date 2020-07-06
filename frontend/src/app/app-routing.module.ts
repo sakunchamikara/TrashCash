@@ -117,6 +117,19 @@ const routes: Routes = [
         path: "viewProductCat",
         component:  ViewProductCatComponent,
       },
+      // {
+
+      //   path: "productCat",
+      //   component:  ProductCatComponent,
+      // },
+      {
+        path: "productCats",
+        component:  InsertProductCatComponent,
+      },
+      {
+        path: "viewProductCat",
+        component:  ViewProductCatComponent,
+      },
       {
         path: 'addEvent',
         component: AddEventComponent,

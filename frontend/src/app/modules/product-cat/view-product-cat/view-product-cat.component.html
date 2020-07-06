@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
   <div class="col-container">
    
     <br>
@@ -38,20 +39,34 @@
             <h4 class="card-title">
               Product Categories
             </h4>
+=======
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Prdouct Category List</h2>
+  </div>
+>>>>>>> 132a5ef7ceadae02d5d9a7b334c4ce5a6608622f
   <div class="panel-body">
     <table class="table table-striped">
       <thead>
         <tr>
+<<<<<<< HEAD
           <th>Name</th>
           <th>Description</th>
           <th>Image</th>
           <th>Action</th>
           
         
+=======
+          <th>Id</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Image</th>
+>>>>>>> 132a5ef7ceadae02d5d9a7b334c4ce5a6608622f
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let productCat of productCats | async">
+<<<<<<< HEAD
         
           <td>{{productCat.name}}</td>
           <td>{{productCat.description}}</td>
@@ -61,12 +76,24 @@
 
               <button  class="btn btn-info" style="margin-left: 10px">Update</button>
            
+=======
+          <td>{{productCat.pCatId}}</td>
+          <td>{{productCat.name}}</td>
+          <td>{{productCat.description}}</td>
+          <td>{{productCat.img}}</td>
+          <td><button  class="btn btn-danger">Delete</button>
+            <!-- (click)="deleteProduct(product.id)" -->
+
+              <button  class="btn btn-info" style="margin-left: 10px">Update</button>
+              <!-- (click)="updateProduct(product.id)" -->
+>>>>>>> 132a5ef7ceadae02d5d9a7b334c4ce5a6608622f
               
           </td>
         </tr>
       </tbody>
     </table>
   </div>
+<<<<<<< HEAD
 
 </div>
 </div>
@@ -88,3 +115,6 @@
           </td>
         </tr> -->
      
+=======
+</div>
+>>>>>>> 132a5ef7ceadae02d5d9a7b334c4ce5a6608622f

@@ -15,6 +15,7 @@ import { ViewProductComponent } from './modules/products/view-product/view-produ
 import { UpdateProductComponent } from './modules/products/view-product/update-product/update-product.component';
 import { UpdateCollectedWasteComponent } from 'src/app/modules/collected-waste/update-collected-waste/update-collected-waste.component';
 
+
 import { CollectedWasteComponent } from './modules/collected-waste/collected-waste.component';
 import { ProfileComponent } from './modules/profile/profile.component';
 //import { ProductCatComponent } from './modules/product-cat/product-cat.component';
@@ -91,6 +92,7 @@ const routes: Routes = [
         component: UpdateProductComponent,
         canActivate: [RouteGuardService],
       },
+      
       {
         path: 'collectedWaste',
         component: CollectedWasteComponent,

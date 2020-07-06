@@ -9,6 +9,7 @@ import { ViewProductComponent } from 'src/app/modules/products/view-product/view
 import { UpdateProductComponent } from 'src/app/modules/products/view-product/update-product/update-product.component';
 import { UpdateCollectedWasteComponent } from 'src/app/modules/collected-waste/update-collected-waste/update-collected-waste.component';
 
+
 import { SharedModule } from 'src/app/shared/shared.module';
 import {
   MatSidenavModule,

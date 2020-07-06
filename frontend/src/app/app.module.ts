@@ -49,6 +49,7 @@ import { ViewEventComponent } from './modules/events/view-event/view-event.compo
 // import { ViewEventComponent } from './modules/events/view-event/view-event.component';
 // >>>>>>> 243cccfd66b2b85244fefe32db0bc0b6d113d347
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,6 +85,7 @@ import { ViewEventComponent } from './modules/events/view-event/view-event.compo
 // >>>>>>> 0ad62ffe9c04afa2b7ef7d485ac59c24a4390201
     AddEventComponent,
     ViewEventComponent,
+    
   ],
   imports: [
     BrowserModule,

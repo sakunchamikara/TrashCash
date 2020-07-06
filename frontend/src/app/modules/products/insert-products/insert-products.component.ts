@@ -36,7 +36,7 @@ save() {
       console.log("correct");
     },
        (error) => {
-      //  this.errorMsg = 'Something went Wrong !!!';
+      this.errorMsg = 'Something went Wrong !!!';
       this.router.navigate(['system']);
   }
     );
@@ -46,6 +46,9 @@ onSubmit() {
   this.save();    
 }
 gotoList() {
-  this.router.navigate(['system/products']);
+  this.router.navigate(['system/ViewProducts']);
 }
+// productlist(){
+//   this.router.navigate(['system/ViewProducts']);
+// }
 }

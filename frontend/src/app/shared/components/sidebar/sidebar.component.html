@@ -31,6 +31,7 @@
     </mat-menu>
 
   <a mat-menu-item [matMenuTriggerFor]="wasteStock">Waste Stock</a>
+
     <mat-menu #wasteStock="matMenu">
          <a  mat-menu-item [routerLink]="'/system/insertCollectedWaste'" class="btn btn-primary-outline pull-right">  Insert Waste</a>
          <a  mat-menu-item [routerLink]="'/system/collectedWaste'" class="btn btn-primary-outline pull-right">  View waste stock</a>

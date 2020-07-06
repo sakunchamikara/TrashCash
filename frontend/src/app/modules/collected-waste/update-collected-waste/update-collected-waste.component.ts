@@ -17,6 +17,9 @@ export class UpdateCollectedWasteComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,private router: Router, private collectedWasteService: CollectedWasteServiceService ) { }
 
+  successMsg: any;
+  errorMsg: any;
+
   ngOnInit() {
     this.collectedWaste = new CollectedWaste();
 
@@ -32,7 +35,8 @@ export class UpdateCollectedWasteComponent implements OnInit {
 
   updateCollectedWaste() {
     this.collectedWasteService.updateCollectedWaste(this.id, this.collectedWaste)
-      .subscribe(data => console.log(data), error => console.log(error));
+      .subscribe(data => console.log(data),
+       error => {console.log(error);this.errorMsg = 'Something went Wrong !!!';});
     this.collectedWaste = new CollectedWaste();
     console.log("testing floaaaat"+this.collectedWaste);
     this.gotoList();

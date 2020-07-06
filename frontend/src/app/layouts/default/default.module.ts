@@ -8,6 +8,7 @@ import { InsertProductsComponent } from 'src/app/modules/products/insert-product
 import { ViewProductComponent } from 'src/app/modules/products/view-product/view-product.component';
 import { UpdateProductComponent } from 'src/app/modules/products/view-product/update-product/update-product.component';
 
+
 import { SharedModule } from 'src/app/shared/shared.module';
 import {
   MatSidenavModule,
@@ -43,6 +44,7 @@ import { CollectedWasteComponent } from 'src/app/modules/collected-waste/collect
     InsertProductsComponent,ViewProductComponent,UpdateProductComponent,
     ProfileComponent,
     CollectedWasteComponent,
+    
   ],
   imports: [
     CommonModule,

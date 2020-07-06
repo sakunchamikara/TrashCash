@@ -16,6 +16,7 @@ import { UpdateProductComponent } from './modules/products/view-product/update-p
 
 
 
+
 import { CollectedWasteComponent } from './modules/collected-waste/collected-waste.component';
 import { ProfileComponent } from './modules/profile/profile.component';
 import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
@@ -81,6 +82,7 @@ const routes: Routes = [
         path:'UpdateProducts/:id',
         component:UpdateProductComponent,
       },
+      
       {
         path: 'collectedWaste',
         component: CollectedWasteComponent,

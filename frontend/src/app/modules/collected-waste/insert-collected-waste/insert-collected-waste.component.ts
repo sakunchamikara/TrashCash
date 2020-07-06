@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {NgForm} from '@angular/forms';
+import { CollectedWaste } from 'src/app/pojo/collectedWaste';
+import { CollectedWasteServiceService } from 'src/app/service/collected-waste-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-insert-collected-waste',
@@ -7,9 +11,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InsertCollectedWasteComponent implements OnInit {
 
-  constructor() { }
+  Types: any = ['Plastic', 'Paper', 'E-Waste'];
+  collectedWaste= new CollectedWaste();
+  submitted = false;
 
-  ngOnInit() {
+
+  constructor( private collectedWasteService: CollectedWasteServiceService , private router :Router) { }
+  successMsg: any;
+  errorMsg: any;
+  
+
+  ngOnInit() {}
+
+  save(){
+    this.collectedWasteService.createCollectedWaste(this.collectedWaste)
+    .subscribe((data)=>{
+      console.log(data)
+      this.collectedWaste = new CollectedWaste();
+      this.successMsg = `waste added successfully !`;
+      this.gotoList();
+      
+    },
+    (error)=>{
+      this.router.navigate(['system']);
+    });
+  }
+
+  onSubmit(){
+    this.submitted = true;
+    this.save();
+  }
+  gotoList(){
+    this.router.navigate(['system/viewCollectedWaste'])
   }
 
 }

@@ -15,16 +15,12 @@ import { ProfileComponent } from './modules/profile/profile.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
-import { MatSliderModule } from '@angular/material/slider';
-import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
-import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LogoutComponent,
-    InsertCollectedWasteComponent,
-    ViewCollectedWasteComponent,
   ],
   imports: [
     BrowserModule,

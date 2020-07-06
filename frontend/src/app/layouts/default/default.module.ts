@@ -28,6 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from 'src/app/modules/register/register.component';
 import { ProfileComponent } from 'src/app/modules/profile/profile.component';
 import { CollectedWasteComponent } from 'src/app/modules/collected-waste/collected-waste.component';
+import { InsertCollectedWasteComponent } from 'src/app/modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
+import { ViewCollectedWasteComponent } from 'src/app/modules/collected-waste/view-collected-waste/view-collected-waste.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { CollectedWasteComponent } from 'src/app/modules/collected-waste/collect
     RegisterComponent,
     ProfileComponent,
     CollectedWasteComponent,
+    InsertCollectedWasteComponent,
+    ViewCollectedWasteComponent
   ],
   imports: [
     CommonModule,

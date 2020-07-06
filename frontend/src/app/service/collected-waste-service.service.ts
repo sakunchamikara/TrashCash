@@ -28,9 +28,9 @@ export class CollectedWasteServiceService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  // updateCollectedWaste(id:number):Observable<Object>{
-  //   return this.http.put(`${this.baseUrl}/${id}`,value)
-  // }
+  updateCollectedWaste(id:number,value:any):Observable<Object>{
+    return this.http.put(`${this.baseUrl}/${id}`,value)
+  }
 
 }
 

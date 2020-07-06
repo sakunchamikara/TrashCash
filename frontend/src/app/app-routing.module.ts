@@ -13,6 +13,7 @@ import { ShopComponent } from './webportal/modules/shop/shop.component';
 import { InsertProductsComponent } from './modules/products/insert-products/insert-products.component';
 import { ViewProductComponent } from './modules/products/view-product/view-product.component';
 import { UpdateProductComponent } from './modules/products/view-product/update-product/update-product.component';
+import { UpdateCollectedWasteComponent } from 'src/app/modules/collected-waste/update-collected-waste/update-collected-waste.component';
 
 
 
@@ -104,6 +105,9 @@ const routes: Routes = [
       {
         path: "viewEvent",
         component:  ViewEventComponent,
+      },{
+        path : 'UpdateCollectedWastes/:id',
+        component:UpdateCollectedWasteComponent,
       }
     ],
   },

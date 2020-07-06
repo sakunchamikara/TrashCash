@@ -27,6 +27,7 @@ import { ViewCollectedWasteComponent } from './modules/collected-waste/view-coll
 import { AddEventComponent } from './modules/events/add-event/add-event.component';
 import { ViewEventComponent } from './modules/events/view-event/view-event.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,10 +37,10 @@ import { ViewEventComponent } from './modules/events/view-event/view-event.compo
     // UpdateProductComponent,
     // ViewProductComponent,
     // InsertProductsComponent,
-    InsertCollectedWasteComponent,
-    ViewCollectedWasteComponent,
     AddEventComponent,
     ViewEventComponent,
+    
+   
   ],
   imports: [
     BrowserModule,

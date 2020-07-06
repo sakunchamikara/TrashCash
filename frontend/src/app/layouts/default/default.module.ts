@@ -7,6 +7,7 @@ import { PostsComponent } from 'src/app/modules/posts/posts.component';
 import { InsertProductsComponent } from 'src/app/modules/products/insert-products/insert-products.component';
 import { ViewProductComponent } from 'src/app/modules/products/view-product/view-product.component';
 import { UpdateProductComponent } from 'src/app/modules/products/view-product/update-product/update-product.component';
+import { UpdateCollectedWasteComponent } from 'src/app/modules/collected-waste/update-collected-waste/update-collected-waste.component';
 
 import { SharedModule } from 'src/app/shared/shared.module';
 import {
@@ -46,7 +47,8 @@ import { ViewCollectedWasteComponent } from 'src/app/modules/collected-waste/vie
     ProfileComponent,
     CollectedWasteComponent,
     InsertCollectedWasteComponent,
-    ViewCollectedWasteComponent
+    ViewCollectedWasteComponent,
+    UpdateCollectedWasteComponent 
   ],
   imports: [
     CommonModule,

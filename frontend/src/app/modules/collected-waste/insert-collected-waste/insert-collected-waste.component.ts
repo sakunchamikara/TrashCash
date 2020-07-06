@@ -42,7 +42,7 @@ export class InsertCollectedWasteComponent implements OnInit {
     this.save();
   }
   gotoList(){
-    this.router.navigate(['system/viewCollectedWaste'])
+    this.router.navigate(['system/collectedWaste'])
   }
 
 }

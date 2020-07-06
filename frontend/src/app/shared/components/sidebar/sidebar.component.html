@@ -14,7 +14,6 @@
 
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/dashboard">Dashboard</a>
 
-<<<<<<< HEAD
   
 
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/posts">Posts</a>
@@ -32,19 +31,6 @@
          <button  mat-menu-item [routerLink]="'/system/ViewProducts'" class="btn btn-primary-outline pull-right">  View Products</button>  
     </mat-menu>
 
-=======
-  <a mat-list-item routerLinkActive="list-item-active" [matMenuTriggerFor]="productcat">Recycled Product Categories</a>
-  <mat-menu #productcat="matMenu">
-    <button  mat-menu-list-item [routerLink]="'/system/productCats'" class="btn btn-primary-outline pull-right">  Insert Product Category</button>  
-    <button  mat-menu-list-item [routerLink]="'/system/viewProductCat'" class="btn btn-primary-outline pull-right">  View Product Categories</button>  
-</mat-menu>
-
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/posts">Posts</a>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/articles">Articles</a>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/products">Products</a>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/ViewProducts">View Products</a>
-  
->>>>>>> 132a5ef7ceadae02d5d9a7b334c4ce5a6608622f
   
   <button mat-menu-item [matMenuTriggerFor]="wasteStock">Waste Stock</button>
     <mat-menu #wasteStock="matMenu">

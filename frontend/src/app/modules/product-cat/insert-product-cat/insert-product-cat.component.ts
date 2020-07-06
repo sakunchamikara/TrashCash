@@ -39,7 +39,7 @@ export class InsertProductCatComponent implements OnInit {
     console.log(data)
     this.productCat = new Category();
     this.successMsg = `Product Category added successfully !`;
-   this.gotoList();
+   //this.gotoList();
    // console.log('#got');
   },
   (error)=>{

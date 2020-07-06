@@ -22,8 +22,8 @@ import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 
 import { MatSliderModule } from '@angular/material/slider';
-import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
-import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
+//import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
+//import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
 
 import { InsertProductCatComponent } from './modules/product-cat/insert-product-cat/insert-product-cat.component';
 import { ViewProductCatComponent } from './modules/product-cat/view-product-cat/view-product-cat.component';
@@ -49,8 +49,8 @@ import { ViewEventComponent } from './modules/events/view-event/view-event.compo
     // ViewProductComponent,
     // InsertProductsComponent,
 
-    InsertCollectedWasteComponent,
-    ViewCollectedWasteComponent,
+    //InsertCollectedWasteComponent,
+    //ViewCollectedWasteComponent,
 
     InsertProductCatComponent,
     ViewProductCatComponent,

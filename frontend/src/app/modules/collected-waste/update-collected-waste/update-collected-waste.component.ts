@@ -47,3 +47,5 @@ export class UpdateCollectedWasteComponent implements OnInit {
   }
 
 }
+
+// testinggggg

@@ -31,8 +31,10 @@ public class Product {
 //	@Min(10)
 	@Column(name = "price", nullable = false)
 	@NotNull
-	@Range(min = 0)
+
+  @Range(min = 0)
 	private float price;
+
     private String details;
 	
 	public Product() {

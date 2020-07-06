@@ -1,0 +1,90 @@
+
+  <div class="col-container">
+   
+    <br>
+    <div class="row p1">
+      <div class="">
+  
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb shadow p-3 mb-5 bg-white rounded">
+            <li class="breadcrumb-item"><a href="#"><i class="fad fa-tachometer-alt-fastest"></i> Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">View Product Categories</li>
+          </ol>
+        </nav>
+      </div>
+      <div *ngIf="successMsg" class="col-md-6">
+        <div  class="alert alert-success alert-dismissible fade show" role="alert">
+          {{successMsg}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+      <div *ngIf="errorMsg" class="col-md-6">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          {{errorMsg}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-9 col-md-9">
+        <div class="card p2">
+          <div class="card-body ">
+            <h4 class="card-title">
+              Product Categories
+            </h4>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Image</th>
+          <th>Action</th>
+          
+        
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let productCat of productCats | async">
+        
+          <td>{{productCat.name}}</td>
+          <td>{{productCat.description}}</td>
+          <td>{{productCat.img}}</td>
+          <td><button  (click)="deleteProductCat(productCat.pCatId)"  class="btn btn-danger">Delete</button>
+           
+
+              <button  class="btn btn-info" style="margin-left: 10px">Update</button>
+           
+              
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+</div>
+
+</div>
+</div>
+
+        <!-- <tr *ngFor="let productCat of productCats | async">
+        
+          <td>{{productCat.name}}</td>
+          <td>{{productCat.description}}</td>
+          <td>{{productCat.img}}</td>
+          <td><button  (click)="deleteProductCat(productCat.pCatId)"  class="btn btn-danger">Delete</button>
+           
+
+              <button  class="btn btn-info" style="margin-left: 10px">Update</button>
+           
+              
+          </td>
+        </tr> -->
+     

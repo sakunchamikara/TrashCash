@@ -1,6 +1,7 @@
 package com.WasteManagementSystem.Backend.controller;
 
 import javax.validation.Valid;
+import org.springframework.validation.BindingResult;
 
 import java.util.HashMap;
 //import java.util.HashMap;
@@ -39,7 +40,10 @@ public class ProductController {
 	
 	
 	@PostMapping("/products")
-    public Product createProduct(@Valid @RequestBody Product product) {
+    public Product createProduct(@Valid @RequestBody Product product, BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			return null;
+		}
         return productrepo.save(product);
     }
 	@GetMapping("/products")

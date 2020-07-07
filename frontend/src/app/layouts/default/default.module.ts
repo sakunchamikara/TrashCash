@@ -7,6 +7,9 @@ import { PostsComponent } from 'src/app/modules/posts/posts.component';
 import { InsertProductsComponent } from 'src/app/modules/products/insert-products/insert-products.component';
 import { ViewProductComponent } from 'src/app/modules/products/view-product/view-product.component';
 import { UpdateProductComponent } from 'src/app/modules/products/view-product/update-product/update-product.component';
+import { TermsComponent } from 'src/app/modules/terms/terms.component';
+import { AddtermsComponent } from 'src/app/modules/terms/addterms/addterms.component';
+import { ViewtermsComponent } from 'src/app/modules/terms/viewterms/viewterms.component';
 
 import { SharedModule } from 'src/app/shared/shared.module';
 import {
@@ -43,6 +46,9 @@ import { CollectedWasteComponent } from 'src/app/modules/collected-waste/collect
     InsertProductsComponent,ViewProductComponent,UpdateProductComponent,
     ProfileComponent,
     CollectedWasteComponent,
+    TermsComponent,
+    AddtermsComponent,
+    ViewtermsComponent,
   ],
   imports: [
     CommonModule,

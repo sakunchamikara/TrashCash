@@ -119,7 +119,7 @@ const routes: Routes = [
       {
         path: 'viewterms',
         component: ViewtermsComponent,
-      },
+      }
     ],
   },
 ];

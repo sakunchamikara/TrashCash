@@ -29,6 +29,7 @@ import { TermsComponent } from './modules/terms/terms.component';
 import { AddtermsComponent } from './modules/terms/addterms/addterms.component';
 import { ViewtermsComponent } from './modules/terms/viewterms/viewterms.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,9 +43,7 @@ import { ViewtermsComponent } from './modules/terms/viewterms/viewterms.componen
     ViewCollectedWasteComponent,
     AddEventComponent,
     ViewEventComponent,
-    TermsComponent,
-    AddtermsComponent,
-    ViewtermsComponent,
+    
   ],
   imports: [
     BrowserModule,

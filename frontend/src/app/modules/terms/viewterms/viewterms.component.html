@@ -1,1 +1,31 @@
-<p>viewterms works!</p>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Terms List</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Term Title</th>
+            <th>Terms Url</th>
+            <th>Terms Description</th>
+            <th>Action</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let term of terms | async">
+            <td>{{term.title}}</td>
+            <td>{{term.turl}}</td>
+            <td>{{term.tdiscrip}}</td>
+           
+            <td><button (click)="deleteTerm(term.id)" class="btn btn-danger">Delete</button>
+                <button (click)="updateTerm(term.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+                
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

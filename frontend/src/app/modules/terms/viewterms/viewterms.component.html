@@ -1,31 +1,59 @@
+<div class="col-container">
+  <br>
 
-<div class="panel panel-primary">
-    <div class="panel-heading">
-      <h2>Terms List</h2>
-    </div>
-    <div class="panel-body">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Term Title</th>
-            <th>Terms Url</th>
-            <th>Terms Description</th>
-            <th>Action</th>
-            
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let term of terms | async">
-            <td>{{term.title}}</td>
-            <td>{{term.turl}}</td>
-            <td>{{term.tdiscrip}}</td>
-           
-            <td><button (click)="deleteTerm(term.id)" class="btn btn-danger">Delete</button>
-                <button (click)="updateTerm(term.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
-                
-            </td>
-          </tr>
-        </tbody>
-      </table>
+  <div class="row p1">
+    <div class="">
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb shadow p-3 mb-5 bg-white rounded">
+          <li class="breadcrumb-item"><a href="#"><i class="fad fa-tachometer-alt-fastest"></i> Dashboard</a></li>
+          <li class="breadcrumb-item active" aria-current="page">View Terms</li>
+        </ol>
+      </nav>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-lg-10 col-md-10">
+      <div class="card p2">
+        <div class="card-body ">
+          <!-- <h4 class="card-title">
+              View Product
+            </h4> -->
+
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h4>Terms List</h4>
+            </div>
+            <div class="panel-body">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Term Title</th>
+                    <th>Term URL</th>
+                    <th>Term Discription</th>               
+                    <th>Action</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let term of terms | async">
+                    <td>{{term.title}}</td>
+                    <td>{{term.turl}}</td>
+                    <td>{{term.tdiscrip}}</td>
+                   
+                    <td><button (click)="deleteTerm(term.id)" class="btn btn-danger">Delete</button>
+                      <button (click)="updateTerm(term.id)" class="btn btn-info"
+                        style="margin-left: 10px">Update</button>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

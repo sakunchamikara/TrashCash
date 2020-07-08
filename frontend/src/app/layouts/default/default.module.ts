@@ -47,6 +47,11 @@ import { ViewCollectedWasteComponent } from 'src/app/modules/collected-waste/vie
 // import { ViewCollectedWasteComponent } from 'src/app/modules/collected-waste/view-collected-waste/view-collected-waste.component';
 // >>>>>>> 0ad62ffe9c04afa2b7ef7d485ac59c24a4390201
 
+import { TermsComponent} from 'src/app/modules/terms/terms.component';
+import { AddtermsComponent } from 'src/app/modules/terms/addterms/addterms.component';
+import { ViewtermsComponent} from 'src/app/modules/terms/viewterms/viewterms.component';
+import { UpdateTermsComponent } from 'src/app/modules/terms/update-terms/update-terms.component';
+
 @NgModule({
   declarations: [
     DefaultComponent,
@@ -63,6 +68,10 @@ import { ViewCollectedWasteComponent } from 'src/app/modules/collected-waste/vie
     InsertCollectedWasteComponent,
     ViewCollectedWasteComponent,
     UpdateCollectedWasteComponent,
+    TermsComponent,
+    AddtermsComponent,
+    ViewtermsComponent,
+    UpdateTermsComponent,
   ],
   imports: [
     CommonModule,

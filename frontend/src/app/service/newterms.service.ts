@@ -22,7 +22,7 @@ export class NewtermsService {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
 
-  getTerm(id: number): Observable<any> {
+  getTerms(id: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 

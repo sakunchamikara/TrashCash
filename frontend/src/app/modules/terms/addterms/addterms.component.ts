@@ -35,7 +35,7 @@ export class AddtermsComponent implements OnInit {
          (error) => {
            console.log(error);
           this.errorMsg = 'Something went Wrong !!!';
-        this.router.navigate(['system/addterms']);
+        this.router.navigate(['system/viewterms']);
     }
       );
   }

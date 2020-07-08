@@ -44,7 +44,7 @@
     </mat-menu>
 
     <button mat-menu-item [matMenuTriggerFor]="events">Events</button>
-    <a mat-menu-item [matMenuTriggerFor]="events">Events</a>
+
     <mat-menu #events="matMenu">
          <a  mat-menu-item [routerLink]="'/system/addEvent'" class="btn btn-primary-outline pull-right">  Add Event</a>
          <a  mat-menu-item [routerLink]="'/system/viewEvent'" class="btn btn-primary-outline pull-right">  View Events</a>

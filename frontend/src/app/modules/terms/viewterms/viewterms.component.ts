@@ -32,7 +32,7 @@ export class ViewtermsComponent implements OnInit {
   }
 
   updateTerm(id: number){
-    // this.router.navigate(['system','UpdateProducts',id]);
+     this.router.navigate(['system','UpdateTerms',id]);
   }
 
 }

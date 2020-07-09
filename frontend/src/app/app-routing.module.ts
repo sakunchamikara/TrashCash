@@ -92,7 +92,6 @@ const routes: Routes = [
         component: UpdateProductComponent,
         canActivate: [RouteGuardService],
       },
-      
       {
         path: 'collectedWaste',
         component: CollectedWasteComponent,
@@ -113,48 +112,21 @@ const routes: Routes = [
         component: ViewCollectedWasteComponent,
         canActivate: [RouteGuardService],
       },
-      // {
-
-      //   path: "productCat",
-      //   component:  ProductCatComponent,
-      // },
       {
-        path: "productCats",
-        component:  InsertProductCatComponent,
+        path: 'productCats',
+        component: InsertProductCatComponent,
+        canActivate: [RouteGuardService],
       },
       {
-        path: "viewProductCat",
-        component:  ViewProductCatComponent,
-      },
-      // {
-
-      //   path: "productCat",
-      //   component:  ProductCatComponent,
-      // },
-      {
-        path: "productCats",
-        component:  InsertProductCatComponent,
-      },
-      {
-        path: "viewProductCat",
-        component:  ViewProductCatComponent,
+        path: 'viewProductCat',
+        component: ViewProductCatComponent,
+        canActivate: [RouteGuardService],
       },
       {
         path: 'addEvent',
         component: AddEventComponent,
         canActivate: [RouteGuardService],
       },
-      {
-
-        path: "viewEvent",
-        component:  ViewEventComponent,
-
-      },
-      // {
-
-      //   path: 'viewEvent',
-      //   component: ViewEventComponent,
-      // },
       {
         path: 'viewEvent',
         component: ViewEventComponent,
@@ -165,7 +137,6 @@ const routes: Routes = [
         component: UpdateCollectedWasteComponent,
         canActivate: [RouteGuardService],
       },
-
     ],
   },
 ];

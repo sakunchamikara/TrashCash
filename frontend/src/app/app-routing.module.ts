@@ -29,7 +29,10 @@ import { ViewProductCatComponent } from './modules/product-cat/view-product-cat/
 
 import { AddEventComponent } from './modules/events/add-event/add-event.component';
 import { ViewEventComponent } from './modules/events/view-event/view-event.component';
-
+import { TermsComponent} from './modules/terms/terms.component';
+import { AddtermsComponent} from './modules/terms/addterms/addterms.component';
+import {ViewtermsComponent} from './modules/terms/viewterms/viewterms.component';
+import{UpdateTermsComponent} from './modules/terms/update-terms/update-terms.component';
 
 const routes: Routes = [
   {
@@ -137,6 +140,24 @@ const routes: Routes = [
         component: UpdateCollectedWasteComponent,
         canActivate: [RouteGuardService],
       },
+      {
+        path: 'terms',
+        component: TermsComponent,
+      },
+      {
+        path: 'addterms',
+        component: AddtermsComponent,
+      },
+
+      {
+        path: 'viewterms',
+        component: ViewtermsComponent,
+      },
+      {
+        path: 'UpdateTerms/:id',
+        component: UpdateTermsComponent,
+      },
+
     ],
   },
 ];

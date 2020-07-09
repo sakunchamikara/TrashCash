@@ -43,6 +43,8 @@ import { ViewCollectedWasteComponent } from './modules/collected-waste/view-coll
 
 import { AddEventComponent } from './modules/events/add-event/add-event.component';
 import { ViewEventComponent } from './modules/events/view-event/view-event.component';
+
+//import { UpdateTermsComponent } from './modules/terms/update-terms/update-terms.component';
 // >>>>>>> 243cccfd66b2b85244fefe32db0bc0b6d113d347
 // =======
 // import { AddEventComponent } from './modules/events/add-event/add-event.component';
@@ -85,6 +87,7 @@ import { ViewEventComponent } from './modules/events/view-event/view-event.compo
 // >>>>>>> 0ad62ffe9c04afa2b7ef7d485ac59c24a4390201
     AddEventComponent,
     ViewEventComponent,
+   // UpdateTermsComponent,
     
   ],
   imports: [

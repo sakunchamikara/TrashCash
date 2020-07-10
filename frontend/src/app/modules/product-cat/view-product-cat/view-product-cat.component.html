@@ -56,10 +56,11 @@
           <td>{{productCat.name}}</td>
           <td>{{productCat.description}}</td>
           <td>{{productCat.img}}</td>
-          <td><button  (click)="deleteProductCat(productCat.pCatId)"  class="btn btn-danger">Delete</button>
+          <td><button (click)="deleteProductCat(productCat.id)" class="btn btn-danger">Delete</button>
+            <button (click)="updateProductCat(productCat.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
            
 
-              <button  class="btn btn-info" style="margin-left: 10px">Update</button>
+              <!-- <button  class="btn btn-info" style="margin-left: 10px">Update</button> -->
            
               
           </td>

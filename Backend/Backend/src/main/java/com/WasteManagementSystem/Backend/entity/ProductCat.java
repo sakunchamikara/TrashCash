@@ -16,7 +16,7 @@ public class ProductCat {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int pCatId;
+	private int id;
 	private String name;
 	private String description;
 	private String img;
@@ -24,20 +24,20 @@ public class ProductCat {
 	public ProductCat() {
 	}
 
-	public ProductCat(int pCatId, String name, String description, String img) {
+	public ProductCat(int id, String name, String description, String img) {
 		super();
-		this.pCatId = pCatId;
+		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.img = img;
 	}
 
-	public int getPCatId() {
-		return pCatId;
+	public int getId() {
+		return id;
 	}
 
-	public void setPCatId(int pCatId) {
-		this.pCatId = pCatId;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -66,9 +66,9 @@ public class ProductCat {
 
 
 
-	@Override
-	public String toString() {
-		return "ProductCat [pCatId=" + pCatId + ", name=" + name + ", description=" + description + ", img=" + img + " ]";
-	}
+//	@Override
+//	public String toString() {
+//		return "ProductCat [id=" + id + ", name=" + name + ", description=" + description + ", img=" + img + " ]";
+//	}
 
 }

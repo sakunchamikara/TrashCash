@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from 'src/app/pojo/category';
-import { Observable } from "rxjs";
 import { ProductcatService } from 'src/app/service/productcat.service';
-
+import { Observable } from "rxjs";
 import { Router } from '@angular/router';
 
 
@@ -27,8 +26,8 @@ productCats: Observable<Category[]>;
     this.productCats = this.productcatService.getProductCatList();
   }
 
-  deleteProductCat(pCatId: number) {
-    this.productcatService.deleteProductCat(pCatId)
+  deleteProductCat(id: number) {
+    this.productcatService.deleteProductCat(id)
       .subscribe(
         data => {
           console.log(data);
@@ -37,6 +36,11 @@ productCats: Observable<Category[]>;
         error => console.log(error));
   }
 
+
+  updateProductCat(id: number){
+    this.router.navigate(['system','UpdateProductCats',id]);
+  
+ }
 
 
 }

@@ -21,12 +21,16 @@ export class ProductcatService {
     return this.http.post<any>(`${this.baseUrl}` , productcat);  
   }  
 
-  deleteProductCat(pCatId: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${pCatId}`, { responseType: 'text' });
+  deleteProductCat(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
 
-  getProductCat(pCatId: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${pCatId}`);
+  getProductCat(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${id}`);
+  }
+
+  updateProductCat(id:number,value:any):Observable<Object>{
+    return this.http.put(`${this.baseUrl}/${id}`,value);
   }
  
 

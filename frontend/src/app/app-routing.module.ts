@@ -146,6 +146,27 @@ const routes: Routes = [
         component: TermsComponent,
       },
       {
+      },
+      {
+        path: 'addEvent',
+        component: AddEventComponent,
+        canActivate: [RouteGuardService],
+      },
+      {
+        path: 'viewEvent',
+        component: ViewEventComponent,
+        canActivate: [RouteGuardService],
+      },
+      {
+        path: 'UpdateCollectedWastes/:id',
+        component: UpdateCollectedWasteComponent,
+        canActivate: [RouteGuardService],
+      },
+      {
+        path: 'terms',
+        component: TermsComponent,
+      },
+      {
         path: 'addterms',
         component: AddtermsComponent,
       },

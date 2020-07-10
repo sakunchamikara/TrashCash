@@ -31,14 +31,16 @@ public class Product {
 //	@Min(10)
 	@Column(name = "price", nullable = false)
 	@NotNull
-	@Range(min = 1)
-	private int price;
+
+  @Range(min = 0)
+	private float price;
+
     private String details;
 	
 	public Product() {
 		}
 	
-	public Product ( int id ,String title,String category ,String image1,String image2,int price ,String details) {	
+	public Product ( int id ,String title,String category ,String image1,String image2,float price ,String details) {	
 		super();
 		this.id = id;
 		this.title = title;
@@ -87,11 +89,11 @@ public class Product {
 		this.image2 = image2;
 	}
 	
-	public int getPrice() {
+	public float getPrice() {
 		return price;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 	

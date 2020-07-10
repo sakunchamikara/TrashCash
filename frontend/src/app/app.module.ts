@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,12 +14,9 @@ import { LogoutComponent } from './modules/logout/logout.component';
 // import { InsertProductsComponent } from './modules/products/insert-products/insert-products.component';
 import { ProfileComponent } from './modules/profile/profile.component';
 
-
-
-
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 
 import { MatSliderModule } from '@angular/material/slider';
 //import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
@@ -47,6 +44,8 @@ import { ViewCollectedWasteComponent } from './modules/collected-waste/view-coll
 import { AddEventComponent } from './modules/events/add-event/add-event.component';
 import { ViewEventComponent } from './modules/events/view-event/view-event.component';
 // import { UpdateProductCatComponent } from './modules/product-cat/update-product-cat/update-product-cat.component';
+
+//import { UpdateTermsComponent } from './modules/terms/update-terms/update-terms.component';
 // >>>>>>> 243cccfd66b2b85244fefe32db0bc0b6d113d347
 // =======
 // import { AddEventComponent } from './modules/events/add-event/add-event.component';
@@ -90,8 +89,8 @@ import { ViewEventComponent } from './modules/events/view-event/view-event.compo
     AddEventComponent,
     ViewEventComponent,
     // UpdateProductCatComponent,
+   // UpdateTermsComponent,
     
-   
   ],
   imports: [
     BrowserModule,
@@ -105,11 +104,10 @@ import { ViewEventComponent } from './modules/events/view-event/view-event.compo
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    
   ],
-  
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

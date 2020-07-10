@@ -46,6 +46,11 @@ import { ViewCollectedWasteComponent } from 'src/app/modules/collected-waste/vie
 // import { ViewCollectedWasteComponent } from 'src/app/modules/collected-waste/view-collected-waste/view-collected-waste.component';
 // >>>>>>> 0ad62ffe9c04afa2b7ef7d485ac59c24a4390201
 
+
+import { InsertProductCatComponent } from 'src/app/modules/product-cat/insert-product-cat/insert-product-cat.component';
+import { ViewProductCatComponent } from 'src/app/modules/product-cat/view-product-cat/view-product-cat.component';
+import { UpdateProductCatComponent } from 'src/app/modules/product-cat/update-product-cat/update-product-cat.component';
+
 @NgModule({
   declarations: [
     DefaultComponent,
@@ -59,7 +64,11 @@ import { ViewCollectedWasteComponent } from 'src/app/modules/collected-waste/vie
    // ProductCatComponent,
     InsertCollectedWasteComponent,
     ViewCollectedWasteComponent,
-    UpdateCollectedWasteComponent 
+    UpdateCollectedWasteComponent ,
+
+    InsertProductCatComponent,
+    ViewProductCatComponent,
+    UpdateProductCatComponent
   ],
   imports: [
     CommonModule,

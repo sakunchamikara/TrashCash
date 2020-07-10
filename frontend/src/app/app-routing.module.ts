@@ -25,6 +25,7 @@ import { ViewCollectedWasteComponent } from './modules/collected-waste/view-coll
 
 import { InsertProductCatComponent } from './modules/product-cat/insert-product-cat/insert-product-cat.component';
 import { ViewProductCatComponent } from './modules/product-cat/view-product-cat/view-product-cat.component';
+import { UpdateProductCatComponent } from './modules/product-cat/update-product-cat/update-product-cat.component';
 
 import { AddEventComponent } from './modules/events/add-event/add-event.component';
 import { ViewEventComponent } from './modules/events/view-event/view-event.component';
@@ -154,6 +155,12 @@ const routes: Routes = [
         component: UpdateCollectedWasteComponent,
       },
 
+      {
+        path: 'UpdateProductCats/:id',
+        component: UpdateProductCatComponent,
+      },
+
+      
     ],
   },
 ];

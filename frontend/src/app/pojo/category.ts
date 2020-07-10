@@ -1,5 +1,5 @@
 export class Category {
-    pCatId:number;
+    id:number;
     name:string;
     description:string;
     img:string;

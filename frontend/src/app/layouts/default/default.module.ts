@@ -47,17 +47,14 @@ import { ViewCollectedWasteComponent } from 'src/app/modules/collected-waste/vie
 // import { ViewCollectedWasteComponent } from 'src/app/modules/collected-waste/view-collected-waste/view-collected-waste.component';
 // >>>>>>> 0ad62ffe9c04afa2b7ef7d485ac59c24a4390201
 
-<<<<<<< HEAD
 
 import { InsertProductCatComponent } from 'src/app/modules/product-cat/insert-product-cat/insert-product-cat.component';
 import { ViewProductCatComponent } from 'src/app/modules/product-cat/view-product-cat/view-product-cat.component';
 import { UpdateProductCatComponent } from 'src/app/modules/product-cat/update-product-cat/update-product-cat.component';
-=======
 import { TermsComponent} from 'src/app/modules/terms/terms.component';
 import { AddtermsComponent } from 'src/app/modules/terms/addterms/addterms.component';
 import { ViewtermsComponent} from 'src/app/modules/terms/viewterms/viewterms.component';
 import { UpdateTermsComponent } from 'src/app/modules/terms/update-terms/update-terms.component';
->>>>>>> b770f4ed3f7dc1dfcc88c913ae63a38117a1ecfc
 
 @NgModule({
   declarations: [
@@ -74,19 +71,16 @@ import { UpdateTermsComponent } from 'src/app/modules/terms/update-terms/update-
    // ProductCatComponent,
     InsertCollectedWasteComponent,
     ViewCollectedWasteComponent,
-<<<<<<< HEAD
     UpdateCollectedWasteComponent ,
 
     InsertProductCatComponent,
     ViewProductCatComponent,
-    UpdateProductCatComponent
-=======
-    UpdateCollectedWasteComponent,
+    UpdateProductCatComponent,
+    //UpdateCollectedWasteComponent,
     TermsComponent,
     AddtermsComponent,
     ViewtermsComponent,
     UpdateTermsComponent,
->>>>>>> b770f4ed3f7dc1dfcc88c913ae63a38117a1ecfc
   ],
   imports: [
     CommonModule,

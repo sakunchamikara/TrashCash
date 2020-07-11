@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Item} from 'src/app/pojo/item';
 import { ProductService } from 'src/app/service/product.service';
 import { Router } from '@angular/router';
-
+//new repository
 @Component({
   selector: 'app-insert-products',
   templateUrl: './insert-products.component.html',

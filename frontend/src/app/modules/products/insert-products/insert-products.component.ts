@@ -19,7 +19,7 @@ export class InsertProductsComponent implements OnInit {
   errorMsg: any;
   ngOnInit() {
   }
-
+//new
 // newProduct(): void{
 //   this.submitted = false;
 //   this.product = new Item();

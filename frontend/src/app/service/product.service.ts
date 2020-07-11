@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
+//new comment
 export class ProductService {
 
   private baseUrl = 'http://localhost:8080/products';

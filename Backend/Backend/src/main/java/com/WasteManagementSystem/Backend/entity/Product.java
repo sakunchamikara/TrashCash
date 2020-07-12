@@ -1,7 +1,11 @@
 package com.WasteManagementSystem.Backend.entity;
+import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.Range;
 
-
+//import javax.validation.constraints.NotEmpty;
+//import javax.validation.constraints.Min;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,18 +17,30 @@ import javax.persistence.Table;
 public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@NotNull
 	private int id;
+	@NotNull
 	private String title;
+	@NotNull
     private String category;
+	
     private String image1;
+	
 	private String image2;
-	private int price;
+//	@NotEmpty
+//	@Min(10)
+	@Column(name = "price", nullable = false)
+	@NotNull
+
+  @Range(min = 0)
+	private float price;
+
     private String details;
 	
 	public Product() {
 		}
 	
-	public Product ( int id ,String title,String category ,String image1,String image2,int price ,String details) {	
+	public Product ( int id ,String title,String category ,String image1,String image2,float price ,String details) {	
 		super();
 		this.id = id;
 		this.title = title;
@@ -73,11 +89,11 @@ public class Product {
 		this.image2 = image2;
 	}
 	
-	public int getPrice() {
+	public float getPrice() {
 		return price;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 	

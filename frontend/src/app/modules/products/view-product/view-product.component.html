@@ -1,34 +1,64 @@
+<div class="col-container">
+  <br>
 
-<div class="panel panel-primary">
-    <div class="panel-heading">
-      <h2>Prdouct List</h2>
-    </div>
-    <div class="panel-body">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Category</th>
-            <th>Image1</th>
-            <th>Image2</th>
-            <th>Price</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let product of products | async">
-            <td>{{product.title}}</td>
-            <td>{{product.category}}</td>
-            <td>{{product.image1}}</td>
-            <td>{{product.image2}}</td>
-            <td>{{product.price}}</td>
-            <td>{{product.details}}</td>
-            <td><button (click)="deleteProduct(product.id)" class="btn btn-danger">Delete</button>
-                <button (click)="updateProduct(product.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
-                
-            </td>
-          </tr>
-        </tbody>
-      </table>
+  <div class="row p1">
+    <div class="">
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb shadow p-3 mb-5 bg-white rounded">
+          <li class="breadcrumb-item"><a href="#"><i class="fad fa-tachometer-alt-fastest"></i> Dashboard</a></li>
+          <li class="breadcrumb-item active" aria-current="page">View Product</li>
+        </ol>
+      </nav>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-lg-10 col-md-10">
+      <div class="card p2">
+        <div class="card-body ">
+          <!-- <h4 class="card-title">
+              View Product
+            </h4> -->
+
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h4>Prdouct List</h4>
+            </div>
+            <div class="panel-body">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Image1</th>
+                    <th>Image2</th>
+                    <th>Price</th>
+                    <th>Description</th>
+                    <th>Action</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let product of products | async">
+                    <td>{{product.title}}</td>
+                    <td>{{product.category}}</td>
+                    <td>{{product.image1}}</td>
+                    <td>{{product.image2}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.details}}</td>
+                    <td><button (click)="deleteProduct(product.id)" class="btn btn-danger">Delete</button>
+                      <button (click)="updateProduct(product.id)" class="btn btn-info"
+                        style="margin-left: 10px">Update</button>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -35,12 +35,12 @@
     <div fxFlex fxLayout="row" fxLayoutAlign="start center">
       <!-- <span style="font-weight: 600;"> TrashCash </span> -->
       <div class="example-button-row">
-        <button mat-button routerLink="/customer/welcome">HOME</button>
-        <button mat-button routerLink="/customer/shop">SHOP</button>
-        <button mat-button>MY ACCOUNT</button>
-        <button mat-button>SHOPPING CART</button>
-        <button mat-button>CONTACT US</button>
-        <button mat-button>EVENTS & CAMPAIGNS</button>
+        <button mat-button [routerLink]="['/customer/welcome']" [routerLinkActive]="['mat-raised-button']" >HOME</button>
+        <button mat-button routerLink="/customer/shop" [routerLinkActive]="['mat-raised-button']">SHOP</button>
+        <button mat-button [routerLinkActive]="['mat-raised-button']">MY ACCOUNT</button>
+        <button mat-button [routerLinkActive]="['mat-raised-button']">SHOPPING CART</button>
+        <button mat-button [routerLinkActive]="['mat-raised-button']">CONTACT US</button>
+        <button mat-button [routerLinkActive]="['mat-raised-button']">EVENTS & CAMPAIGNS</button>
       </div>
     </div>
 
@@ -50,7 +50,7 @@
           <button mat-flat-button style="background-color: #9CC026;color: white;">
             <!-- rgb(2, 205, 219) -->
             <mat-icon>shopping_cart</mat-icon>
-            5 items in your shopping cart
+            0 items in your shopping cart
           </button>
         </li>
 

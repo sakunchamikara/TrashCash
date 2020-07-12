@@ -1,46 +1,95 @@
-<div class="heading">
-    <h3>Enter collected waste</h3>
-   </div>
-  
-  <div class="main">
+
+  <div class="col-container">
    
-    <form>
-      <div class="form-group">
+    <br>
+    <div class="row p1">
+      <div class="">
+  
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb shadow p-3 mb-5 bg-white rounded">
+            <li class="breadcrumb-item"><a href="#"><i class="fad fa-tachometer-alt-fastest"></i> Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Insert collected waste</li>
+          </ol>
+        </nav>
+      </div>
+      <div *ngIf="successMsg" class="col-md-6">
+        <div  class="alert alert-success alert-dismissible fade show" role="alert">
+          {{successMsg}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+      <div *ngIf="errorMsg" class="col-md-6">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          {{errorMsg}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    
+
+  <div class="row">
+    <div class="col-lg-4 col-md-4">
+      <div class="card p2">
+        <div class="card-body ">
+          <h4 class="card-title">
+            Insert Waste Details
+          </h4>
+    <form (ngSubmit)="onSubmit()"  #wasteForm="ngForm">
+
+      <div class="form-row">
+        <div class="form-group col-md-12">
         <label for="wasteType">Waste Type</label>
-        <select class="form-control" id="wasteType">
-          <option>Plastic</option>
-          <option>Paper</option>
-          <option>E-Waste</option>
+        <select class="form-control" name="wasteType" id="wasteType" [(ngModel)]="collectedWaste.wasteType" placeholder="Enter waste type" required>
+          <option [value]="type" *ngFor="let type of Types">{{type}}</option>
           
         </select>
+        </div>
       </div>
   
-      <div class="form-group">
+      <div class="form-row">
+        <div class="form-group col-md-12">
         <label for="quantity">Quantity</label>
-        <input type="number" class="form-control" id="quantity" aria-describedby="quantityHelp" placeholder="Enter Waste Quantity">
-        <small id="quantityHelp" class="form-text text-muted">Quantity should be in kilo grams</small>
+        <input type="number" class="form-control" name="quantity" id="quantity"  min="1" oninput="validity.valid||(value='');" placeholder="Enter Waste Quantity in grams" [(ngModel)]="collectedWaste.quantity" required #quantity="ngModel">
+        </div>
       </div>
   
-      <div class="form-group">
+      <div class="form-row">
+        <div class="form-group col-md-12">
         <label for="amount">Amount</label>
-        <input type="number" class="form-control" id="amount" placeholder="Paid Amount">
+        <input type="number" class="form-control" name="amount" id="amount"   min="0.01" step="0.01" oninput="validity.valid||(value='');" placeholder="Rs" [(ngModel)]="collectedWaste.amount" required>
+        </div>
       </div>
   
-      <div class="form-group">
+      <div class="form-row">
+        <div class="form-group col-md-12">
         <label for="invoiceNo">Invoice No</label>
-        <input type="number" class="form-control" id="invoiceNo" placeholder="Enter issued invoice no">
+        <input type="number" class="form-control" name="invoiceNo" id="invoiceNo"  min="0" oninput="validity.valid||(value='');" placeholder="Enter issued invoice no" [(ngModel)]="collectedWaste.invoiceNo" required>
+        </div>
       </div>
   
-      <div class="form-group">
+      <div class="form-row">
+        <div class="form-group col-md-12">
         <label for="date">Date</label>
-        <input type="date" class="form-control" id="date" placeholder="Enter collected date">
+        <input type="date" class="form-control" name="date" id="date" placeholder="Enter collected date" [(ngModel)]="collectedWaste.date" required>
+        </div>
       </div>
       
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary float-right">Submit</button>
     </form>
-  
+
+  </div>
+</div>
+
+</div>
+
    
   </div>
+  <br>
   
   
   

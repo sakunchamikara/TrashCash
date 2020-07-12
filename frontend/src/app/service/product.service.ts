@@ -3,10 +3,11 @@ import { Item } from '../pojo/item';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-
+//pull
 @Injectable({
   providedIn: 'root'
 })
+//new comment
 export class ProductService {
 
   private baseUrl = 'http://localhost:8080/products';

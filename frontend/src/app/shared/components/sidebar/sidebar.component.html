@@ -1,10 +1,10 @@
 <mat-nav-list>
   <div class="profile-card">
     <div class="header">
-      <h5>Soufiane FADIL</h5>
-      <h6>{{email}}</h6>
+      <h5>WELCOME</h5>
+      <h5>{{email}}</h5>
     </div>
-    <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Soufiane FADIL">
+    <img src="/assets/images/others/pro.png" alt="Soufiane FADIL">
   </div>
 
   <mat-divider></mat-divider>
@@ -13,16 +13,34 @@
   <h2 matSubheader>Pages</h2>
 
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/dashboard">Dashboard</a>
+
+
+
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/posts">Posts</a>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/articles">Articles</a>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/products">Products</a>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/ViewProducts">View Products</a>
-  
- 
-  <button mat-menu-item [matMenuTriggerFor]="wasteStock">Waste Stock</button>
+
+  <a mat-list-item routerLinkActive="list-item-active" [matMenuTriggerFor]="productcat">Recycled Product Categories</a>
+  <mat-menu #productcat="matMenu">
+    <button  mat-menu-list-item [routerLink]="'/system/productCats'" class="btn btn-primary-outline pull-right">  Insert Product Category</button>
+    <button  mat-menu-list-item [routerLink]="'/system/viewProductCat'" class="btn btn-primary-outline pull-right">  View Product Categories</button>
+</mat-menu>
+
+  <a mat-menu-item [matMenuTriggerFor]="product">Products</a>
+    <mat-menu #product="matMenu">
+         <a  mat-menu-item [routerLink]="'/system/products'" class="btn btn-primary-outline pull-right">  Insert Product</a>
+         <a  mat-menu-item [routerLink]="'/system/ViewProducts'" class="btn btn-primary-outline pull-right">  View Products</a>
+    </mat-menu>
+
+  <a mat-menu-item [matMenuTriggerFor]="wasteStock">Waste Stock</a>
+
     <mat-menu #wasteStock="matMenu">
-         <button  mat-menu-item [routerLink]="'/system/insertCollectedWaste'" class="btn btn-primary-outline pull-right">  Insert Waste</button>  
-         <button  mat-menu-item [routerLink]="'/system/viewCollectedWaste'" class="btn btn-primary-outline pull-right">  View waste stock</button>  
+         <a  mat-menu-item [routerLink]="'/system/insertCollectedWaste'" class="btn btn-primary-outline pull-right">  Insert Waste</a>
+         <a  mat-menu-item [routerLink]="'/system/collectedWaste'" class="btn btn-primary-outline pull-right">  View waste stock</a>
+    </mat-menu>
+
+    <button mat-menu-item [matMenuTriggerFor]="terms">Terms</button>
+    <mat-menu #terms="matMenu">
+         <button  mat-menu-item [routerLink]="'/system/addterms'" class="btn btn-primary-outline pull-right">  Add Terms</button>  
+         <button  mat-menu-item [routerLink]="'/system/viewterms'" class="btn btn-primary-outline pull-right">  View Terms</button>  
     </mat-menu>
 
     <button mat-menu-item [matMenuTriggerFor]="events">Events</button>
@@ -46,7 +64,7 @@
     Leads
   </a>
 
- 
+
 
 </mat-nav-list>
 

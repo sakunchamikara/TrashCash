@@ -4,12 +4,14 @@ import { Router } from '@angular/router';
 //import { Item } from 'src/app/pojo/item';
 import { Event } from 'src/app/pojo/event';
 
+
 @Component({
-  selector: 'app-add-event',
-  templateUrl: './add-event.component.html',
-  styleUrls: ['./add-event.component.scss']
+  selector: "app-add-event",
+  templateUrl: "./add-event.component.html",
+  styleUrls: ["./add-event.component.scss"],
 })
 export class AddEventComponent implements OnInit {
+
   event = new Event();
   submitted = false;
 
@@ -42,7 +44,4 @@ export class AddEventComponent implements OnInit {
   gotoList() {
     this.router.navigate(['system/viewEvent']);
   }
-  
-  
-
 }

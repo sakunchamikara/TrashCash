@@ -1,53 +1,218 @@
+<div class="col-container">
+  <br>
 
+  <div class="row p1">
+    <div class="">
 
-<div class="body">
-  <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
-    <mat-card class="box">
-      <mat-card-header>
-        <mat-card-title>ADD PRODUCTS</mat-card-title>
-      </mat-card-header>
-
-      <div [hidden]="submitted" style="width: 400px;">
-          <form (ngSubmit)="onSubmit()">
-            <div class="form-group">
-              <label for="name">Title</label>
-              <input type="text" class="form-control" id="title" required [(ngModel)]="product.title" name="title">
-            </div>
-        
-            <div class="form-group">
-              <label for="name">Category</label>
-              <input type="text" class="form-control" id="category" required [(ngModel)]="product.category" name="category">
-            </div>
-        
-            <div class="form-group">
-              <label for="name">Image 1</label>
-              <input type="text" class="form-control" id="image1" required [(ngModel)]="product.image1" name="image1">
-            </div>
-
-            <div class="form-group">
-              <label for="name">Image 2</label>
-              <input type="text" class="form-control" id="image2" required [(ngModel)]="product.image2" name="image2">
-            </div>
-
-            <div class="form-group">
-              <label for="name">Price</label>
-              <input type="number" class="form-control" id="price" required [(ngModel)]="product.price" name="price">
-            </div>
-
-            <div class="form-group">
-              <label for="name">Description</label>
-              <input type="text" class="form-control" id="details" required [(ngModel)]="product.details" name="details">
-            </div>
-        
-            <button type="submit" class="btn btn-success">Submit</button>
-          </form>
-        </div>
-        
-        <div [hidden]="!submitted">
-          <h4>You submitted successfully!</h4>
-          <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
-        </div>
-    </mat-card>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb shadow p-3 mb-5 bg-white rounded">
+          <li class="breadcrumb-item"><a href="#"><i class="fad fa-tachometer-alt-fastest"></i> Dashboard</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Insert Product</li>
+        </ol>
+      </nav>
+    </div>
+    <div *ngIf="successMsg" class="col-md-6">
+      <div  class="alert alert-success alert-dismissible fade show" role="alert">
+        {{successMsg}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+    <div *ngIf="errorMsg" class="col-md-6">
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{errorMsg}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
   </div>
 
+  <div class="row">
+    <div class="col-lg-9 col-md-9">
+      <div class="card p2">
+        <div class="card-body ">
+          <h4 class="card-title">
+            Insert Product
+          </h4>
+          <form (ngSubmit)="onSubmit()"  #todoForm="ngForm">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="name">Title</label>
+                <input type="text" class="form-control" id="title" required [(ngModel)]="product.title" name="title" >
+                <!-- <div *ngIf="todoForm.submitted && title.invalid" class="invalid-feedback">
+                  <div *ngIf="title.errors.required">Title is required</div>
+              </div> -->
+                
+              </div>
+              <div class="form-group col-md-6">
+                <label for="name">Category</label>
+                <select class="form-control" id="category" required [(ngModel)]="product.category" name="category" >
+                  <option>Plastic</option>
+                  <option>Paper</option>
+                  <option>E-Waste</option>
+              </select>
+                <!-- <input type="text" class="form-control" id="category" required [(ngModel)]="product.category" name="category" #category="ngModel" [ngClass]="{ 'is-invalid': todoForm.submitted && category.invalid }"> -->
+                
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">                
+                <label for="name">Image 1</label>
+                <input type="file" class="form-control" name="image1"> 
+                <!-- <input type="text" class="form-control" id="image1" required [(ngModel)]="product.image1" name="image1">  -->
+              </div>
+              <div class="form-group col-md-6">
+                <label for="name">Image 2</label>
+                <input type="file" class="form-control" name="image2">
+                <!-- <input type="text" class="form-control" id="image2" required [(ngModel)]="product.image2" name="image2"> -->
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="name">Price</label>
+                <input type="number" placeholder="Rs." class="form-control" id="price" required [(ngModel)]="product.price" name="price"min="0" oninput="validity.valid||(value='');" >
+                
+              </div>
+              <div class=" form-group col-md-6">
+                <label for="name">Description</label>
+                <textarea  class="form-control" id="details" required [(ngModel)]="product.details" name="details"></textarea>
+                <!-- <input type="text"  class="form-control" id="details" required [(ngModel)]="product.details" name="details"> -->
+              </div>
+            </div>
+            
+            
+            <button type="submit" class="btn btn-primary float-right">Submit</button>
+            <!-- <button (click)="productlist()" class="btn btn-info" style="margin-left: 700px">Back</button> -->
+          </form>
+        </div>
+      </div>
+
+    </div><!-- col-lg-12 Finish -->
+
+    <!-- <div class="col-lg-3 col-md-3">
+      <div class="card p3">
+        <a href="#"><img class="card-img-top"
+            src="https://lh3.googleusercontent.com/proxy/RxUKfSn3lENFAk1g8AAOn3ODd55plVpL7XcGhqACFnccHoxfAabNPndN_JwzP_pf3EJutKs3-65aILEVlp7fV879qUnmFNKtTls"
+            alt=""></a>
+        <div class="card-body">
+          <h4 class="card-title">
+            <a href="#">Item One</a>
+          </h4>
+          <h5>$24.99</h5>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">★ ★ ★ ★ ☆</small>
+        </div>
+      </div>
+    </div> -->
+  </div>
+  <!-- row Finish -->
+
+  <!-- <div fxLayout="row">
+    <div fxLayout="row" fxFlex="2"></div>
+
+    <div fxLayout="row" fxFlex="70">
+      <mat-card class="edit-user">
+        <mat-card-header>
+          <mat-card-title>Edit User</mat-card-title>
+        </mat-card-header>
+
+        <form class="example-form" #registerform="ngForm">
+          <mat-card-content class="card-content">
+            <mat-form-field>
+              <input matInput placeholder="First Name" name="fname" [(ngModel)]="user.fisrtName" required>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Last Name" name="lname" [(ngModel)]="user.lastName" required>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Enter birthday </mat-label>
+              <input matInput [matDatepicker]="picker" name="birthday" [(ngModel)]="user.birthday" required>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Choose a role...</mat-label>
+              <mat-select matNativeControl name="userType" [(ngModel)]="user.userType" required>
+                <mat-option [value]="roles" *ngFor="let roles of Roles">{{roles}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="right">
+              <input matInput placeholder="Email" type="email" name="email" [(ngModel)]="user.email" required
+                pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Choose Gender ...</mat-label>
+              <mat-select matNativeControl name="gender" [(ngModel)]="user.gender" required>
+                <mat-option [value]="gender" *ngFor="let gender of Gender">{{gender}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput type="password" placeholder="Password" name="password" [(ngModel)]="user.password"
+                #password="ngModel" required>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput type="password" placeholder="Password Again" name="passwordAgain"
+                (ngModel)="user.password" #cpassword="ngModel" required
+                [class.is-invalid]="cpassword.invalid && cpassword.touched">
+            </mat-form-field>
+            <small style="padding-left: 50px;"
+              [class.d-none]="(cpassword.value == password.value) || cpassword.untouched">Passwords Mismatch!!!</small>
+
+
+            <div>
+              <label for="">Profile Picture : </label>
+              <input class="form-control-file" type="file" placeholder="Contact nummber" name="cnumber" required>
+            </div>
+
+            <mat-form-field>
+              <input matInput placeholder="Contact nummber" name="cnumber" required>
+            </mat-form-field>
+
+
+          </mat-card-content>
+          <div class="button">
+            <button mat-raised-button color="primary" type="submit">Submit</button>
+          </div>
+
+        </form>
+      </mat-card>
+    </div>
+    <div fxLayout="row" fxFlex="2"></div>
+    <div fxLayout="row" fxFlex="30">
+      <mat-card class="profile-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Shiba Inu</mat-card-title>
+          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+        </mat-card-header>
+        <img style="width: 300px;height: 200px;" mat-card-image
+          src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p>
+            The Shiba
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div> -->
+
 </div>
+
+<br>

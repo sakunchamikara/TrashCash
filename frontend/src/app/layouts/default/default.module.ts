@@ -7,6 +7,8 @@ import { PostsComponent } from 'src/app/modules/posts/posts.component';
 import { InsertProductsComponent } from 'src/app/modules/products/insert-products/insert-products.component';
 import { ViewProductComponent } from 'src/app/modules/products/view-product/view-product.component';
 import { UpdateProductComponent } from 'src/app/modules/products/view-product/update-product/update-product.component';
+import { UpdateCollectedWasteComponent } from 'src/app/modules/collected-waste/update-collected-waste/update-collected-waste.component';
+
 
 import { SharedModule } from 'src/app/shared/shared.module';
 import {
@@ -36,6 +38,20 @@ import { UpdateEventComponent } from 'src/app/modules/events/update-event/update
 import { ViewEventComponent } from 'src/app/modules/events/view-event/view-event.component';
 import { AddEventComponent } from 'src/app/modules/events/add-event/add-event.component';
 
+
+import { InsertCollectedWasteComponent } from 'src/app/modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
+import { ViewCollectedWasteComponent } from 'src/app/modules/collected-waste/view-collected-waste/view-collected-waste.component';
+
+
+
+import { InsertProductCatComponent } from 'src/app/modules/product-cat/insert-product-cat/insert-product-cat.component';
+import { ViewProductCatComponent } from 'src/app/modules/product-cat/view-product-cat/view-product-cat.component';
+import { UpdateProductCatComponent } from 'src/app/modules/product-cat/update-product-cat/update-product-cat.component';
+import { TermsComponent} from 'src/app/modules/terms/terms.component';
+import { AddtermsComponent } from 'src/app/modules/terms/addterms/addterms.component';
+import { ViewtermsComponent} from 'src/app/modules/terms/viewterms/viewterms.component';
+import { UpdateTermsComponent } from 'src/app/modules/terms/update-terms/update-terms.component';
+
 @NgModule({
   declarations: [
     DefaultComponent,
@@ -43,12 +59,28 @@ import { AddEventComponent } from 'src/app/modules/events/add-event/add-event.co
     PostsComponent,
     LoginComponent,
     RegisterComponent,
-    InsertProductsComponent,ViewProductComponent,UpdateProductComponent,
+    InsertProductsComponent,
+    ViewProductComponent,
+    UpdateProductComponent,
     ProfileComponent,
     CollectedWasteComponent,
     AddEventComponent,
     ViewEventComponent,
     UpdateEventComponent,
+   // ProductCatComponent,
+    InsertCollectedWasteComponent,
+    ViewCollectedWasteComponent,
+    UpdateCollectedWasteComponent ,
+
+    InsertProductCatComponent,
+    ViewProductCatComponent,
+    UpdateProductCatComponent,
+    //UpdateCollectedWasteComponent,
+    UpdateCollectedWasteComponent,
+    TermsComponent,
+    AddtermsComponent,
+    ViewtermsComponent,
+    UpdateTermsComponent,
   ],
   imports: [
     CommonModule,
@@ -70,7 +102,7 @@ import { AddEventComponent } from 'src/app/modules/events/add-event/add-event.co
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatMenuModule
+    MatMenuModule,
   ],
   providers: [DashboardService],
 })

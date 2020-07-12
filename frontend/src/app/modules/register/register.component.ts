@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   hide = true;
   msg = '';
   user = new User(0, '', '', new Date(), '', '', '', '', null, '');
-
+  errorMessage:string;
   constructor(private authService: AuthserviceService, private route: Router) {}
 
   ngOnInit() {}
@@ -27,8 +27,8 @@ export class RegisterComponent implements OnInit {
         this.route.navigate(['/system/login']);
       },
       (error) => {
-        console.log('exception occured');
-        this.msg = error.error;
+        this.msg = error.error.message;
+        this.errorMessage = this.msg;
       }
     );
   }

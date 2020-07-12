@@ -33,5 +33,8 @@ export class ProductcatService {
     return this.http.put(`${this.baseUrl}/${id}`,value);
   }
  
+  getProductCatDropdownValues(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`);
+  }
 
 }

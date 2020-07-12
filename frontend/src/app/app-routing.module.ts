@@ -30,10 +30,11 @@ import { UpdateProductCatComponent } from './modules/product-cat/update-product-
 
 import { AddEventComponent } from './modules/events/add-event/add-event.component';
 import { ViewEventComponent } from './modules/events/view-event/view-event.component';
-import { TermsComponent} from './modules/terms/terms.component';
-import { AddtermsComponent} from './modules/terms/addterms/addterms.component';
-import {ViewtermsComponent} from './modules/terms/viewterms/viewterms.component';
-import{UpdateTermsComponent} from './modules/terms/update-terms/update-terms.component';
+import { UpdateEventComponent } from './modules/events/update-event/update-event.component';
+import { TermsComponent } from './modules/terms/terms.component';
+import { AddtermsComponent } from './modules/terms/addterms/addterms.component';
+import { ViewtermsComponent } from './modules/terms/viewterms/viewterms.component';
+import { UpdateTermsComponent } from './modules/terms/update-terms/update-terms.component';
 
 const routes: Routes = [
   {
@@ -137,23 +138,13 @@ const routes: Routes = [
         canActivate: [RouteGuardService],
       },
       {
+        path: 'updateEvents/:id',
+        component: UpdateEventComponent,
+        canActivate: [RouteGuardService],
+      },
+      {
         path: 'UpdateCollectedWastes/:id',
         component: UpdateCollectedWasteComponent,
-        canActivate: [RouteGuardService],
-      },
-      {
-        path: 'terms',
-        component: TermsComponent,
-      },
-     
-      {
-        path: 'addEvent',
-        component: AddEventComponent,
-        canActivate: [RouteGuardService],
-      },
-      {
-        path: 'viewEvent',
-        component: ViewEventComponent,
         canActivate: [RouteGuardService],
       },
       {
@@ -184,7 +175,6 @@ const routes: Routes = [
         component: UpdateProductCatComponent,
       },
 
-      
     ],
   },
 ];

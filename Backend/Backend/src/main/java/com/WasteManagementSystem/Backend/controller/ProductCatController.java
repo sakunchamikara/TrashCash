@@ -31,7 +31,7 @@ import com.WasteManagementSystem.Backend.entity.ProductCat;
 import com.WasteManagementSystem.Backend.repository.ProductCatRepository;
 //import com.WasteManagementSystem.Backend.service.ProductService;
 
-
+import org.springframework.validation.BindingResult;
 
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -43,7 +43,10 @@ public class ProductCatController {
 	
 	
 	@PostMapping("/productCats")
-    public ProductCat createProductCat(@Valid @RequestBody ProductCat productcat) {
+    public ProductCat createProductCat(@Valid @RequestBody ProductCat productcat, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return null;
+        }
         return productcatRepository.save(productcat);
     }
 	

@@ -3,9 +3,10 @@ export class Item {
     title:string;
     category:string;
     image1:string;
-    image2:string;
+    // image2:string;
     price:number;
     details:string;
+    retrievedImage: string;
   
     constructor() { }
   }

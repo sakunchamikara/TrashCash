@@ -22,7 +22,7 @@ import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-
 import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
 import { AddEventComponent } from './modules/events/add-event/add-event.component';
 import { ViewEventComponent } from './modules/events/view-event/view-event.component';
-
+import { UpdateEventComponent } from './modules/events/update-event/update-event.component';
 const routes: Routes = [
   {
     path: '',
@@ -104,6 +104,11 @@ const routes: Routes = [
       {
         path: "viewEvent",
         component:  ViewEventComponent,
+      },
+      {
+        path: 'updateEvents/:id',
+        component: UpdateEventComponent,
+        canActivate: [RouteGuardService],
       }
     ],
   },

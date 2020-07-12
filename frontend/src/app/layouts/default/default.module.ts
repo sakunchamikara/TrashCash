@@ -32,6 +32,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from 'src/app/modules/register/register.component';
 import { ProfileComponent } from 'src/app/modules/profile/profile.component';
 import { CollectedWasteComponent } from 'src/app/modules/collected-waste/collected-waste.component';
+import { UpdateEventComponent } from 'src/app/modules/events/update-event/update-event.component';
+import { ViewEventComponent } from 'src/app/modules/events/view-event/view-event.component';
+import { AddEventComponent } from 'src/app/modules/events/add-event/add-event.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,9 @@ import { CollectedWasteComponent } from 'src/app/modules/collected-waste/collect
     InsertProductsComponent,ViewProductComponent,UpdateProductComponent,
     ProfileComponent,
     CollectedWasteComponent,
+    AddEventComponent,
+    ViewEventComponent,
+    UpdateEventComponent,
   ],
   imports: [
     CommonModule,

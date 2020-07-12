@@ -1,1 +1,64 @@
-<p>view-event works!</p>
+<div class="col-container">
+    <br>
+  
+    <div class="row p1">
+      <div class="">
+  
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb shadow p-3 mb-5 bg-white rounded">
+            <li class="breadcrumb-item"><a href="#"><i class="fad fa-tachometer-alt-fastest"></i> Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">View Events</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-lg-10 col-md-10">
+        <div class="card p2">
+          <div class="card-body ">
+            <!-- <h4 class="card-title">
+                View Product
+              </h4> -->
+  
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h4>Event List</h4>
+              </div>
+              <div class="panel-body">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Event Name</th>
+                      <th>Address</th>
+                      <th>Date</th>
+                      <th>Image</th>
+                      <th>Description</th>               
+                      <th>Action</th>
+  
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let event of events | async">
+                      <td>{{event.eventName}}</td>
+                      <td>{{event.location}}</td>
+                      <td>{{event.date}}</td>
+                      <td>{{event.image}}</td>
+                      <td>{{event.notes}}</td>
+                     
+                      <td><button (click)="deleteEvent(event.id)" class="btn btn-danger">Delete</button>
+                        <button (click)="updateEvent(event.id)" class="btn btn-info"
+                          style="margin-left: 10px">Update</button>
+  
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

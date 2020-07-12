@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,12 +19,10 @@ import { ProfileComponent } from './modules/profile/profile.component';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 import { MatSliderModule } from '@angular/material/slider';
 import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
 import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
-import { AddEventComponent } from './modules/events/add-event/add-event.component';
-import { ViewEventComponent } from './modules/events/view-event/view-event.component';
 
 @NgModule({
   declarations: [
@@ -37,8 +35,7 @@ import { ViewEventComponent } from './modules/events/view-event/view-event.compo
     // InsertProductsComponent,
     InsertCollectedWasteComponent,
     ViewCollectedWasteComponent,
-    AddEventComponent,
-    ViewEventComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -51,10 +48,10 @@ import { ViewEventComponent } from './modules/events/view-event/view-event.compo
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    
+
   ],
-  
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })

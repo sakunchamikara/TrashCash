@@ -10,10 +10,10 @@
           <li class="breadcrumb-item active" aria-current="page">Add Terms</li>
         </ol>
       </nav>
-    </div>
+    </div>       
 
     <div *ngIf="successMsg" class="col-md-6">
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <div  class="alert alert-success alert-dismissible fade show" role="alert">
         {{successMsg}}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -35,18 +35,18 @@
       <div class="card p2">
         <div class="card-body">
           <h4 class="card-title">
-            Add Terms
+           Add Terms
           </h4>
-
-
-          <form (ngSubmit)="onSubmit()" #termForm="ngForm">
-
+        
+          
+     <form (ngSubmit)="onSubmit()" #termForm="ngForm">
+          
             <div class="form-row">
               <div class="form-group col-md-8">
                 <label for="">Term Title</label>
-                <input type="text" class="form-control" id="title" name="title" oninput="validity.valid||(value='');"
-                  required [(ngModel)]="terms.title">
-              </div>
+                <input type="text" class="form-control" id="title"  name="title" oninput="validity.valid||(value='');" required [(ngModel)]="terms.title" >
+              </div>                           
+
             </div>
 
             <div class="form-row">
@@ -65,14 +65,8 @@
                 </textarea>
               </div>
             </div>
-
             <button type="submit" class="btn btn-primary float-right">Create Term</button>
           </form>
-
-          <!--  <div [hidden]="!submitted">
-          <h4>You submitted successfully!</h4>
-    -->
-
         </div>
       </div>
     </div>

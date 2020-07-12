@@ -8,7 +8,7 @@ import { InsertProductsComponent } from 'src/app/modules/products/insert-product
 import { ViewProductComponent } from 'src/app/modules/products/view-product/view-product.component';
 import { UpdateProductComponent } from 'src/app/modules/products/view-product/update-product/update-product.component';
 import { UpdateCollectedWasteComponent } from 'src/app/modules/collected-waste/update-collected-waste/update-collected-waste.component';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { SharedModule } from 'src/app/shared/shared.module';
 import {
@@ -25,6 +25,7 @@ import {
   MatDatepickerModule,
   MatNativeDateModule,
   MatMenuModule,
+
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DashboardService } from 'src/app/modules/dashboard.service';
@@ -34,6 +35,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from 'src/app/modules/register/register.component';
 import { ProfileComponent } from 'src/app/modules/profile/profile.component';
 import { CollectedWasteComponent } from 'src/app/modules/collected-waste/collected-waste.component';
+import { UpdateEventComponent } from 'src/app/modules/events/update-event/update-event.component';
+import { ViewEventComponent } from 'src/app/modules/events/view-event/view-event.component';
+import { AddEventComponent } from 'src/app/modules/events/add-event/add-event.component';
 
 
 import { InsertCollectedWasteComponent } from 'src/app/modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
@@ -48,6 +52,8 @@ import { TermsComponent} from 'src/app/modules/terms/terms.component';
 import { AddtermsComponent } from 'src/app/modules/terms/addterms/addterms.component';
 import { ViewtermsComponent} from 'src/app/modules/terms/viewterms/viewterms.component';
 import { UpdateTermsComponent } from 'src/app/modules/terms/update-terms/update-terms.component';
+import { ConfirmationDialogComponent } from 'src/app/modules/confirmation-dialog/confirmation-dialog.component';
+import { CollectedWasteServiceService } from 'src/app/service/collected-waste-service.service';
 
 @NgModule({
   declarations: [
@@ -61,6 +67,9 @@ import { UpdateTermsComponent } from 'src/app/modules/terms/update-terms/update-
     UpdateProductComponent,
     ProfileComponent,
     CollectedWasteComponent,
+    AddEventComponent,
+    ViewEventComponent,
+    UpdateEventComponent,
    // ProductCatComponent,
     InsertCollectedWasteComponent,
     ViewCollectedWasteComponent,
@@ -75,6 +84,7 @@ import { UpdateTermsComponent } from 'src/app/modules/terms/update-terms/update-
     AddtermsComponent,
     ViewtermsComponent,
     UpdateTermsComponent,
+    ConfirmationDialogComponent 
   ],
   imports: [
     CommonModule,
@@ -97,7 +107,11 @@ import { UpdateTermsComponent } from 'src/app/modules/terms/update-terms/update-
     MatDatepickerModule,
     MatNativeDateModule,
     MatMenuModule,
+    NgbModule,
+   
   ],
-  providers: [DashboardService],
+  providers: [DashboardService,
+              CollectedWasteServiceService],
+  entryComponents: [ConfirmationDialogComponent ],
 })
 export class DefaultModule {}

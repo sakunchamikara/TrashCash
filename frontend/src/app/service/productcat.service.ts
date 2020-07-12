@@ -30,4 +30,8 @@ export class ProductcatService {
   updateProductCat(id: number, value: any): Observable<Object> {
     return this.http.put(`${this.baseUrl}/${id}`, value);
   }
+  
+  getProductCatDropdownValues(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`);
+  }
 }

@@ -24,8 +24,11 @@ public class Product {
 	@NotNull
     private String category;
 	
-    private String image1;
+//    private String image1;
 	
+    @Column(name = "image1", length = 1000)
+	private byte[] image1;
+    
 	private String image2;
 //	@NotEmpty
 //	@Min(10)
@@ -40,7 +43,7 @@ public class Product {
 	public Product() {
 		}
 	
-	public Product ( int id ,String title,String category ,String image1,String image2,float price ,String details) {	
+	public Product ( int id ,String title,String category ,byte[] image1,String image2,float price ,String details) {	
 		super();
 		this.id = id;
 		this.title = title;
@@ -73,11 +76,11 @@ public class Product {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public String getImage1() {
+	public byte[] getImage1() {
 		return image1;
 	}
 
-	public void setImage1(String image1) {
+	public void setImage1(byte[] image1) {
 		this.image1 = image1;
 	}
 	

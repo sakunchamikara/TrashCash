@@ -7,19 +7,23 @@ import { AuthserviceService } from 'src/app/service/authservice.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(
-    private authservice: AuthserviceService
-  ) {}
+  constructor(private authservice: AuthserviceService) {}
 
   @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
 
-  ngOnInit() {}
+  isUserLoggedIn: any;
+
+  ngOnInit() {
+  }
 
   toggleSideBar() {
+    this.isUserLoggedIn=this.authservice.isUserLoggedIn();
+    if(this.isUserLoggedIn){
     this.toggleSideBarForMe.emit();
     setTimeout(() => {
-      window.dispatchEvent(new Event("resize"));
+      window.dispatchEvent(new Event('resize'));
     }, 300);
+  }
   }
 
 }

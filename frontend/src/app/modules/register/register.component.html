@@ -53,7 +53,7 @@
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput type="password" placeholder="Password Again" name="passwordAgain" (ngModel)="user.password"
+          <input matInput type="password" placeholder="Confirm Password" name="passwordAgain" (ngModel)="user.password"
             #cpassword="ngModel" required [class.is-invalid]="cpassword.invalid && cpassword.touched">
           <!-- class binding->from ui to class file -->
         </mat-form-field>
@@ -62,7 +62,7 @@
 
       </mat-card-content>
       <div class="button">
-        <button mat-stroked-button color="accent" [disabled]="registerform.form.invalid" type="submit"
+        <button mat-stroked-button color="accent" [disabled]="registerform.form.invalid || !(cpassword.value == password.value)" type="submit"
           class="btn-block">Register</button>
       </div>
 

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-
 import { User } from 'src/app/pojo/user';
 import { AuthserviceService } from 'src/app/service/authservice.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { FlexAlignStyleBuilder } from '@angular/flex-layout';
 
 @Component({
   selector: 'app-profile',
@@ -17,6 +17,7 @@ export class ProfileComponent implements OnInit {
   hide = true;
   msg = '';
   user: User;
+  profilepictureFlag = false;
 
   constructor(
     private authService: AuthserviceService,
@@ -29,24 +30,11 @@ export class ProfileComponent implements OnInit {
   successMsg: any;
   errorMsg: any;
   public selectedFile: any = File;
-  imgURL: any ;
-  imageUploadFlag = null;
+  imgURL: any;
 
   ngOnInit() {
     this.email = this.authService.getAuthenticatedUser();
-    this.user = new User(
-      null,
-      '',
-      '',
-      new Date(),
-      '',
-      '',
-      '',
-      '',
-      null,
-      '',
-      ''
-    );
+    this.user = new User();
     this.authService.getUser(this.email).subscribe((data) => {
       this.user = data;
       this.user.propic = 'data:image/jpeg;base64,' + data.image;
@@ -61,20 +49,24 @@ export class ProfileComponent implements OnInit {
     reader.onload = (event2) => {
       this.imgURL = reader.result;
     };
+    this.profilepictureFlag = true;
   }
 
   updateUserProfile() {
-    console.log(this.imgURL);
-    const uploadData = new FormData();
-    if (this.imageUploadFlag) {
+    if (this.profilepictureFlag) {
+      const uploadData = new FormData();
       uploadData.append('imageFile', this.selectedFile);
       this.httpClient
         .post('http://localhost:8080/profilePicture', uploadData, {
           observe: 'response',
         })
         .subscribe(
-          (response) => {},
-          (error) => {}
+          (response) => {
+            console.log(response);
+          },
+          (error) => {
+            console.log(error);
+          }
         );
     }
     this.authService.updateUserProfile(this.user).subscribe(

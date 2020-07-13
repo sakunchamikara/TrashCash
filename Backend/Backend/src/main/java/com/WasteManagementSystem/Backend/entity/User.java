@@ -1,8 +1,6 @@
 package com.WasteManagementSystem.Backend.entity;
 
 import java.util.Arrays;
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +17,6 @@ public class User {
 	private int id;
 	private String fisrtName;
 	private String lastName;
-	private Date birthday;
 	private String userType;
 	private String gender;
 	private String email;
@@ -32,12 +29,11 @@ public class User {
 	public User() {
 	}
 
-	public User(int id, String fisrtName, String lastName, Date birthday, String userType, String gender, String email,
+	public User(int id, String fisrtName, String lastName, String userType, String gender, String email,
 			String password, byte[] image, int contactNumber) {
 		this.id = id;
 		this.fisrtName = fisrtName;
 		this.lastName = lastName;
-		this.birthday = birthday;
 		this.userType = userType;
 		this.gender = gender;
 		this.email = email;
@@ -68,14 +64,6 @@ public class User {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
-	}
-
-	public Date getBirthday() {
-		return birthday;
-	}
-
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
 	}
 
 	public String getUserType() {
@@ -128,12 +116,10 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [birthday=" + birthday + ", contactNumber=" + contactNumber + ", email=" + email + ", fisrtName="
-				+ fisrtName + ", gender=" + gender + ", id=" + id + ", image=" + Arrays.toString(image) + ", lastName="
-				+ lastName + ", password=" + password + ", userType=" + userType + "]";
+		return "User [contactNumber=" + contactNumber + ", email=" + email + ", fisrtName=" + fisrtName + ", gender="
+				+ gender + ", id=" + id + ", image=" + Arrays.toString(image) + ", lastName=" + lastName + ", password="
+				+ password + ", userType=" + userType + "]";
 	}
-
-	
 
 	
 

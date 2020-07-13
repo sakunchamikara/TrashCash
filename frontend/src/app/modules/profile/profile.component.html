@@ -49,9 +49,8 @@
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="">BirthDay</label>
-                <input type="date" class="form-control" name="birthday" [ngModel]="user.birthday | date:'yyyy-MM-dd'"
-                  (ngModel)="todo.targetDate = $event" required>
+                <label for="">Contact Number</label>
+                <input type="text" class="form-control" name="contactNumber" [(ngModel)]="user.contactNumber" required>
               </div>
               <div class="form-group col-md-6">
                 <label for="">Role</label>
@@ -75,10 +74,6 @@
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="">Contact Number</label>
-                <input type="text" class="form-control" name="contactNumber" [(ngModel)]="user.contactNumber" required>
-              </div>
-              <div class="form-group col-md-6">
                 <label for="">Profile picture</label>
                 <input type="file" accept="image/*" (change)="onSelectFile($event)" class="form-control" name="image">
                 <img [src]="imgURL" height="100" width="100" *ngIf="imgURL">
@@ -91,7 +86,7 @@
                   #password="ngModel">
               </div>
               <div class="form-group col-md-6">
-                <label for="">Password Again</label>
+                <label for="">Confirm Password</label>
                 <input type="password" class="form-control" name="passwordAgain" [(ngModel)]="user.password" required
                   #cpassword="ngModel" [class.is-invalid]="cpassword.invalid && cpassword.touched">
               </div>

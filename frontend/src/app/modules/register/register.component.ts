@@ -14,8 +14,8 @@ export class RegisterComponent implements OnInit {
   Gender: any = ['male', 'female'];
   hide = true;
   msg = '';
-  user = new User(0, '', '', new Date(), '', '', '', '', null, '');
-  errorMessage:string;
+  user = new User();
+  errorMessage: string;
   constructor(private authService: AuthserviceService, private route: Router) {}
 
   ngOnInit() {}

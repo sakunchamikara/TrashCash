@@ -39,7 +39,7 @@
         
         <button mat-button [matMenuTriggerFor]="shop" [routerLinkActive]="['mat-raised-button']">SHOP</button>
       <mat-menu #shop="matMenu" >
-        <button mat-menu-item *ngFor="let c1 of listItems" [value]="c1" routerLink="/customer/shop">
+        <button mat-menu-item *ngFor="let c1 of listItems" [value]="c1" routerLink="/customer/shop" (click)="goto(c1)">
           {{c1}}
         </button>
       </mat-menu>

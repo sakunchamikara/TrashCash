@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductcatService } from 'src/app/service/productcat.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,8 @@ import { ProductcatService } from 'src/app/service/productcat.service';
 export class NavbarComponent implements OnInit {
 
   constructor(
-    private service:ProductcatService) { }
+    private service:ProductcatService,
+    private router: Router) { }
 
   public listItems: Array<string> = [];
 
@@ -24,6 +26,11 @@ this.service.getProductCatDropdownValues().subscribe(data=>{
     this.listItems.push(element["name"])
   });
 })
+  }
+
+  goto(name: string){
+    this.router.navigate(['customer','shop',name]);
+
   }
 
 }

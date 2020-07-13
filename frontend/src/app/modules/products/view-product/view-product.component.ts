@@ -34,7 +34,7 @@ export class ViewProductComponent implements OnInit {
     //get books returned by the api call
     this.productsRecieved = response;
     for (const product of this.productsRecieved) {
-    
+
       const bookwithRetrievedImageField = new Item();
       bookwithRetrievedImageField.id = product.id;
       bookwithRetrievedImageField.title = product.title;
@@ -46,6 +46,7 @@ export class ViewProductComponent implements OnInit {
       bookwithRetrievedImageField.price = product.price;
       bookwithRetrievedImageField.details = product.details;
       this.products.push(bookwithRetrievedImageField);
+      console.log(product);
     }
   }
 
@@ -62,6 +63,6 @@ export class ViewProductComponent implements OnInit {
   updateProduct(id: number){
     this.router.navigate(['system','UpdateProducts',id]);
   }
-  
+
 }
 //

@@ -9,6 +9,7 @@ export class User {
     public email: string,
     public password: string,
     public contactNumber: number,
-    public imageUrl: string
+    public image: string,
+    public propic: string
   ) {}
 }

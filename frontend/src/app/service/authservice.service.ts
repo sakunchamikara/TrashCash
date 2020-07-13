@@ -47,7 +47,7 @@ export class AuthserviceService {
     return this.http.put<User>(`http://localhost:8080/updateUser`, user);
   }
 
-  updateUserProfileWithImage(formdata: FormData): Observable<any> {
-    return this.http.put(`http://localhost:8080/updateUserWithImage`, formdata);
-  }
+  // updateUserProfileWithImage(formdata: FormData): Observable<any> {
+  //   return this.http.put(`http://localhost:8080/updateUserWithImage`, formdata);
+  // }
 }

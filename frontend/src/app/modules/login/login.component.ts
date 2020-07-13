@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  user = new User(null, '', '', new Date(), '', '', '', '', null, '');
+  user = new User(null, '', '', new Date(), '', '', '', '', null, '','');
   msg = '';
 
   constructor(private service: AuthserviceService, private route: Router) {}

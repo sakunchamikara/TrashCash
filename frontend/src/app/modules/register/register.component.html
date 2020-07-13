@@ -22,10 +22,8 @@
         </mat-form-field>
 
         <mat-form-field>
-          <mat-label>Enter birthday </mat-label>
-          <input matInput [matDatepicker]="picker" name="birthday" [(ngModel)]="user.birthday" required>
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
+          <mat-label>Contact Number </mat-label>
+          <input matInput  name="contactNumber" [(ngModel)]="user.contactNumber" required>
         </mat-form-field>
 
         <mat-form-field>

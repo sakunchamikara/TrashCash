@@ -28,10 +28,6 @@ this.service.getProductCatDropdownValues().subscribe(data=>{
 })
   }
 
-  goto(name: string){
-    this.router.navigate(['customer','shop',name]);
-
-  }
 
 }
 

@@ -8,14 +8,13 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ShopComponent implements OnInit {
 
-  name: String;
+  
 
   constructor(private router: Router,private route: ActivatedRoute) { }
 
   ngOnInit() {
     
-    this.name = this.route.snapshot.params['name'];
-    console.log(this.name);
+    
   }
 
 }

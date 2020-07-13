@@ -1,7 +1,7 @@
 package com.WasteManagementSystem.Backend.entity;
 
-import java.util.Date;
-
+import java.util.Arrays;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,29 +17,28 @@ public class User {
 	private int id;
 	private String fisrtName;
 	private String lastName;
-	private Date birthday;
 	private String userType;
 	private String gender;
 	private String email;
 	private String password;
-	private String imageUrl;
+
+	@Column(name = "image", length = 1000)
+	private byte[] image;
 	private int contactNumber;
 
 	public User() {
 	}
 
-	public User(int id, String fisrtName, String lastName, Date birthday, String userType, String gender, String email,
-			String password, String imageUrl, int contactNumber) {
-		super();
+	public User(int id, String fisrtName, String lastName, String userType, String gender, String email,
+			String password, byte[] image, int contactNumber) {
 		this.id = id;
 		this.fisrtName = fisrtName;
 		this.lastName = lastName;
-		this.birthday = birthday;
 		this.userType = userType;
 		this.gender = gender;
 		this.email = email;
 		this.password = password;
-		this.imageUrl = imageUrl;
+		this.image = image;
 		this.contactNumber = contactNumber;
 	}
 
@@ -67,14 +66,6 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public Date getBirthday() {
-		return birthday;
-	}
-
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
-	}
-
 	public String getUserType() {
 		return userType;
 	}
@@ -89,13 +80,6 @@ public class User {
 
 	public void setGender(String gender) {
 		this.gender = gender;
-	}
-
-	@Override
-	public String toString() {
-		return "User [birthday=" + birthday + ", contactNumber=" + contactNumber + ", email=" + email + ", fisrtName="
-				+ fisrtName + ", gender=" + gender + ", id=" + id + ", imageUrl=" + imageUrl + ", lastName=" + lastName
-				+ ", password=" + password + ", userType=" + userType + "]";
 	}
 
 	public String getEmail() {
@@ -114,12 +98,12 @@ public class User {
 		this.password = password;
 	}
 
-	public String getImageUrl() {
-		return imageUrl;
+	public byte[] getImage() {
+		return image;
 	}
 
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
+	public void setImage(byte[] image) {
+		this.image = image;
 	}
 
 	public int getContactNumber() {
@@ -128,6 +112,13 @@ public class User {
 
 	public void setContactNumber(int contactNumber) {
 		this.contactNumber = contactNumber;
+	}
+
+	@Override
+	public String toString() {
+		return "User [contactNumber=" + contactNumber + ", email=" + email + ", fisrtName=" + fisrtName + ", gender="
+				+ gender + ", id=" + id + ", image=" + Arrays.toString(image) + ", lastName=" + lastName + ", password="
+				+ password + ", userType=" + userType + "]";
 	}
 
 	

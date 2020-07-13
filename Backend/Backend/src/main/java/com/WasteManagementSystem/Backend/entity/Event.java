@@ -2,11 +2,13 @@ package com.WasteManagementSystem.Backend.entity;
 import javax.validation.constraints.NotNull;
 
 //import org.hibernate.validator.constraints.Range;
+// import org.hibernate.validator.constraints.Range;
 import java.sql.Date;
 
 //import javax.validation.constraints.NotEmpty;
 //import javax.validation.constraints.Min;
 //import javax.persistence.Column;
+// import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

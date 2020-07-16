@@ -6,59 +6,53 @@
 
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb shadow p-3 mb-5 bg-white rounded">
-          <li class="breadcrumb-item"><a href="#"><i class="fad fa-tachometer-alt-fastest"></i> Dashboard</a></li>
+          <li class="breadcrumb-item"><a href="#"><i class="fad fa-tachometer-alt-fastest"></i> Home</a></li>
           <li class="breadcrumb-item active" aria-current="page">View Product</li>
         </ol>
       </nav>
     </div>
+    
+    
   </div>
 
   <div class="row">
-    <div class="col-lg-10 col-md-10">
+    <div class="col-lg-9 col-md-9">
       <div class="card p2">
-        <div class="card-body ">
-          <!-- <h4 class="card-title">
-              View Product
-            </h4> -->
-
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              <h4>Prdouct List</h4>
-            </div>
-            <div class="panel-body">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th>Title</th>
-                    <th>Category</th>
-                    <th>Image1</th>
-                    <th>Image2</th>
-                    <th>Price</th>
-                    <th>Description</th>
-                    <th>Action</th>
-
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let product of products | async">
-                    <td>{{product.title}}</td>
-                    <td>{{product.category}}</td>
-                    <td>{{product.image1}}</td>
-                    <td>{{product.image2}}</td>
-                    <td>{{product.price}}</td>
-                    <td>{{product.details}}</td>
-                    <td><button (click)="deleteProduct(product.id)" class="btn btn-danger">Delete</button>
-                      <button (click)="updateProduct(product.id)" class="btn btn-info"
-                        style="margin-left: 10px">Update</button>
-
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+        <div class="card-body" *ngFor="let product of products">
+          <h4 class="card-title">
+            {{product.category}}
+          </h4>
+          <div class="container row">
+            <div class="col-md-4" *ngFor="let product of products;let i=index">
+                <div class="card card-block">
+                    <img class="custom-image-style" img src="{{product.retrievedImage}}" height="300" width="200" style="margin-left: 60px;
+                  margin-top: 10px">
+                    <div class="book-desc-container row">
+                        <div>
+                            <p style="margin-left: 60px"><strong>{{product.title}}: ${{product.price}}</strong></p>
+                            <p style="margin-left: 60px">{{product.details}}</p>
+                        </div>
+                        <!-- <div class="offset-md-4 col-md-4">
+                            <button class="btn btn-primary btn-sm" (click)="addToCart(book.id)"
+                               >Add To Cart</button>
+                        </div> -->
+                    </div>
+          
+                </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+
+    </div><!-- col-lg-12 Finish -->
+
+    
+      
+    </div> 
   </div>
-</div>
+  <!-- row Finish -->
+
+  
+    
+
+    

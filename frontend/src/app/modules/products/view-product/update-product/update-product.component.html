@@ -48,13 +48,14 @@
                 
               </div>
               <div class="form-group col-md-6">
-                <label for="name">Category</label>
-                <select class="form-control" id="category" required [(ngModel)]="product.category" name="category" >
-
-                  <option>Plastic</option>
-                  <option>Paper</option>
-                  <option>E-Waste</option>
-              </select>
+                <label for="contactMethod">Category</label>
+                    <select 
+                     name="category" 
+                     id="category" 
+                     class="form-control"
+                     [(ngModel)]="product.category">
+                     <option *ngFor="let c1 of listItems" [value]="c1">{{c1}}</option>
+                    </select>
                 <!-- <input type="text" class="form-control" id="category" required [(ngModel)]="product.category" name="category" #category="ngModel" [ngClass]="{ 'is-invalid': todoForm.submitted && category.invalid }"> -->
 
               </div>

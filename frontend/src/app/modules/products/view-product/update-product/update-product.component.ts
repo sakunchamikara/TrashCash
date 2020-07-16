@@ -5,6 +5,7 @@ import { Item} from 'src/app/pojo/item';
 import { ProductService } from 'src/app/service/product.service';
 import { ActivatedRoute,Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { ProductcatService } from 'src/app/service/productcat.service';
 
 @Component({
   selector: 'app-update-product',
@@ -21,7 +22,9 @@ export class UpdateProductComponent implements OnInit {
   product : Item;
 
   constructor(private route: ActivatedRoute,private router: Router,
-    private productService: ProductService, private httpClient: HttpClient) { }
+    private productService: ProductService, private httpClient: HttpClient , private service:ProductcatService) { }
+
+    public listItems: Array<string> = [];
 
 
   ngOnInit() {
@@ -36,7 +39,19 @@ export class UpdateProductComponent implements OnInit {
       
       this.product = data;
     }, error => console.log(error));
+
+    this.dropdownRefresh();
   }
+
+  dropdownRefresh(){
+    this.service.getProductCatDropdownValues().subscribe(data=>{
+     console.log(data);
+      data.forEach(element => {
+        this.listItems.push(element["name"])
+      });
+    })
+      }
+
   public onFileChanged(event) {
     console.log(event);
     this.selectedFile = event.target.files[0];

@@ -41,15 +41,19 @@ export class CollectedWasteComponent implements OnInit {
     this.router.navigate(['system', 'UpdateCollectedWastes', id]);
   }
 
-  public openConfirmationDialog(id:number) {
-    this.collectedWasteService.confirm('Please confirm..', 'Do you really want to delete?')
-    .then((confirmed) => {
-          // console.log('User confirmed:', confirmed);
-          if(confirmed==true){
-            this.deleteCollectedWaste(id);
-          }
-    })
-    .catch(() => console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'));
+  public openConfirmationDialog(id: number) {
+    this.collectedWasteService
+      .confirm('Please confirm..', 'Do you really want to delete?')
+      .then((confirmed) => {
+        // console.log('User confirmed:', confirmed);
+        if (confirmed == true) {
+          this.deleteCollectedWaste(id);
+        }
+      })
+      .catch(() =>
+        console.log(
+          'User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'
+        )
+      );
   }
-
 }

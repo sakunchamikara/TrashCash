@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit ,Input } from '@angular/core';
+import { ProductcatService } from 'src/app/service/productcat.service';
 import { NgForm } from '@angular/forms';
 import { Item } from 'src/app/pojo/item';
 import { ProductService } from 'src/app/service/product.service';
@@ -18,14 +19,24 @@ export class InsertProductsComponent implements OnInit {
   private selectedFile;
   imgURL: any;
 
-  constructor(
-    private productService: ProductService,
-    private router: Router,
-    private httpClient: HttpClient
-  ) {}
+  constructor(private productService:ProductService,private router: Router , private httpClient: HttpClient , private service:ProductcatService) { }
+
+  public listItems: Array<string> = [];
   successMsg: any;
   errorMsg: any;
-  ngOnInit() {}
+  ngOnInit() {
+    this.dropdownRefresh();
+  }
+  
+
+  dropdownRefresh(){
+    this.service.getProductCatDropdownValues().subscribe(data=>{
+     console.log(data);
+      data.forEach(element => {
+        this.listItems.push(element["name"])
+      });
+    })
+      }
 
   public onFileChanged(event) {
     console.log(event);

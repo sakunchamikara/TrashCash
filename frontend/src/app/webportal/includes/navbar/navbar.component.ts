@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductcatService } from 'src/app/service/productcat.service';
+import { ProductService } from 'src/app/service/product.service';
 import { Router } from '@angular/router';
+import { Item } from 'src/app/pojo/item';
 
 @Component({
   selector: 'app-navbar',
@@ -8,9 +10,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  products: Array<Item>;
 
   constructor(
-    private service:ProductcatService,
+    private service:ProductcatService ,
     private router: Router) { }
 
   public listItems: Array<string> = [];
@@ -28,7 +31,9 @@ this.service.getProductCatDropdownValues().subscribe(data=>{
 })
   }
 
-
+  ViewCategory(category: String){
+    this.router.navigate(['customer','shop',category]);
+  }
 }
 
 export class MenuOverviewExample {}

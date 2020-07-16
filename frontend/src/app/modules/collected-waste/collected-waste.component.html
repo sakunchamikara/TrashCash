@@ -59,7 +59,9 @@
           <td>{{collectedWaste.invoiceNo}}</td>
           <td>{{collectedWaste.date}}</td>
          
-          <td><button (click)="deleteCollectedWaste(collectedWaste.id)" class="btn btn-danger">Delete</button>
+          <td>
+            <!-- <button (click)="deleteCollectedWaste(collectedWaste.id)" class="btn btn-danger">Delete</button> -->
+            <button (click)="openConfirmationDialog(collectedWaste.id)" class="btn btn-danger">Delete</button>
             <button (click)="updateCollectedWaste(collectedWaste.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
               
           </td>
@@ -67,7 +69,7 @@
       </tbody>
     </table>
   </div>
-
+  
 </div>
 </div>
 

@@ -71,9 +71,9 @@ public class TermsController {
 
         terms.setTitle(termsDetails.getTitle());
         terms.setTurl(termsDetails.getTurl());
-        console.log("urlll"+termsDetails.getTurl());
+      //  console.log("urlll"+termsDetails.getTurl());
         terms.setTdiscrip(termsDetails.getTdiscrip());
-       console.log("discripp")+termsDetails.getTdiscrip();
+      // console.log("discripp")+termsDetails.getTdiscrip();
 
         final Terms updatedTerms = termsrepo.save(terms);
         return ResponseEntity.ok(updatedTerms);

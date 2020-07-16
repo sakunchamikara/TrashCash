@@ -3,6 +3,7 @@ export class Category {
     name:string;
     description:string;
     img:string;
+    retrievedImg: string;
    
   
     constructor() { }

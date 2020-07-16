@@ -1,25 +1,23 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class NewtermsService {
-
-  private baseUrl = 'http://localhost:8080/terms';
-  constructor(private http:HttpClient) { }
+  private baseUrl = "http://localhost:8080/terms";
+  constructor(private http: HttpClient) {}
 
   createNewterm(terms: Object): Observable<Object> {
     return this.http.post<any>(`${this.baseUrl}`, terms);
-    
   }
   getNewtermList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
 
   deleteTerm(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: "text" });
   }
 
   getTerms(id: number): Observable<any> {

@@ -3,10 +3,11 @@ import { Item } from '../pojo/item';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-
+//pull
 @Injectable({
   providedIn: 'root'
 })
+//new comment
 export class ProductService {
 
   private baseUrl = 'http://localhost:8080/products';
@@ -29,5 +30,16 @@ export class ProductService {
 
   updateProduct(id: number, value: any): Observable<Object> {
     return this.http.put(`${this.baseUrl}/${id}`, value);
+  }
+
+  getProductListByCategory(category: String): Observable<any> {
+    let uri = `http://localhost:8080/getProduct/${category}`;
+    return this.http.get(uri)
+    
+  }
+
+  //
+  getProductCatDropdownValues(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`);
   }
 }

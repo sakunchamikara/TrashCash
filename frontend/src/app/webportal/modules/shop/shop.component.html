@@ -1,17 +1,58 @@
-<mat-card>
-  <div class="box">
-    <h2>TrashCash</h2>
-    <h2>TrashCash</h2>
-    <h2>TrashCash</h2>
-    <h2>TrashCash</h2>
-    <h2>TrashCash</h2>
-    <h2>TrashCash</h2>
-    <h2>TrashCash</h2>
-    <h2>TrashCash</h2>
-    <h2>TrashCash</h2>
-    <h2>TrashCash</h2>
-    <h2>TrashCash</h2>
-    <h2>TrashCash</h2>
-    <h2>TrashCash</h2>
+<div class="col-container">
+  <br>
+
+  <div class="row p1">
+    <div class="">
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb shadow p-3 mb-5 bg-white rounded">
+          <li class="breadcrumb-item"><a href="#"><i class="fad fa-tachometer-alt-fastest"></i> Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">View Product</li>
+        </ol>
+      </nav>
+    </div>
+    
+    
   </div>
-</mat-card>
+
+  <div class="row">
+    <div class="col-lg-9 col-md-9">
+      <div class="card p2">
+        <div class="card-body" *ngFor="let product of products">
+          <h4 class="card-title">
+            {{product.category}}
+          </h4>
+          <div class="container row">
+            <div class="col-md-4" *ngFor="let product of products;let i=index">
+                <div class="card card-block">
+                    <img class="custom-image-style" img src="{{product.retrievedImage}}" height="300" width="200" style="margin-left: 60px;
+                  margin-top: 10px">
+                    <div class="book-desc-container row">
+                        <div>
+                            <p style="margin-left: 60px"><strong>{{product.title}}: ${{product.price}}</strong></p>
+                            <p style="margin-left: 60px">{{product.details}}</p>
+                        </div>
+                        <!-- <div class="offset-md-4 col-md-4">
+                            <button class="btn btn-primary btn-sm" (click)="addToCart(book.id)"
+                               >Add To Cart</button>
+                        </div> -->
+                    </div>
+          
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- col-lg-12 Finish -->
+
+    
+      
+    </div> 
+  </div>
+  <!-- row Finish -->
+
+  
+    
+
+    

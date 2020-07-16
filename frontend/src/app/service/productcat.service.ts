@@ -1,33 +1,40 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';  
-import { Observable } from 'rxjs';  
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
 //import { ItemCat } from 'src/app/pojo/item-cat';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class ProductcatService {
+  private baseUrl = "http://localhost:8080/productCats";
 
-  private baseUrl = 'http://localhost:8080/productCats';
-
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getProductCatList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
 
-  createProductCat(productcat: object): Observable<object> {  
-    return this.http.post<any>(`${this.baseUrl}` , productcat);  
-  }  
+  createProductCat(productcat: object): Observable<object> {
+    return this.http.post<any>("http://localhost:8080/productCats", productcat);
+  }
+  // public registerUserFromRemote(user: User): Observable<any> {
+  //   return this.http.post<any>("http://localhost:8080/registerUser", user);
+  // }
 
-  deleteProductCat(pCatId: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${pCatId}`, { responseType: 'text' });
+  deleteProductCat(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: "text" });
   }
 
-  getProductCat(pCatId: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${pCatId}`);
+  getProductCat(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${id}`);
   }
- 
 
+  updateProductCat(id: number, value: any): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/${id}`, value);
+  }
+  
+  getProductCatDropdownValues(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`);
+  }
 }

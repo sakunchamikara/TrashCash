@@ -26,13 +26,15 @@ import { ViewCollectedWasteComponent } from './modules/collected-waste/view-coll
 
 import { InsertProductCatComponent } from './modules/product-cat/insert-product-cat/insert-product-cat.component';
 import { ViewProductCatComponent } from './modules/product-cat/view-product-cat/view-product-cat.component';
+import { UpdateProductCatComponent } from './modules/product-cat/update-product-cat/update-product-cat.component';
 
 import { AddEventComponent } from './modules/events/add-event/add-event.component';
 import { ViewEventComponent } from './modules/events/view-event/view-event.component';
-import { TermsComponent} from './modules/terms/terms.component';
-import { AddtermsComponent} from './modules/terms/addterms/addterms.component';
-import {ViewtermsComponent} from './modules/terms/viewterms/viewterms.component';
-import{UpdateTermsComponent} from './modules/terms/update-terms/update-terms.component';
+import { UpdateEventComponent } from './modules/events/update-event/update-event.component';
+import { TermsComponent } from './modules/terms/terms.component';
+import { AddtermsComponent } from './modules/terms/addterms/addterms.component';
+import { ViewtermsComponent } from './modules/terms/viewterms/viewterms.component';
+import { UpdateTermsComponent } from './modules/terms/update-terms/update-terms.component';
 
 const routes: Routes = [
   {
@@ -49,7 +51,7 @@ const routes: Routes = [
         component: WelcomeComponent,
       },
       {
-        path: 'shop',
+        path: 'shop/:category',
         component: ShopComponent,
       },
     ],
@@ -95,7 +97,6 @@ const routes: Routes = [
         component: UpdateProductComponent,
         canActivate: [RouteGuardService],
       },
-      
       {
         path: 'collectedWaste',
         component: CollectedWasteComponent,
@@ -116,31 +117,15 @@ const routes: Routes = [
         component: ViewCollectedWasteComponent,
         canActivate: [RouteGuardService],
       },
-      // {
-
-      //   path: "productCat",
-      //   component:  ProductCatComponent,
-      // },
       {
-        path: "productCats",
-        component:  InsertProductCatComponent,
+        path: 'productCats',
+        component: InsertProductCatComponent,
+        canActivate: [RouteGuardService],
       },
       {
-        path: "viewProductCat",
-        component:  ViewProductCatComponent,
-      },
-      // {
-
-      //   path: "productCat",
-      //   component:  ProductCatComponent,
-      // },
-      {
-        path: "productCats",
-        component:  InsertProductCatComponent,
-      },
-      {
-        path: "viewProductCat",
-        component:  ViewProductCatComponent,
+        path: 'viewProductCat',
+        component: ViewProductCatComponent,
+        canActivate: [RouteGuardService],
       },
       {
         path: 'addEvent',
@@ -148,19 +133,18 @@ const routes: Routes = [
         canActivate: [RouteGuardService],
       },
       {
-
-        path: "viewEvent",
-        component:  ViewEventComponent,
-
-      },
-      // {
-
-      //   path: 'viewEvent',
-      //   component: ViewEventComponent,
-      // },
-      {
         path: 'viewEvent',
         component: ViewEventComponent,
+        canActivate: [RouteGuardService],
+      },
+      {
+        path: 'updateEvents/:id',
+        component: UpdateEventComponent,
+        canActivate: [RouteGuardService],
+      },
+      {
+        path: 'UpdateCollectedWastes/:id',
+        component: UpdateCollectedWasteComponent,
         canActivate: [RouteGuardService],
       },
       {
@@ -184,6 +168,11 @@ const routes: Routes = [
       {
         path: 'UpdateTerms/:id',
         component: UpdateTermsComponent,
+      },
+
+      {
+        path: 'UpdateProductCats/:id',
+        component: UpdateProductCatComponent,
       },
 
     ],

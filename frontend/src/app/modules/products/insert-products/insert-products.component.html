@@ -47,27 +47,37 @@
                 
               </div>
               <div class="form-group col-md-6">
-                <label for="name">Category</label>
+                <label for="contactMethod">Category</label>
+                    <select 
+                     name="category" 
+                     id="category" 
+                     class="form-control"
+                     [(ngModel)]="product.category">
+                     <option *ngFor="let c1 of listItems" [value]="c1">{{c1}}</option>
+                    </select>
+                <!-- <label for="name">Category</label>
                 <select class="form-control" id="category" required [(ngModel)]="product.category" name="category" >
                   <option>Plastic</option>
                   <option>Paper</option>
                   <option>E-Waste</option>
-              </select>
+              </select> -->
                 <!-- <input type="text" class="form-control" id="category" required [(ngModel)]="product.category" name="category" #category="ngModel" [ngClass]="{ 'is-invalid': todoForm.submitted && category.invalid }"> -->
                 
               </div>
             </div>
             <div class="form-row">
-              <div class="form-group col-md-6">                
-                <label for="name">Image 1</label>
-                <input type="file" class="form-control" name="image1"> 
+              <div class="form-group col-md-6">       
+                <input type="file" (change)="onFileChanged($event)">
+                <img [src]="imgURL" height="200" width="200" *ngIf="imgURL">
+                <!-- <label for="name">Image 1</label>
+                <input type="file" class="form-control" name="image1">  -->
                 <!-- <input type="text" class="form-control" id="image1" required [(ngModel)]="product.image1" name="image1">  -->
               </div>
-              <div class="form-group col-md-6">
+              <!-- <div class="form-group col-md-6">
                 <label for="name">Image 2</label>
                 <input type="file" class="form-control" name="image2">
-                <!-- <input type="text" class="form-control" id="image2" required [(ngModel)]="product.image2" name="image2"> -->
-              </div>
+                <input type="text" class="form-control" id="image2" required [(ngModel)]="product.image2" name="image2"> 
+              </div> -->
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">

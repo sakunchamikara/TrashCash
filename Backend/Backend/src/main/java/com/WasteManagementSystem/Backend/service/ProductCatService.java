@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.WasteManagementSystem.Backend.entity.ProductCat;
-import com.WasteManagementSystem.Backend.entity.User;
+// import com.WasteManagementSystem.Backend.entity.User;
 import com.WasteManagementSystem.Backend.repository.ProductCatRepository;
 
 @Service

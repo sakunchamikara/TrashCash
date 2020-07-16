@@ -70,7 +70,6 @@ import { CollectedWasteServiceService } from 'src/app/service/collected-waste-se
     AddEventComponent,
     ViewEventComponent,
     UpdateEventComponent,
-   // ProductCatComponent,
     InsertCollectedWasteComponent,
     ViewCollectedWasteComponent,
     UpdateCollectedWasteComponent ,
@@ -78,13 +77,12 @@ import { CollectedWasteServiceService } from 'src/app/service/collected-waste-se
     InsertProductCatComponent,
     ViewProductCatComponent,
     UpdateProductCatComponent,
-    //UpdateCollectedWasteComponent,
     UpdateCollectedWasteComponent,
     TermsComponent,
     AddtermsComponent,
     ViewtermsComponent,
     UpdateTermsComponent,
-    ConfirmationDialogComponent 
+    ConfirmationDialogComponent
   ],
   imports: [
     CommonModule,
@@ -108,7 +106,7 @@ import { CollectedWasteServiceService } from 'src/app/service/collected-waste-se
     MatNativeDateModule,
     MatMenuModule,
     NgbModule,
-   
+
   ],
   providers: [DashboardService,
               CollectedWasteServiceService],

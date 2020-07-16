@@ -12,6 +12,10 @@ import {ActivatedRoute, Router } from '@angular/router';
 })
 export class ShopComponent implements OnInit {
 
+  constructor(private router: Router,private route: ActivatedRoute) { }
+
+  ngOnInit() {
+    
   products: Array<Item>;
   productsRecieved: Array<Item>;
 

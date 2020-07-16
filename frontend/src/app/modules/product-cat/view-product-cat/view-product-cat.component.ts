@@ -12,8 +12,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./view-product-cat.component.scss']
 })
 export class ViewProductCatComponent implements OnInit {
-
-productCats: Observable<Category[]>;
+  productCats: Array<Category>
+  productCatsRecieved: Array<Category>;
+//productCats: Observable<Category[]>;
 
   constructor(private productcatService: ProductcatService,
     private router: Router) { }
@@ -23,7 +24,30 @@ productCats: Observable<Category[]>;
   }
 
   reloadData() {
-    this.productCats = this.productcatService.getProductCatList();
+    //this.productCats = this.productcatService.getProductCatList();
+    this.productcatService.getProductCatList().subscribe(
+      response => this.handleSuccessfulResponse(response));
+
+  }
+
+  handleSuccessfulResponse(response) {
+    this.productCats = new Array<Category>();
+   
+    this.productCatsRecieved = response;
+    for (const productCat of this.productCatsRecieved) {
+    
+      const bookwithRetrievedImageField = new Category();
+      bookwithRetrievedImageField.id = productCat.id;
+      bookwithRetrievedImageField.name = productCat.name;
+      bookwithRetrievedImageField.description = productCat.description;
+      //populate retrieved image field so that product image can be displayed
+      bookwithRetrievedImageField.retrievedImg = 'data:image/jpeg;base64,' + productCat.img;
+      bookwithRetrievedImageField.img=productCat.img;
+      // bookwithRetrievedImageField.image2=product.image2;
+      // bookwithRetrievedImageField.price = product.price;
+      // bookwithRetrievedImageField.details = product.details;
+      this.productCats.push(bookwithRetrievedImageField);
+    }
   }
 
   deleteProductCat(id: number) {

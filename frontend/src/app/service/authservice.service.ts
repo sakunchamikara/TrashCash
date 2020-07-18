@@ -1,19 +1,19 @@
-import { Injectable } from '@angular/core';
-import { User } from '../pojo/user';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { Injectable } from "@angular/core";
+import { User } from "../pojo/user";
+import { Observable } from "rxjs";
+import { HttpClient } from "@angular/common/http";
+import { map } from "rxjs/operators";
 
-export const AUTHENTICATED_USER = 'authenticaterUser';
+export const AUTHENTICATED_USER = "authenticaterUser";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class AuthserviceService {
   constructor(private http: HttpClient) {}
 
   public loginUserFromRemote(user: User): Observable<any> {
-    return this.http.post<any>('http://localhost:8080/loginUser', user).pipe(
+    return this.http.post<any>("http://localhost:8080/loginUser", user).pipe(
       map((data) => {
         sessionStorage.setItem(AUTHENTICATED_USER, user.email);
         return data;
@@ -22,7 +22,7 @@ export class AuthserviceService {
   }
 
   public registerUserFromRemote(user: User): Observable<any> {
-    return this.http.post<any>('http://localhost:8080/registerUser', user);
+    return this.http.post<any>("http://localhost:8080/registerUser", user);
   }
 
   getAuthenticatedUser() {

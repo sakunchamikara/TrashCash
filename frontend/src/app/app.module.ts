@@ -31,7 +31,7 @@ import { ViewCollectedWasteComponent } from './modules/collected-waste/view-coll
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatToolbarModule, MatButtonModule, MatMenuModule, MatIconModule 
+    MatToolbarModule, MatButtonModule, MatMenuModule, MatIconModule
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

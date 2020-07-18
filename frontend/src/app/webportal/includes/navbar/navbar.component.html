@@ -19,9 +19,21 @@
             <mat-icon>person_outline</mat-icon>
           </button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item routerLink="/system/logout">
-              <mat-icon>exit_to_app</mat-icon>
-              Sign out
+            <button mat-menu-item routerLink="/customer/login">
+              <i class="fas fa-sign-in-alt"></i>
+              Login
+            </button>
+            <button mat-menu-item routerLink="/customer/register">
+              <i class="fas fa-user"></i>
+              Register
+            </button>
+            <button mat-menu-item routerLink="/customer/profile">
+              <i class="fas fa-user"></i>
+              profile
+            </button>
+            <button mat-menu-item routerLink="/customer/logout">
+              <i class="fas fa-sign-out-alt"></i>
+             Logout
             </button>
           </mat-menu>
         </li>
@@ -35,24 +47,18 @@
     <div fxFlex fxLayout="row" fxLayoutAlign="start center">
       <!-- <span style="font-weight: 600;"> TrashCash </span> -->
       <div class="example-button-row">
-        <button mat-button [routerLink]="['/customer/welcome']" [routerLinkActive]="['mat-raised-button']" >HOME</button>
-        
-        <button mat-button [matMenuTriggerFor]="shop" [routerLinkActive]="['mat-raised-button']">SHOP</button>
-<!--       <mat-menu #shop="matMenu" > -->
-<!--         <button mat-menu-item *ngFor="let c1 of listItems" [value]="c1" routerLink="/customer/shop" > -->
-                
-      <mat-menu #shop="matMenu">
-        <!-- <button mat-menu-item  *ngFor="let product of products" *ngFor="let c1 of listItems" [value]="c1" routerLink="/customer/shop">
-          {{c1}}
-        </button> -->
-        
-        <button mat-menu-item *ngFor="let c1 of listItems" [value]="c1" (click)="ViewCategory(c1)">
+        <button mat-button [routerLink]="['/customer/welcome']" [routerLinkActive]="['mat-raised-button']">HOME</button>
 
-          {{c1}}
-        </button> 
-       
-      </mat-menu> 
-      
+        <button mat-button [matMenuTriggerFor]="shop" [routerLinkActive]="['mat-raised-button']">SHOP</button>
+
+        <mat-menu #shop="matMenu">
+          <button mat-menu-item *ngFor="let c1 of listItems" [value]="c1" (click)="ViewCategory(c1)">
+
+            {{c1}}
+          </button>
+
+        </mat-menu>
+
         <button mat-button [routerLinkActive]="['mat-raised-button']">MY ACCOUNT</button>
         <button mat-button [routerLinkActive]="['mat-raised-button']">SHOPPING CART</button>
         <button mat-button [routerLinkActive]="['mat-raised-button']">CONTACT US</button>

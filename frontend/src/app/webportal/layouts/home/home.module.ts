@@ -7,11 +7,19 @@ import { MatSidenavModule, MatDividerModule, MatCardModule, MatPaginatorModule, 
 import { WelcomeComponent } from '../../modules/welcome/welcome.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ShopComponent } from '../../modules/shop/shop.component';
+import { CustomerLoginComponent } from '../../modules/customer-login/customer-login.component';
+import { CustomerRegisterComponent } from '../../modules/customer-register/customer-register.component';
 
 
 
 @NgModule({
-  declarations: [HomeComponent, WelcomeComponent, ShopComponent],
+  declarations: [
+    HomeComponent,
+    WelcomeComponent,
+    ShopComponent,
+    CustomerLoginComponent,
+    CustomerRegisterComponent,
+  ],
   imports: [
     CommonModule,
     RouterModule,

@@ -27,4 +27,18 @@ public class CustomerAuthController {
         return userObj;
     }
 
+    @PostMapping("/loginCustomer")
+    public Customer loginUser(@RequestBody Customer customer) throws Exception {
+        String tempEmail = customer.getEmail();
+        String tempPass = customer.getPassword();
+        Customer userObj = null;
+        if (tempEmail != null && tempPass != null) {
+            userObj = CustomerAuthService.fetchCustomerByEmailAndPassword(tempEmail, tempPass);
+        }
+        if (userObj == null) {
+            throw new Exception("Bad credentials !!!");
+        }
+
+        return userObj;
+    }
 }

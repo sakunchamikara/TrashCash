@@ -22,11 +22,9 @@ export class CustomerRegisterComponent implements OnInit {
   registerCustomer() {
     this.authService.registerCustomer(this.customer).subscribe(
       (data) => {
-        console.log(data);
         this.route.navigate(['/customer/login']);
       },
       (error) => {
-        console.log(error);
         this.errorMessage = error.error.message;
       }
     );

@@ -10,6 +10,7 @@ import { ShopComponent } from '../../modules/shop/shop.component';
 import { CustomerLoginComponent } from '../../modules/customer-login/customer-login.component';
 import { CustomerRegisterComponent } from '../../modules/customer-register/customer-register.component';
 import { FormsModule } from '@angular/forms';
+import { CartComponent } from '../../modules/cart/cart.component';
 
 
 
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     ShopComponent,
     CustomerLoginComponent,
     CustomerRegisterComponent,
+    CartComponent,
   ],
   imports: [
     FormsModule,

@@ -34,6 +34,7 @@ this.service.getProductCatDropdownValues().subscribe(data=>{
   ViewCategory(category: String){
     this.router.navigate(['customer','shop',category]);
   }
+  
 }
 
 export class MenuOverviewExample {}

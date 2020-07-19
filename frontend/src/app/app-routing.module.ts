@@ -32,6 +32,7 @@ import { ViewtermsComponent } from './modules/terms/viewterms/viewterms.componen
 import { UpdateTermsComponent } from './modules/terms/update-terms/update-terms.component';
 import { CustomerLoginComponent } from './webportal/modules/customer-login/customer-login.component';
 import { CustomerRegisterComponent } from './webportal/modules/customer-register/customer-register.component';
+import { WasteRequestComponent } from './webportal/modules/waste-request/waste-request.component';
 
 
 
@@ -60,6 +61,10 @@ const routes: Routes = [
       {
         path: 'register',
         component: CustomerRegisterComponent,
+      },
+      {
+        path: 'waste-request',
+        component: WasteRequestComponent,
       }
     ],
   },

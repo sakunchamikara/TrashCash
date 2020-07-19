@@ -9,28 +9,41 @@
           </div>
           <div class="card-body">
             <!-- Login form-->
-            <form>
+            <small class="text-danger">{{msg}}</small>
+            <form #loginform="ngForm" (ngSubmit)="loginCustomer()">
               <!-- Form Group (email address)-->
               <div class="form-group">
                 <label class="small mb-1" for="inputEmailAddress">Email</label>
-                <input class="form-control py-4" id="inputEmailAddress" type="email" placeholder="Enter email address">
+                <input class="form-control py-4" id="inputEmailAddress" type="email" placeholder="Enter email address"
+                  name="email" [(ngModel)]="customer.email"
+                  pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required #email="ngModel"
+                  [class.is-invalid]="email.invalid && email.touched">
+                  <div *ngIf="email.errors && (email.invalid && email.touched)">
+                    <small class="text-danger" *ngIf="email.errors.required">Email is a required field</small>
+                    <small class="text-danger" *ngIf="email.errors.pattern">Enter valid email pattern</small>
+                  </div>
               </div>
+
               <!-- Form Group (password)-->
               <div class="form-group">
                 <label class="small mb-1" for="inputPassword">Password</label>
-                <input class="form-control py-4" id="inputPassword" type="password" placeholder="Enter password">
+                <input class="form-control py-4" id="inputPassword" type="password" placeholder="Enter password"
+                  name="password" [(ngModel)]="customer.password" required #password="ngModel"
+                  [class.is-invalid]="password.invalid && password.touched">
+                <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is a required
+                  field</small>
               </div>
               <!-- Form Group (remember password checkbox)-->
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <div class="custom-control custom-checkbox">
                   <input class="custom-control-input" id="rememberPasswordCheck" type="checkbox">
                   <label class="custom-control-label" for="rememberPasswordCheck">Remember password</label>
                 </div>
-              </div>
+              </div> -->
               <!-- Form Group (login box)-->
               <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-                <a class="small" href="auth-password-basic.html">Forgot Password?</a>
-                <a class="btn btn-primary" href="index.html">Login</a>
+                <a class="small">Forgot Password?</a>
+                <button class="btn btn-primary" type="submit" [disabled]="loginform.form.invalid">Login</button>
               </div>
             </form>
           </div>

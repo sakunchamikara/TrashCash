@@ -10,7 +10,12 @@ import { ProfileComponent } from './modules/profile/profile.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { MatToolbarModule, MatButtonModule, MatMenuModule, MatIconModule } from '@angular/material';
+import {
+  MatToolbarModule,
+  MatButtonModule,
+  MatMenuModule,
+  MatIconModule,
+} from '@angular/material';
 import { MatSliderModule } from '@angular/material/slider';
 import { InsertProductCatComponent } from './modules/product-cat/insert-product-cat/insert-product-cat.component';
 import { ViewProductCatComponent } from './modules/product-cat/view-product-cat/view-product-cat.component';
@@ -18,7 +23,6 @@ import { FormsModule } from '@angular/forms';
 import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
 import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
 
-//updated
 @NgModule({
   declarations: [AppComponent, LogoutComponent],
   imports: [
@@ -31,7 +35,10 @@ import { ViewCollectedWasteComponent } from './modules/collected-waste/view-coll
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatToolbarModule, MatButtonModule, MatMenuModule, MatIconModule
+    MatToolbarModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatIconModule,
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

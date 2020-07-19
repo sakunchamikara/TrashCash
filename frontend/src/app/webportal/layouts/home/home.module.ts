@@ -10,6 +10,8 @@ import { ShopComponent } from '../../modules/shop/shop.component';
 import { CustomerLoginComponent } from '../../modules/customer-login/customer-login.component';
 import { CustomerRegisterComponent } from '../../modules/customer-register/customer-register.component';
 import { WasteRequestComponent } from '../../modules/waste-request/waste-request.component';
+import { FormsModule } from '@angular/forms';
+import { CartComponent } from '../../modules/cart/cart.component';
 
 
 
@@ -21,8 +23,10 @@ import { WasteRequestComponent } from '../../modules/waste-request/waste-request
     CustomerLoginComponent,
     CustomerRegisterComponent,
     WasteRequestComponent,
+    CartComponent,
   ],
   imports: [
+    FormsModule,
     CommonModule,
     RouterModule,
     IncludeModule,

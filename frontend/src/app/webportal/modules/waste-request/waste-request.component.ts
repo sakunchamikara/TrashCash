@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { WasteRequest } from 'src/app/webportal/pojo/waste-request';
+import { CustomerWasteRequestService } from '../../services/customer-waste-request.service';
 
 @Component({
   selector: 'app-waste-request',
@@ -8,20 +10,38 @@ import { Component, OnInit } from '@angular/core';
 export class WasteRequestComponent implements OnInit {
 
   Types: any = ['Plastic', 'Paper', 'E-Waste'];
+  wasteRequest = new WasteRequest();
+  submitted = false;
 
-  constructor() { }
+
+  constructor(private customerWasteRequestService:CustomerWasteRequestService) { }
+
+  successMsg: any;
+  errorMsg: any;
 
   ngOnInit() {
 
-    this.wasteRequest();
   }
 
-  wasteRequest(){
-    console.log("Test");
-   
-  }
+  
   onSubmit(){
+    this.submitted = true;
+    this.save();
+  }
+  save(){
+    this.customerWasteRequestService.createCustomerWasteRequest(this.wasteRequest)
+    .subscribe(
+      (data)=>{console.log(data);
+        this.wasteRequest = new WasteRequest();
+        this.successMsg = `waste added successfully !`;
+        console.log(this.successMsg)
+        this.gotoList();
+      }
+    );
+  }
 
+  gotoList(){
+    
   }
 
 }

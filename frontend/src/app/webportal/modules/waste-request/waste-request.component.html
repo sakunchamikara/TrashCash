@@ -44,17 +44,17 @@
       <div class="form-row">
         <div class="form-group col-md-12">
         <label for="wasteType">Waste Type</label>
-        <!-- <select class="form-control" name="wasteType" id="wasteType" [(ngModel)]="collectedWaste.wasteType" placeholder="Enter waste type" required>
+        <select class="form-control" name="wasteType" id="wasteType" [(ngModel)]="wasteRequest.wasteType" placeholder="Enter waste type" required>
           <option [value]="type" *ngFor="let type of Types">{{type}}</option>
           
-        </select> -->
+        </select>
         </div>
       </div>
   
       <div class="form-row">
         <div class="form-group col-md-12">
         <label for="quantity">Quantity</label>
-        <!-- <input type="number" class="form-control" name="quantity" id="quantity"  min="1" oninput="validity.valid||(value='');" placeholder="Enter Waste Quantity in grams" [(ngModel)]="collectedWaste.quantity" required #quantity="ngModel"> -->
+        <input type="number" class="form-control" name="quantity" id="quantity"  min="1" oninput="validity.valid||(value='');" placeholder="Enter Waste Quantity in grams" [(ngModel)]="wasteRequest.quantity" required #quantity="ngModel">
         </div>
       </div>
   

@@ -1,58 +1,57 @@
-<div class="col-container">
+<div class="container">
+
   <br>
-
-  <div class="row p1">
-    <div class="">
-
-      <nav aria-label="breadcrumb">
+  <div class="row">
+    <div class="col">
+      <nav aria-label="breadcrumb" style="width: 250px;">
         <ol class="breadcrumb shadow p-3 mb-5 bg-white rounded">
           <li class="breadcrumb-item"><a href="#"><i class="fad fa-tachometer-alt-fastest"></i> Home</a></li>
-          <li class="breadcrumb-item active" aria-current="page">View Product</li>
+          <li class="breadcrumb-item active" aria-current="page">Products</li>
         </ol>
       </nav>
     </div>
-    
-    
   </div>
 
   <div class="row">
-    <div class="col-lg-9 col-md-9">
-      <div class="card p2">
-        <div class="card-body" *ngFor="let product of products">
-          <h4 class="card-title">
-            {{product.category}}
-          </h4>
-          <div class="container row">
-            <div class="col-md-4" *ngFor="let product of products;let i=index">
-                <div class="card card-block">
-                    <img class="custom-image-style" img src="{{product.retrievedImage}}" height="300" width="200" style="margin-left: 60px;
-                  margin-top: 10px">
-                    <div class="book-desc-container row">
-                        <div>
-                            <p style="margin-left: 60px"><strong>{{product.title}}: ${{product.price}}</strong></p>
-                            <p style="margin-left: 60px">{{product.details}}</p>
-                        </div>
-                        <!-- <div class="offset-md-4 col-md-4">
-                            <button class="btn btn-primary btn-sm" (click)="addToCart(book.id)"
-                               >Add To Cart</button>
-                        </div> -->
-                    </div>
-          
-                </div>
-            </div>
-          </div>
-        </div>
+
+    <div class="col-lg-3">
+
+      <div class="list-group">
+        <a href="#" class="list-group-item" *ngFor="let category of categoryList">{{category.name}}</a>
       </div>
 
-    </div><!-- col-lg-12 Finish -->
+    </div>
+    <!-- /.col-lg-3 -->
 
-    
-      
-    </div> 
+    <div class="col-lg-9">
+
+      <div class="row">
+
+        <div class="col-lg-4 col-md-6 mb-4" *ngFor="let product of productList;">
+          <div class="card h-100 text-center">
+            <a href="#"><img class="card-img-top p-3" src="{{'data:image/jpeg;base64,'+product.image1}}" height="200"
+                width="100" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">{{product.title}}</a>
+              </h4>
+              <h5>Rs. {{product.price}}</h5>
+              <button type="button" class="btn btn-outline-success">View Details</button>
+            </div>
+            <!-- <div class="card-footer">
+              <small class="text-muted">★ ★ ★ ★ ☆</small>
+            </div> -->
+          </div>
+        </div>
+
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.col-lg-9 -->
+
   </div>
-  <!-- row Finish -->
+  <!-- /.row -->
 
-  
-    
-
-    
+</div>

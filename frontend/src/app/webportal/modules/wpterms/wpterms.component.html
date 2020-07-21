@@ -1,0 +1,41 @@
+
+<div class="container">
+  <br>
+
+  <div class="row p1">
+    <div class="">
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb shadow p-3 mb-5 bg-white rounded">
+          <li class="breadcrumb-item"><a href="#"><i class="fad fa-tachometer-alt-fastest"></i> Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">View Terms</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6 col-md-6">
+      <div class="card p2">
+
+  <div class="card w-100">
+    <div class="card-body" style="text-align: center;" *ngFor="let term of terms | async">
+      <div class="card card-block">
+      <h5 class="card-title"> {{term.title}}</h5>
+      <p class="card-text">{{term.turl}}</p>
+      
+      <button type="submit" class="btn btn-primary float-right" [routerLink]="['/system/termdiscrip']">View Term Discription</button>
+     
+    
+      
+    
+    </div>
+    </div>
+  </div>
+
+  
+
+    </div>
+  </div>
+</div>
+</div>

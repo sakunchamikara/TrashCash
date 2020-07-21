@@ -30,6 +30,8 @@ import { TermsComponent } from './modules/terms/terms.component';
 import { AddtermsComponent } from './modules/terms/addterms/addterms.component';
 import { ViewtermsComponent } from './modules/terms/viewterms/viewterms.component';
 import { UpdateTermsComponent } from './modules/terms/update-terms/update-terms.component';
+import { WptermsComponent} from './webportal/modules/wpterms/wpterms.component';
+import { TermdiscripComponent} from './modules/terms/termdiscrip/termdiscrip.component';
 import { CustomerLoginComponent } from './webportal/modules/customer-login/customer-login.component';
 import { CustomerRegisterComponent } from './webportal/modules/customer-register/customer-register.component';
 import { WasteRequestComponent } from './webportal/modules/waste-request/waste-request.component';
@@ -52,7 +54,7 @@ const routes: Routes = [
         component: WelcomeComponent,
       },
       {
-        path: 'shop/:category',
+        path: 'shop',
         component: ShopComponent,
       },
       {
@@ -69,7 +71,12 @@ const routes: Routes = [
       },{
         path: 'cart',
         component: CartComponent
-      }
+      },
+      {
+        path: 'wpterms',
+        component: WptermsComponent,
+      },
+
     ],
   },
   {
@@ -182,10 +189,13 @@ const routes: Routes = [
         component: ViewtermsComponent,
       },
       {
+        path: 'termdiscrip',
+        component: TermdiscripComponent,
+      },
+      {
         path: 'UpdateTerms/:id',
         component: UpdateTermsComponent,
       },
-
       {
         path: 'UpdateProductCats/:id',
         component: UpdateProductCatComponent,

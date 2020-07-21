@@ -13,7 +13,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class InsertProductCatComponent implements OnInit {
   productCat = new Category();
+  
   submitted = false;
+  public listItems: Array<string> = [];
 
   
   @Input()
@@ -31,13 +33,16 @@ export class InsertProductCatComponent implements OnInit {
   msg = '';
   errorMsg: string;
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.productcatService.getProductCatDropdownValues().subscribe(data=>{
+      console.log(data);
+       data.forEach(element => {
+         this.listItems.push(element["name"])
+       });
+     })
+  }
 
-  // newProductCat(): void {
-  //   this.submitted = false;
-  //   this.productCat = new Category();
-  // }
-
+  
   save() {
     const uploadData = new FormData();
 
@@ -73,6 +78,7 @@ export class InsertProductCatComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     this.save();
+    
   }
 
   gotoList() {
@@ -90,4 +96,26 @@ export class InsertProductCatComponent implements OnInit {
     };
 
   }
+
+  // checkName(Cname: string){
+  //   this.productcatService
+  //   .getProducCatListByName(Cname)
+  //   .subscribe(
+  //     data => {
+  //       console.log(data);
+  //       if (data.length==0) {
+  //         console.log("noo");
+  //         this.openConfirmationDialog(id);
+  //       }
+  //       else{
+  //         console.log("yess");
+          
+  //         this.cancelDeleteDialog();
+          
+  //       }
+        
+  //     }
+  //   )
+    
+  //  }
 }

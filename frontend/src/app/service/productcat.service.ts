@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmationDialogComponent } from '../modules/confirmation-dialog/confirmation-dialog.component';
 //import { ItemCat } from 'src/app/pojo/item-cat';
 
 @Injectable({
@@ -9,7 +11,7 @@ import { Observable } from "rxjs";
 export class ProductcatService {
   private baseUrl = "http://localhost:8080/productCats";
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private modalService: NgbModal) {}
 
   getProductCatList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
@@ -37,4 +39,43 @@ export class ProductcatService {
   getProductCatDropdownValues(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
+
+  public confirm(
+    title: string,
+    message: string,
+    btnOkText: string = 'OK',
+    btnCancelText: string = 'Cancel',
+    dialogSize: 'sm'|'lg' = 'sm'): Promise<boolean> {
+    const modalRef = this.modalService.open(ConfirmationDialogComponent, { size: dialogSize });
+    modalRef.componentInstance.title = title;
+    modalRef.componentInstance.message = message;
+    modalRef.componentInstance.btnOkText = btnOkText;
+    modalRef.componentInstance.btnCancelText = btnCancelText;
+
+    return modalRef.result;
+
+}
+
+getProductCatNameList(): Observable<any> {
+  let url = `http://localhost:8080/getProductCatNames`;
+  return this.http.get(url)
+  
+}
+
+public alert(
+  title: string,
+  message: string,
+  // btnOkText: string = 'OK',
+  // btnCancelText: string = 'Cancel',
+  dialogSize: 'sm'|'lg' = 'sm'): Promise<boolean> {
+  const modalRef = this.modalService.open(ConfirmationDialogComponent, { size: dialogSize });
+  modalRef.componentInstance.title = title;
+  modalRef.componentInstance.message = message;
+  // modalRef.componentInstance.btnOkText = btnOkText;
+  // modalRef.componentInstance.btnCancelText = btnCancelText;
+
+  return modalRef.result;
+
+}
+
 }

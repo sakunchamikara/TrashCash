@@ -7,12 +7,12 @@
     <form class="example-form" #registerform="ngForm" (ngSubmit)="registerUser()">
       <!-- <small [class.text-danger]="msg.status==500">{{msg.message}}</small> -->
       <mat-card-content class="card-content">
-<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="errorMessage">
-  {{errorMessage}}
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="errorMessage">
+          {{errorMessage}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
         <mat-form-field>
           <input matInput placeholder="First Name" name="fname" [(ngModel)]="user.fisrtName" required>
         </mat-form-field>
@@ -23,7 +23,8 @@
 
         <mat-form-field>
           <mat-label>Contact Number </mat-label>
-          <input matInput  name="contactNumber" [(ngModel)]="user.contactNumber" required>
+          <input matInput name="contactNumber" pattern="07[1,2,5,6,7,8][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"
+            [(ngModel)]="user.contactNumber" required>
         </mat-form-field>
 
         <mat-form-field>
@@ -62,7 +63,8 @@
 
       </mat-card-content>
       <div class="button">
-        <button mat-stroked-button color="accent" [disabled]="registerform.form.invalid || !(cpassword.value == password.value)" type="submit"
+        <button mat-stroked-button color="accent"
+          [disabled]="registerform.form.invalid || !(cpassword.value == password.value)" type="submit"
           class="btn-block">Register</button>
       </div>
 

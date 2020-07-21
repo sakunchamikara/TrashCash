@@ -45,19 +45,18 @@
                 <!-- <div *ngIf="todoForm.submitted && title.invalid" class="invalid-feedback">
                   <div *ngIf="title.errors.required">Title is required</div>
               </div> -->
-                
+
               </div>
               <div class="form-group col-md-6">
                 <label for="contactMethod">Category</label>
-                    <select 
-                     name="category" 
-                     id="category" 
+                    <select
+                     name="category"
+                     id="category"
                      class="form-control"
                      [(ngModel)]="product.category">
                      <option *ngFor="let c1 of listItems" [value]="c1">{{c1}}</option>
                     </select>
                 <!-- <input type="text" class="form-control" id="category" required [(ngModel)]="product.category" name="category" #category="ngModel" [ngClass]="{ 'is-invalid': todoForm.submitted && category.invalid }"> -->
-
               </div>
             </div>
             <div class="form-row">
@@ -72,7 +71,7 @@
               <!-- <div class="form-group col-md-6">
                 <label for="name">Image 2</label>
                 <input type="file" class="form-control" name="image2">
-                <input type="text" class="form-control" id="image2" required [(ngModel)]="product.image2" name="image2"> 
+                <input type="text" class="form-control" id="image2" required [(ngModel)]="product.image2" name="image2">
                </div> -->
             </div>
             <div class="form-row">
@@ -86,8 +85,8 @@
                 <!-- <input type="text"  class="form-control" id="details" required [(ngModel)]="product.details" name="details"> -->
               </div>
             </div>
-            
-            
+
+
             <button type="submit" class="btn btn-primary float-right">Submit</button>
             <!-- <button (click)="productlist()" class="btn btn-info" style="margin-left: 700px">Back</button> -->
           </form>

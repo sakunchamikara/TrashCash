@@ -42,7 +42,7 @@ import { AddEventComponent } from 'src/app/modules/events/add-event/add-event.co
 
 import { InsertCollectedWasteComponent } from 'src/app/modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
 import { ViewCollectedWasteComponent } from 'src/app/modules/collected-waste/view-collected-waste/view-collected-waste.component';
-
+import { TermdiscripComponent } from 'src/app/modules/terms/termdiscrip/termdiscrip.component';
 
 
 import { InsertProductCatComponent } from 'src/app/modules/product-cat/insert-product-cat/insert-product-cat.component';
@@ -54,6 +54,7 @@ import { ViewtermsComponent} from 'src/app/modules/terms/viewterms/viewterms.com
 import { UpdateTermsComponent } from 'src/app/modules/terms/update-terms/update-terms.component';
 import { ConfirmationDialogComponent } from 'src/app/modules/confirmation-dialog/confirmation-dialog.component';
 import { CollectedWasteServiceService } from 'src/app/service/collected-waste-service.service';
+import { NewtermsService} from 'src/app/service/newterms.service';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import { CollectedWasteServiceService } from 'src/app/service/collected-waste-se
     AddtermsComponent,
     ViewtermsComponent,
     UpdateTermsComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    TermdiscripComponent,
   ],
   imports: [
     CommonModule,
@@ -109,7 +111,8 @@ import { CollectedWasteServiceService } from 'src/app/service/collected-waste-se
 
   ],
   providers: [DashboardService,
-              CollectedWasteServiceService],
+              CollectedWasteServiceService,
+            NewtermsService],
   entryComponents: [ConfirmationDialogComponent ],
 })
 export class DefaultModule {}

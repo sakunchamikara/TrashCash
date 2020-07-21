@@ -1,0 +1,35 @@
+<div class="col-container">
+    <br>
+  
+    <div class="row p1">
+      <div class="">
+  
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb shadow p-3 mb-5 bg-white rounded">
+            <li class="breadcrumb-item"><a href="#"><i class="fad fa-tachometer-alt-fastest"></i> Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Terms Description</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-5 col-md-5">
+          <div class="card p2">
+
+            <div class="card w-100">
+                <div class="card-body"  *ngFor="let term of terms | async">
+                  <div class="card card-block">
+                 
+                  <p class="card-text"><b>{{term.title}}:</b> <br>
+                    {{term.tdiscrip}}</p>
+
+                </div>
+                </div>
+              </div>
+
+
+            </div>
+        </div>
+    </div>

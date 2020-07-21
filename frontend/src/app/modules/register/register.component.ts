@@ -23,7 +23,6 @@ export class RegisterComponent implements OnInit {
   registerUser() {
     this.authService.registerUserFromRemote(this.user).subscribe(
       (data) => {
-        console.log('response received');
         this.route.navigate(['/system/login']);
       },
       (error) => {

@@ -34,6 +34,7 @@ import { WptermsComponent} from './webportal/modules/wpterms/wpterms.component';
 import { TermdiscripComponent} from './modules/terms/termdiscrip/termdiscrip.component';
 import { CustomerLoginComponent } from './webportal/modules/customer-login/customer-login.component';
 import { CustomerRegisterComponent } from './webportal/modules/customer-register/customer-register.component';
+import { WasteRequestComponent } from './webportal/modules/waste-request/waste-request.component';
 import { CartComponent } from './webportal/modules/cart/cart.component';
 
 
@@ -65,6 +66,9 @@ const routes: Routes = [
         component: CustomerRegisterComponent,
       },
       {
+        path: 'waste-request',
+        component: WasteRequestComponent,
+      },{
         path: 'cart',
         component: CartComponent
       },

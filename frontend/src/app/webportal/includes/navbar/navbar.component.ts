@@ -32,6 +32,7 @@ export class NavbarComponent implements OnInit {
   ViewCategory(category: String) {
     this.router.navigate(['customer', 'shop', category]);
   }
+  
 }
 
 export class MenuOverviewExample {}

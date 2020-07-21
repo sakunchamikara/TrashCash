@@ -24,12 +24,15 @@ export class ShopComponent implements OnInit {
 
   productList: Array<Item>;
   item: Item;
+  productEmptyListFlag = false;
+  activeFlag = '';
+
 
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
     private router: Router,
-    private productCategoryService: ProductcatService,
+    private productCategoryService: ProductcatService
   ) {}
 
   ngOnInit() {
@@ -48,29 +51,49 @@ export class ShopComponent implements OnInit {
   //   console.log('hello');
   // }
 
-  getProductCateories(){
+  getProductCateories() {
     this.productCategoryService.getProductCatList().subscribe(
-      data => {
+      (data) => {
         this.categoryList = data;
       },
-      error => {
+      (error) => {
         console.log(error);
-
       }
     );
   }
 
   getProducts() {
     this.productService.getProductList().subscribe(
-      data => {
+      (data) => {
         this.productList = data;
+        if (data.length > 0) {
+          this.productEmptyListFlag = false;
+        } else {
+          this.productEmptyListFlag = true;
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getCatProduct(category) {
+    this.productService.getProductListByCategory(category).subscribe(
+      data => {
+        this.activeFlag = category;
+        this.productList = data;
+        if (data.length > 0) {
+          this.productEmptyListFlag = false;
+        } else {
+          this.productEmptyListFlag = true;
+        }
       },
       error => {
         console.log(error);
       }
     );
   }
-
   // handleSuccessfulResponse(response) {
   //   this.products = new Array<Item>();
   //   // get books returned by the api call

@@ -50,20 +50,9 @@
         <button mat-button [routerLink]="['/customer/welcome']" [routerLinkActive]="['mat-raised-button']">HOME</button>
 
         <button mat-button [routerLink]="['/customer/shop']" [routerLinkActive]="['mat-raised-button']">SHOP</button>
-        <!-- [matMenuTriggerFor]="shop" -->
-        <!-- <mat-menu #shop="matMenu">
-          <button mat-menu-item *ngFor="let c1 of listItems" [value]="c1" (click)="ViewCategory(c1)">
-            {{c1}}
-          </button>
-        </mat-menu> -->
-
         <button mat-button [routerLinkActive]="['mat-raised-button']">MY ACCOUNT</button>
         <button mat-button [routerLink]="['/customer/cart']"  [routerLinkActive]="['mat-raised-button']" >SHOPPING CART</button>
-        <button mat-button [routerLinkActive]="['mat-raised-button']">CONTACT US</button>
-        <button mat-button [routerLinkActive]="['mat-raised-button']">EVENTS & CAMPAIGNS</button>
         <button mat-button [routerLink]="['/customer/waste-request']">WASTE REQUEST</button>
-        <button mat-button [routerLink]="['/customer/cart']" [routerLinkActive]="['mat-raised-button']">SHOPPING
-          CART</button>
 
         <button mat-button [matMenuTriggerFor]="others" [routerLinkActive]="['mat-raised-button']">OTHERS</button>
         <mat-menu #others="matMenu">

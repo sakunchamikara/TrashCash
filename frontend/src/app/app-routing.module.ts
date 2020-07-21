@@ -68,7 +68,8 @@ const routes: Routes = [
       {
         path: 'waste-request',
         component: WasteRequestComponent,
-      },{
+      },
+      {
         path: 'cart',
         component: CartComponent
       },

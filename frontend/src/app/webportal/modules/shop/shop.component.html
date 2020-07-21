@@ -1,12 +1,13 @@
 <div class="container">
-
-  <br>
-  <div class="row">
-    <div class="col">
-      <nav aria-label="breadcrumb" style="width: 250px;">
-        <ol class="breadcrumb shadow p-3 mb-5 bg-white rounded">
-          <li class="breadcrumb-item"><a href="#"><i class="fad fa-tachometer-alt-fastest"></i> Home</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Products</li>
+  <div class="form-row">
+    <div class="col-md-12">
+      <br>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item " aria-current="page">Products</li>
+          <li class="breadcrumb-item active" *ngIf="!activeFlag" aria-current="page">All</li>
+          <li class="breadcrumb-item active" *ngIf="activeFlag" aria-current="page">{{activeFlag}}</li>
         </ol>
       </nav>
     </div>
@@ -17,15 +18,24 @@
     <div class="col-lg-3">
 
       <div class="list-group">
-        <a href="#" class="list-group-item" *ngFor="let category of categoryList">{{category.name}}</a>
+        <a class="list-group-item " [class.active]="category.name === activeFlag" (click)="getCatProduct(category.name)"
+          *ngFor="let category of categoryList">{{category.name}}</a>
       </div>
-
+      <br>
     </div>
     <!-- /.col-lg-3 -->
 
     <div class="col-lg-9">
 
-      <div class="row">
+      <div class="row" *ngIf="productEmptyListFlag">
+        <div class="card cardcss border-success mb-3">
+          <div class="card-body text-success">
+            <h2 class="card-title"> <i class="fad fa-heart-broken"></i> No Products Available !!! <i
+                class="fal fa-frown-open"></i></h2>
+          </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="!productEmptyListFlag">
 
         <div class="col-lg-4 col-md-6 mb-4" *ngFor="let product of productList;">
           <div class="card h-100 text-center">

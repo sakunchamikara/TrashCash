@@ -1,5 +1,7 @@
 package com.WasteManagementSystem.Backend.entity;
 
+import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,15 +21,19 @@ public class CustomerWasteRequest {
     @NotNull
     private String wasteType;
     @NotNull
-    private int quantity;
+	private int quantity;
+	@NotNull
+	private Date date;
 
 
-    public CustomerWasteRequest(int id, String wasteType, int quantity){
+	public CustomerWasteRequest(){
+
+	}
+    public CustomerWasteRequest(int id, String wasteType, int quantity,Date date,String details){
         super();
         this.id = id;
 		this.quantity = quantity ;
-
-
+		this.date = date;
     }
 
     public int getId() {
@@ -52,6 +58,14 @@ public class CustomerWasteRequest {
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
-    }
+	}
+	
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
     
 }

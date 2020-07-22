@@ -30,14 +30,13 @@ import { TermsComponent } from './modules/terms/terms.component';
 import { AddtermsComponent } from './modules/terms/addterms/addterms.component';
 import { ViewtermsComponent } from './modules/terms/viewterms/viewterms.component';
 import { UpdateTermsComponent } from './modules/terms/update-terms/update-terms.component';
-import { WptermsComponent} from './webportal/modules/wpterms/wpterms.component';
-import { TermdiscripComponent} from './modules/terms/termdiscrip/termdiscrip.component';
+import { WptermsComponent } from './webportal/modules/wpterms/wpterms.component';
+import { TermdiscripComponent } from './modules/terms/termdiscrip/termdiscrip.component';
 import { CustomerLoginComponent } from './webportal/modules/customer-login/customer-login.component';
 import { CustomerRegisterComponent } from './webportal/modules/customer-register/customer-register.component';
 import { WasteRequestComponent } from './webportal/modules/waste-request/waste-request.component';
 import { CartComponent } from './webportal/modules/cart/cart.component';
-
-
+import { ProductDetailsComponent } from './webportal/modules/product-details/product-details.component';
 
 const routes: Routes = [
   {
@@ -71,13 +70,16 @@ const routes: Routes = [
       },
       {
         path: 'cart',
-        component: CartComponent
+        component: CartComponent,
       },
       {
         path: 'wpterms',
         component: WptermsComponent,
       },
-
+      {
+        path: 'product/:id',
+        component: ProductDetailsComponent,
+      },
     ],
   },
   {

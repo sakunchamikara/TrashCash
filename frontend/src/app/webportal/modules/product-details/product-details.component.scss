@@ -1,0 +1,18 @@
+
+.breadcrumb {
+  padding: 8px 15px;
+  margin-bottom: 20px;
+  background: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
+}
+.breadcrumb > li + li:before {
+  content: ">\00a0";
+  color: #cccccc;
+}
+@media (max-width: 991px) {
+  .breadcrumb {
+    padding: 8px 0px;
+    text-align: center;
+  }
+}

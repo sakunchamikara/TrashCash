@@ -12,6 +12,7 @@ import { CustomerRegisterComponent } from '../../modules/customer-register/custo
 import { WasteRequestComponent } from '../../modules/waste-request/waste-request.component';
 import { FormsModule } from '@angular/forms';
 import { CartComponent } from '../../modules/cart/cart.component';
+import { ProductDetailsComponent } from '../../modules/product-details/product-details.component';
 
 
 
@@ -24,6 +25,7 @@ import { CartComponent } from '../../modules/cart/cart.component';
     CustomerRegisterComponent,
     WasteRequestComponent,
     CartComponent,
+    ProductDetailsComponent,
   ],
   imports: [
     FormsModule,

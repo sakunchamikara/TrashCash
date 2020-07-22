@@ -5,16 +5,14 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 //pull
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 //new comment
 export class ProductService {
-
   private baseUrl = 'http://localhost:8080/products';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   createProduct(product: Object): Observable<Object> {
     return this.http.post<any>(`${this.baseUrl}`, product);
-    
   }
   getProductList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
@@ -33,13 +31,17 @@ export class ProductService {
   }
 
   getProductListByCategory(category: String): Observable<any> {
-    let uri = `http://localhost:8080/getProduct/${category}`;
-    return this.http.get(uri)
-    
+    const uri = `http://localhost:8080/getProduct/${category}`;
+    return this.http.get(uri);
   }
 
   //
   getProductCatDropdownValues(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
+  }
+
+  getRandomProducts(): Observable<any> {
+    const url = 'http://localhost:8080/getRandomProduct';
+    return this.http.get(url);
   }
 }

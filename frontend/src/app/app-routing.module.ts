@@ -31,12 +31,12 @@ import { AddtermsComponent } from './modules/terms/addterms/addterms.component';
 import { ViewtermsComponent } from './modules/terms/viewterms/viewterms.component';
 import { UpdateTermsComponent } from './modules/terms/update-terms/update-terms.component';
 import { WptermsComponent } from './webportal/modules/wpterms/wpterms.component';
-import { TermdiscripComponent } from './modules/terms/termdiscrip/termdiscrip.component';
 import { CustomerLoginComponent } from './webportal/modules/customer-login/customer-login.component';
 import { CustomerRegisterComponent } from './webportal/modules/customer-register/customer-register.component';
 import { WasteRequestComponent } from './webportal/modules/waste-request/waste-request.component';
 import { CartComponent } from './webportal/modules/cart/cart.component';
 import { ProductDetailsComponent } from './webportal/modules/product-details/product-details.component';
+import { TermDetailsComponent} from './webportal/modules/term-details/term-details.component';
 
 const routes: Routes = [
   {
@@ -79,6 +79,10 @@ const routes: Routes = [
       {
         path: 'product/:id',
         component: ProductDetailsComponent,
+      },
+      {
+        path: 'terms-details/:id',
+        component: TermDetailsComponent,
       },
     ],
   },
@@ -190,10 +194,6 @@ const routes: Routes = [
       {
         path: 'viewterms',
         component: ViewtermsComponent,
-      },
-      {
-        path: 'termdiscrip',
-        component: TermdiscripComponent,
       },
       {
         path: 'UpdateTerms/:id',

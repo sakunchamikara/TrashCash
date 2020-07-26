@@ -24,8 +24,9 @@ import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-
 import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
 import { WptermsComponent } from './webportal/modules/wpterms/wpterms.component';
 
+
 @NgModule({
-  declarations: [AppComponent, LogoutComponent, WptermsComponent],
+  declarations: [AppComponent, LogoutComponent, WptermsComponent,],
   imports: [
     BrowserModule,
     AppRoutingModule,

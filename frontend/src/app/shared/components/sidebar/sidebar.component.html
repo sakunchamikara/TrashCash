@@ -50,8 +50,10 @@
          <a  mat-menu-item [routerLink]="'/system/viewEvent'" class="btn btn-primary-outline pull-right">  View Events</a>
     </mat-menu>
 
-    <mat-menu mat-menu-item [matM]>
-      <a mat-menu-item [routerLink]="'/system/viewPlacedRequests'"></a>
+    <button mat-menu-item [matMenuTriggerFor]="agent">Agent</button>
+    <mat-menu #agent="matMenu">
+      <a mat-menu-item [routerLink]="'/system/viewPlacedRequests'" class="btn btn-primary-outline pull-right">Pending Waste Requests</a>
+      <a mat-menu-item  class="btn btn-primary-outline pull-right">Confirmed Waste Requests</a>
     </mat-menu>
 
   <mat-divider></mat-divider>

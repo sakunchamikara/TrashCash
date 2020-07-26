@@ -64,6 +64,7 @@ public class CustomerWasteRequestController {
         customerWasteRequest.setWasteType(customerWasteRequestDetails.getWasteType());
         customerWasteRequest.setQuantity(customerWasteRequestDetails.getQuantity());
         customerWasteRequest.setDate(customerWasteRequestDetails.getDate());
+        customerWasteRequest.setCustomer(customerWasteRequestDetails.getCustomer());
        ;
         final CustomerWasteRequest updatedCustomerWasteRequest = customerWasteRequestRepo.save(customerWasteRequest);
         return ResponseEntity.ok(updatedCustomerWasteRequest);

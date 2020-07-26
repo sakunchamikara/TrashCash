@@ -1,1 +1,61 @@
-<p>view-placed-requests works!</p>
+<div class="col-container">
+   
+    <br>
+    <div class="row p1">
+      <div class="">
+  
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb shadow p-3 mb-5 bg-white rounded">
+            <li class="breadcrumb-item"><a href="#"><i class="fad fa-tachometer-alt-fastest"></i> Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">View Waste Requests</li>
+          </ol>
+        </nav>
+      </div>
+     
+    </div>
+
+
+    <div class="row p2">
+
+    
+        <div class="col-lg-9">
+    
+          <div class="row" *ngIf="requestEmptyListFlag">
+            <div class="card cardcss border-success mb-3">
+              <div class="card-body text-success">
+                <h2 class="card-title"> No Waste Requests Available !!!</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row" *ngIf="!requestEmptyListFlag">
+
+           
+            <div class="col-lg-4 col-md-6 mb-4" *ngFor="let retrieveRequest of retrieveRequests;">
+              <div class="card h-100 text-center">
+              
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href="#">Customer : {{retrieveRequest.customer}}</a>
+                  </h4>
+                  <h5>Location : </h5>
+                  <h5>Type : {{retrieveRequest.wasteType}}</h5>
+                  <h5>Quantity : {{retrieveRequest.quantity}}</h5>
+                  <button type="button" class="btn btn-outline-success">Accept</button>
+                </div>
+             
+              </div>
+            </div>
+         
+    
+          </div>
+       
+    
+        </div>
+       
+    
+      </div>
+
+
+
+
+</div>

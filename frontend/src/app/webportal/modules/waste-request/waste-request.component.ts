@@ -31,7 +31,7 @@ export class WasteRequestComponent implements OnInit {
     this.user = new User();
     this.authService.getUser(this.email).subscribe((data) => {
       this.user = data;
-      console.log("testtt"+data.fisrtName)
+    
      
     });
 

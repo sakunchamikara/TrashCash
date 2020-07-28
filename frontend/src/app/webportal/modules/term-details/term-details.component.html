@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="form-row">
+        <div class="col-md-12">
+          <br>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item" routerLink="/customer/wpterm">Terms</li>
+             <!-- <li class="breadcrumb-item active" aria-current="page">{{.category}}</li> -->
+    
+            </ol>
+          </nav>
+        </div>
+      </div>
+    
+      <div class="row">        
+        <div class="col-lg-6" *ngFor="let term of terms | async">
+          <div class="card h-100">
+            <div class="card-body">
+              <h2 class="card-title">{{term.title}}</h2>
+              <hr>
+              <p class="card-text text-muted">Term URL:  {{term.turl}}</p>
+              <p>Term Discription:{{term.tdiscrip}}</p> 
+              
+              
+            </div>
+          </div>
+        </div>
+    
+      </div>
+    
+   
+
+    
+    </div>
+    

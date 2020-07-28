@@ -5,13 +5,13 @@ import { NewtermsService } from 'src/app/service/newterms.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-termdiscrip',
-  templateUrl: './termdiscrip.component.html',
-  styleUrls: ['./termdiscrip.component.scss']
+  selector: 'app-term-details',
+  templateUrl: './term-details.component.html',
+  styleUrls: ['./term-details.component.scss']
 })
-export class TermdiscripComponent implements OnInit {
+export class TermDetailsComponent implements OnInit {
 
-  terms :Observable<Terms[]>;
+  terms: Observable<Terms[]>;
   successMsg: any;
   errorMsg: any;
 
@@ -20,6 +20,7 @@ export class TermdiscripComponent implements OnInit {
   ngOnInit() {
     this.reloadData();
   }
+
   reloadData(){
     this.terms = this.newtermService.getNewtermList();
   }

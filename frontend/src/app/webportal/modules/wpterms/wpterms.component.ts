@@ -19,6 +19,7 @@ export class WptermsComponent implements OnInit {
 
   ngOnInit() {
     this.reloadData();
+  
   }
   reloadData(){
     this.terms = this.newtermService.getNewtermList();

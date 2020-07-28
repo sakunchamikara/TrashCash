@@ -24,6 +24,7 @@ import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-
 import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
 
 
+
 @NgModule({
   declarations: [AppComponent, LogoutComponent, ],
   imports: [

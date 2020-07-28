@@ -36,6 +36,7 @@ import { CustomerRegisterComponent } from './webportal/modules/customer-register
 import { WasteRequestComponent } from './webportal/modules/waste-request/waste-request.component';
 import { CartComponent } from './webportal/modules/cart/cart.component';
 import { ProductDetailsComponent } from './webportal/modules/product-details/product-details.component';
+import { ViewPlacedRequestsComponent } from 'src/app/modules/agent/view-placed-requests/view-placed-requests.component';
 import { TermDetailsComponent} from './webportal/modules/term-details/term-details.component';
 
 const routes: Routes = [
@@ -207,6 +208,10 @@ const routes: Routes = [
         path: 'UpdateProductCats/:id',
         component: UpdateProductCatComponent,
       },
+      {
+        path: 'viewPlacedRequests',
+        component: ViewPlacedRequestsComponent,
+      }
     ],
   },
 ];

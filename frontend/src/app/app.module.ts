@@ -22,11 +22,10 @@ import { ViewProductCatComponent } from './modules/product-cat/view-product-cat/
 import { FormsModule } from '@angular/forms';
 import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
 import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
-import { WptermsComponent } from './webportal/modules/wpterms/wpterms.component';
-import { TermDetailsComponent } from './webportal/modules/term-details/term-details.component';
+
 
 @NgModule({
-  declarations: [AppComponent, LogoutComponent, WptermsComponent, TermDetailsComponent],
+  declarations: [AppComponent, LogoutComponent, ],
   imports: [
     BrowserModule,
     AppRoutingModule,

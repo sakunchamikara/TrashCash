@@ -57,6 +57,10 @@ const routes: Routes = [
         component: ShopComponent,
       },
       {
+        path: 'wpterms',
+        component:WptermsComponent,
+      },
+      {
         path: 'login',
         component: CustomerLoginComponent,
       },

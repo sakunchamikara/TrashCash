@@ -13,7 +13,8 @@ import { WasteRequestComponent } from '../../modules/waste-request/waste-request
 import { FormsModule } from '@angular/forms';
 import { CartComponent } from '../../modules/cart/cart.component';
 import { ProductDetailsComponent } from '../../modules/product-details/product-details.component';
-
+import { WptermsComponent } from '../../modules/wpterms/wpterms.component';
+import { TermDetailsComponent } from '../../modules/term-details/term-details.component';
 
 
 @NgModule({
@@ -26,6 +27,8 @@ import { ProductDetailsComponent } from '../../modules/product-details/product-d
     WasteRequestComponent,
     CartComponent,
     ProductDetailsComponent,
+    WptermsComponent, 
+    TermDetailsComponent,
   ],
   imports: [
     FormsModule,

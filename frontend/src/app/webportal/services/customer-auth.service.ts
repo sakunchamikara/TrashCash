@@ -29,6 +29,10 @@ export class CustomerAuthService {
       );
   }
 
+  getCustomer(email) {
+    return this.http.get<Customer>(`http://localhost:8080/getCustomer/${email}`);
+  }
+
   getAuthenticatedCustomer() {
     return sessionStorage.getItem(AUTHENTICATED_CUSTOMER);
   }

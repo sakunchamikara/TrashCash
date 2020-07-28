@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { AuthserviceService } from 'src/app/service/authservice.service';
 import { Customer } from '../../pojo/customer';
 import { CustomerAuthService } from '../../services/customer-auth.service';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-waste-request',
@@ -17,8 +18,10 @@ export class WasteRequestComponent implements OnInit {
   Types: any = ['Plastic', 'Paper', 'E-Waste'];
   wasteRequest = new WasteRequest();
   retrieveRequests : Observable<WasteRequest[]>
+ 
   submitted = false;
   customer: Customer;
+  name:string;
 
 
   constructor(private customerWasteRequestService:CustomerWasteRequestService,private authService: CustomerAuthService,private route: Router) { }
@@ -26,18 +29,16 @@ export class WasteRequestComponent implements OnInit {
   successMsg: any;
   errorMsg: any;
   email:any;
+  cus : any;
   ngOnInit() {
-
-
-
-   
-  
 
     this.email = this.authService.getAuthenticatedCustomer();
     this.customer = new Customer();
     this.authService.getCustomer(this.email).subscribe((data) => {
       this.customer = data;
-   
+      //  this.cus=JSON.stringify(this.customer.firstName);
+    
+    
      
     });
 
@@ -66,6 +67,9 @@ export class WasteRequestComponent implements OnInit {
   }
   save(){
     this.wasteRequest.date = new Date();
+
+    console.log(this.customer.firstName);
+    this.retrieveRequests=this.customerWasteRequestService.getCustomerWasteRequests(this.customer.firstName);
     this.wasteRequest.customer = this.customer.firstName;
     this.customerWasteRequestService.createCustomerWasteRequest(this.wasteRequest)
     .subscribe(
@@ -73,23 +77,28 @@ export class WasteRequestComponent implements OnInit {
         this.wasteRequest = new WasteRequest();
         this.successMsg = `waste added successfully !`;
         console.log(this.successMsg);
-        this.reloadData();
+         this.reloadData();
         
       }
     );
+   
 
     
   }
 
   reloadData(){
-   this.retrieveRequests=this.customerWasteRequestService.getCustomerWasteRequestList();
+     this.retrieveRequests=this.customerWasteRequestService.getCustomerWasteRequestList();
+    // this.retrieveRequests=this.customerWasteRequestService.getCustomerWasteRequests(this.customer.firstName);
+   
+  
+  
   }
 
   deleteCustomerWasteRequest(id: number) {
     this.customerWasteRequestService.deleteCustomerWasteRequest(id).subscribe(
       (data) => {
         console.log(data);
-        this.reloadData();
+         this.reloadData();
       },
       (error) => console.log(error)
     );

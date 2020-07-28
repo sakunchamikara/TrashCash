@@ -25,18 +25,18 @@
           <h2 class="card-title">{{item.title}}</h2>
           <hr>
           <p class="card-text text-muted">{{item.details}}</p>
-          <h5><em>Rs. {{item.price}}</em></h5>
+          <h5><em>Rs. {{item.price}} </em></h5>
           <br>
-          <form>
+          <form #addToCartForm="ngForm" (ngSubmit)="addToCart()">
             <div class="form-inline">
               <label>Quentity</label>
-              <input type="text" class="form-control mx-sm-3" placeholder="Enter Product Quentity">
+              <input type="text" class="form-control mx-sm-3" placeholder="Enter Product Quentity" required>
             </div>
             <br>
             <hr>
             <div class="form-group float-right">
               <button type="button" class="btn btn-danger"><i class="fas fa-money-bill-wave"></i> Buy Now</button>
-              <button type="button" class="btn btn-warning ml-2" style="color: white;"><i
+              <button type="submit" class="btn btn-warning ml-2" style="color: white;" ><i
                   class="far fa-shopping-cart"></i> Add to Cart</button>
             </div>
           </form>

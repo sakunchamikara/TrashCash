@@ -15,6 +15,7 @@ import { CartComponent } from '../../modules/cart/cart.component';
 import { ProductDetailsComponent } from '../../modules/product-details/product-details.component';
 import { WptermsComponent } from '../../modules/wpterms/wpterms.component';
 import { TermDetailsComponent } from '../../modules/term-details/term-details.component';
+import { CustomerLogoutComponent } from '../../modules/customer-logout/customer-logout.component';
 
 
 @NgModule({
@@ -27,8 +28,9 @@ import { TermDetailsComponent } from '../../modules/term-details/term-details.co
     WasteRequestComponent,
     CartComponent,
     ProductDetailsComponent,
-    WptermsComponent, 
+    WptermsComponent,
     TermDetailsComponent,
+    CustomerLogoutComponent,
   ],
   imports: [
     FormsModule,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/service/product.service';
 import { Item } from 'src/app/pojo/item';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CustomerAuthService } from '../../services/customer-auth.service';
 
 @Component({
   selector: 'app-product-details',
@@ -12,15 +13,18 @@ export class ProductDetailsComponent implements OnInit {
   productEmptyListFlag = false;
   productList: Array<Item>;
   productId: number;
-productImage: string;
+  productImage: string;
 
   item = new Item();
   randomProduct: Array<Item>;
 
+  isCustomerLoggedIn = false;
+
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private customerAuthService: CustomerAuthService
   ) {}
 
   ngOnInit() {
@@ -44,6 +48,7 @@ productImage: string;
       }
     );
   }
+
   getProductById(productId) {
     this.productService.getProduct(productId).subscribe(
       (data) => {
@@ -71,5 +76,13 @@ productImage: string;
     this.router.navigate([`/customer/product/${pid}`]).then(() => {
       window.location.reload();
     });
+  }
+
+  addToCart() {
+    if (this.customerAuthService.isCustomerLoggedIn) {
+      alert('ok');
+    } else {
+      this.router.navigate(['customer/login']);
+    }
   }
 }

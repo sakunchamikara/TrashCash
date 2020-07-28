@@ -37,7 +37,8 @@ import { WasteRequestComponent } from './webportal/modules/waste-request/waste-r
 import { CartComponent } from './webportal/modules/cart/cart.component';
 import { ProductDetailsComponent } from './webportal/modules/product-details/product-details.component';
 import { ViewPlacedRequestsComponent } from 'src/app/modules/agent/view-placed-requests/view-placed-requests.component';
-import { TermDetailsComponent} from './webportal/modules/term-details/term-details.component';
+import { TermDetailsComponent } from './webportal/modules/term-details/term-details.component';
+import { CustomerLogoutComponent } from './webportal/modules/customer-logout/customer-logout.component';
 
 const routes: Routes = [
   {
@@ -59,7 +60,7 @@ const routes: Routes = [
       },
       {
         path: 'wpterms',
-        component:WptermsComponent,
+        component: WptermsComponent,
       },
       {
         path: 'login',
@@ -68,6 +69,10 @@ const routes: Routes = [
       {
         path: 'register',
         component: CustomerRegisterComponent,
+      },
+      {
+        path: 'logout',
+        component: CustomerLogoutComponent,
       },
       {
         path: 'waste-request',
@@ -211,7 +216,7 @@ const routes: Routes = [
       {
         path: 'viewPlacedRequests',
         component: ViewPlacedRequestsComponent,
-      }
+      },
     ],
   },
 ];

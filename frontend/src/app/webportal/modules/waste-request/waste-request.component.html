@@ -1,36 +1,22 @@
 
-  <div class="col-container">
+  <div class="container">
    
     <br>
-    <div class="row p1">
-      <div class="">
-  
+ 
+
+    <div class="form-row">
+      <div class="col-md-12">
+        <br>
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb shadow p-3 mb-5 bg-white rounded">
-            <li class="breadcrumb-item"><a href="#"><i class="fad fa-tachometer-alt-fastest"></i> Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Waste Request</li>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item " aria-current="page">Waste requests</li>
+            <li class="breadcrumb-item active" *ngIf="!activeFlag" aria-current="page">All</li>
+            <li class="breadcrumb-item active" *ngIf="activeFlag" aria-current="page">{{activeFlag}}</li>
           </ol>
         </nav>
       </div>
-      <div *ngIf="successMsg" class="col-md-6">
-        <div  class="alert alert-success alert-dismissible fade show" role="alert">
-          {{successMsg}}
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-      </div>
-      <div *ngIf="errorMsg" class="col-md-6">
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-          {{errorMsg}}
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-      </div>
     </div>
-
-    
 
   <div class="row">
     <div class="col-lg-4 col-md-4">
@@ -69,9 +55,8 @@
 </div>
 
 
-<div class="col-lg-2 col-md-2"></div>
-
-<div class="col-lg-4 col-md-4">
+<div class="col-lg-1 col-md-1"></div>
+<div class="col-lg-6 col-md-6">
   <div class="card p2">
     <div class="card-body ">
       <h4 class="card-title">

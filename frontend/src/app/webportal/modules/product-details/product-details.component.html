@@ -1,5 +1,5 @@
 <div class="container">
-<div class="form-row">
+  <div class="form-row">
     <div class="col-md-12">
       <br>
       <nav aria-label="breadcrumb">
@@ -13,10 +13,17 @@
     </div>
   </div>
 
+  <div class="alert alert-success" role="alert" *ngIf="successMessage">
+    {{successMessage}} <a routerLink='/customer/shop' class="alert-link">Check More Products</a>
+  </div>
+
+  <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+    {{errorMessage}}
+  </div>
+
   <div class="row">
     <div class="col-lg-6">
-      <img class="img-fluid rounded mb-4 mb-lg-0" height="300" width="400"
-        src="{{productImage}}" alt="">
+      <img class="img-fluid rounded mb-4 mb-lg-0" height="300" width="400" src="{{productImage}}" alt="">
     </div>
 
     <div class="col-lg-6">
@@ -30,13 +37,14 @@
           <form #addToCartForm="ngForm" (ngSubmit)="addToCart()">
             <div class="form-inline">
               <label>Quentity</label>
-              <input type="text" class="form-control mx-sm-3" placeholder="Enter Product Quentity" required>
+              <input type="text" class="form-control mx-sm-3" #quentity="ngModel" name="quentity" [(ngModel)]="cart.quentity"
+                placeholder="Enter Product Quentity" required [class.is-invalid]="quentity.invalid && quentity.touched">
             </div>
             <br>
             <hr>
             <div class="form-group float-right">
               <button type="button" class="btn btn-danger"><i class="fas fa-money-bill-wave"></i> Buy Now</button>
-              <button type="submit" class="btn btn-warning ml-2" style="color: white;" ><i
+              <button type="submit" class="btn btn-warning ml-2" style="color: white;" [disabled]="addToCartForm.form.invalid"><i
                   class="far fa-shopping-cart"></i> Add to Cart</button>
             </div>
           </form>
@@ -52,6 +60,8 @@
       <h3 class="text-muted">Check Our Other Products ! <i class="fal fa-smile-beam"></i></h3>
     </div>
   </div>
+
+
 
   <div class="row text-center">
 

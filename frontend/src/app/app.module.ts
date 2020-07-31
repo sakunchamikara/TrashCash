@@ -17,10 +17,12 @@ import { ViewProductCatComponent } from './modules/product-cat/view-product-cat/
 import { FormsModule } from '@angular/forms';
 import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
 import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
+import { ShowEventComponent } from './webportal/modules/show-event/show-event.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
 //updated
 @NgModule({
-  declarations: [AppComponent, LogoutComponent],
+  declarations: [AppComponent, LogoutComponent, ShowEventComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -31,7 +33,8 @@ import { ViewCollectedWasteComponent } from './modules/collected-waste/view-coll
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatToolbarModule, MatButtonModule, MatMenuModule, MatIconModule 
+    MatToolbarModule, MatButtonModule, MatMenuModule, MatIconModule, 
+    ReactiveFormsModule
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

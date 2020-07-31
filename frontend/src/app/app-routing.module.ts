@@ -35,6 +35,7 @@ import { TermsComponent } from './modules/terms/terms.component';
 import { AddtermsComponent } from './modules/terms/addterms/addterms.component';
 import { ViewtermsComponent } from './modules/terms/viewterms/viewterms.component';
 import { UpdateTermsComponent } from './modules/terms/update-terms/update-terms.component';
+import { SendMailComponent } from './modules/send-mail/send-mail.component';
 
 const routes: Routes = [
   {
@@ -174,7 +175,11 @@ const routes: Routes = [
         path: 'UpdateProductCats/:id',
         component: UpdateProductCatComponent,
       },
-
+      
+      { path: 'sendMail',
+        component: SendMailComponent,
+        //canActivate: [RouteGuardService],
+    }
     ],
   },
 ];

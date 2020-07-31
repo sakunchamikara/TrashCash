@@ -40,6 +40,9 @@ import { ProductDetailsComponent } from './webportal/modules/product-details/pro
 import { ViewPlacedRequestsComponent } from 'src/app/modules/agent/view-placed-requests/view-placed-requests.component';
 import { TermDetailsComponent } from './webportal/modules/term-details/term-details.component';
 import { CustomerLogoutComponent } from './webportal/modules/customer-logout/customer-logout.component';
+import { ShowEventComponent } from './webportal/modules/show-event/show-event.component';
+import { EventDetailsComponent } from './webportal/modules/show-event/event-details/event-details.component';
+
 
 const routes: Routes = [
   {
@@ -51,6 +54,14 @@ const routes: Routes = [
     path: 'customer',
     component: HomeComponent,
     children: [
+      {
+        path: 'showevent',
+        component: ShowEventComponent,
+      },
+      {
+        path: 'event-details/:id',
+        component: EventDetailsComponent,
+      },
       {
         path: 'welcome',
         component: WelcomeComponent,

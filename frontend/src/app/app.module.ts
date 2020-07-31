@@ -18,12 +18,13 @@ import {
 import { FormsModule } from '@angular/forms';
 import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
 import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
-import { ShowEventComponent } from './webportal/modules/show-event/show-event.component';
+//import { ShowEventComponent } from './webportal/modules/show-event/show-event.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
+//import { EventDetailsComponent } from './webportal/modules/show-event/event-details/event-details.component';
 //updated
 @NgModule({
-  declarations: [AppComponent, LogoutComponent, ShowEventComponent],
+  declarations: [AppComponent, LogoutComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

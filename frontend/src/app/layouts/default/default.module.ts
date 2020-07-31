@@ -86,7 +86,8 @@ import { NewtermsService } from 'src/app/service/newterms.service';
     ViewtermsComponent,
     UpdateTermsComponent,
     ConfirmationDialogComponent,
-    SendMailComponent
+    SendMailComponent,
+    ViewPlacedRequestsComponent
   ],
   imports: [
     CommonModule,

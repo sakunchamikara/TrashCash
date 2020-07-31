@@ -31,8 +31,5 @@ public  class ProductService {
 
 	public List<Product> getRandomProduct() {
 		return repo.findAllByRandom();
-	}
-	
-
-	
+	}	
 }

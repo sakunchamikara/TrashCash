@@ -12,7 +12,6 @@
   </div>
   <div class="form-row">
     <div class="col-md-9">
-      <!--col-md-9 begin-->
 
       <div class="card">
         <div class="card-body">
@@ -20,7 +19,6 @@
             <h2 class="card-title" style="color: #333333;">Shopping Cart</h2>
             <h6 class="card-subtitle mb-2 text-muted">You currnetly have 5 items in your cart</h6>
             <div class="">
-              <!--table-reponsive begin-->
 
               <table class="table table-hover" style="font-size: 14px;">
                 <thead>
@@ -28,35 +26,27 @@
                     <th colspan="2">Product</th>
                     <th>Quentity</th>
                     <th>Unit Price</th>
-                    <th>size</th>
                     <th colspan="1">Delete</th>
                     <th colspan="2">Sub-total</th>
                   </tr>
                 </thead>
 
                 <tbody>
-
-
-                  <tr>
-
+                  <tr *ngFor="let product of cartDetails;">
                     <td>
-                      <img src="" alt="Product 1" class="img-responsive">
+                      <img src="{{'data:image/jpeg;base64,'+product.product.image1}}" alt="Product 1" class="img-responsive" width="75px" height="75px">
                     </td>
 
                     <td>
-                      <a>tittle</a>
+                      <a>{{product.product.title}}</a>
                     </td>
 
                     <td>
-                      5
+                      {{product.quentity}}
                     </td>
 
                     <td>
-                      20
-                    </td>
-
-                    <td>
-                      32
+                      {{product.product.price}}
                     </td>
 
                     <td>
@@ -67,67 +57,6 @@
                       123
                     </td>
                   </tr>
-                  <tr>
-
-                    <td>
-                      <img src="" alt="Product 1" class="img-responsive">
-                    </td>
-
-                    <td>
-                      <a>tittle</a>
-                    </td>
-
-                    <td>
-                      5
-                    </td>
-
-                    <td>
-                      20
-                    </td>
-
-                    <td>
-                      32
-                    </td>
-
-                    <td>
-                      <input type="checkbox" name="remove[]">
-                    </td>
-
-                    <td>
-                      123
-                    </td>
-                  </tr>
-                  <tr>
-
-                    <td>
-                      <img src="" alt="Product 1" class="img-responsive">
-                    </td>
-
-                    <td>
-                      <a>tittle</a>
-                    </td>
-
-                    <td>
-                      5
-                    </td>
-
-                    <td>
-                      20
-                    </td>
-
-                    <td>
-                      32
-                    </td>
-
-                    <td>
-                      <input type="checkbox" name="remove[]">
-                    </td>
-
-                    <td>
-                      123
-                    </td>
-                  </tr>
-
                 </tbody>
 
                 <tfoot>
@@ -145,7 +74,6 @@
               </table>
 
             </div>
-            <!--table-reponsive end-->
           </form>
         </div>
 
@@ -153,17 +81,14 @@
 
 
           <div class="float-left">
-            <!--pull-left end-->
 
             <button class="btn btn-outline-primary btn-sm">
               <i class="fa fa-chevron-left"></i> Continue Shopping
             </button>
 
           </div>
-          <!--pull-left end-->
 
           <div class="float-right">
-            <!--pull-right end-->
 
             <button type="button" class="btn btn-outline-dark btn-sm mx-2"><i class="fas fa-sync-alt"></i> Update Cart </button>
 
@@ -173,12 +98,9 @@
             </button>
 
           </div>
-          <!--pull-right end-->
 
         </div>
-        <!--box-footer end-->
       </div>
-      <!--box end-->
 
     </div>
     <div class="col-md-3" id="content">

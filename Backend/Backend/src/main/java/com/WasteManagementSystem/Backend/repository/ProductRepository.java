@@ -22,4 +22,5 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
 	@Query(value = "SELECT * FROM product ORDER BY RAND() LIMIT 3;", nativeQuery = true)
 	public List<Product> findAllByRandom();
+	
 }

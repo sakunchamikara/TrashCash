@@ -17,6 +17,7 @@ import javax.validation.Valid;
 
 import com.WasteManagementSystem.Backend.entity.CustomerWasteRequest;
 import com.WasteManagementSystem.Backend.repository.CustomerWasteRequestRepository;
+import com.WasteManagementSystem.Backend.service.CustomerWasteRequestService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
@@ -30,6 +31,9 @@ public class CustomerWasteRequestController {
     @Autowired
 
     private CustomerWasteRequestRepository customerWasteRequestRepo;
+
+    @Autowired
+    private CustomerWasteRequestService service;
 
     @PostMapping("/customerWasteRequest")
     public CustomerWasteRequest createCustomerWasteRequest(@Valid @RequestBody CustomerWasteRequest customerWasteRequest, BindingResult bindingResult) {
@@ -77,6 +81,10 @@ public class CustomerWasteRequestController {
           .orElseThrow(() -> new ResourceNotFoundException("Waste request not found for this id :: " + customerWasteRequestId));
         return ResponseEntity.ok().body(customerWasteRequest);
     }
+
+    @GetMapping("/customerWasteRequest/{customer}")
+    public List<CustomerWasteRequest> getCustomerWasteRequest(@PathVariable String customer) {
+        return service.fetchWasteRequestByCustomer(customer);
+    }
     
-    
-}//
+}

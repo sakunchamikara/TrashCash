@@ -4,7 +4,9 @@ import { CustomerWasteRequestService } from '../../services/customer-waste-reque
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthserviceService } from 'src/app/service/authservice.service';
-import { User } from 'src/app/pojo/user';
+import { Customer } from '../../pojo/customer';
+import { CustomerAuthService } from '../../services/customer-auth.service';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-waste-request',
@@ -16,31 +18,47 @@ export class WasteRequestComponent implements OnInit {
   Types: any = ['Plastic', 'Paper', 'E-Waste'];
   wasteRequest = new WasteRequest();
   retrieveRequests : Observable<WasteRequest[]>
+ 
   submitted = false;
-  user: User;
+  customer: Customer;
+  name:string;
 
 
-  constructor(private customerWasteRequestService:CustomerWasteRequestService,private router :Router,private authService: AuthserviceService,) { }
+  constructor(private customerWasteRequestService:CustomerWasteRequestService,private authService: CustomerAuthService,private route: Router) { }
 
   successMsg: any;
   errorMsg: any;
   email:any;
+  cus : any;
   ngOnInit() {
 
-    this.email = this.authService.getAuthenticatedUser();
-    this.user = new User();
-    this.authService.getUser(this.email).subscribe((data) => {
-      this.user = data;
+    this.email = this.authService.getAuthenticatedCustomer();
+    this.customer = new Customer();
+    this.authService.getCustomer(this.email).subscribe((data) => {
+      this.customer = data;
+      //  this.cus=JSON.stringify(this.customer.firstName);
+    
     
      
     });
 
-    this.reloadData();
+    console.log(this.email);
 
+    if(this.email){
+      this.reloadData();
+    }
+    else{
+      this.route.navigate(['/customer/login']);
+    }
+
+    
   }
 
   
   onSubmit(){
+
+   
+
     this.submitted = true;
     this.save();
 
@@ -49,30 +67,38 @@ export class WasteRequestComponent implements OnInit {
   }
   save(){
     this.wasteRequest.date = new Date();
-    this.wasteRequest.customer = this.user.fisrtName;
+
+    console.log(this.customer.firstName);
+    this.retrieveRequests=this.customerWasteRequestService.getCustomerWasteRequests(this.customer.firstName);
+    this.wasteRequest.customer = this.customer.firstName;
     this.customerWasteRequestService.createCustomerWasteRequest(this.wasteRequest)
     .subscribe(
       (data)=>{console.log("test"+data);
         this.wasteRequest = new WasteRequest();
         this.successMsg = `waste added successfully !`;
         console.log(this.successMsg);
-        this.reloadData();
+         this.reloadData();
         
       }
     );
+   
 
     
   }
 
   reloadData(){
-   this.retrieveRequests=this.customerWasteRequestService.getCustomerWasteRequestList();
+     this.retrieveRequests=this.customerWasteRequestService.getCustomerWasteRequestList();
+    // this.retrieveRequests=this.customerWasteRequestService.getCustomerWasteRequests(this.customer.firstName);
+   
+  
+  
   }
 
   deleteCustomerWasteRequest(id: number) {
     this.customerWasteRequestService.deleteCustomerWasteRequest(id).subscribe(
       (data) => {
         console.log(data);
-        this.reloadData();
+         this.reloadData();
       },
       (error) => console.log(error)
     );

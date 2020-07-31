@@ -9,6 +9,7 @@ import { ViewProductComponent } from 'src/app/modules/products/view-product/view
 import { UpdateProductComponent } from 'src/app/modules/products/view-product/update-product/update-product.component';
 import { UpdateCollectedWasteComponent } from 'src/app/modules/collected-waste/update-collected-waste/update-collected-waste.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ViewPlacedRequestsComponent } from 'src/app/modules/agent/view-placed-requests/view-placed-requests.component';
 
 import { SharedModule } from 'src/app/shared/shared.module';
 import {
@@ -55,6 +56,7 @@ import { UpdateTermsComponent } from 'src/app/modules/terms/update-terms/update-
 import { ConfirmationDialogComponent } from 'src/app/modules/confirmation-dialog/confirmation-dialog.component';
 import { CollectedWasteServiceService } from 'src/app/service/collected-waste-service.service';
 import { SendMailComponent } from 'src/app/modules/send-mail/send-mail.component';
+import { NewtermsService } from 'src/app/service/newterms.service';
 
 @NgModule({
   declarations: [
@@ -111,7 +113,8 @@ import { SendMailComponent } from 'src/app/modules/send-mail/send-mail.component
 
   ],
   providers: [DashboardService,
-              CollectedWasteServiceService],
+              CollectedWasteServiceService,
+            NewtermsService],
   entryComponents: [ConfirmationDialogComponent ],
 })
 export class DefaultModule {}

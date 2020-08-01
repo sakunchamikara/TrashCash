@@ -36,5 +36,21 @@ export class ViewEventComponent implements OnInit {
     this.router.navigate(['system','updateEvents',id]);
   }
 
+  public openConfirmationDialog(id: number) {
+    this.eventService
+      .confirm('Please confirm..', 'Do you really want to delete?')
+      .then((confirmed) => {
+        // console.log('User confirmed:', confirmed);
+        if (confirmed == true) {
+          this.deleteEvent(id);
+        }
+      })
+      .catch(() =>
+        console.log(
+          'User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'
+        )
+      );
+  }
+
 
 }

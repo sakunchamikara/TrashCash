@@ -28,7 +28,8 @@ public  class ProductService {
 	public List<Product> fetchUserByCategory(String category) {
 		return repo.findByCategory(category);
 	}
-	
 
-	
+	public List<Product> getRandomProduct() {
+		return repo.findAllByRandom();
+	}	
 }

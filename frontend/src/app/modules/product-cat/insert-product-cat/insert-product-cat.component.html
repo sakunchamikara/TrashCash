@@ -41,7 +41,7 @@
           <div>
             <form (ngSubmit)="onSubmit()" #productCatForm="ngForm">
               <div class="form-row">
-                <div class="form-group col-md-9">
+                <div class="form-group col-md-9" class="right">
                   <label for="">Category Name</label>
                   <input type="text" class="form-control" name="name" id="name" [(ngModel)]="productCat.name">
                 </div>
@@ -55,8 +55,10 @@
               </div>
               <div class="form-row">
                 <div class="form-group col-md-9">
+                  
                   <label for="">Image</label>
-                  <input type="file" class="form-control" name="img">
+                  <input type="file" (change)="onFileChanged($event)">
+                  <img [src]="imgURL" height="200" width="200" *ngIf="imgURL">
                 </div>
               </div>
               <button type="submit" class="btn btn-primary float-left">Submit</button>

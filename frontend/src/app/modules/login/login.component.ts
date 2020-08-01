@@ -20,11 +20,9 @@ export class LoginComponent implements OnInit {
   loginUser() {
     this.service.loginUserFromRemote(this.user).subscribe(
       (data) => {
-        console.log('success');
         this.route.navigate([`/system/dashboard/`]);
       },
       (error) => {
-        console.log('unsuccess');
         this.msg = 'Invalid Credentials';
       }
     );

@@ -1,0 +1,151 @@
+<div class="container">
+  <div class="form-row">
+    <div class="col-md-12">
+      <br>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Cart</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-9">
+
+      <div class="card">
+        <div class="card-body">
+          <form>
+            <h2 class="card-title" style="color: #333333;">Shopping Cart</h2>
+            <h6 class="card-subtitle mb-2 text-muted">You currnetly have 5 items in your cart</h6>
+            <div class="">
+
+              <table class="table table-hover" style="font-size: 14px;">
+                <thead>
+                  <tr>
+                    <th colspan="2">Product</th>
+                    <th>Quentity</th>
+                    <th>Unit Price</th>
+                    <th colspan="1">Delete</th>
+                    <th colspan="2">Sub-total</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr *ngFor="let product of cartDetails;">
+                    <td>
+                      <img src="{{'data:image/jpeg;base64,'+product.product.image1}}" alt="Product 1" class="img-responsive" width="75px" height="75px">
+                    </td>
+
+                    <td>
+                      <a>{{product.product.title}}</a>
+                    </td>
+
+                    <td>
+                      {{product.quentity}}
+                    </td>
+
+                    <td>
+                      {{product.product.price}}
+                    </td>
+
+                    <td>
+                      <input type="checkbox" name="remove[]">
+                    </td>
+
+                    <td>
+                      123
+                    </td>
+                  </tr>
+                </tbody>
+
+                <tfoot>
+
+                  <tr>
+
+                    <th colspan="5">Total</th>
+
+                    <th colspan="2">450</th>
+
+                  </tr>
+
+                </tfoot>
+
+              </table>
+
+            </div>
+          </form>
+        </div>
+
+        <div class="card-footer text-muted">
+
+
+          <div class="float-left">
+
+            <button class="btn btn-outline-primary btn-sm">
+              <i class="fa fa-chevron-left"></i> Continue Shopping
+            </button>
+
+          </div>
+
+          <div class="float-right">
+
+            <button type="button" class="btn btn-outline-dark btn-sm mx-2"><i class="fas fa-sync-alt"></i> Update Cart </button>
+
+
+            <button type="button" class="btn btn-outline-success btn-sm">
+              Proceed Checkout <i class="fa fa-chevron-right"></i>
+            </button>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-3" id="content">
+      <!--col-md-3 begin-->
+      <div class="card" id="order-summary">
+        <!--box begin-->
+        <div class="card-header" style="color: #333333;">
+          <!--box-header begin-->
+          <h4>Order-Summary</h4>
+        </div>
+        <div class="card-body">
+          <p class="text-muted" style="color: #777777;font-size: 14px;">
+            Shiping and adtional cost are clculatrd based on value you have enterd
+          </p>
+
+          <div class="">
+            <!--table-reponsive begin-->
+            <table class="table table-hover">
+              <tbody>
+                <tr>
+                  <td>Order Sub Total</td>
+                  <th>$400</th>
+                </tr>
+                <tr>
+                  <td>Shipping and handling</td>
+                  <th>$0</th>
+                </tr>
+                <tr>
+                  <td>Tax</td>
+                  <th>$0</th>
+                </tr>
+                <tr class="total">
+                  <td>Total</td>
+                  <th>$500</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--table-reponsive end-->
+        </div>
+      </div>
+      <!--box end-->
+    </div>
+    <!--col-md-3 end-->
+
+  </div>
+  <!--row same-height-row end-->
+</div>

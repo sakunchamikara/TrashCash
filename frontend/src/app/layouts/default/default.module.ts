@@ -9,6 +9,7 @@ import { ViewProductComponent } from 'src/app/modules/products/view-product/view
 import { UpdateProductComponent } from 'src/app/modules/products/view-product/update-product/update-product.component';
 import { UpdateCollectedWasteComponent } from 'src/app/modules/collected-waste/update-collected-waste/update-collected-waste.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ViewPlacedRequestsComponent } from 'src/app/modules/agent/view-placed-requests/view-placed-requests.component';
 
 import { SharedModule } from 'src/app/shared/shared.module';
 import {
@@ -54,6 +55,7 @@ import { ViewtermsComponent} from 'src/app/modules/terms/viewterms/viewterms.com
 import { UpdateTermsComponent } from 'src/app/modules/terms/update-terms/update-terms.component';
 import { ConfirmationDialogComponent } from 'src/app/modules/confirmation-dialog/confirmation-dialog.component';
 import { CollectedWasteServiceService } from 'src/app/service/collected-waste-service.service';
+import { NewtermsService} from 'src/app/service/newterms.service';
 
 @NgModule({
   declarations: [
@@ -70,7 +72,6 @@ import { CollectedWasteServiceService } from 'src/app/service/collected-waste-se
     AddEventComponent,
     ViewEventComponent,
     UpdateEventComponent,
-   // ProductCatComponent,
     InsertCollectedWasteComponent,
     ViewCollectedWasteComponent,
     UpdateCollectedWasteComponent ,
@@ -78,13 +79,13 @@ import { CollectedWasteServiceService } from 'src/app/service/collected-waste-se
     InsertProductCatComponent,
     ViewProductCatComponent,
     UpdateProductCatComponent,
-    //UpdateCollectedWasteComponent,
     UpdateCollectedWasteComponent,
     TermsComponent,
     AddtermsComponent,
     ViewtermsComponent,
     UpdateTermsComponent,
-    ConfirmationDialogComponent 
+    ConfirmationDialogComponent,
+    ViewPlacedRequestsComponent,
   ],
   imports: [
     CommonModule,
@@ -108,10 +109,11 @@ import { CollectedWasteServiceService } from 'src/app/service/collected-waste-se
     MatNativeDateModule,
     MatMenuModule,
     NgbModule,
-   
+
   ],
   providers: [DashboardService,
-              CollectedWasteServiceService],
+              CollectedWasteServiceService,
+            NewtermsService],
   entryComponents: [ConfirmationDialogComponent ],
 })
 export class DefaultModule {}

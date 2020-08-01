@@ -16,8 +16,11 @@ export class ProductcatService {
   }
 
   createProductCat(productcat: object): Observable<object> {
-    return this.http.post<any>(`${this.baseUrl}`, productcat);
+    return this.http.post<any>("http://localhost:8080/productCats", productcat);
   }
+  // public registerUserFromRemote(user: User): Observable<any> {
+  //   return this.http.post<any>("http://localhost:8080/registerUser", user);
+  // }
 
   deleteProductCat(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: "text" });

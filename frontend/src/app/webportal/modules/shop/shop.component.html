@@ -1,58 +1,67 @@
-<div class="col-container">
-  <br>
-
-  <div class="row p1">
-    <div class="">
-
+<div class="container">
+  <div class="form-row">
+    <div class="col-md-12">
+      <br>
       <nav aria-label="breadcrumb">
-        <ol class="breadcrumb shadow p-3 mb-5 bg-white rounded">
-          <li class="breadcrumb-item"><a href="#"><i class="fad fa-tachometer-alt-fastest"></i> Home</a></li>
-          <li class="breadcrumb-item active" aria-current="page">View Product</li>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item " aria-current="page">Products</li>
+          <li class="breadcrumb-item active" *ngIf="!activeFlag" aria-current="page">All</li>
+          <li class="breadcrumb-item active" *ngIf="activeFlag" aria-current="page">{{activeFlag}}</li>
         </ol>
       </nav>
     </div>
-    
-    
   </div>
 
   <div class="row">
-    <div class="col-lg-9 col-md-9">
-      <div class="card p2">
-        <div class="card-body" *ngFor="let product of products">
-          <h4 class="card-title">
-            {{product.category}}
-          </h4>
-          <div class="container row">
-            <div class="col-md-4" *ngFor="let product of products;let i=index">
-                <div class="card card-block">
-                    <img class="custom-image-style" img src="{{product.retrievedImage}}" height="300" width="200" style="margin-left: 60px;
-                  margin-top: 10px">
-                    <div class="book-desc-container row">
-                        <div>
-                            <p style="margin-left: 60px"><strong>{{product.title}}: ${{product.price}}</strong></p>
-                            <p style="margin-left: 60px">{{product.details}}</p>
-                        </div>
-                        <!-- <div class="offset-md-4 col-md-4">
-                            <button class="btn btn-primary btn-sm" (click)="addToCart(book.id)"
-                               >Add To Cart</button>
-                        </div> -->
-                    </div>
-          
-                </div>
-            </div>
+
+    <div class="col-lg-3">
+
+      <div class="list-group">
+        <a class="list-group-item " [class.active]="category.name === activeFlag" (click)="getCatProduct(category.name)"
+          *ngFor="let category of categoryList">{{category.name}}</a>
+      </div>
+      <br>
+    </div>
+    <!-- /.col-lg-3 -->
+
+    <div class="col-lg-9">
+
+      <div class="row" *ngIf="productEmptyListFlag">
+        <div class="card cardcss border-success mb-3">
+          <div class="card-body text-success">
+            <h2 class="card-title"> <i class="fad fa-heart-broken"></i> No Products Available !!! <i
+                class="fal fa-frown-open"></i></h2>
           </div>
         </div>
       </div>
+      <div class="row" *ngIf="!productEmptyListFlag">
 
-    </div><!-- col-lg-12 Finish -->
+        <div class="col-lg-4 col-md-6 mb-4" *ngFor="let product of productList;">
+          <div class="card h-100 text-center">
+            <a href="#"><img class="card-img-top p-3" src="{{'data:image/jpeg;base64,'+product.image1}}" height="200"
+                width="100" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">{{product.title}}</a>
+              </h4>
+              <h5>Rs. {{product.price}}</h5>
+              <button type="button" routerLink="/customer/product/{{product.id}}" class="btn btn-outline-success">View Details</button>
+            </div>
+            <!-- <div class="card-footer">
+              <small class="text-muted">★ ★ ★ ★ ☆</small>
+            </div> -->
+          </div>
+        </div>
 
-    
-      
-    </div> 
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.col-lg-9 -->
+
   </div>
-  <!-- row Finish -->
+  <!-- /.row -->
 
-  
-    
-
-    
+</div>

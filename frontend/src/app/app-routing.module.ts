@@ -15,15 +15,10 @@ import { ViewProductComponent } from './modules/products/view-product/view-produ
 import { UpdateProductComponent } from './modules/products/view-product/update-product/update-product.component';
 import { UpdateCollectedWasteComponent } from 'src/app/modules/collected-waste/update-collected-waste/update-collected-waste.component';
 
-
 import { CollectedWasteComponent } from './modules/collected-waste/collected-waste.component';
 import { ProfileComponent } from './modules/profile/profile.component';
-//import { ProductCatComponent } from './modules/product-cat/product-cat.component';
 import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
 import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
-//import { AddEventComponent } from './modules/events/add-event/add-event.component';
-//import { ViewEventComponent } from './modules/events/view-event/view-event.component';
-
 import { InsertProductCatComponent } from './modules/product-cat/insert-product-cat/insert-product-cat.component';
 import { ViewProductCatComponent } from './modules/product-cat/view-product-cat/view-product-cat.component';
 import { UpdateProductCatComponent } from './modules/product-cat/update-product-cat/update-product-cat.component';
@@ -35,6 +30,15 @@ import { TermsComponent } from './modules/terms/terms.component';
 import { AddtermsComponent } from './modules/terms/addterms/addterms.component';
 import { ViewtermsComponent } from './modules/terms/viewterms/viewterms.component';
 import { UpdateTermsComponent } from './modules/terms/update-terms/update-terms.component';
+import { WptermsComponent } from './webportal/modules/wpterms/wpterms.component';
+import { CustomerLoginComponent } from './webportal/modules/customer-login/customer-login.component';
+import { CustomerRegisterComponent } from './webportal/modules/customer-register/customer-register.component';
+import { WasteRequestComponent } from './webportal/modules/waste-request/waste-request.component';
+import { CartComponent } from './webportal/modules/cart/cart.component';
+import { ProductDetailsComponent } from './webportal/modules/product-details/product-details.component';
+import { ViewPlacedRequestsComponent } from 'src/app/modules/agent/view-placed-requests/view-placed-requests.component';
+import { TermDetailsComponent } from './webportal/modules/term-details/term-details.component';
+import { CustomerLogoutComponent } from './webportal/modules/customer-logout/customer-logout.component';
 
 const routes: Routes = [
   {
@@ -51,8 +55,44 @@ const routes: Routes = [
         component: WelcomeComponent,
       },
       {
-        path: 'shop/:category',
+        path: 'shop',
         component: ShopComponent,
+      },
+      {
+        path: 'wpterms',
+        component: WptermsComponent,
+      },
+      {
+        path: 'login',
+        component: CustomerLoginComponent,
+      },
+      {
+        path: 'register',
+        component: CustomerRegisterComponent,
+      },
+      {
+        path: 'logout',
+        component: CustomerLogoutComponent,
+      },
+      {
+        path: 'waste-request',
+        component: WasteRequestComponent,
+      },
+      {
+        path: 'cart',
+        component: CartComponent,
+      },
+      {
+        path: 'wpterms',
+        component: WptermsComponent,
+      },
+      {
+        path: 'product/:id',
+        component: ProductDetailsComponent,
+      },
+      {
+        path: 'terms-details/:id',
+        component: TermDetailsComponent,
       },
     ],
   },
@@ -169,12 +209,14 @@ const routes: Routes = [
         path: 'UpdateTerms/:id',
         component: UpdateTermsComponent,
       },
-
       {
         path: 'UpdateProductCats/:id',
         component: UpdateProductCatComponent,
       },
-
+      {
+        path: 'viewPlacedRequests',
+        component: ViewPlacedRequestsComponent,
+      },
     ],
   },
 ];

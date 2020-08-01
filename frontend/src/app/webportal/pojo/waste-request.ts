@@ -5,6 +5,7 @@ export class WasteRequest {
     quantity: number;
     date: Date;
     customer: string;
+    status: number;
 
     constructor(){}
 }

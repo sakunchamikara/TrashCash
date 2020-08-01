@@ -32,7 +32,9 @@ export class CustomerWasteRequestService {
   }
 
   getCustomerWasteRequests(customer:string) : Observable<any>{
-    return this.http.get(`${this.baseUrl}/${customer}`);  
+    // return this.http.get(`${this.baseUrl}/${customer}`);  
+    const uri = `http://localhost:8080/getCustomerWasteRequest/${customer}`;
+    return this.http.get(uri);
   }
 
 

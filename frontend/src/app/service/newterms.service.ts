@@ -8,6 +8,11 @@ import { ConfirmationDialogComponent } from '../modules/confirmation-dialog/conf
   providedIn: "root",
 })
 export class NewtermsService {
+  getRandomTerms(): Observable<any>{
+    const url = 'httpp://loacalhost:8080/getRandomTerms';
+    return this.http.get(url);
+    
+  }
   private baseUrl = "http://localhost:8080/terms";
   constructor(private http: HttpClient, private modalService: NgbModal) {}
 
@@ -20,6 +25,10 @@ export class NewtermsService {
 
   deleteTerm(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: "text" });
+  }
+
+  getTerm(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${id}`);
   }
 
   getTerms(id: number): Observable<any> {
@@ -45,4 +54,6 @@ export class NewtermsService {
     return modalRef.result;
 
 }
+
+
 }

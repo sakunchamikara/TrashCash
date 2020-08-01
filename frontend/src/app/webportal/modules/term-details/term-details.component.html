@@ -5,32 +5,33 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item" routerLink="/customer/wpterm">Terms</li>
+              <li class="breadcrumb-item" routerLink="/customer/wpterms">Terms</li>
              <!-- <li class="breadcrumb-item active" aria-current="page">{{.category}}</li> -->
     
             </ol>
           </nav>
         </div>
       </div>
+
+      <div class="alert alert-success" role="alert" *ngIf="successMessage">
+        {{successMessage}} <a routerLink='/customer/shop' class="alert-link">Check More Products</a>
+      </div>
+    
+      <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+        {{errorMessage}}
+      </div>
     
       <div class="row">        
-        <div class="col-lg-6" *ngFor="let term of terms | async">
+        <div class="col-lg-6" >
           <div class="card h-100">
             <div class="card-body">
-              <h2 class="card-title">{{term.title}}</h2>
+              <h2 class="card-title">{{terms.title}}</h2>
               <hr>
-              <p class="card-text text-muted">Term URL:  {{term.turl}}</p>
-              <p>Term Discription:{{term.tdiscrip}}</p> 
-              
-              
+              <p class="card-text text-muted">Term URL:  {{terms.turl}}</p>
+              <p>Term Discription:{{terms.tdiscrip}}</p>              
             </div>
           </div>
         </div>
-    
-      </div>
-    
-   
-
-    
+      </div>  
     </div>
     

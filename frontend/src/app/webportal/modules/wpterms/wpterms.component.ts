@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Terms } from 'src/app/pojo/terms';
 import { NewtermsService } from 'src/app/service/newterms.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-wpterms',
@@ -14,16 +15,39 @@ export class WptermsComponent implements OnInit {
   terms :Observable<Terms[]>;
   successMsg: any;
   errorMsg: any;
+  //termList: Array<Terms>;
+  //terms: Terms;
+  //termEmptyListFlag = false;
+  //activateFlag = '';
 
-  constructor(private newtermService:NewtermsService,private router: Router) { }
+  constructor(private newtermService:NewtermsService,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.reloadData();
+   // this.getTerms();
   
   }
   reloadData(){
     this.terms = this.newtermService.getNewtermList();
   }
+
+ // getTerms(){
+ //   this.newtermService.getNewtermList().subscribe(
+   //   (data) => {
+     //   this.termList = data;
+       // if (data.length > 0) {
+         // this.termEmptyListFlag = false;
+       // } else {
+       //   this.termEmptyListFlag = true;
+       // }
+      //},
+     // (error) => {
+    //    console.log(error);
+    //  }
+   // );
+  //}
 
   
 

@@ -36,6 +36,7 @@ import { CustomerLoginComponent } from './webportal/modules/customer-login/custo
 import { CustomerRegisterComponent } from './webportal/modules/customer-register/customer-register.component';
 import { WasteRequestComponent } from './webportal/modules/waste-request/waste-request.component';
 import { CartComponent } from './webportal/modules/cart/cart.component';
+import { CustomerFeedbackComponent } from './webportal/modules/customer-feedback/customer-feedback.component';
 
 
 
@@ -77,7 +78,10 @@ const routes: Routes = [
         path: 'wpterms',
         component: WptermsComponent,
       },
-
+      {
+        path: 'feedback',
+        component: CustomerFeedbackComponent,
+      },
     ],
   },
   {

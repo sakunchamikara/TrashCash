@@ -34,58 +34,56 @@ import com.WasteManagementSystem.Backend.entity.Product;
 import com.WasteManagementSystem.Backend.repository.ProductRepository;
 import com.WasteManagementSystem.Backend.service.ProductService;
 
-
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class ProductController {
-	
-	private byte[] bytes;
-	
-	@Autowired
-	private ProductService productservice;
-	
-	@Autowired
-	private ProductRepository productrepo;
-	
-	
-	@PostMapping("/products")
+
+    private byte[] bytes;
+
+    @Autowired
+    private ProductService productservice;
+
+    @Autowired
+    private ProductRepository productrepo;
+
+    @PostMapping("/products")
     public Product createProduct(@Valid @RequestBody Product product, BindingResult bindingResult) {
-		if (bindingResult.hasErrors()) {
-			return null;
-		}
-		product.setImage1(this.bytes);
+        if (bindingResult.hasErrors()) {
+            return null;
+        }
+        product.setImage1(this.bytes);
         return productrepo.save(product);
-//        this.bytes = null;
+        // this.bytes = null;
     }
-	
-	//image add
-	@PostMapping("/upload")
-	public void uploadImage(@RequestParam("imageFile") MultipartFile file) throws IOException {
-		this.bytes = file.getBytes();
-	}
-	
-	@GetMapping("/products")
+
+    // image add
+    @PostMapping("/upload")
+    public void uploadImage(@RequestParam("imageFile") MultipartFile file) throws IOException {
+        this.bytes = file.getBytes();
+    }
+
+    @GetMapping("/products")
     public List<Product> getAllProducts() {
         return productrepo.findAll();
     }
-	
-	@DeleteMapping("/products/{id}")
+
+    @DeleteMapping("/products/{id}")
     public Map<String, Boolean> deleteProduct(@PathVariable(value = "id") int productId)
-         throws ResourceNotFoundException {
+            throws ResourceNotFoundException {
         Product product = productrepo.findById(productId)
-       .orElseThrow(() -> new ResourceNotFoundException("Product not found for this id :: " + productId));
+                .orElseThrow(() -> new ResourceNotFoundException("Product not found for this id :: " + productId));
 
         productrepo.delete(product);
         Map<String, Boolean> response = new HashMap<>();
         response.put("deleted", Boolean.TRUE);
         return response;
     }
-	
-	@PutMapping("/products/{id}")
+
+    @PutMapping("/products/{id}")
     public ResponseEntity<Product> updateProduct(@PathVariable(value = "id") int productId,
-         @Valid @RequestBody Product productDetails) throws ResourceNotFoundException {
+            @Valid @RequestBody Product productDetails) throws ResourceNotFoundException {
         Product product = productrepo.findById(productId)
-        .orElseThrow(() -> new ResourceNotFoundException("Product not found for this id :: " + productId));
+                .orElseThrow(() -> new ResourceNotFoundException("Product not found for this id :: " + productId));
 
         product.setTitle(productDetails.getTitle());
         product.setCategory(productDetails.getCategory());
@@ -96,19 +94,23 @@ public class ProductController {
         final Product updatedProduct = productrepo.save(product);
         return ResponseEntity.ok(updatedProduct);
     }
-	
-	@GetMapping("/products/{id}")
+
+    @GetMapping("/products/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable(value = "id") int productId)
-        throws ResourceNotFoundException {
+            throws ResourceNotFoundException {
         Product product = productrepo.findById(productId)
-          .orElseThrow(() -> new ResourceNotFoundException("Product not found for this id :: " + productId));
+                .orElseThrow(() -> new ResourceNotFoundException("Product not found for this id :: " + productId));
         return ResponseEntity.ok().body(product);
     }
-	
-	@GetMapping("/getProduct/{category}")
-	public List<Product> getProduct(@PathVariable String category) {
-		return productservice.fetchUserByCategory(category);
-	}
-	
-	
+
+    @GetMapping("/getProduct/{category}")
+    public List<Product> getProduct(@PathVariable String category) {
+        return productservice.fetchUserByCategory(category);
+    }
+
+    @GetMapping("/getRandomProduct")
+    public List<Product> getRandomProduct() {
+        return productservice.getRandomProduct();
+    }
+
 }

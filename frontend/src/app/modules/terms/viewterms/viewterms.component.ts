@@ -23,6 +23,8 @@ export class ViewtermsComponent implements OnInit {
     this.terms = this.newtermService.getNewtermList();
   }
 
+  
+
   deleteTerm(id: number) {
     this.newtermService.deleteTerm(id)
       .subscribe(

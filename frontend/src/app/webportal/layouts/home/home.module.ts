@@ -14,6 +14,10 @@ import { FormsModule } from '@angular/forms';
 import { CartComponent } from '../../modules/cart/cart.component';
 import { CustomerFeedbackComponent } from '../../modules/customer-feedback/customer-feedback.component';
 
+import { ProductDetailsComponent } from '../../modules/product-details/product-details.component';
+import { WptermsComponent } from '../../modules/wpterms/wpterms.component';
+import { TermDetailsComponent } from '../../modules/term-details/term-details.component';
+import { CustomerLogoutComponent } from '../../modules/customer-logout/customer-logout.component';
 
 
 @NgModule({
@@ -26,6 +30,10 @@ import { CustomerFeedbackComponent } from '../../modules/customer-feedback/custo
     WasteRequestComponent,
     CartComponent,
     CustomerFeedbackComponent,
+    ProductDetailsComponent,
+    WptermsComponent,
+    TermDetailsComponent,
+    CustomerLogoutComponent,
   ],
   imports: [
     FormsModule,

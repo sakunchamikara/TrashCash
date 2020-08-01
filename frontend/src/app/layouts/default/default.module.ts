@@ -9,6 +9,7 @@ import { ViewProductComponent } from 'src/app/modules/products/view-product/view
 import { UpdateProductComponent } from 'src/app/modules/products/view-product/update-product/update-product.component';
 import { UpdateCollectedWasteComponent } from 'src/app/modules/collected-waste/update-collected-waste/update-collected-waste.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ViewPlacedRequestsComponent } from 'src/app/modules/agent/view-placed-requests/view-placed-requests.component';
 
 import { SharedModule } from 'src/app/shared/shared.module';
 import {
@@ -42,7 +43,7 @@ import { AddEventComponent } from 'src/app/modules/events/add-event/add-event.co
 
 import { InsertCollectedWasteComponent } from 'src/app/modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
 import { ViewCollectedWasteComponent } from 'src/app/modules/collected-waste/view-collected-waste/view-collected-waste.component';
-import { TermdiscripComponent } from 'src/app/modules/terms/termdiscrip/termdiscrip.component';
+
 
 
 import { InsertProductCatComponent } from 'src/app/modules/product-cat/insert-product-cat/insert-product-cat.component';
@@ -85,8 +86,9 @@ import { NewtermsService} from 'src/app/service/newterms.service';
     ViewtermsComponent,
     UpdateTermsComponent,
     ConfirmationDialogComponent,
-    TermdiscripComponent,
+    //TermdiscripComponent,
     AlertDialogComponent,
+    ViewPlacedRequestsComponent,
   ],
   imports: [
     CommonModule,

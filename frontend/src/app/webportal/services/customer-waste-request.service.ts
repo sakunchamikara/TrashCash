@@ -31,6 +31,11 @@ export class CustomerWasteRequestService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
+  getCustomerWasteRequests(customer:string) : Observable<any>{
+    return this.http.get(`${this.baseUrl}/${customer}`);  
+  }
+
+
   updateCustomerWasteRequest(id:number,value:any):Observable<Object>{
     return this.http.put(`${this.baseUrl}/${id}`,value)
   }

@@ -34,7 +34,7 @@ export class ProductDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.productId = this.route.snapshot.params['id'];
+    this.productId = +this.route.snapshot.params['id'];
     this.getProductById(this.productId);
     this.getRandomProducts();
   }
@@ -84,19 +84,20 @@ export class ProductDetailsComponent implements OnInit {
     });
   }
 
-
   addToCart() {
     if (this.customerAuthService.isCustomerLoggedIn()) {
-      this.cart.productId = this.productId;
+      // this.cart.product.id = this.productId;
       this.cart.customerId = +this.customerAuthService.getAuthenticatedCustomerId();
-      this.cartService.addToCart(this.cart).subscribe(
+      console.log(this.cart);
+      this.cartService.addToCart(this.cart, this.productId).subscribe(
         (data) => {
-          this.router.navigate([`customer/product/${this.cart.productId}`]);
+          // this.router.navigate([`customer/product/${this.cart.product}`]);
           this.successMessage = 'Product Successfully Added To The Cart !';
-
+          this.errorMessage = null;
         },
         (error) => {
           this.errorMessage = error.error.message;
+          this.successMessage = null;
         }
       );
     } else {

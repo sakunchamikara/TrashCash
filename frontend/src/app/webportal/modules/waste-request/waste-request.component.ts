@@ -7,6 +7,7 @@ import { AuthserviceService } from 'src/app/service/authservice.service';
 import { Customer } from '../../pojo/customer';
 import { CustomerAuthService } from '../../services/customer-auth.service';
 import { stringify } from 'querystring';
+import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 
 @Component({
   selector: 'app-waste-request',
@@ -89,6 +90,21 @@ export class WasteRequestComponent implements OnInit {
 
   reloadData(){
      this.retrieveRequests=this.customerWasteRequestService.getCustomerWasteRequestList();
+     this.retrieveRequests.forEach(obj=>{
+       obj.forEach(childOb=>{
+           if(childOb.status=1){
+             this.successMsg="Pending";
+           }else if(childOb.status=2){
+             this.successMsg="Confirmed";
+           }else{
+             this.successMsg="Collected";
+           }
+       });
+     });
+  
+
+     
+     console.log("aa"+this.retrieveRequests);
     // this.retrieveRequests=this.customerWasteRequestService.getCustomerWasteRequests(this.customer.firstName);
    
   

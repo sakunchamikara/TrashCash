@@ -15,6 +15,7 @@ export class ViewPlacedRequestsComponent implements OnInit {
   requestEmptyListFlag = false;
   retrieveRequests : Observable<WasteRequest[]>
 
+  requests : WasteRequest;
 
   constructor(private customerWasteRequestService:CustomerWasteRequestService ,) { }
 
@@ -43,4 +44,29 @@ export class ViewPlacedRequestsComponent implements OnInit {
       }
     );
    }
+
+   confirm(id:number){
+ 
+        this.customerWasteRequestService.getCustomerWasteRequest(id)
+       .subscribe(data => {
+     
+      
+      this.requests = data;
+      this.requests.status=2;
+      this.requests.quantity=34567;
+
+      console.log(data);
+      
+    }, error => console.log(error));
+        
+ 
+    this.customerWasteRequestService.updateCustomerWasteRequest(id,this.requests)
+    .subscribe(data => console.log(data),
+      error => {console.log(error);});
+      this.requests = new WasteRequest();
+      console.log("testing floaaaat"+this.requests);
+ 
+   }
+
+
 }

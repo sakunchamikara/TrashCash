@@ -83,9 +83,9 @@ public class CustomerWasteRequestController {
         return ResponseEntity.ok().body(customerWasteRequest);
     }
 
-    @GetMapping("/getCustomerWasteRequest/{customer}")
-    public List<CustomerWasteRequest> getCustomerWasteRequest(@PathVariable String customer) {
-        return service.fetchWasteRequestByCustomer(customer);
-    }
+    // @GetMapping("/getCustomerWasteRequest/{customer}")
+    // public List<CustomerWasteRequest> getCustomerWasteRequest(@PathVariable String customer) {
+    //     return service.fetchWasteRequestByCustomer(customer);
+    // }
     
 }

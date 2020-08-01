@@ -39,7 +39,7 @@ export class CustomerWasteRequestService {
 
 
   updateCustomerWasteRequest(id:number,value:any):Observable<Object>{
-    return this.http.put(`${this.baseUrl}/${id}`,value)
+    return this.http.put(`${this.baseUrl}/${id}`,value);
   }
 
   public confirm(

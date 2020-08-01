@@ -64,5 +64,21 @@ export class ViewProductComponent implements OnInit {
     this.router.navigate(['system','UpdateProducts',id]);
   }
 
+  public openConfirmationDialog(id: number) {
+    this.productService
+      .confirm('Please confirm..', 'Do you really want to delete?')
+      .then((confirmed) => {
+        // console.log('User confirmed:', confirmed);
+        if (confirmed == true) {
+          this.deleteProduct(id);
+        }
+      })
+      .catch(() =>
+        console.log(
+          'User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'
+        )
+      );
+  }
+
 }
 //

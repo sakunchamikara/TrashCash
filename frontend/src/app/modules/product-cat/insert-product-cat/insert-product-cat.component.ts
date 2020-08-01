@@ -16,6 +16,7 @@ export class InsertProductCatComponent implements OnInit {
   
   submitted = false;
   public listItems: Array<string> = [];
+  public arr: Array<string> = [];
 
   
   @Input()
@@ -29,9 +30,11 @@ export class InsertProductCatComponent implements OnInit {
   ) {}
 
   successMsg: any;
+
+  chk: boolean;
   
-  msg = '';
-  errorMsg: string;
+  // msg = '';
+  // errorMsg: string;
 
   ngOnInit() {
     this.productcatService.getProductCatDropdownValues().subscribe(data=>{
@@ -60,8 +63,8 @@ export class InsertProductCatComponent implements OnInit {
       },
       (error) => {
         console.log(error);
-        this.msg = error.error.message;
-        this.errorMsg = this.msg;
+        //this.msg = error.error.message;
+       // this.errorMsg = this.msg;
       }
     );
       }
@@ -75,7 +78,7 @@ export class InsertProductCatComponent implements OnInit {
 
 
 
-  onSubmit() {
+  public onSubmit() {
     this.submitted = true;
     this.save();
     
@@ -97,25 +100,42 @@ export class InsertProductCatComponent implements OnInit {
 
   }
 
-  // checkName(Cname: string){
-  //   this.productcatService
-  //   .getProducCatListByName(Cname)
-  //   .subscribe(
-  //     data => {
-  //       console.log(data);
-  //       if (data.length==0) {
-  //         console.log("noo");
-  //         this.openConfirmationDialog(id);
-  //       }
-  //       else{
-  //         console.log("yess");
+  checkName(cName: string){
+    this.productcatService
+    .getProductCatNameList()
+    .subscribe(
+      data => {
+        console.log(data);
+this.chk=false;
+        this.arr=data;
+
+        for (let i of this.arr) {
+          if(i==cName) {
+            console.log("found");
+            console.log(i);
+            this.chk=true;
+            this.cancelInsertDialog(i);
+          }
           
-  //         this.cancelDeleteDialog();
-          
-  //       }
+      }
+
+      if(this.chk==false){
+        this.onSubmit();
+        console.log("added");
         
-  //     }
-  //   )
+
+      }
+
+        
+        
+      }
+    )
     
-  //  }
+   }
+
+   public cancelInsertDialog(catName: string){
+    this.productcatService
+    .alert('Product Category cannot be added','Product Category '+catName+' is already exists');
+
+   }
 }

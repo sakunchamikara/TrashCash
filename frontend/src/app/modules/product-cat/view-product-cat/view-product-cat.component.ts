@@ -108,7 +108,7 @@ export class ViewProductCatComponent implements OnInit {
 
 }
 
- cancelDeleteDialog(){
+  public cancelDeleteDialog(){
   this.productcatService
   .alert('Cannot Delete','Products are available on this category');
   // (<HTMLInputElement> document.getElementById("dltBtn")).disabled = true;

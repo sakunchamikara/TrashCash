@@ -3,6 +3,8 @@ import { Item } from '../pojo/item';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmationDialogComponent } from '../modules/confirmation-dialog/confirmation-dialog.component';
 //pull
 @Injectable({
   providedIn: 'root'
@@ -11,7 +13,7 @@ import { map } from 'rxjs/operators';
 export class ProductService {
 
   private baseUrl = 'http://localhost:8080/products';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private modalService: NgbModal) { }
   createProduct(product: Object): Observable<Object> {
     return this.http.post<any>(`${this.baseUrl}`, product);
     
@@ -42,4 +44,20 @@ export class ProductService {
   getProductCatDropdownValues(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
+
+  public confirm(
+    title: string,
+    message: string,
+    btnOkText: string = 'OK',
+    btnCancelText: string = 'Cancel',
+    dialogSize: 'sm'|'lg' = 'sm'): Promise<boolean> {
+    const modalRef = this.modalService.open(ConfirmationDialogComponent, { size: dialogSize });
+    modalRef.componentInstance.title = title;
+    modalRef.componentInstance.message = message;
+    modalRef.componentInstance.btnOkText = btnOkText;
+    modalRef.componentInstance.btnCancelText = btnCancelText;
+
+    return modalRef.result;
+
+}
 }

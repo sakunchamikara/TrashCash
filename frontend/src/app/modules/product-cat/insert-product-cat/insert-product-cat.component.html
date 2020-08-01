@@ -39,7 +39,8 @@
             Add Category
           </h4>
           <div>
-            <form (ngSubmit)="onSubmit()" #productCatForm="ngForm">
+            <form  #productCatForm="ngForm">
+              <!-- (ngSubmit)="onSubmit()" -->
               <div class="form-row">
                 <div class="form-group col-md-9" class="right">
                   <label for="">Category Name</label>
@@ -61,8 +62,8 @@
                   <img [src]="imgURL" height="200" width="200" *ngIf="imgURL">
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary float-left" >Submit</button>
-              <!-- (click)="checkName()" -->
+              <button type="submit" class="btn btn-primary float-left"  (click)="checkName(productCat.name)" >Submit</button>
+             
             </form>
           </div>
 
@@ -81,10 +82,10 @@
   <div class="col-lg-3 col-md-3">
     <div class="card p3">
       <div class="card-body">
-        <h4 class="card-title">Existing Product Categories</h4>
+        <h4 class="card-title">Available Product Categories</h4>
           <!-- <p class="card-text" *ngFor="let item of listItems" >{{item}}</p> -->
           <ul class="list-group list-group-flush">
-            <li class="list-group-item fa fa-check-circle" *ngFor="let item of listItems">{{item}}</li>
+            <li class="list-group-item fa fa-check-circle" *ngFor="let item of listItems">  {{item}}</li>
            
           </ul>
       </div>

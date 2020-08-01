@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmationDialogComponent } from '../modules/confirmation-dialog/confirmation-dialog.component';
+import { AlertDialogComponent } from '../modules/alert-dialog/alert-dialog.component';
 //import { ItemCat } from 'src/app/pojo/item-cat';
 
 @Injectable({
@@ -57,7 +58,7 @@ export class ProductcatService {
 }
 
 getProductCatNameList(): Observable<any> {
-  let url = `http://localhost:8080/getProductCatNames`;
+  let url = `http://localhost:8080/productCats/name`;
   return this.http.get(url)
   
 }
@@ -65,14 +66,12 @@ getProductCatNameList(): Observable<any> {
 public alert(
   title: string,
   message: string,
-  // btnOkText: string = 'OK',
-  // btnCancelText: string = 'Cancel',
+  btnOkText: string = 'OK',
   dialogSize: 'sm'|'lg' = 'sm'): Promise<boolean> {
-  const modalRef = this.modalService.open(ConfirmationDialogComponent, { size: dialogSize });
+  const modalRef = this.modalService.open(AlertDialogComponent, { size: dialogSize });
   modalRef.componentInstance.title = title;
   modalRef.componentInstance.message = message;
-  // modalRef.componentInstance.btnOkText = btnOkText;
-  // modalRef.componentInstance.btnCancelText = btnCancelText;
+  modalRef.componentInstance.btnOkText = btnOkText;
 
   return modalRef.result;
 

@@ -16,10 +16,15 @@ import {
   MatIconModule,
 } from '@angular/material';
 import { FormsModule } from '@angular/forms';
+import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
+import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
+//import { ShowEventComponent } from './webportal/modules/show-event/show-event.component';
 
-
+import { ReactiveFormsModule } from '@angular/forms';
+//import { EventDetailsComponent } from './webportal/modules/show-event/event-details/event-details.component';
+//updated
 @NgModule({
-  declarations: [AppComponent, LogoutComponent,  ],
+  declarations: [AppComponent, LogoutComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -30,6 +35,7 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    ReactiveFormsModule,
     MatToolbarModule,
     MatButtonModule,
     MatMenuModule,

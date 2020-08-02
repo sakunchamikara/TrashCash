@@ -40,9 +40,9 @@ import { ProductDetailsComponent } from './webportal/modules/product-details/pro
 import { ViewPlacedRequestsComponent } from 'src/app/modules/agent/view-placed-requests/view-placed-requests.component';
 import { TermDetailsComponent } from './webportal/modules/term-details/term-details.component';
 import { CustomerLogoutComponent } from './webportal/modules/customer-logout/customer-logout.component';
+import { OutWasteRequsetComponent } from './webportal/modules/out-waste-requset/out-waste-requset.component';
 import { ShowEventComponent } from './webportal/modules/show-event/show-event.component';
 import { EventDetailsComponent } from './webportal/modules/show-event/event-details/event-details.component';
-
 
 const routes: Routes = [
   {
@@ -89,6 +89,10 @@ const routes: Routes = [
       {
         path: 'waste-request',
         component: WasteRequestComponent,
+      },
+      {
+        path:'outsource-waste-request',
+        component: OutWasteRequsetComponent,
       },
       {
         path: 'cart',

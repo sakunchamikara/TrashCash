@@ -50,5 +50,8 @@ export class CollectedWasteServiceService {
     return modalRef.result;
 
 }
+ getWasteCatDropdownValues(): Observable<any> {
+  return this.http.get(`${this.baseUrl}`);
+}
 }
 

@@ -10,7 +10,7 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item " aria-current="page">Waste requests</li>
+            <li class="breadcrumb-item " aria-current="page">Request For Waste</li>
             <li class="breadcrumb-item active" *ngIf="!activeFlag" aria-current="page">All</li>
             <li class="breadcrumb-item active" *ngIf="activeFlag" aria-current="page">{{activeFlag}}</li>
           </ol>
@@ -23,7 +23,7 @@
       <div class="card p2">
         <div class="card-body ">
           <h4 class="card-title">
-            Place a waste request
+            Request For Waste
           </h4>
     <form (ngSubmit)="wasteForm.form.valid && onSubmit()" #wasteForm="ngForm" >
 

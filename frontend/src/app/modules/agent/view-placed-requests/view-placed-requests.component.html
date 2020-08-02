@@ -40,7 +40,7 @@
                   <h5>Location : </h5>
                   <h5>Type : {{retrieveRequest.wasteType}}</h5>
                   <h5>Quantity : {{retrieveRequest.quantity}}</h5>
-                  <button type="button" class="btn btn-outline-success">Accept</button>
+                  <button type="button" class="btn btn-outline-success" (click)="confirm(retrieveRequest.id)">Accept</button>
                 </div>
              
               </div>

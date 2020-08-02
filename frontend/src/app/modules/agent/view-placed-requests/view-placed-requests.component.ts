@@ -15,6 +15,7 @@ export class ViewPlacedRequestsComponent implements OnInit {
   requestEmptyListFlag = false;
   retrieveRequests : Observable<WasteRequest[]>
 
+  requests : WasteRequest;
 
   constructor(private customerWasteRequestService:CustomerWasteRequestService ,) { }
 
@@ -26,8 +27,6 @@ export class ViewPlacedRequestsComponent implements OnInit {
 
   reloadData(){
     
-
-
     this.customerWasteRequestService.getCustomerWasteRequestList().subscribe(
       (data) => {
         this.retrieveRequests = data;
@@ -43,4 +42,28 @@ export class ViewPlacedRequestsComponent implements OnInit {
       }
     );
    }
+
+   confirm(id:number){
+ 
+        this.customerWasteRequestService.getCustomerWasteRequest(id)
+       .subscribe(data => {
+     
+      
+      this.requests = data;
+      this.requests.status='Confirmed';
+      this.requests.quantity=34567;
+
+      console.log(data);
+      
+    }, error => console.log(error));
+        
+ 
+    this.customerWasteRequestService.updateCustomerWasteRequest(id,this.requests)
+    .subscribe(data => console.log(data),
+      error => {console.log(error);});
+      this.requests = new WasteRequest();
+ 
+   }
+
+
 }

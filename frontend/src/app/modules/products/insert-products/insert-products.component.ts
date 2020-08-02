@@ -65,7 +65,7 @@ export class InsertProductsComponent implements OnInit {
         if (response.status === 200) {
           this.productService.createProduct(this.product).subscribe((data) => {
             console.log(data);
-            this.gotoList();
+            //this.gotoList();
           });
           console.log('Image uploaded successfully');
         } else {
@@ -88,9 +88,16 @@ export class InsertProductsComponent implements OnInit {
     //   );
   }
   onSubmit() {
-    this.submitted = true;
+   // this.submitted = true;
     this.save();
+    alert('INSERT SUCCESSFUL!!');
+    this.pageRefresh();
   }
+  
+  pageRefresh() {
+    location.reload();
+ }
+
   gotoList() {
     this.router.navigate(['system/ViewProducts']);
   }

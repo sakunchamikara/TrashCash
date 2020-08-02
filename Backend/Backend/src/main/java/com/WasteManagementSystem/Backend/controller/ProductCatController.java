@@ -28,16 +28,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.WasteManagementSystem.Backend.entity.Product;
-//import com.WasteManagementSystem.Backend.entity.CollectedWaste;
 import com.WasteManagementSystem.Backend.entity.ProductCat;
-//import com.WasteManagementSystem.Backend.entity.User;
-//import com.WasteManagementSystem.Backend.entity.Product;
-//import com.WasteManagementSystem.Backend.entity.ProductCat;
+
 import com.WasteManagementSystem.Backend.repository.ProductCatRepository;
-//import com.WasteManagementSystem.Backend.service.ProductService;
-import com.WasteManagementSystem.Backend.service.ProductCatService;
-//import com.WasteManagementSystem.Backend.service.RegistrationService;
+
+//import com.WasteManagementSystem.Backend.service.ProductCatService;
 
 import org.springframework.validation.BindingResult;
 

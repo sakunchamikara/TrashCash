@@ -12,11 +12,8 @@ import { ConfirmationDialogComponent } from '../modules/confirmation-dialog/conf
 //new comment
 export class ProductService {
   private baseUrl = 'http://localhost:8080/products';
-<<<<<<< HEAD
   constructor(private http: HttpClient, private modalService: NgbModal) { }
-=======
-  constructor(private http: HttpClient) {}
->>>>>>> b1ef0a2079f3f1bbd11b7f5c1ab5d2692d8d85b7
+ // constructor(private http: HttpClient) {}
   createProduct(product: Object): Observable<Object> {
     return this.http.post<any>(`${this.baseUrl}`, product);
   }
@@ -46,7 +43,6 @@ export class ProductService {
     return this.http.get(`${this.baseUrl}`);
   }
 
-<<<<<<< HEAD
   public confirm(
     title: string,
     message: string,
@@ -62,10 +58,8 @@ export class ProductService {
     return modalRef.result;
 
 }
-=======
   getRandomProducts(): Observable<any> {
     const url = 'http://localhost:8080/getRandomProduct';
     return this.http.get(url);
   }
->>>>>>> b1ef0a2079f3f1bbd11b7f5c1ab5d2692d8d85b7
 }

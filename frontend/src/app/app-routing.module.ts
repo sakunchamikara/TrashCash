@@ -30,13 +30,18 @@ import { TermsComponent } from './modules/terms/terms.component';
 import { AddtermsComponent } from './modules/terms/addterms/addterms.component';
 import { ViewtermsComponent } from './modules/terms/viewterms/viewterms.component';
 import { UpdateTermsComponent } from './modules/terms/update-terms/update-terms.component';
-import { WptermsComponent} from './webportal/modules/wpterms/wpterms.component';
-import { TermdiscripComponent} from './modules/terms/termdiscrip/termdiscrip.component';
+import { SendMailComponent } from './modules/send-mail/send-mail.component';
+import { WptermsComponent } from './webportal/modules/wpterms/wpterms.component';
 import { CustomerLoginComponent } from './webportal/modules/customer-login/customer-login.component';
 import { CustomerRegisterComponent } from './webportal/modules/customer-register/customer-register.component';
 import { WasteRequestComponent } from './webportal/modules/waste-request/waste-request.component';
 import { CartComponent } from './webportal/modules/cart/cart.component';
-
+import { ProductDetailsComponent } from './webportal/modules/product-details/product-details.component';
+import { ViewPlacedRequestsComponent } from 'src/app/modules/agent/view-placed-requests/view-placed-requests.component';
+import { TermDetailsComponent } from './webportal/modules/term-details/term-details.component';
+import { CustomerLogoutComponent } from './webportal/modules/customer-logout/customer-logout.component';
+import { ShowEventComponent } from './webportal/modules/show-event/show-event.component';
+import { EventDetailsComponent } from './webportal/modules/show-event/event-details/event-details.component';
 
 
 const routes: Routes = [
@@ -50,12 +55,24 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       {
+        path: 'showevent',
+        component: ShowEventComponent,
+      },
+      {
+        path: 'event-details/:id',
+        component: EventDetailsComponent,
+      },
+      {
         path: 'welcome',
         component: WelcomeComponent,
       },
       {
         path: 'shop',
         component: ShopComponent,
+      },
+      {
+        path: 'wpterms',
+        component: WptermsComponent,
       },
       {
         path: 'login',
@@ -66,18 +83,29 @@ const routes: Routes = [
         component: CustomerRegisterComponent,
       },
       {
+        path: 'logout',
+        component: CustomerLogoutComponent,
+      },
+      {
         path: 'waste-request',
         component: WasteRequestComponent,
       },
       {
         path: 'cart',
-        component: CartComponent
+        component: CartComponent,
       },
       {
         path: 'wpterms',
         component: WptermsComponent,
       },
-
+      {
+        path: 'product/:id',
+        component: ProductDetailsComponent,
+      },
+      {
+        path: 'terms-details/:id',
+        component: TermDetailsComponent,
+      },
     ],
   },
   {
@@ -190,16 +218,21 @@ const routes: Routes = [
         component: ViewtermsComponent,
       },
       {
-        path: 'termdiscrip',
-        component: TermdiscripComponent,
-      },
-      {
         path: 'UpdateTerms/:id',
         component: UpdateTermsComponent,
       },
       {
         path: 'UpdateProductCats/:id',
         component: UpdateProductCatComponent,
+      },
+      
+      { path: 'sendMail',
+        component: SendMailComponent,
+        //canActivate: [RouteGuardService],
+    },
+      {
+        path: 'viewPlacedRequests',
+        component: ViewPlacedRequestsComponent,
       },
     ],
   },

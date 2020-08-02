@@ -3,6 +3,7 @@ import { EventService } from 'src/app/service/event.service';
 import { Router } from '@angular/router';
 //import { Item } from 'src/app/pojo/item';
 import { Event } from 'src/app/pojo/event';
+declare  var jQuery:  any;
 
 
 @Component({
@@ -19,6 +20,7 @@ export class AddEventComponent implements OnInit {
   successMsg: any;
   errorMsg: any;
   ngOnInit() {
+    
   }
 //alckacbakckacbkacbkbac
   save() {

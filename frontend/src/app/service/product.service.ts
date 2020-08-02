@@ -7,16 +7,15 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmationDialogComponent } from '../modules/confirmation-dialog/confirmation-dialog.component';
 //pull
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 //new comment
 export class ProductService {
-
   private baseUrl = 'http://localhost:8080/products';
+
   constructor(private http: HttpClient, private modalService: NgbModal) { }
   createProduct(product: Object): Observable<Object> {
     return this.http.post<any>(`${this.baseUrl}`, product);
-    
   }
   getProductList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
@@ -35,9 +34,8 @@ export class ProductService {
   }
 
   getProductListByCategory(category: String): Observable<any> {
-    let uri = `http://localhost:8080/getProduct/${category}`;
-    return this.http.get(uri)
-    
+    const uri = `http://localhost:8080/getProduct/${category}`;
+    return this.http.get(uri);
   }
 
   //
@@ -60,4 +58,8 @@ export class ProductService {
     return modalRef.result;
 
 }
+  getRandomProducts(): Observable<any> {
+    const url = 'http://localhost:8080/getRandomProduct';
+    return this.http.get(url);
+  }
 }

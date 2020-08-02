@@ -59,6 +59,8 @@ import { CollectedWasteServiceService } from 'src/app/service/collected-waste-se
 import { SendMailComponent } from 'src/app/modules/send-mail/send-mail.component';
 import { NewtermsService } from 'src/app/service/newterms.service';
 
+import { DisplayCustomerFeedbackComponent } from 'src/app/modules/display-customer-feedback/display-customer-feedback.component';
+
 @NgModule({
   declarations: [
     DefaultComponent,
@@ -87,11 +89,13 @@ import { NewtermsService } from 'src/app/service/newterms.service';
     ViewtermsComponent,
     UpdateTermsComponent,
     ConfirmationDialogComponent,
+    
 
     // TermdiscripComponent,
     AlertDialogComponent,
     SendMailComponent,
-    ViewPlacedRequestsComponent
+    ViewPlacedRequestsComponent,
+    DisplayCustomerFeedbackComponent,
   ],
   imports: [
     CommonModule,

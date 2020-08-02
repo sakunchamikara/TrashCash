@@ -46,6 +46,7 @@ import { CustomerLogoutComponent } from './webportal/modules/customer-logout/cus
 import { OutWasteRequsetComponent } from './webportal/modules/out-waste-requset/out-waste-requset.component';
 import { ShowEventComponent } from './webportal/modules/show-event/show-event.component';
 import { EventDetailsComponent } from './webportal/modules/show-event/event-details/event-details.component';
+import { DisplayCustomerFeedbackComponent } from './modules/display-customer-feedback/display-customer-feedback.component';
 
 const routes: Routes = [
   {
@@ -245,6 +246,11 @@ const routes: Routes = [
         path: 'viewPlacedRequests',
         component: ViewPlacedRequestsComponent,
       },
+      {
+        path: 'displayCustomerFeedbacks',
+        component: DisplayCustomerFeedbackComponent,
+      },
+      
     ],
   },
 ];

@@ -38,7 +38,7 @@ import { EventDetailsComponent } from '../../modules/show-event/event-details/ev
     CustomerLogoutComponent,
     OutWasteRequsetComponent,
     ShowEventComponent,
-    EventDetailsComponent
+    EventDetailsComponent,
   ],
   imports: [
     FormsModule,

@@ -1,6 +1,7 @@
 package com.WasteManagementSystem.Backend.entity;
 
-//import java.sql.Date;
+import java.sql.Date;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,13 +33,16 @@ public class CustomerFeedback {
 		private String cusFeedEmail;
 	 @NotNull
 		private String feedback;
+	 @NotNull
+		private Date date;
+	 
 	
 
 
 	public CustomerFeedback(){
 
 	}
-    public CustomerFeedback(int id, String feedbackType, String cusFeedFirstName,String cusFeedLastName,String cusFeedAddress, int cusFeedConactNum, String cusFeedEmail, String feedback){
+    public CustomerFeedback(int id, String feedbackType, String cusFeedFirstName,String cusFeedLastName,String cusFeedAddress, int cusFeedConactNum, String cusFeedEmail, String feedback, Date date){
         super();
         this.id = id;
 		this.feedbackType = feedbackType ;
@@ -48,6 +52,8 @@ public class CustomerFeedback {
 		this.cusFeedConactNum = cusFeedConactNum;
 		this.cusFeedEmail = cusFeedEmail;
 		this.feedback = feedback;
+		this.date = date;
+		
     }
 
     public int getId() {
@@ -113,6 +119,14 @@ public class CustomerFeedback {
 
 	public void setFeedback(String feedback) {
 		this.feedback =feedback;
+	}
+	
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
     
 }

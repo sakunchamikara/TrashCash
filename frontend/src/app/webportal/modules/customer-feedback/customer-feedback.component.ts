@@ -29,7 +29,7 @@ export class CustomerFeedbackComponent implements OnInit {
 
   save(){
     
-
+    this.customerFeed.date = new Date();
      //console.log(this.customer.firstName);
     // this.retrieveRequests=this.customerWasteRequestService.getCustomerWasteRequests(this.customer.firstName);
      //this.wasteRequest.customer = this.customer.firstName;
@@ -37,8 +37,10 @@ export class CustomerFeedbackComponent implements OnInit {
     .subscribe(
       (data)=>{console.log(data);
         this.customerFeed = new CustomerFeedback();
-        this.successMsg = `waste added successfully !`;
+        this.successMsg = `feedback added successfully !`;
         console.log(this.successMsg);
+        this.customerFeedbackService
+    .alert('Thank You','Your Feedback has been successfully recorded');
         // this.reloadData();
         
   //     }

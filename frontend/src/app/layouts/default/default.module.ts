@@ -87,17 +87,11 @@ import { NewtermsService } from 'src/app/service/newterms.service';
     ViewtermsComponent,
     UpdateTermsComponent,
     ConfirmationDialogComponent,
-<<<<<<< HEAD
-    //TermdiscripComponent,
-    AlertDialogComponent,
-    ViewPlacedRequestsComponent,
-=======
 
     // TermdiscripComponent,
     AlertDialogComponent,
     SendMailComponent,
     ViewPlacedRequestsComponent
->>>>>>> 68c68b2bb12ffee4b601c5e13a14c09046cd13ca
   ],
   imports: [
     CommonModule,

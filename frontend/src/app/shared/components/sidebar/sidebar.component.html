@@ -20,13 +20,13 @@
 
   <a mat-list-item routerLinkActive="list-item-active" [matMenuTriggerFor]="productcat">Recycled Product Categories</a>
   <mat-menu #productcat="matMenu">
-    <button  mat-menu-list-item [routerLink]="'/system/productCats'" class="btn btn-primary-outline pull-right">  Insert Product Category</button>
+    <button  mat-menu-list-item [routerLink]="'/system/productCats'" class="btn btn-primary-outline pull-right">  Insert New Product Category</button>
     <button  mat-menu-list-item [routerLink]="'/system/viewProductCat'" class="btn btn-primary-outline pull-right">  View Product Categories</button>
 </mat-menu>
 
   <a mat-menu-item [matMenuTriggerFor]="product">Products</a>
     <mat-menu #product="matMenu">
-         <a  mat-menu-item [routerLink]="'/system/products'" class="btn btn-primary-outline pull-right">  Insert Product</a>
+         <a  mat-menu-item [routerLink]="'/system/products'" class="btn btn-primary-outline pull-right">  Insert New Product</a>
          <a  mat-menu-item [routerLink]="'/system/ViewProducts'" class="btn btn-primary-outline pull-right">  View Products</a>
     </mat-menu>
 

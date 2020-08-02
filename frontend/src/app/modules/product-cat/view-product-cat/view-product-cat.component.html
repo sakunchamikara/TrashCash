@@ -57,7 +57,7 @@
           <td>{{productCat.description}}</td>
           <!-- <td>{{productCat.img}}</td> -->         
           <td><img src="{{productCat.retrievedImg}}" height="200" width="200"></td>
-          <td><button (click)="deleteProductCat(productCat.id)" class="btn btn-danger">Delete</button>
+          <td><button (click)="checkDeletion(productCat.name,productCat.id)" class="btn btn-danger" id="dltBtn">Delete</button>
             <button (click)="updateProductCat(productCat.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
            
 

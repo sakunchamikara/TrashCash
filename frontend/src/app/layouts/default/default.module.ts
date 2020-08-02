@@ -88,7 +88,7 @@ import { NewtermsService } from 'src/app/service/newterms.service';
     UpdateTermsComponent,
     ConfirmationDialogComponent,
 
-    TermdiscripComponent,
+    // TermdiscripComponent,
     AlertDialogComponent,
     SendMailComponent,
     ViewPlacedRequestsComponent

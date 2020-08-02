@@ -54,10 +54,13 @@ import { AddtermsComponent } from 'src/app/modules/terms/addterms/addterms.compo
 import { ViewtermsComponent} from 'src/app/modules/terms/viewterms/viewterms.component';
 import { UpdateTermsComponent } from 'src/app/modules/terms/update-terms/update-terms.component';
 import { ConfirmationDialogComponent } from 'src/app/modules/confirmation-dialog/confirmation-dialog.component';
+import { AlertDialogComponent } from 'src/app/modules/alert-dialog/alert-dialog.component';
 import { CollectedWasteServiceService } from 'src/app/service/collected-waste-service.service';
 import { NewtermsService} from 'src/app/service/newterms.service';
 import { OutWasteRequestComponent } from 'src/app/modules/out-waste-request/out-waste-request.component';
 import { ViewDbComponent } from 'src/app/modules/view-db/view-db.component';
+import { SendMailComponent } from 'src/app/modules/send-mail/send-mail.component';
+//import { NewtermsService } from 'src/app/service/newterms.service';
 
 @NgModule({
   declarations: [
@@ -88,7 +91,12 @@ import { ViewDbComponent } from 'src/app/modules/view-db/view-db.component';
     UpdateTermsComponent,
     ConfirmationDialogComponent,
     ViewPlacedRequestsComponent,
-    ViewDbComponent
+    ViewDbComponent,
+
+    // TermdiscripComponent,
+    AlertDialogComponent,
+    SendMailComponent,
+    ViewPlacedRequestsComponent
   ],
   imports: [
     CommonModule,
@@ -117,6 +125,7 @@ import { ViewDbComponent } from 'src/app/modules/view-db/view-db.component';
   providers: [DashboardService,
               CollectedWasteServiceService,
             NewtermsService],
-  entryComponents: [ConfirmationDialogComponent ],
+  entryComponents: [ConfirmationDialogComponent,
+                    AlertDialogComponent ],
 })
 export class DefaultModule {}

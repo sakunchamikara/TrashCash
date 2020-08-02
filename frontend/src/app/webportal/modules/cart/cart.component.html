@@ -14,95 +14,98 @@
     <div class="col-md-9">
 
       <div class="card">
-        <div class="card-body">
-          <form>
-            <h2 class="card-title" style="color: #333333;">Shopping Cart</h2>
-            <h6 class="card-subtitle mb-2 text-muted">You currnetly have 5 items in your cart</h6>
-            <div class="">
+        <form>
+          <div class="card-body">
+            <form>
+              <h2 class="card-title" style="color: #333333;">Shopping Cart</h2>
+              <h6 class="card-subtitle mb-2 text-muted">You currnetly have 5 items in your cart</h6>
+              <div class="">
 
-              <table class="table table-hover" style="font-size: 14px;">
-                <thead>
-                  <tr>
-                    <th colspan="2">Product</th>
-                    <th>Quentity</th>
-                    <th>Unit Price</th>
-                    <th colspan="1">Delete</th>
-                    <th colspan="2">Sub-total</th>
-                  </tr>
-                </thead>
+                <table class="table table-hover" style="font-size: 14px;">
+                  <thead>
+                    <tr>
+                      <th colspan="2">Product</th>
+                      <th>Quentity</th>
+                      <th>Unit Price</th>
+                      <th colspan="1">Delete</th>
+                      <th colspan="2">Sub-total</th>
+                    </tr>
+                  </thead>
 
-                <tbody>
-                  <tr *ngFor="let product of cartDetails;">
-                    <td>
-                      <img src="{{'data:image/jpeg;base64,'+product.product.image1}}" alt="Product 1" class="img-responsive" width="75px" height="75px">
-                    </td>
+                  <tbody>
+                    <tr *ngFor="let product of cartDetails;">
+                      <td>
+                        <img src="{{'data:image/jpeg;base64,'+product.product.image1}}" alt="Product 1"
+                          class="img-responsive" width="75px" height="75px">
+                      </td>
 
-                    <td>
-                      <a>{{product.product.title}}</a>
-                    </td>
+                      <td>
+                        <a>{{product.product.title}}</a>
+                      </td>
 
-                    <td>
-                      {{product.quentity}}
-                    </td>
+                      <td>
+                        {{product.quentity}}
+                      </td>
 
-                    <td>
-                      {{product.product.price}}
-                    </td>
+                      <td>
+                        {{product.product.price}}
+                      </td>
 
-                    <td>
-                      <input type="checkbox" name="remove[]">
-                    </td>
+                      <td>
+                        <input type="checkbox" name="remove[]">
+                      </td>
 
-                    <td>
-                      123
-                    </td>
-                  </tr>
-                </tbody>
+                      <td>
+                        {{product.product.price * number(product.quentity) }}
+                      </td>
+                    </tr>
+                  </tbody>
 
-                <tfoot>
+                  <tfoot>
 
-                  <tr>
+                    <tr>
 
-                    <th colspan="5">Total</th>
+                      <th colspan="5">Total</th>
 
-                    <th colspan="2">450</th>
+                      <th colspan="2">Rs.{{total}}</th>
 
-                  </tr>
+                    </tr>
 
-                </tfoot>
+                  </tfoot>
 
-              </table>
+                </table>
+              </div>
+            </form>
+          </div>
+
+          <div class="card-footer text-muted">
+            <div class="float-left">
+
+              <button class="btn btn-outline-primary btn-sm">
+                <i class="fa fa-chevron-left"></i> Continue Shopping
+              </button>
 
             </div>
-          </form>
-        </div>
 
-        <div class="card-footer text-muted">
+            <div class="float-right">
 
-
-          <div class="float-left">
-
-            <button class="btn btn-outline-primary btn-sm">
-              <i class="fa fa-chevron-left"></i> Continue Shopping
-            </button>
-
-          </div>
-
-          <div class="float-right">
-
-            <button type="button" class="btn btn-outline-dark btn-sm mx-2"><i class="fas fa-sync-alt"></i> Update Cart </button>
+              <button type="submit" class="btn btn-outline-dark btn-sm mx-2"><i class="fas fa-sync-alt"></i> Update Cart
+              </button>
 
 
-            <button type="button" class="btn btn-outline-success btn-sm">
-              Proceed Checkout <i class="fa fa-chevron-right"></i>
-            </button>
+              <button type="submit" class="btn btn-outline-success btn-sm">
+                Proceed Checkout <i class="fa fa-chevron-right"></i>
+              </button>
+
+            </div>
 
           </div>
+        </form>
 
-        </div>
       </div>
 
     </div>
+
     <div class="col-md-3" id="content">
       <!--col-md-3 begin-->
       <div class="card" id="order-summary">
@@ -122,19 +125,19 @@
               <tbody>
                 <tr>
                   <td>Order Sub Total</td>
-                  <th>$400</th>
+                  <th>Rs.{{total}}</th>
                 </tr>
                 <tr>
                   <td>Shipping and handling</td>
-                  <th>$0</th>
+                  <th>Rs.0</th>
                 </tr>
                 <tr>
                   <td>Tax</td>
-                  <th>$0</th>
+                  <th>Rs.0</th>
                 </tr>
                 <tr class="total">
                   <td>Total</td>
-                  <th>$500</th>
+                  <th>Rs.{{total}}</th>
                 </tr>
               </tbody>
             </table>

@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="form-row">
+        <div class="col-md-12">
+          <br>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item" routerLink="/customer/showevent">Events</li>
+             <!-- <li class="breadcrumb-item active" aria-current="page">{{.category}}</li> -->
+    
+            </ol>
+          </nav>
+        </div>
+      </div>
+    
+      <div class="row">        
+        <div class="col-lg-6" *ngFor="let event of events | async">
+          <div class="card h-100">
+            <div class="card-body">
+              <h2 class="card-title">{{event.eventName}}</h2>
+              <hr>
+              <p class="card-text text-muted">Event Location:  {{event.location}}</p>
+              <p>Event Date:{{event.date}}</p>
+              <p>Event Description: {{event.notes}}</p> 
+              
+              
+            </div>
+          </div>
+        </div>
+    
+      </div>
+    
+   
+
+    
+    </div>
+    

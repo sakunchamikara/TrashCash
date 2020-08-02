@@ -44,25 +44,44 @@
             <div class="form-row">
               <div class="form-group col-md-8">
                 <label for="">Term Title</label>
-                <input type="text" class="form-control" id="title"  name="title" oninput="validity.valid||(value='');" required [(ngModel)]="terms.title" >
-              </div>                           
+                <input type="text" class="form-control" id="title"  name="title"  [(ngModel)]="terms.title" 
+                   placeholder="Enter term title" required #title="ngModel"
+                   [class.is-invalid]="title.invalid && title.touched" >
+              </div>   
+              
+              <div *ngIf="title.errors && (title.invalid && title.touched)">
+                <small class="text-danger" *ngIf="title.errors.required">Title is a required field</small>
+             <!--   <small class="text-danger" *ngIf="title.errors.pattern">Enter valid email pattern</small>  -->
+              </div>
 
             </div>
 
             <div class="form-row">
               <div class="form-group col-md-8">
                 <label for="">Term URL</label>
-                <input type="text" class="form-control" id="turl" name="turl" oninput="validity.valid||(value='');"
-                  required [(ngModel)]="terms.turl">
+                <input type="text" class="form-control" id="turl" name="turl"  [(ngModel)]="terms.turl"  
+                  placeholder="Enter term URL"  required  #turl="ngModel"
+                  [class.is-invalid]="turl.invalid && turl.touched">
+              </div>
+
+              <div *ngIf="turl.errors && (turl.invalid && turl.touched)">
+                <small class="text-danger" *ngIf="turl.errors.required">Term URL is a required field</small>
+
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group col-md-8">
                 <label for="">Term Description</label>
-                <textarea rows="6" type="text" class="form-control" id="tdiscrip" name="tdiscrip"
-                  oninput="validity.valid||(value='');" required [(ngModel)]="terms.tdiscrip">
+                <textarea rows="6" type="text" class="form-control" id="tdiscrip" name="tdiscrip" [(ngModel)]="terms.tdiscrip" 
+                  placeholder="Enter term discription"  required  #tdiscrip="ngModel"
+                  [class.is-invalid]="tdiscrip.invalid && tdiscrip.touched">
                 </textarea>
+              </div>
+
+              <div *ngIf="tdiscrip.errors && (tdiscrip.invalid && tdiscrip.touched)">
+                <small class="text-danger" *ngIf="tdiscrip.errors.required">Term Discription is a required field</small>
+           
               </div>
             </div>
             <button type="submit" class="btn btn-primary float-right">Create Term</button>

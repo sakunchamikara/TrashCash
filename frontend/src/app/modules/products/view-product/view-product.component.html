@@ -23,7 +23,7 @@
 
           <div class="panel panel-primary">
             <div class="panel-heading">
-              <h4>Prdouct List</h4>
+              <h4>Product List</h4>
             </div>
             <div class="panel-body">
               <table class="table table-striped">
@@ -49,7 +49,7 @@
 
                     <td>{{product.price}}</td>
                     <td>{{product.details}}</td>
-                    <td><button (click)="deleteProduct(product.id)" class="btn btn-danger">Delete</button>
+                    <td><button (click)="openConfirmationDialog(product.id)" class="btn btn-danger">Delete</button>
                       <button (click)="updateProduct(product.id)" class="btn btn-info"
                         style="margin-left: 10px">Update</button>
 

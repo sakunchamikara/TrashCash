@@ -32,14 +32,15 @@
   </div>
 
   <div class="row">
-    <div class="col-lg-6 col-md-6">
+    <div class="col-lg-9 col-md-9">
       <div class="card p2">
         <div class="card-body ">
           <h4 class="card-title">
             Add Category
           </h4>
           <div>
-            <form (ngSubmit)="onSubmit()" #productCatForm="ngForm">
+            <form  #productCatForm="ngForm">
+              <!-- (ngSubmit)="onSubmit()" -->
               <div class="form-row">
                 <div class="form-group col-md-9" class="right">
                   <label for="">Category Name</label>
@@ -56,12 +57,13 @@
               <div class="form-row">
                 <div class="form-group col-md-9">
                   
-                  <label for="">Image</label>
+                  <label for="">Image  </label>
                   <input type="file" (change)="onFileChanged($event)">
                   <img [src]="imgURL" height="200" width="200" *ngIf="imgURL">
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary float-left">Submit</button>
+              <button type="submit" class="btn btn-primary float-left"  (click)="checkName(productCat.name)" >Submit</button>
+             
             </form>
           </div>
 
@@ -73,5 +75,22 @@
         </div>
       </div>
     </div>
+ 
+
+
+  
+  <div class="col-lg-3 col-md-3">
+    <div class="card p3">
+      <div class="card-body">
+        <h4 class="card-title">Available Product Categories</h4>
+          <!-- <p class="card-text" *ngFor="let item of listItems" >{{item}}</p> -->
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item fa fa-check-circle" *ngFor="let item of listItems">  {{item}}</li>
+           
+          </ul>
+      </div>
+    </div>
   </div>
+</div>
+  
 </div>

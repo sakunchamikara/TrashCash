@@ -32,7 +32,7 @@ export class CollectedWasteServiceService {
   }
 
   updateCollectedWaste(id:number,value:any):Observable<Object>{
-    return this.http.put(`${this.baseUrl}/${id}`,value)
+    return this.http.put(`${this.baseUrl}/${id}`,value);
   }
 
   public confirm(

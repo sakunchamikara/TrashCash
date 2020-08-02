@@ -38,7 +38,7 @@ export class WasteRequestComponent implements OnInit {
     this.authService.getCustomer(this.email).subscribe((data) => {
       this.customer = data;
       //  this.cus=JSON.stringify(this.customer.firstName);
-    
+    this.successMsg=null;
     
      
     });
@@ -68,7 +68,7 @@ export class WasteRequestComponent implements OnInit {
   }
   save(){
     this.wasteRequest.date = new Date();
-    this.wasteRequest.status=1;
+    this.wasteRequest.status ='Pending';
 
     console.log(this.customer.firstName);
     // this.retrieveRequests=this.customerWasteRequestService.getCustomerWasteRequests(this.customer.firstName);
@@ -91,13 +91,23 @@ export class WasteRequestComponent implements OnInit {
   reloadData(){
      this.retrieveRequests=this.customerWasteRequestService.getCustomerWasteRequestList();
      this.retrieveRequests.forEach(obj=>{
+          this.successMsg=null;
        obj.forEach(childOb=>{
-           if(childOb.status=1){
+           if(childOb.status=='Pending'){
+            this.successMsg=null;
              this.successMsg="Pending";
-           }else if(childOb.status=2){
+             
+             console.log(this.successMsg);
+           }else if(childOb.status=='Confirmed'){
+            this.successMsg=null;
              this.successMsg="Confirmed";
+            
+             console.log(this.successMsg);
            }else{
+            this.successMsg=null;
              this.successMsg="Collected";
+             
+             console.log(this.successMsg);
            }
        });
      });

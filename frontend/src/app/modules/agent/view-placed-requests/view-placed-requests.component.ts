@@ -27,8 +27,6 @@ export class ViewPlacedRequestsComponent implements OnInit {
 
   reloadData(){
     
-
-
     this.customerWasteRequestService.getCustomerWasteRequestList().subscribe(
       (data) => {
         this.retrieveRequests = data;
@@ -52,7 +50,7 @@ export class ViewPlacedRequestsComponent implements OnInit {
      
       
       this.requests = data;
-      this.requests.status=2;
+      this.requests.status='Confirmed';
       this.requests.quantity=34567;
 
       console.log(data);
@@ -64,7 +62,6 @@ export class ViewPlacedRequestsComponent implements OnInit {
     .subscribe(data => console.log(data),
       error => {console.log(error);});
       this.requests = new WasteRequest();
-      console.log("testing floaaaat"+this.requests);
  
    }
 

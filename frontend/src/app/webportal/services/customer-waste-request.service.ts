@@ -31,11 +31,11 @@ export class CustomerWasteRequestService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  getCustomerWasteRequests(customer:string) : Observable<any>{
-    // return this.http.get(`${this.baseUrl}/${customer}`);  
-    const uri = `http://localhost:8080/getCustomerWasteRequest/${customer}`;
-    return this.http.get(uri);
-  }
+  // getCustomerWasteRequests(customer:string) : Observable<any>{
+  //   // return this.http.get(`${this.baseUrl}/${customer}`);  
+  //   const uri = `http://localhost:8080/getCustomerWasteRequest/${customer}`;
+  //   return this.http.get(uri);
+  // }
 
 
   updateCustomerWasteRequest(id:number,value:any):Observable<Object>{

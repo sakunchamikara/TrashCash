@@ -24,9 +24,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 //import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.WasteManagementSystem.Backend.entity.Product;
 //import com.WasteManagementSystem.Backend.entity.CollectedWaste;
 import com.WasteManagementSystem.Backend.entity.ProductCat;
 //import com.WasteManagementSystem.Backend.entity.User;
@@ -51,30 +53,18 @@ public class ProductCatController {
 	@Autowired
 	private ProductCatRepository productcatRepository;
 	
-	@Autowired
-	private ProductCatService service;
+	//@Autowired
+	//private ProductCatService service;
 	
 	
 	@PostMapping("/productCats")
-    public ProductCat createProductCat(@Valid @RequestBody ProductCat productcat, BindingResult bindingResult) throws Exception {
-		String tempName = productcat.getName();
-		if (tempName != null && !"".equals(tempName)) {
-			ProductCat userObj = service.fetchProductCatByName(tempName);
-			if (userObj != null) {
-				throw new Exception("Product Category with " + tempName + " is already exist !!!");
-		
-			}
+	public ProductCat createProductCat(@Valid @RequestBody ProductCat productcat, BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			return null;
 		}
-        if (bindingResult.hasErrors()) {
-            return null;
-        }
-        productcat.setImg(this.bytess);
-        //return productcatRepository.save(productcat);
-        
-        ProductCat userObj = null;
-		userObj = service.saveProductCat(productcat);
-		return userObj;
-        
+		productcat.setImg(this.bytess);
+        return productcatRepository.save(productcat);
+//        this.bytes = null;
     }
 	
 	//adding image
@@ -125,4 +115,9 @@ public class ProductCatController {
         final ProductCat updatedProductCat = productcatRepository.save(productCat);
         return ResponseEntity.ok(updatedProductCat);
     }
+	
+	@GetMapping(path="/productCats/name")
+	public @ResponseBody List<String> getAllName() {
+	    return productcatRepository.getAllName();
+	}
 }

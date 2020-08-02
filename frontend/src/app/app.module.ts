@@ -18,13 +18,17 @@ import {
 import { FormsModule } from '@angular/forms';
 import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
 import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
+<<<<<<< HEAD
 import { WptermsComponent } from './webportal/modules/wpterms/wpterms.component';
 
 //import { TermdiscripComponent } from './modules/terms/termdiscrip/termdiscrip.component';
 
+=======
+import { ReactiveFormsModule } from '@angular/forms';
+>>>>>>> 68c68b2bb12ffee4b601c5e13a14c09046cd13ca
 
 @NgModule({
-  declarations: [AppComponent, LogoutComponent,  ],
+  declarations: [AppComponent, LogoutComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -35,6 +39,7 @@ import { WptermsComponent } from './webportal/modules/wpterms/wpterms.component'
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    ReactiveFormsModule,
     MatToolbarModule,
     MatButtonModule,
     MatMenuModule,

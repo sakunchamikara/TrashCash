@@ -32,7 +32,7 @@ export class CollectedWasteServiceService {
   }
 
   updateCollectedWaste(id:number,value:any):Observable<Object>{
-    return this.http.put(`${this.baseUrl}/${id}`,value)
+    return this.http.put(`${this.baseUrl}/${id}`,value);
   }
 
   public confirm(
@@ -49,6 +49,9 @@ export class CollectedWasteServiceService {
 
     return modalRef.result;
 
+}
+ getWasteCatDropdownValues(): Observable<any> {
+  return this.http.get(`${this.baseUrl}`);
 }
 }
 

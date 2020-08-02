@@ -7,41 +7,34 @@ import { ConfirmationDialogComponent } from 'src/app/modules/confirmation-dialog
 @Injectable({
   providedIn: 'root'
 })
-export class CustomerWasteRequestService {
+export class OutsourceWasteRequsetService {
 
-  private baseUrl = 'http://localhost:8080/customerWasteRequest';
-  
+   //private Url = 'http://localhost:8080/outsourceWasteRequests';
+
   constructor(private http:HttpClient,private modalService: NgbModal) { }
 
-  createCustomerWasteRequest(wasteRequest:Object):Observable<Object>{
+  createOutsourceWasteRequest(wasteRequest:Object):Observable<Object>{
+    console.log("hello");
 
     console.log(wasteRequest);
-      return this.http.post<any>(`${this.baseUrl}`,wasteRequest);
+    const baseUrl = 'http://localhost:8080/outRequest';
+    return this.http.post<any>(baseUrl,wasteRequest);
 
   }
   getCustomerWasteRequestList():Observable<any>{
-    return this.http.get(`${this.baseUrl}`);
+    console.log("asjh")
+    const baseUrl = 'http://localhost:8080/outRequest';
+    return this.http.get(baseUrl);
   }
 
+  getWasteListByEmail(email: String): Observable<any> {
+    const uri = `http://localhost:8080/getwaste/${email}`;
+    return this.http.get(uri);
+  }
   deleteCustomerWasteRequest(id:number) :Observable<any>{
-    return this.http.delete(`${this.baseUrl}/${id}`, {responseType: 'text'});
+    const baseUrl = `http://localhost:8080/outRequest/${id}`;
+    return this.http.delete(baseUrl, {responseType: 'text'});
   }
-
-  getCustomerWasteRequest(id:number) :Observable<any>{
-    return this.http.get(`${this.baseUrl}/${id}`);
-  }
-
-  // getCustomerWasteRequests(customer:string) : Observable<any>{
-  //   // return this.http.get(`${this.baseUrl}/${customer}`);  
-  //   const uri = `http://localhost:8080/getCustomerWasteRequest/${customer}`;
-  //   return this.http.get(uri);
-  // }
-
-
-  updateCustomerWasteRequest(id:number,value:any):Observable<Object>{
-    return this.http.put(`${this.baseUrl}/${id}`,value);
-  }
-
   public confirm(
     title: string,
     message: string,
@@ -57,6 +50,5 @@ export class CustomerWasteRequestService {
     return modalRef.result;
 
 }
+
 }
-
-

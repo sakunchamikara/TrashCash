@@ -18,7 +18,9 @@ import { ProductDetailsComponent } from '../../modules/product-details/product-d
 import { WptermsComponent } from '../../modules/wpterms/wpterms.component';
 import { TermDetailsComponent } from '../../modules/term-details/term-details.component';
 import { CustomerLogoutComponent } from '../../modules/customer-logout/customer-logout.component';
-
+import { OutWasteRequsetComponent } from '../../modules/out-waste-requset/out-waste-requset.component';
+import { ShowEventComponent } from '../../modules/show-event/show-event.component';
+import { EventDetailsComponent } from '../../modules/show-event/event-details/event-details.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,9 @@ import { CustomerLogoutComponent } from '../../modules/customer-logout/customer-
     WptermsComponent,
     TermDetailsComponent,
     CustomerLogoutComponent,
+    OutWasteRequsetComponent,
+    ShowEventComponent,
+    EventDetailsComponent
   ],
   imports: [
     FormsModule,

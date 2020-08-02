@@ -12,8 +12,13 @@ import { ConfirmationDialogComponent } from '../modules/confirmation-dialog/conf
 //new comment
 export class ProductService {
   private baseUrl = 'http://localhost:8080/products';
+<<<<<<< HEAD
   constructor(private http: HttpClient, private modalService: NgbModal) { }
  // constructor(private http: HttpClient) {}
+=======
+
+  constructor(private http: HttpClient, private modalService: NgbModal) { }
+>>>>>>> 68c68b2bb12ffee4b601c5e13a14c09046cd13ca
   createProduct(product: Object): Observable<Object> {
     return this.http.post<any>(`${this.baseUrl}`, product);
   }

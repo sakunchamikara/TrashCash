@@ -69,6 +69,7 @@ public class CustomerWasteRequestController {
         customerWasteRequest.setQuantity(customerWasteRequestDetails.getQuantity());
         customerWasteRequest.setDate(customerWasteRequestDetails.getDate());
         customerWasteRequest.setCustomer(customerWasteRequestDetails.getCustomer());
+        customerWasteRequest.setStatus(customerWasteRequestDetails.getStatus());
        ;
         final CustomerWasteRequest updatedCustomerWasteRequest = customerWasteRequestRepo.save(customerWasteRequest);
         return ResponseEntity.ok(updatedCustomerWasteRequest);
@@ -82,9 +83,9 @@ public class CustomerWasteRequestController {
         return ResponseEntity.ok().body(customerWasteRequest);
     }
 
-    @GetMapping("/customerWasteRequest/{customer}")
-    public List<CustomerWasteRequest> getCustomerWasteRequest(@PathVariable String customer) {
-        return service.fetchWasteRequestByCustomer(customer);
-    }
+    // @GetMapping("/getCustomerWasteRequest/{customer}")
+    // public List<CustomerWasteRequest> getCustomerWasteRequest(@PathVariable String customer) {
+    //     return service.fetchWasteRequestByCustomer(customer);
+    // }
     
 }

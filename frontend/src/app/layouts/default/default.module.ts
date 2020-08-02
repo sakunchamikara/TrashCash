@@ -56,7 +56,8 @@ import { UpdateTermsComponent } from 'src/app/modules/terms/update-terms/update-
 import { ConfirmationDialogComponent } from 'src/app/modules/confirmation-dialog/confirmation-dialog.component';
 import { AlertDialogComponent } from 'src/app/modules/alert-dialog/alert-dialog.component';
 import { CollectedWasteServiceService } from 'src/app/service/collected-waste-service.service';
-import { NewtermsService} from 'src/app/service/newterms.service';
+import { SendMailComponent } from 'src/app/modules/send-mail/send-mail.component';
+import { NewtermsService } from 'src/app/service/newterms.service';
 
 @NgModule({
   declarations: [
@@ -86,9 +87,17 @@ import { NewtermsService} from 'src/app/service/newterms.service';
     ViewtermsComponent,
     UpdateTermsComponent,
     ConfirmationDialogComponent,
+<<<<<<< HEAD
     //TermdiscripComponent,
     AlertDialogComponent,
     ViewPlacedRequestsComponent,
+=======
+
+    // TermdiscripComponent,
+    AlertDialogComponent,
+    SendMailComponent,
+    ViewPlacedRequestsComponent
+>>>>>>> 68c68b2bb12ffee4b601c5e13a14c09046cd13ca
   ],
   imports: [
     CommonModule,

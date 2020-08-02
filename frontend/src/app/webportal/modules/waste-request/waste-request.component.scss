@@ -31,6 +31,14 @@
   border-color: rgba($color: #22AA86, $alpha: 1.0) !important;
   }
   
+  .green {
+   background-color: red;
+  }
+  
+  
+tr td:nth-child(4) {
+  color: rgb(53, 173, 89);
+}
   
   .breadcrumb {
     padding: 8px 15px;

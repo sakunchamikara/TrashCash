@@ -11,8 +11,8 @@ import javax.validation.constraints.NotNull;
 
 
 @Entity
-@Table(name = "customerWasteRequest")
-public class CustomerWasteRequest {
+@Table(name = "outsourceWasteRequest")
+public class OutsourceWasteRequest {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,25 +22,23 @@ public class CustomerWasteRequest {
     private String wasteType;
     @NotNull
 	private int quantity;
-	@NotNull
-	private Date date;
-	@NotNull
-	private String customer;
-	@NotNull
-	private String status;
+//	@NotNull
+    private Date date;
+//	@NotNull
+    private String customer;
+    private String email;
 
 
-	public CustomerWasteRequest(){
+	public OutsourceWasteRequest(){
 
 	}
-    public CustomerWasteRequest(int id, String wasteType,int quantity,Date date,String customer,String status,String details){
+    public OutsourceWasteRequest(int id, String wasteType, int quantity ,Date date, String customer ,String email){
         super();
-		this.id = id;
-		this.wasteType = wasteType;
+        this.id = id;
 		this.quantity = quantity ;
-		this.date = date;
-		this.customer = customer;
-		this.status = status;
+        this.date = date;
+      	this.customer = customer;
+      	this.email = email;
     }
 
     public int getId() {
@@ -56,7 +54,7 @@ public class CustomerWasteRequest {
 	}
 
 	public void setWasteType(String wasteType) {
-		this.wasteType = wasteType;
+		this.wasteType =wasteType;
 	}
 	
 	public int getQuantity() {
@@ -66,7 +64,7 @@ public class CustomerWasteRequest {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	
+
 	public Date getDate() {
 		return date;
 	}
@@ -80,14 +78,16 @@ public class CustomerWasteRequest {
 	}
 
 	public void setCustomer(String customer) {
-		this.customer = customer;
+		this.customer =customer;
+	}
+	
+	public String getEMail() {
+		return email;
 	}
 
-	public String getStatus(){
-		return status;
+	public void setEMail(String email) {
+		this.email =email;
 	}
-	public void setStatus(String status){
-		this.status = status;
-	}
+
     
 }

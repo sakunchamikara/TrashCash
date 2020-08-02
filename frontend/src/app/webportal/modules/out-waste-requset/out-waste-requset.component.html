@@ -30,8 +30,10 @@
       <div class="form-row">
         <div class="form-group col-md-12">
         <label for="wasteType">Waste Type</label>
+        
+        <!-- <input type="text" class="form-control" id="wasteType" required [(ngModel)]="wasteRequest.wasteType" name="wasteType" > -->
         <select class="form-control" name="wasteType" id="wasteType" [(ngModel)]="wasteRequest.wasteType" placeholder="Enter waste type" required>
-          <option [value]="type" *ngFor="let type of Types">{{type}}</option>
+          <option [value]="type" *ngFor="let type of listItems">{{type}}</option>
           
         </select>
         </div>
@@ -66,10 +68,9 @@
 <table class="table table-striped">
 <thead>
   <tr>
-    <th>Wast Type</th>
+    <th>Waste Type</th>
     <th>Quantity</th>
     <th>Date</th>
-    <th>Status</th>
     <th>Action</th>
   
   </tr>
@@ -79,8 +80,6 @@
     <td>{{retrieveRequest.wasteType}}</td>
     <td>{{retrieveRequest.quantity}}</td>
     <td>{{retrieveRequest.date}}</td>
-    <td>{{retrieveRequest.status}}</td>
-    <!-- <td>{{successMsg}}</td> -->
    
    
     <td>
@@ -89,11 +88,7 @@
       <!-- <button (click)="updateCustomerWasteRequest(retrieveRequest.id)" class="btn btn-info" style="margin-left: 10px">Update</button> -->
         
     </td>
-  
   </tr>
-  
-
-
 </tbody>
 </table>
 </div>

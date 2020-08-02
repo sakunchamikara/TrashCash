@@ -1,11 +1,11 @@
-export class WasteRequest {
+export class OutWasteRequest {
 
     id:number;
     wasteType:string;
     quantity: number;
     date: Date;
     customer: string;
-    status: string;
+    email: string;
 
     constructor(){}
 }

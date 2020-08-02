@@ -30,6 +30,7 @@ import { TermsComponent } from './modules/terms/terms.component';
 import { AddtermsComponent } from './modules/terms/addterms/addterms.component';
 import { ViewtermsComponent } from './modules/terms/viewterms/viewterms.component';
 import { UpdateTermsComponent } from './modules/terms/update-terms/update-terms.component';
+import { SendMailComponent } from './modules/send-mail/send-mail.component';
 import { WptermsComponent } from './webportal/modules/wpterms/wpterms.component';
 import { CustomerLoginComponent } from './webportal/modules/customer-login/customer-login.component';
 import { CustomerRegisterComponent } from './webportal/modules/customer-register/customer-register.component';
@@ -42,6 +43,9 @@ import { ProductDetailsComponent } from './webportal/modules/product-details/pro
 import { ViewPlacedRequestsComponent } from 'src/app/modules/agent/view-placed-requests/view-placed-requests.component';
 import { TermDetailsComponent } from './webportal/modules/term-details/term-details.component';
 import { CustomerLogoutComponent } from './webportal/modules/customer-logout/customer-logout.component';
+import { OutWasteRequsetComponent } from './webportal/modules/out-waste-requset/out-waste-requset.component';
+import { ShowEventComponent } from './webportal/modules/show-event/show-event.component';
+import { EventDetailsComponent } from './webportal/modules/show-event/event-details/event-details.component';
 
 const routes: Routes = [
   {
@@ -53,6 +57,14 @@ const routes: Routes = [
     path: 'customer',
     component: HomeComponent,
     children: [
+      {
+        path: 'showevent',
+        component: ShowEventComponent,
+      },
+      {
+        path: 'event-details/:id',
+        component: EventDetailsComponent,
+      },
       {
         path: 'welcome',
         component: WelcomeComponent,
@@ -80,6 +92,10 @@ const routes: Routes = [
       {
         path: 'waste-request',
         component: WasteRequestComponent,
+      },
+      {
+        path:'outsource-waste-request',
+        component: OutWasteRequsetComponent,
       },
       {
         path: 'cart',
@@ -220,6 +236,11 @@ const routes: Routes = [
         path: 'UpdateProductCats/:id',
         component: UpdateProductCatComponent,
       },
+      
+      { path: 'sendMail',
+        component: SendMailComponent,
+        //canActivate: [RouteGuardService],
+    },
       {
         path: 'viewPlacedRequests',
         component: ViewPlacedRequestsComponent,

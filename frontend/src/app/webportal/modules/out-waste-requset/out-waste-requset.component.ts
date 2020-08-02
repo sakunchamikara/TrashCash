@@ -78,7 +78,7 @@ export class OutWasteRequsetComponent implements OnInit {
         //this.submitted = true;
         this.save();
         alert('SUCCESS!!');
-        //this.pageRefresh();
+        this.pageRefresh();
         
       }
       pageRefresh() {

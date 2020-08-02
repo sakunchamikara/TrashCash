@@ -69,6 +69,14 @@ public class OutsourceWasteRequestController {
 	        response.put("deleted", Boolean.TRUE);
 	        return response;
 	    }
+	    
+	    @GetMapping("/outRequest/{id}")
+	    public ResponseEntity<OutsourceWasteRequest> getOutsourceWasteRequest(@PathVariable(value = "id") int outWasteRequestId)
+	        throws ResourceNotFoundException {
+	    	OutsourceWasteRequest outsourceWasteRequest = outsourceWasteRequestRepo.findById(outWasteRequestId)
+	          .orElseThrow(() -> new ResourceNotFoundException("Waste request not found for this id :: " + outWasteRequestId));
+	        return ResponseEntity.ok().body(outsourceWasteRequest);
+	    }
 
        
 	    

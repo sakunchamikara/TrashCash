@@ -66,37 +66,39 @@ export class UpdateProductComponent implements OnInit {
 
   updateProduct() {
 
-    const uploadData = new FormData();
-    uploadData.append('imageFile', this.selectedFile, this.selectedFile.name);
-    this.selectedFile.imageName = this.selectedFile.name;
+    // const uploadData = new FormData();
+    // uploadData.append('imageFile', this.selectedFile, this.selectedFile.name);
+    // this.selectedFile.imageName = this.selectedFile.name;
 
-    // this.productService.updateProduct(this.id, this.product)
-    //   .subscribe(data => console.log(data), error => console.log(error));
-    // this.product = new Item();
-    // this.gotoList();
+    this.productService.updateProduct(this.id, this.product)
+      .subscribe(data => console.log(data), error => console.log(error));
+    this.product = new Item();
+    this.gotoList();
 
-    this.httpClient.post('http://localhost:8080/upload', uploadData, { observe: 'response' })
-      .subscribe((response) => {
-        if (response.status === 200) {
-          this.productService.updateProduct(this.id , this.product).subscribe(
-            (data) => {
-              console.log(data);
-              this.gotoList();
-            }
-          );
-          console.log('Image uploaded successfully');
-        } else {
-          console.log('Image not uploaded successfully');
-        }
-      }
-      );
+    // this.httpClient.post('http://localhost:8080/upload', uploadData, { observe: 'response' })
+    //   .subscribe((response) => {
+    //     if (response.status === 200) {
+    //       this.productService.updateProduct(this.id , this.product).subscribe(
+    //         (data) => {
+    //           console.log(data);
+    //           this.gotoList();
+    //         }
+    //       );
+    //       console.log('Image uploaded successfully');
+    //     } else {
+    //       console.log('Image not uploaded successfully');
+    //     }
+    //   }
+    //   );
   }
 
   onSubmit() {
-    this.updateProduct();    
+    this.updateProduct();  
+    alert('UPDATE SUCCESSFUL!!');  
   }
   gotoList(){
     this.router.navigate(['system/ViewProducts']);
+    
   }
 
 }

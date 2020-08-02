@@ -36,23 +36,26 @@
           <h4 class="card-title">
             Insert Product
           </h4>
-          <form (ngSubmit)="onSubmit()"  #todoForm="ngForm">
+          <form (ngSubmit)="todoForm.form.valid && onSubmit()"  #todoForm="ngForm">
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="name">Title</label>
-                <input type="text" class="form-control" id="title" required [(ngModel)]="product.title" name="title" >
-                <!-- <div *ngIf="todoForm.submitted && title.invalid" class="invalid-feedback">
+                <input type="text" class="form-control" id="title" required [(ngModel)]="product.title" name="title" #title="ngModel" [ngClass]="{ 'is-invalid': todoForm.submitted && title.invalid }">
+                <div *ngIf="todoForm.submitted && title.invalid" class="invalid-feedback">
                   <div *ngIf="title.errors.required">Title is required</div>
-              </div> -->
+              </div>
                 
               </div>
               <div class="form-group col-md-6">
-                <label for="contactMethod">Category</label>
+                <label for="contactMethod">Category(Required)</label>
                     <select 
                      name="category" 
                      id="category" 
                      class="form-control"
-                     [(ngModel)]="product.category">
+                     [(ngModel)]="product.category" #category="ngModel" [ngClass]="{ 'is-invalid': todoForm.submitted && category.invalid }" required>
+                     <div *ngIf="todoForm.submitted && category.invalid" class="invalid-feedback">
+                      <div *ngIf="category.errors.required">Category is required</div>
+                  </div>
                      <option *ngFor="let c1 of listItems" [value]="c1">{{c1}}</option>
                     </select>
                 <!-- <label for="name">Category</label>
@@ -66,9 +69,16 @@
               </div>
             </div>
             <div class="form-row">
-              <div class="form-group col-md-6">       
-                <input type="file" (change)="onFileChanged($event)">
-                <img [src]="imgURL" height="200" width="200" *ngIf="imgURL">
+              <div class="form-group col-md-6">   
+                <label for="image1">Image(Required)</label>   
+                
+                <input type="file" (change)="onFileChanged($event)" >
+                 
+                <img [src]="imgURL" height="200" width="200" *ngIf="imgURL" >
+                <!-- <div *ngIf="todoForm.submitted && imgURL.invalid" class="invalid-feedback">
+                  <div *ngIf="imgURL.errors.required">Image is required</div>
+              </div> -->
+                
                 <!-- <label for="name">Image 1</label>
                 <input type="file" class="form-control" name="image1">  -->
                 <!-- <input type="text" class="form-control" id="image1" required [(ngModel)]="product.image1" name="image1">  -->
@@ -82,12 +92,15 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="name">Price</label>
-                <input type="number" placeholder="Rs." class="form-control" id="price" required [(ngModel)]="product.price" name="price"min="0" oninput="validity.valid||(value='');" >
+                <input type="number" placeholder="Rs." class="form-control" id="price" required [(ngModel)]="product.price" name="price"min="0" oninput="validity.valid||(value='');" #price="ngModel" [ngClass]="{ 'is-invalid': todoForm.submitted && price.invalid }" required>
+                <div *ngIf="todoForm.submitted && price.invalid" class="invalid-feedback">
+                  <div *ngIf="price.errors.required">Price is required</div>
+              </div>
                 
               </div>
               <div class=" form-group col-md-6">
                 <label for="name">Description</label>
-                <textarea  class="form-control" id="details" required [(ngModel)]="product.details" name="details"></textarea>
+                <textarea  class="form-control" id="details"  [(ngModel)]="product.details" name="details"></textarea>
                 <!-- <input type="text"  class="form-control" id="details" required [(ngModel)]="product.details" name="details"> -->
               </div>
             </div>

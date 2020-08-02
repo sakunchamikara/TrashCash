@@ -20,6 +20,8 @@ import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-
 import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
+
+
 @NgModule({
   declarations: [AppComponent, LogoutComponent],
   imports: [

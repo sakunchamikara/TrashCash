@@ -42,6 +42,7 @@ import {AgmCoreModule} from '@agm/core';
     ShowEventComponent,
     EventDetailsComponent,
     LocationComponent,
+    CustomerFeedbackComponent
   ],
   imports: [
     FormsModule,

@@ -39,6 +39,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     OutWasteRequsetComponent,
     ShowEventComponent,
     EventDetailsComponent,
+    CustomerFeedbackComponent
   ],
   imports: [
     FormsModule,

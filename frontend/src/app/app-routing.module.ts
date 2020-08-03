@@ -36,6 +36,9 @@ import { CustomerLoginComponent } from './webportal/modules/customer-login/custo
 import { CustomerRegisterComponent } from './webportal/modules/customer-register/customer-register.component';
 import { WasteRequestComponent } from './webportal/modules/waste-request/waste-request.component';
 import { CartComponent } from './webportal/modules/cart/cart.component';
+import { CustomerFeedbackComponent } from './webportal/modules/customer-feedback/customer-feedback.component';
+
+
 import { ProductDetailsComponent } from './webportal/modules/product-details/product-details.component';
 import { ViewPlacedRequestsComponent } from 'src/app/modules/agent/view-placed-requests/view-placed-requests.component';
 import { TermDetailsComponent } from './webportal/modules/term-details/term-details.component';
@@ -45,6 +48,7 @@ import { OutWasteRequestComponent } from './modules/out-waste-request/out-waste-
 import { ViewDbComponent } from './modules/view-db/view-db.component';
 import { ShowEventComponent } from './webportal/modules/show-event/show-event.component';
 import { EventDetailsComponent } from './webportal/modules/show-event/event-details/event-details.component';
+import { DisplayCustomerFeedbackComponent } from './modules/display-customer-feedback/display-customer-feedback.component';
 
 const routes: Routes = [
   {
@@ -103,6 +107,10 @@ const routes: Routes = [
       {
         path: 'wpterms',
         component: WptermsComponent,
+      },
+      {
+        path: 'feedback',
+        component: CustomerFeedbackComponent,
       },
       {
         path: 'product/:id',
@@ -240,6 +248,10 @@ const routes: Routes = [
       {
         path: 'viewPlacedRequests',
         component: ViewPlacedRequestsComponent,
+      },
+      {
+        path: 'displayCustomerFeedbacks',
+        component: DisplayCustomerFeedbackComponent,
       },
       {
         path: 'ViewOutRequest',

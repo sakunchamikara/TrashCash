@@ -62,6 +62,8 @@ import { ViewDbComponent } from 'src/app/modules/view-db/view-db.component';
 import { SendMailComponent } from 'src/app/modules/send-mail/send-mail.component';
 //import { NewtermsService } from 'src/app/service/newterms.service';
 
+import { DisplayCustomerFeedbackComponent } from 'src/app/modules/display-customer-feedback/display-customer-feedback.component';
+
 @NgModule({
   declarations: [
     DefaultComponent,
@@ -92,11 +94,11 @@ import { SendMailComponent } from 'src/app/modules/send-mail/send-mail.component
     ConfirmationDialogComponent,
     ViewPlacedRequestsComponent,
     ViewDbComponent,
-
     // TermdiscripComponent,
     AlertDialogComponent,
     SendMailComponent,
-    ViewPlacedRequestsComponent
+    ViewPlacedRequestsComponent,
+    DisplayCustomerFeedbackComponent,
   ],
   imports: [
     CommonModule,

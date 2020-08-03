@@ -11,6 +11,8 @@ import { CustomerLoginComponent } from '../../modules/customer-login/customer-lo
 import { CustomerRegisterComponent } from '../../modules/customer-register/customer-register.component';
 import { WasteRequestComponent } from '../../modules/waste-request/waste-request.component';
 import { CartComponent } from '../../modules/cart/cart.component';
+import { CustomerFeedbackComponent } from '../../modules/customer-feedback/customer-feedback.component';
+
 import { ProductDetailsComponent } from '../../modules/product-details/product-details.component';
 import { WptermsComponent } from '../../modules/wpterms/wpterms.component';
 import { TermDetailsComponent } from '../../modules/term-details/term-details.component';
@@ -29,6 +31,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CustomerRegisterComponent,
     WasteRequestComponent,
     CartComponent,
+    CustomerFeedbackComponent,
     ProductDetailsComponent,
     WptermsComponent,
     TermDetailsComponent,

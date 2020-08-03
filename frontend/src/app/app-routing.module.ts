@@ -49,6 +49,7 @@ import { ViewDbComponent } from './modules/view-db/view-db.component';
 import { ShowEventComponent } from './webportal/modules/show-event/show-event.component';
 import { EventDetailsComponent } from './webportal/modules/show-event/event-details/event-details.component';
 import { DisplayCustomerFeedbackComponent } from './modules/display-customer-feedback/display-customer-feedback.component';
+import { LocationComponent } from './webportal/modules/waste-request/location/location.component';
 
 const routes: Routes = [
   {
@@ -119,6 +120,10 @@ const routes: Routes = [
       {
         path: 'terms-details/:id',
         component: TermDetailsComponent,
+      },
+      {
+        path: 'location',
+        component: LocationComponent,
       },
     ],
   },

@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="form-row">
+        <div class="col-md-12">
+            <br>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item " aria-current="page">Location</li>
+                  <li class="breadcrumb-item active" *ngIf="!activeFlag" aria-current="page">All</li>
+                  <li class="breadcrumb-item active" *ngIf="activeFlag" aria-current="page">{{activeFlag}}</li>
+              </ol>
+            </nav>
+          </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 col-md-4">
+                <h1>Drop off location</h1>
+        </div>
+        <div class="col-log-8 col-md-8">
+                <br>
+                <h5>Please enter your address below</h5>
+        </div>
+    </div>
+
+    <div class="row">
+        <form (ngSubmit)=onSubmit() #locationForm="ngForm">
+            <div class="form-group col-md-12">
+                <label for="location">Your location</label>
+                <input name="location" id="location" class="form-control" [[ngModel]]="customer.location" #location="ngModel">
+            </div>
+
+            <button type="submit" class="btn btn-primary float-right"></button>
+        </form>
+    </div>
+    <div class="row">
+        <agm-map [latitude]="">
+            <agm-marker>
+
+            </agm-marker>>
+        </agm-map>
+    </div>
+</div>

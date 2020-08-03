@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.WasteManagementSystem.Backend.entity.Product;
 import com.WasteManagementSystem.Backend.repository.ProductRepository;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -30,6 +31,9 @@ public class CartController {
 	public Optional<Object> addToCart(@PathVariable(value = "pid") int pid, @RequestBody Cart cart)
 			throws Exception {
 		
+		Product productObj = new Product();
+		productObj.setId(pid);
+		cart.setProduct(productObj);
 		Cart checkProduct = cartService.checkProduct(cart.getCustomerId(), cart.getProduct());
 		
 		if (checkProduct != null) {

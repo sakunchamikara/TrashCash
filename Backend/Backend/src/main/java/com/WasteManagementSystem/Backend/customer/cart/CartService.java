@@ -11,17 +11,21 @@ import com.WasteManagementSystem.Backend.entity.Product;
 public class CartService {
 	@Autowired
 	private CartRepository repo;
-	
+
 	public Cart SaveCart(Cart cart) {
 		return repo.save(cart);
 	}
 
-	public Cart checkProduct(int customerId,Product product){
+	public Cart checkProduct(int customerId, Product product) {
 		return repo.findByCustomerIdAndProduct(customerId, product);
 	}
-	
+
 	public List<Cart> getCartDetails(int customerId) {
-//		return repo.findByCustomerId(customerId);
+		// return repo.findByCustomerId(customerId);
 		return repo.getData(customerId);
+	}
+
+	public void updateCart(int cartId) {
+		repo.deleteById(cartId);
 	}
 }

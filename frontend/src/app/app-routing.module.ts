@@ -93,7 +93,7 @@ const routes: Routes = [
         component: WasteRequestComponent,
       },
       {
-        path:'outsource-waste-request',
+        path: 'outsource-waste-request',
         component: OutWasteRequsetComponent,
       },
       {
@@ -231,23 +231,24 @@ const routes: Routes = [
         path: 'UpdateProductCats/:id',
         component: UpdateProductCatComponent,
       },
-      
-      { path: 'sendMail',
+
+      {
+        path: 'sendMail',
         component: SendMailComponent,
-        //canActivate: [RouteGuardService],
-    },
+        // canActivate: [RouteGuardService],
+      },
       {
         path: 'viewPlacedRequests',
         component: ViewPlacedRequestsComponent,
       },
       {
-        path:'ViewOutRequest',
-        component:OutWasteRequestComponent,
+        path: 'ViewOutRequest',
+        component: OutWasteRequestComponent,
       },
       {
-        path:'ViewDB',
-        component:ViewDbComponent,
-      }
+        path: 'ViewDB',
+        component: ViewDbComponent,
+      },
     ],
   },
 ];

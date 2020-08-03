@@ -10,7 +10,6 @@ import { ShopComponent } from '../../modules/shop/shop.component';
 import { CustomerLoginComponent } from '../../modules/customer-login/customer-login.component';
 import { CustomerRegisterComponent } from '../../modules/customer-register/customer-register.component';
 import { WasteRequestComponent } from '../../modules/waste-request/waste-request.component';
-import { FormsModule } from '@angular/forms';
 import { CartComponent } from '../../modules/cart/cart.component';
 import { ProductDetailsComponent } from '../../modules/product-details/product-details.component';
 import { WptermsComponent } from '../../modules/wpterms/wpterms.component';
@@ -19,6 +18,7 @@ import { CustomerLogoutComponent } from '../../modules/customer-logout/customer-
 import { OutWasteRequsetComponent } from '../../modules/out-waste-requset/out-waste-requset.component';
 import { ShowEventComponent } from '../../modules/show-event/show-event.component';
 import { EventDetailsComponent } from '../../modules/show-event/event-details/event-details.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,7 @@ import { EventDetailsComponent } from '../../modules/show-event/event-details/ev
     CustomerLogoutComponent,
     OutWasteRequsetComponent,
     ShowEventComponent,
-    EventDetailsComponent
+    EventDetailsComponent,
   ],
   imports: [
     FormsModule,
@@ -49,6 +49,7 @@ import { EventDetailsComponent } from '../../modules/show-event/event-details/ev
     MatPaginatorModule,
     MatTableModule,
     MatSelectModule,
+    ReactiveFormsModule,
   ],
 })
 export class HomeModule {}

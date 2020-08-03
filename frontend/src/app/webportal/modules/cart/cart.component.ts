@@ -3,6 +3,7 @@ import { CustomerCartService } from "../../services/customer-cart.service";
 import { Cart } from "../../pojo/cart";
 import { CustomerAuthService } from "../../services/customer-auth.service";
 import { Router } from "@angular/router";
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: "app-cart",
@@ -15,7 +16,9 @@ export class CartComponent implements OnInit {
   cid: number;
   productIMG = "";
   total: number;
-  quentity:number;
+  quentity: number;
+  cartId: number;
+  cartidString: string;
   constructor(
     private customerCartService: CustomerCartService,
     private customerAuthService: CustomerAuthService,
@@ -25,7 +28,6 @@ export class CartComponent implements OnInit {
   ngOnInit() {
     this.cid = +this.customerAuthService.getAuthenticatedCustomerId();
     this.getCartData();
-
   }
 
   getCartData() {
@@ -46,8 +48,8 @@ export class CartComponent implements OnInit {
 
   setTotal() {
     let sum = 0;
-    for (let cart of this.cartDetails) {
-      sum = sum + (+cart.quentity * cart.product.price)
+    for (const cart of this.cartDetails) {
+      sum = sum + +cart.quentity * cart.product.price;
     }
     this.total = sum;
   }
@@ -55,5 +57,24 @@ export class CartComponent implements OnInit {
   number(x: number) {
     this.quentity = x;
     return this.quentity;
+  }
+
+  updateCart(form: NgForm) {
+    // console.log(form.value);
+
+    for (const key in form.value) {
+      // console.log(key);
+      // console.log(form.value[key]);
+      if (form.value[key] === true) {
+        this.customerCartService.deleteFromCart(+key).subscribe(
+          (data) => {
+            this.ngOnInit();
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+      }
+    }
   }
 }

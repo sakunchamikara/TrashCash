@@ -3,9 +3,11 @@ import { OutWasteRequest } from 'src/app/webportal/pojo/out-waste-request';
 import { CollectedWasteServiceService } from 'src/app/service/collected-waste-service.service';
 import { OutsourceWasteRequsetService } from '../../services/outsource-waste-requset.service';
 import { CustomerAuthService } from '../../services/customer-auth.service';
+import {CollectedWaste} from 'src/app/pojo/collectedWaste'
 import { Customer } from '../../pojo/customer';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -18,14 +20,18 @@ export class OutWasteRequsetComponent implements OnInit {
   retrieveRequests : Observable<OutWasteRequest[]>
 
   customer: Customer;
+  collectwaste :CollectedWaste;
   name:string;
 
-  constructor(private service:CollectedWasteServiceService,private outsourceWasteRequsetService:OutsourceWasteRequsetService,private authService: CustomerAuthService,private route: Router) { }
+  constructor(private service:CollectedWasteServiceService,private outsourceWasteRequsetService:OutsourceWasteRequsetService,private authService: CustomerAuthService,
+    private route: Router,private location: Location) { }
   public listItems: Array<string> = [];
   successMsg: any;
   errorMsg: any;
   email:any;
+  qua :any;
   cus : any;
+  model: any = {};
 
   ngOnInit() {
     this.dropdownRefresh();
@@ -38,6 +44,8 @@ export class OutWasteRequsetComponent implements OnInit {
     
      
      });
+    this.collectwaste = new CollectedWaste();
+    //this.qua = this.collectwaste.quantity;
 
     console.log(this.email);
 
@@ -69,22 +77,37 @@ export class OutWasteRequsetComponent implements OnInit {
    onSubmit(){
         //this.submitted = true;
         this.save();
+        alert('SUCCESS!!');
+        this.pageRefresh();
+        
       }
+      pageRefresh() {
+        location.reload();
+     }
 
       save(){
         this.wasteRequest.date = new Date();
 
         console.log(this.customer.firstName);
         console.log(this.customer.email);
+        console.log(this.wasteRequest.wasteType);
+        
         //this.retrieveRequests=this.outsourceWasteRequsetService.getCustomerWasteRequestList(this.customer.firstName);
         this.wasteRequest.customer = this.customer.firstName;
         this.wasteRequest.email = this.customer.email;
+        
 
         this.outsourceWasteRequsetService.createOutsourceWasteRequest(this.wasteRequest)
         .subscribe(
           (data)=>{console.log(data);
             this.wasteRequest = new OutWasteRequest();
             console.log("dal");
+            
+            if(this.wasteRequest.wasteType = this.collectwaste.wasteType){
+                 this.wasteRequest.Aquantity = this.collectwaste.quantity
+                 console.log("hj")
+        };
+          console.log(this.wasteRequest.Aquantity);
             this.reloadData();
            // this.successMsg = `waste added successfully !`;
             //console.log(this.successMsg)

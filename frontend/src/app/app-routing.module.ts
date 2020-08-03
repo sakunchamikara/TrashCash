@@ -44,6 +44,8 @@ import { ViewPlacedRequestsComponent } from 'src/app/modules/agent/view-placed-r
 import { TermDetailsComponent } from './webportal/modules/term-details/term-details.component';
 import { CustomerLogoutComponent } from './webportal/modules/customer-logout/customer-logout.component';
 import { OutWasteRequsetComponent } from './webportal/modules/out-waste-requset/out-waste-requset.component';
+import { OutWasteRequestComponent } from './modules/out-waste-request/out-waste-request.component';
+import { ViewDbComponent } from './modules/view-db/view-db.component';
 import { ShowEventComponent } from './webportal/modules/show-event/show-event.component';
 import { EventDetailsComponent } from './webportal/modules/show-event/event-details/event-details.component';
 import { DisplayCustomerFeedbackComponent } from './modules/display-customer-feedback/display-customer-feedback.component';
@@ -250,7 +252,14 @@ const routes: Routes = [
         path: 'displayCustomerFeedbacks',
         component: DisplayCustomerFeedbackComponent,
       },
-      
+      {
+        path:'ViewOutRequest',
+        component:OutWasteRequestComponent,
+      },
+      {
+        path:'ViewDB',
+        component:ViewDbComponent,
+      }
     ],
   },
 ];

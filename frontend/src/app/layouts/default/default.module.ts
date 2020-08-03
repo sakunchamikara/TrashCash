@@ -56,8 +56,11 @@ import { UpdateTermsComponent } from 'src/app/modules/terms/update-terms/update-
 import { ConfirmationDialogComponent } from 'src/app/modules/confirmation-dialog/confirmation-dialog.component';
 import { AlertDialogComponent } from 'src/app/modules/alert-dialog/alert-dialog.component';
 import { CollectedWasteServiceService } from 'src/app/service/collected-waste-service.service';
+import { NewtermsService} from 'src/app/service/newterms.service';
+import { OutWasteRequestComponent } from 'src/app/modules/out-waste-request/out-waste-request.component';
+import { ViewDbComponent } from 'src/app/modules/view-db/view-db.component';
 import { SendMailComponent } from 'src/app/modules/send-mail/send-mail.component';
-import { NewtermsService } from 'src/app/service/newterms.service';
+//import { NewtermsService } from 'src/app/service/newterms.service';
 
 import { DisplayCustomerFeedbackComponent } from 'src/app/modules/display-customer-feedback/display-customer-feedback.component';
 
@@ -79,7 +82,7 @@ import { DisplayCustomerFeedbackComponent } from 'src/app/modules/display-custom
     InsertCollectedWasteComponent,
     ViewCollectedWasteComponent,
     UpdateCollectedWasteComponent ,
-
+    OutWasteRequestComponent,
     InsertProductCatComponent,
     ViewProductCatComponent,
     UpdateProductCatComponent,
@@ -89,8 +92,8 @@ import { DisplayCustomerFeedbackComponent } from 'src/app/modules/display-custom
     ViewtermsComponent,
     UpdateTermsComponent,
     ConfirmationDialogComponent,
-    
-
+    ViewPlacedRequestsComponent,
+    ViewDbComponent,
     // TermdiscripComponent,
     AlertDialogComponent,
     SendMailComponent,

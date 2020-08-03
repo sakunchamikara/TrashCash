@@ -51,6 +51,13 @@
     </mat-menu>
 
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/sendMail">Email</a>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/displayCustomerFeedbacks">Customer Feedbacks</a>
+  <!-- <mat-menu #productcat="matMenu">
+    <button  mat-menu-list-item [routerLink]="'/system/productCats'" class="btn btn-primary-outline pull-right">  Insert New Product Category</button>
+    <button  mat-menu-list-item [routerLink]="'/system/viewProductCat'" class="btn btn-primary-outline pull-right">  View Product Categories</button>
+</mat-menu> -->
+
     <button mat-menu-item [matMenuTriggerFor]="agent">Agent</button>
     <mat-menu #agent="matMenu">
       <a mat-menu-item [routerLink]="'/system/viewPlacedRequests'" class="btn btn-primary-outline pull-right">Pending Waste Requests</a>

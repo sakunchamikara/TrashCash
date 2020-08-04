@@ -30,6 +30,7 @@ import { RouterModule } from '@angular/router';
     MatInputModule,
     MatFormFieldModule,
   ],
+  providers: [],
   exports: [NavbarComponent, FooterComponent],
 })
 export class IncludeModule {}

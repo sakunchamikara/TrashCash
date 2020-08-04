@@ -21,6 +21,8 @@ import { OutWasteRequsetComponent } from '../../modules/out-waste-requset/out-wa
 import { ShowEventComponent } from '../../modules/show-event/show-event.component';
 import { EventDetailsComponent } from '../../modules/show-event/event-details/event-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CheckOutComponent } from '../../modules/check-out/check-out.component';
+import { NavbarComponent } from '../../includes/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     OutWasteRequsetComponent,
     ShowEventComponent,
     EventDetailsComponent,
-    CustomerFeedbackComponent
+    CustomerFeedbackComponent,
+    CheckOutComponent,
   ],
   imports: [
     FormsModule,
@@ -55,5 +58,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatSelectModule,
     ReactiveFormsModule,
   ],
+  providers: [NavbarComponent]
 })
 export class HomeModule {}

@@ -66,10 +66,9 @@
     <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
       <ul fxLayout="row" fxLayoutGap="20px">
         <li>
-          <button mat-flat-button style="background-color: #9CC026;color: white;">
+          <button mat-flat-button style="background-color: #9CC026;color: white;" [routerLink]="['/customer/cart']">
             <!-- rgb(2, 205, 219) -->
-            <mat-icon>shopping_cart</mat-icon>
-            0 items in your shopping cart
+            <mat-icon>shopping_cart</mat-icon> shopping cart <span class="badge badge-pill badge-danger"> {{itemCount}} </span>
           </button>
         </li>
 

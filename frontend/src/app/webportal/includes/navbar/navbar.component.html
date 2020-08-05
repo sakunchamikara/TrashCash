@@ -50,13 +50,16 @@
         <button mat-button [routerLink]="['/customer/welcome']" [routerLinkActive]="['mat-raised-button']">HOME</button>
 
         <button mat-button [routerLink]="['/customer/shop']" [routerLinkActive]="['mat-raised-button']">SHOP</button>
-        <button mat-button [routerLinkActive]="['mat-raised-button']">MY ACCOUNT</button>
-        <button mat-button [routerLink]="['/customer/cart']"  [routerLinkActive]="['mat-raised-button']" >SHOPPING CART</button>
+        <button mat-button [routerLink]="['/customer/myAccount']" [routerLinkActive]="['mat-raised-button']">MY
+          ACCOUNT</button>
+        <button mat-button [routerLink]="['/customer/cart']" [routerLinkActive]="['mat-raised-button']">SHOPPING
+          CART</button>
 
         <button mat-button [matMenuTriggerFor]="others" [routerLinkActive]="['mat-raised-button']">OTHERS</button>
         <mat-menu #others="matMenu">
           <button mat-button [routerLinkActive]="['mat-raised-button']">CONTACT US</button>
-          <button mat-button [routerLink]="['/customer/showevent']" [routerLinkActive]="['mat-raised-button']">EVENTS & CAMPAIGNS</button>
+          <button mat-button [routerLink]="['/customer/showevent']" [routerLinkActive]="['mat-raised-button']">EVENTS &
+            CAMPAIGNS</button>
           <button mat-button [routerLink]="['/customer/wpterms']" [routerLinkActive]="['mat-raised-button']">TERMS &
             CONDITIONS</button>
         </mat-menu>
@@ -66,10 +69,10 @@
     <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
       <ul fxLayout="row" fxLayoutGap="20px">
         <li>
-          <button mat-flat-button style="background-color: #9CC026;color: white;">
+          <button mat-flat-button style="background-color: #9CC026;color: white;" [routerLink]="['/customer/cart']">
             <!-- rgb(2, 205, 219) -->
-            <mat-icon>shopping_cart</mat-icon>
-            0 items in your shopping cart
+            <mat-icon>shopping_cart</mat-icon> shopping cart <span class="badge badge-pill badge-danger"> {{itemCount}}
+            </span>
           </button>
         </li>
 

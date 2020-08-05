@@ -19,10 +19,11 @@ export class CartComponent implements OnInit {
   quentity: number;
   cartId: number;
   cartidString: string;
+  itemCount: number;
   constructor(
     private customerCartService: CustomerCartService,
     private customerAuthService: CustomerAuthService,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit() {
@@ -36,6 +37,7 @@ export class CartComponent implements OnInit {
         (data) => {
           this.cartDetails = data;
           this.setTotal();
+          this.itemCount = data.length;
         },
         (error) => {
           this.errorMessage = error.error.message;
@@ -76,5 +78,10 @@ export class CartComponent implements OnInit {
         );
       }
     }
+    location.reload();
+  }
+
+  checkOut() {
+    this.router.navigate(["/customer/checkOut"]);
   }
 }

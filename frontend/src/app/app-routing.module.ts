@@ -50,6 +50,7 @@ import { ShowEventComponent } from './webportal/modules/show-event/show-event.co
 import { EventDetailsComponent } from './webportal/modules/show-event/event-details/event-details.component';
 import { DisplayCustomerFeedbackComponent } from './modules/display-customer-feedback/display-customer-feedback.component';
 import { CheckOutComponent } from './webportal/modules/check-out/check-out.component';
+import { CustomerAccountComponent } from './webportal/modules/customer-account/customer-account.component';
 
 const routes: Routes = [
   {
@@ -123,8 +124,12 @@ const routes: Routes = [
       },
       {
         path: 'checkOut',
-        component: CheckOutComponent
-      }
+        component: CheckOutComponent,
+      },
+      {
+        path: 'myAccount',
+        component: CustomerAccountComponent,
+      },
     ],
   },
   {

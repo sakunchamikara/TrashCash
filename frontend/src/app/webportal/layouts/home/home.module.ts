@@ -23,6 +23,7 @@ import { EventDetailsComponent } from '../../modules/show-event/event-details/ev
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CheckOutComponent } from '../../modules/check-out/check-out.component';
 import { NavbarComponent } from '../../includes/navbar/navbar.component';
+import { CustomerAccountComponent } from '../../modules/customer-account/customer-account.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { NavbarComponent } from '../../includes/navbar/navbar.component';
     EventDetailsComponent,
     CustomerFeedbackComponent,
     CheckOutComponent,
+    CustomerAccountComponent,
   ],
   imports: [
     FormsModule,
@@ -58,6 +60,6 @@ import { NavbarComponent } from '../../includes/navbar/navbar.component';
     MatSelectModule,
     ReactiveFormsModule,
   ],
-  providers: [NavbarComponent]
+  providers: [NavbarComponent],
 })
 export class HomeModule {}

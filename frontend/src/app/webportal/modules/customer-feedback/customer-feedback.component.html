@@ -1,0 +1,104 @@
+<div class="col-container">
+    <div class="form-row">
+        <div class="col-md-12">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item " aria-current="page">Customer feedback</li>
+         <!--
+          <li class="breadcrumb-item active" *ngIf="!activeFlag" aria-current="page">All</li>
+          -->
+          <li class="breadcrumb-item active" *ngIf="activeFlag" aria-current="page">{{activeFlag}}</li>
+        </ol>
+      </nav>
+        </div>
+    </div>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="D0" class="active"></li>
+        <!-- <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+        <li data-target="#myCarousel" data-slide-to="2" class=""></li> -->
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <!-- <svg class="bd-placeholder-img" width="100%" height="100%"  preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"></rect></svg> -->
+          <img src="/assets/images/others/feedback1.jpg" alt="" width="1600" height="600">
+          <div class="container">
+            <div class="carousel-caption text-left">
+              <h1>Here to help!</h1>
+              <p>Your feedback and enquiry is important to us, so we will endeavour to respond to you at our earliest. Your feedback will help us continuously improve ourselves to make it better for you and our other valued Customers.</p>
+              <!-- <button class="btn btn-flat btn-md" (click)="open(mymodal)"
+              style="background-color: #FFFFFF; transition: none 0s ease 0s; text-align: inherit; line-height: 24px; border-width: 0px; margin: 0px; padding: 12px 30px; letter-spacing: 0px; font-weight: 400; font-size: 14px;">
+              ADD YOUR FEEDBACK
+            </button> -->
+            </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+<div class="col-container c2">
+    <div class="form-row">
+        <div class="col-md-12">
+<br>
+          <form (ngSubmit)="onSubmit()" #customerFeedbackForm="ngForm">
+          <h3>Add Your Feedback</h3>
+
+          <div class="form-row">
+            <div class="form-group col-md-6 ">
+              <label for="">Category</label>
+              <select class="form-control"  name="feedbackType" id="feedbackType" [(ngModel)]="customerFeed.feedbackType">
+                <option value="" style="display: none" >Select a Category</option>
+                <option>General Inquiry</option>
+                <option>Delivery Related</option>
+                <option>Order Related</option>
+                <option>Payment Related</option>
+                <option>Technical Problem</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="">First Name</label>
+              <input type="text" class="form-control"  name="cusFeedFirstName" id="cusFeedFirstName" [(ngModel)]="customerFeed.cusFeedFirstName" placeholder="First Name">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="">Last Name</label>
+              <input type="text" class="form-control"  name="cusFeedLastName" id="cusFeedLastName" [(ngModel)]="customerFeed.cusFeedLastName" placeholder="Last Name">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="">Address</label>
+              <input type="text" class="form-control"  name="cusFeedAddress" id="cusFeedAddress" [(ngModel)]="customerFeed.cusFeedAddress" placeholder="Address">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="">Contact Number</label>
+              <input type="number" class="form-control"  name="cusFeedContactNum" id="cusFeedContactNum" [(ngModel)]="customerFeed.cusFeedContactNum" placeholder="Contact Number">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="">Email</label>
+              <input type="text" class="form-control"  name="cusFeedEmail" id="cusFeedEmail" [(ngModel)]="customerFeed.cusFeedEmail"  placeholder="Email">
+            </div>
+          </div>
+   
+          <div class="form-group">
+            <label for="">Message</label>
+            <textarea class="form-control" rows="3"  name="feedback" id="feedback" [(ngModel)]="customerFeed.feedback" ></textarea>
+          </div>
+
+    <button type="submit" class="btn btn-primary">Submit Feedback</button>
+  </form>
+  <br>
+        </div>
+</div>
+</div>
+

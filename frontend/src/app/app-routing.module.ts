@@ -36,6 +36,9 @@ import { CustomerLoginComponent } from './webportal/modules/customer-login/custo
 import { CustomerRegisterComponent } from './webportal/modules/customer-register/customer-register.component';
 import { WasteRequestComponent } from './webportal/modules/waste-request/waste-request.component';
 import { CartComponent } from './webportal/modules/cart/cart.component';
+import { CustomerFeedbackComponent } from './webportal/modules/customer-feedback/customer-feedback.component';
+
+
 import { ProductDetailsComponent } from './webportal/modules/product-details/product-details.component';
 import { ViewPlacedRequestsComponent } from 'src/app/modules/agent/view-placed-requests/view-placed-requests.component';
 import { TermDetailsComponent } from './webportal/modules/term-details/term-details.component';
@@ -46,6 +49,8 @@ import { ViewDbComponent } from './modules/view-db/view-db.component';
 import { ShowEventComponent } from './webportal/modules/show-event/show-event.component';
 import { EventDetailsComponent } from './webportal/modules/show-event/event-details/event-details.component';
 import { ConfirmWasteRequestComponent } from './modules/out-waste-request/confirm-waste-request/confirm-waste-request.component';
+import { DisplayCustomerFeedbackComponent } from './modules/display-customer-feedback/display-customer-feedback.component';
+import { CheckOutComponent } from './webportal/modules/check-out/check-out.component';
 
 const routes: Routes = [
   {
@@ -96,6 +101,8 @@ const routes: Routes = [
       {
         path:'outsource-waste-request',
         component:OutWasteRequsetComponent,
+        // path: 'outsource-waste-request',
+        // component: OutWasteRequsetComponent,
       },
       {
         path: 'cart',
@@ -106,6 +113,10 @@ const routes: Routes = [
         component: WptermsComponent,
       },
       {
+        path: 'feedback',
+        component: CustomerFeedbackComponent,
+      },
+      {
         path: 'product/:id',
         component: ProductDetailsComponent,
       },
@@ -113,6 +124,10 @@ const routes: Routes = [
         path: 'terms-details/:id',
         component: TermDetailsComponent,
       },
+      {
+        path: 'checkOut',
+        component: CheckOutComponent
+      }
     ],
   },
   {
@@ -232,18 +247,19 @@ const routes: Routes = [
         path: 'UpdateProductCats/:id',
         component: UpdateProductCatComponent,
       },
-      
-      { path: 'sendMail',
+
+      {
+        path: 'sendMail',
         component: SendMailComponent,
-        //canActivate: [RouteGuardService],
-    },
+        // canActivate: [RouteGuardService],
+      },
       {
         path: 'viewPlacedRequests',
         component: ViewPlacedRequestsComponent,
       },
       {
-        path:'ViewOutRequest',
-        component:OutWasteRequestComponent,
+        path: 'displayCustomerFeedbacks',
+        component: DisplayCustomerFeedbackComponent,
       },
       {
         path:'viewoutSourceWasteRequest',
@@ -252,7 +268,15 @@ const routes: Routes = [
       {
         path:'ViewDB',
         component:ViewDbComponent,
-      }
+      },
+      {
+        path: 'ViewOutRequest',
+        component: OutWasteRequestComponent,
+      },
+      // {
+      //   path: 'ViewDB',
+      //   component: ViewDbComponent,
+      // },
     ],
   },
 ];

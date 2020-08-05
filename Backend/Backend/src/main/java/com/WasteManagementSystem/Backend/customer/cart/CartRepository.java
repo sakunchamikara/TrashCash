@@ -13,4 +13,6 @@ public interface CartRepository extends JpaRepository<Cart, Integer>{
     
     @Query(value = "SELECT * FROM cart INNER JOIN product ON cart.product_id=product.id WHERE cart.customer_id = :id", nativeQuery = true)
     public List<Cart> getData(int id);
+
+    public void deleteById(int id);
 }

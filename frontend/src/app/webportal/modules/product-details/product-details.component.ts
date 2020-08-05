@@ -88,7 +88,6 @@ export class ProductDetailsComponent implements OnInit {
     if (this.customerAuthService.isCustomerLoggedIn()) {
       // this.cart.product.id = this.productId;
       this.cart.customerId = +this.customerAuthService.getAuthenticatedCustomerId();
-      console.log(this.cart);
       this.cartService.addToCart(this.cart, this.productId).subscribe(
         (data) => {
           // this.router.navigate([`customer/product/${this.cart.product}`]);

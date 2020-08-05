@@ -26,7 +26,6 @@ import {
   MatDatepickerModule,
   MatNativeDateModule,
   MatMenuModule,
-
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DashboardService } from 'src/app/modules/dashboard.service';
@@ -40,28 +39,27 @@ import { UpdateEventComponent } from 'src/app/modules/events/update-event/update
 import { ViewEventComponent } from 'src/app/modules/events/view-event/view-event.component';
 import { AddEventComponent } from 'src/app/modules/events/add-event/add-event.component';
 
-
 import { InsertCollectedWasteComponent } from 'src/app/modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
 import { ViewCollectedWasteComponent } from 'src/app/modules/collected-waste/view-collected-waste/view-collected-waste.component';
-
-
 
 import { InsertProductCatComponent } from 'src/app/modules/product-cat/insert-product-cat/insert-product-cat.component';
 import { ViewProductCatComponent } from 'src/app/modules/product-cat/view-product-cat/view-product-cat.component';
 import { UpdateProductCatComponent } from 'src/app/modules/product-cat/update-product-cat/update-product-cat.component';
-import { TermsComponent} from 'src/app/modules/terms/terms.component';
+import { TermsComponent } from 'src/app/modules/terms/terms.component';
 import { AddtermsComponent } from 'src/app/modules/terms/addterms/addterms.component';
-import { ViewtermsComponent} from 'src/app/modules/terms/viewterms/viewterms.component';
+import { ViewtermsComponent } from 'src/app/modules/terms/viewterms/viewterms.component';
 import { UpdateTermsComponent } from 'src/app/modules/terms/update-terms/update-terms.component';
 import { ConfirmationDialogComponent } from 'src/app/modules/confirmation-dialog/confirmation-dialog.component';
 import { AlertDialogComponent } from 'src/app/modules/alert-dialog/alert-dialog.component';
 import { CollectedWasteServiceService } from 'src/app/service/collected-waste-service.service';
-import { NewtermsService} from 'src/app/service/newterms.service';
+import { NewtermsService } from 'src/app/service/newterms.service';
 import { OutWasteRequestComponent } from 'src/app/modules/out-waste-request/out-waste-request.component';
 import { ViewDbComponent } from 'src/app/modules/view-db/view-db.component';
 import { SendMailComponent } from 'src/app/modules/send-mail/send-mail.component';
 import { ConfirmWasteRequestComponent } from 'src/app/modules/out-waste-request/confirm-waste-request/confirm-waste-request.component';
 //import { NewtermsService } from 'src/app/service/newterms.service';
+
+import { DisplayCustomerFeedbackComponent } from 'src/app/modules/display-customer-feedback/display-customer-feedback.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +78,7 @@ import { ConfirmWasteRequestComponent } from 'src/app/modules/out-waste-request/
     UpdateEventComponent,
     InsertCollectedWasteComponent,
     ViewCollectedWasteComponent,
-    UpdateCollectedWasteComponent ,
+    UpdateCollectedWasteComponent,
     OutWasteRequestComponent,
     InsertProductCatComponent,
     ViewProductCatComponent,
@@ -98,7 +96,8 @@ import { ConfirmWasteRequestComponent } from 'src/app/modules/out-waste-request/
     // TermdiscripComponent,
     AlertDialogComponent,
     SendMailComponent,
-    ViewPlacedRequestsComponent
+    ViewPlacedRequestsComponent,
+    DisplayCustomerFeedbackComponent,
   ],
   imports: [
     CommonModule,
@@ -122,12 +121,8 @@ import { ConfirmWasteRequestComponent } from 'src/app/modules/out-waste-request/
     MatNativeDateModule,
     MatMenuModule,
     NgbModule,
-
   ],
-  providers: [DashboardService,
-              CollectedWasteServiceService,
-            NewtermsService],
-  entryComponents: [ConfirmationDialogComponent,
-                    AlertDialogComponent ],
+  providers: [DashboardService, CollectedWasteServiceService, NewtermsService],
+  entryComponents: [ConfirmationDialogComponent, AlertDialogComponent],
 })
 export class DefaultModule {}

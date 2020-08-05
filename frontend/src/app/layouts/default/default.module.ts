@@ -60,6 +60,7 @@ import { NewtermsService} from 'src/app/service/newterms.service';
 import { OutWasteRequestComponent } from 'src/app/modules/out-waste-request/out-waste-request.component';
 import { ViewDbComponent } from 'src/app/modules/view-db/view-db.component';
 import { SendMailComponent } from 'src/app/modules/send-mail/send-mail.component';
+import { ConfirmWasteRequestComponent } from 'src/app/modules/out-waste-request/confirm-waste-request/confirm-waste-request.component';
 //import { NewtermsService } from 'src/app/service/newterms.service';
 
 @NgModule({
@@ -92,6 +93,7 @@ import { SendMailComponent } from 'src/app/modules/send-mail/send-mail.component
     ConfirmationDialogComponent,
     ViewPlacedRequestsComponent,
     ViewDbComponent,
+    ConfirmWasteRequestComponent,
 
     // TermdiscripComponent,
     AlertDialogComponent,

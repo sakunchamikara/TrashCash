@@ -106,7 +106,7 @@ export class InsertProductCatComponent implements OnInit {
     .subscribe(
       data => {
         console.log(data);
-this.chk=false;
+        this.chk=false;
         this.arr=data;
 
         for (let i of this.arr) {

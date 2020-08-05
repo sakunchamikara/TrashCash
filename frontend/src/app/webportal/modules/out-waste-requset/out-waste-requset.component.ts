@@ -60,8 +60,29 @@ export class OutWasteRequsetComponent implements OnInit {
   reloadData(){
     //this.retrieveRequests=this.outsourceWasteRequsetService.getCustomerWasteRequestList();
     this.retrieveRequests=this.outsourceWasteRequsetService.getWasteListByEmail(this.email);
+    this.retrieveRequests.forEach(obj=>{
+      this.successMsg=null;
+   obj.forEach(childOb=>{
+       if(childOb.status=='Pending'){
+        this.successMsg=null;
+         this.successMsg="Pending";
+         
+         console.log(this.successMsg);
+       }else if(childOb.status=='Confirmed'){
+        this.successMsg=null;
+         this.successMsg="Confirmed";
+        
+         console.log(this.successMsg);
+       }else{
+        this.successMsg=null;
+         this.successMsg="Collected";
+         
+         console.log(this.successMsg);
+       }
+   });
+ });
   
- 
+// this.pageRefresh();
  
  }
 
@@ -77,8 +98,10 @@ export class OutWasteRequsetComponent implements OnInit {
    onSubmit(){
         //this.submitted = true;
         this.save();
-        alert('SUCCESS!!');
+        //this.updatesucessBox();
         this.pageRefresh();
+        alert('SUCCESS!!');
+         
         
       }
       pageRefresh() {
@@ -87,6 +110,7 @@ export class OutWasteRequsetComponent implements OnInit {
 
       save(){
         this.wasteRequest.date = new Date();
+        this.wasteRequest.status ='Pending';
 
         console.log(this.customer.firstName);
         console.log(this.customer.email);
@@ -100,18 +124,12 @@ export class OutWasteRequsetComponent implements OnInit {
         this.outsourceWasteRequsetService.createOutsourceWasteRequest(this.wasteRequest)
         .subscribe(
           (data)=>{console.log(data);
+            //this.updateBox(this.wasteRequest.wasteType);
             this.wasteRequest = new OutWasteRequest();
-            console.log("dal");
-            
-            if(this.wasteRequest.wasteType = this.collectwaste.wasteType){
-                 this.wasteRequest.Aquantity = this.collectwaste.quantity
-                 console.log("hj")
-        };
-          console.log(this.wasteRequest.Aquantity);
-            this.reloadData();
-           // this.successMsg = `waste added successfully !`;
-            //console.log(this.successMsg)
-            //this.gotoList();
+            this.updateBox(this.wasteRequest.wasteType);
+            // this.updatesucessBox();
+            //this.reloadData();
+           
           },
         
             (error)=>{ 
@@ -120,6 +138,35 @@ export class OutWasteRequsetComponent implements OnInit {
               }
               );     
         }
+        // public updateBox(wasteType: string){
+        //   this.outsourceWasteRequsetService
+        //   .alert('Waste Category  Added','Waste Category '+wasteType+'  Request.');
+        
+        //  }
+
+         public updateBox(wasteType: string){
+            this.outsourceWasteRequsetService
+                .alert('Waste Category  Availabale','Waste Category '+wasteType+'  in stock.');
+
+ }
+        // public updatesucessBox(){
+        //   this.outsourceWasteRequsetService
+        //   .confirm('Please confirm..', 'Do you really want to Add?')
+        //   .then((confirmed) => {
+        //     // console.log('User confirmed:', confirmed);
+        //     if (confirmed == true) {
+        //       this.reloadData();
+        //     }
+        //   })
+        //   .catch(() =>
+        //     console.log(
+        //       'User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'
+        //     )
+        //   );
+        
+        // // this.pageRefresh();
+        
+        //  }
 
         deleteCustomerWasteRequest(id: number) {
           this.outsourceWasteRequsetService.deleteCustomerWasteRequest(id).subscribe(

@@ -27,17 +27,17 @@ public class OutsourceWasteRequest {
 //	@NotNull
     private String customer;
     private String email;
-    private int Aquantity;
+    private String status;
 
 
 	public OutsourceWasteRequest(){
 
 	}
-    public OutsourceWasteRequest(int id, String wasteType, int quantity ,Date date, String customer ,String email,int Aquantity){
+    public OutsourceWasteRequest(int id, String wasteType, int quantity ,Date date, String customer ,String email,String status){
         super();
         this.id = id;
 		this.quantity = quantity ;
-		this.Aquantity = Aquantity ;
+		this.status = status ;
         this.date = date;
       	this.customer = customer;
       	this.email = email;
@@ -66,12 +66,12 @@ public class OutsourceWasteRequest {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public int getAQuantity() {
-		return Aquantity;
+	public String getstatus() {
+		return status;
 	}
 
-	public void setAQuantity(int Aquantity) {
-		this.Aquantity = Aquantity;
+	public void setstatus(String status) {
+		this.status = status;
 	}
 
 	public Date getDate() {

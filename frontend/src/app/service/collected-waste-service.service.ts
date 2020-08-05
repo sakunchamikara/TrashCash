@@ -53,5 +53,11 @@ export class CollectedWasteServiceService {
  getWasteCatDropdownValues(): Observable<any> {
   return this.http.get(`${this.baseUrl}`);
 }
+
+
+getQuantity(wasteType:string): Observable<any> {
+  const uri = `http://localhost:8080/collectWaste/${wasteType}`;
+  return this.http.get(uri);
+}
 }
 

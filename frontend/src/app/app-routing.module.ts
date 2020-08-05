@@ -45,6 +45,7 @@ import { OutWasteRequestComponent } from './modules/out-waste-request/out-waste-
 import { ViewDbComponent } from './modules/view-db/view-db.component';
 import { ShowEventComponent } from './webportal/modules/show-event/show-event.component';
 import { EventDetailsComponent } from './webportal/modules/show-event/event-details/event-details.component';
+import { ConfirmWasteRequestComponent } from './modules/out-waste-request/confirm-waste-request/confirm-waste-request.component';
 
 const routes: Routes = [
   {
@@ -94,7 +95,7 @@ const routes: Routes = [
       },
       {
         path:'outsource-waste-request',
-        component: OutWasteRequsetComponent,
+        component:OutWasteRequsetComponent,
       },
       {
         path: 'cart',
@@ -243,6 +244,10 @@ const routes: Routes = [
       {
         path:'ViewOutRequest',
         component:OutWasteRequestComponent,
+      },
+      {
+        path:'viewoutSourceWasteRequest',
+        component: ConfirmWasteRequestComponent,
       },
       {
         path:'ViewDB',

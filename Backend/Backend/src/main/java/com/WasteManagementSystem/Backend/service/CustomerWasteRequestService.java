@@ -15,8 +15,8 @@ public class CustomerWasteRequestService{
 
     private CustomerWasteRequestRepository repo;
 
-
-    public List<CustomerWasteRequest> fetchWasteRequestByCustomer(String customer) {
-		        return repo.findByCustomer(customer);
+    
+    public List<CustomerWasteRequest> fetchUserByEmail(String email) {
+		return repo.findByEmail(email);
 	}
 }

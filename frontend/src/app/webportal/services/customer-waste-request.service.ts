@@ -41,7 +41,10 @@ export class CustomerWasteRequestService {
   updateCustomerWasteRequest(id:number,value:any):Observable<Object>{
     return this.http.put(`${this.baseUrl}/${id}`,value);
   }
-
+  
+  getWasteListByEmail(email: String): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${email}`);
+  }
   public confirm(
     title: string,
     message: string,

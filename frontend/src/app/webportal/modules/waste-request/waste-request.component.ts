@@ -31,6 +31,7 @@ export class WasteRequestComponent implements OnInit {
   errorMsg: any;
   email:any;
   cus : any;
+  location : any;
   ngOnInit() {
 
     this.email = this.authService.getAuthenticatedCustomer();
@@ -39,14 +40,20 @@ export class WasteRequestComponent implements OnInit {
       this.customer = data;
       //  this.cus=JSON.stringify(this.customer.firstName);
     this.successMsg=null;
+      this.location = data.location;
+  
     
-     
     });
 
     console.log(this.email);
 
     if(this.email){
-      this.reloadData();
+        if(this.location){
+          this.reloadData();
+        }else{
+          this.route.navigate(['/customer/location']);
+        }
+     
     }
     else{
       this.route.navigate(['/customer/login']);

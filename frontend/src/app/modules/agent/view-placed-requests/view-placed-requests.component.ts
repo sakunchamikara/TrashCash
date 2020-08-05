@@ -44,8 +44,7 @@ export class ViewPlacedRequestsComponent implements OnInit {
       (data) => {
         this.requests = data;
         this.requests.status = 'Confirmed';
-        this.requests.quantity = 34567;
-
+       
         console.log(data);
       },
       (error) => console.log(error)

@@ -18,11 +18,12 @@ public class Customer {
 	private int contactNumber;
 	private String address;
 	private String password;
+	private String location;
 	
 	public Customer() { }
 	
 	public Customer(int id, String firstName, String lastName, String email, int contactNumber, String address,
-			String password) {
+			String password,String location) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -31,6 +32,7 @@ public class Customer {
 		this.contactNumber = contactNumber;
 		this.address = address;
 		this.password = password;
+		this.location = location;
 	}
 
 	public int getId() {
@@ -88,11 +90,17 @@ public class Customer {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getLocation(){
+		return location;
+	}
+	public void setLocation(String location){
+		this.location=location;
+	}
 
 	@Override
 	public String toString() {
 		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", contactNumber=" + contactNumber + ", address=" + address + ", password=" + password + "]";
+				+ ", contactNumber=" + contactNumber + ", address=" + address + ", password=" + password + ", location=" +location +"]";
 	}
 
 }

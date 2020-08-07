@@ -7,5 +7,5 @@ import com.WasteManagementSystem.Backend.entity.Event;
 
 
 public interface EventRepository extends JpaRepository<Event, Integer>{
-	
+	public Event findByEventName(String eventName);
 }

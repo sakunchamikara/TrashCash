@@ -13,15 +13,18 @@
         </div>
       </div>
     
-      <div class="row">        
-        <div class="col-lg-6" *ngFor="let event of events | async">
+      <div class="row">    
+        <div class="col-lg-6">
+          <img class="img-fluid rounded mb-4 mb-lg-0" height="300" width="400" src="{{eventImage}}" alt="">
+        </div>    
+        <div class="col-md-12" >
           <div class="card h-100">
             <div class="card-body">
-              <h2 class="card-title">{{event.eventName}}</h2>
+              <h2 class="card-title">{{events.eventName}}</h2>
               <hr>
-              <p class="card-text text-muted">Event Location:  {{event.location}}</p>
-              <p>Event Date:{{event.date}}</p>
-              <p>Event Description: {{event.notes}}</p> 
+              <p class="card-text text-muted">Event Location:  {{events.location}}</p>
+              <p>Event Date:{{events.date}}</p>
+              <p>Event Description: {{events.notes}}</p> 
               
               
             </div>

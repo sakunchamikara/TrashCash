@@ -91,13 +91,10 @@ export class WasteRequestComponent implements OnInit {
         
       }
     );
-   
-
-    
   }
 
   reloadData(){
-    //  this.retrieveRequests=this.customerWasteRequestService.getCustomerWasteRequestList();
+
     //  this.retrieveRequests=this.customerWasteRequestService.getCustomerWasteRequestList();
     this.retrieveRequests = this.customerWasteRequestService.getWasteListByEmail(this.email);
      this.retrieveRequests.forEach(obj=>{

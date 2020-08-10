@@ -25,6 +25,7 @@ import { WptermsComponent } from './webportal/modules/wpterms/wpterms.component'
 
 import { ReactiveFormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [AppComponent, LogoutComponent, ],
   imports: [

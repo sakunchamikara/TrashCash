@@ -23,6 +23,9 @@ import { ShowEventComponent } from '../../modules/show-event/show-event.componen
 import { EventDetailsComponent } from '../../modules/show-event/event-details/event-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {AgmCoreModule} from '@agm/core';
+import { CheckOutComponent } from '../../modules/check-out/check-out.component';
+import { NavbarComponent } from '../../includes/navbar/navbar.component';
+import { CustomerAccountComponent } from '../../modules/customer-account/customer-account.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,9 @@ import {AgmCoreModule} from '@agm/core';
     ShowEventComponent,
     EventDetailsComponent,
     LocationComponent,
-    CustomerFeedbackComponent
+    CustomerFeedbackComponent,
+    CheckOutComponent,
+    CustomerAccountComponent,
   ],
   imports: [
     FormsModule,
@@ -62,5 +67,6 @@ import {AgmCoreModule} from '@agm/core';
       libraries: ['places']
     })
   ],
+  providers: [NavbarComponent],
 })
 export class HomeModule {}

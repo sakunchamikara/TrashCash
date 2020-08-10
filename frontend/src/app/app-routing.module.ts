@@ -51,6 +51,8 @@ import { EventDetailsComponent } from './webportal/modules/show-event/event-deta
 import { DisplayCustomerFeedbackComponent } from './modules/display-customer-feedback/display-customer-feedback.component';
 import { LocationComponent } from './webportal/modules/waste-request/location/location.component';
 import { ViewAgentConfirmedRequestComponent } from 'src/app/modules/agent/view-agent-confirmed-request/view-agent-confirmed-request.component';
+import { CheckOutComponent } from './webportal/modules/check-out/check-out.component';
+import { CustomerAccountComponent } from './webportal/modules/customer-account/customer-account.component';
 
 const routes: Routes = [
   {
@@ -125,6 +127,15 @@ const routes: Routes = [
       {
         path: 'location',
         component: LocationComponent,
+      },
+      {
+        path: 'checkOut',
+        component: CheckOutComponent,
+      },
+      {
+        path: 'myAccount',
+        component: CustomerAccountComponent,
+
       },
     ],
   },

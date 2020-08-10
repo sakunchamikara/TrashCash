@@ -31,20 +31,17 @@ export class CustomerWasteRequestService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  // getCustomerWasteRequests(customer:string) : Observable<any>{
-  //   // return this.http.get(`${this.baseUrl}/${customer}`);  
-  //   const uri = `http://localhost:8080/getCustomerWasteRequest/${customer}`;
-  //   return this.http.get(uri);
-  // }
-
 
   updateCustomerWasteRequest(id:number,value:any):Observable<Object>{
     return this.http.put(`${this.baseUrl}/${id}`,value);
   }
   
   getWasteListByEmail(email: String): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${email}`);
+    // return this.http.get(`${this.baseUrl}/${email}`);
+    const uri = `http://localhost:8080/getRequestedWaste/${email}`;
+    return this.http.get(uri);
   }
+
   public confirm(
     title: string,
     message: string,

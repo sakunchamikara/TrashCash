@@ -11,8 +11,8 @@ import java.util.List;
 
 @Service
 public class CustomerWasteRequestService{
+  
     @Autowired
-
     private CustomerWasteRequestRepository repo;
 
     

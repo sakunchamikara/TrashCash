@@ -96,6 +96,7 @@ export class WasteRequestComponent implements OnInit {
   reloadData(){
 
     //  this.retrieveRequests=this.customerWasteRequestService.getCustomerWasteRequestList();
+    console.log("reload");
     this.retrieveRequests = this.customerWasteRequestService.getWasteListByEmail(this.email);
      this.retrieveRequests.forEach(obj=>{
           this.successMsg=null;

@@ -50,7 +50,9 @@ import { ShowEventComponent } from './webportal/modules/show-event/show-event.co
 import { EventDetailsComponent } from './webportal/modules/show-event/event-details/event-details.component';
 import { ConfirmWasteRequestComponent } from './modules/out-waste-request/confirm-waste-request/confirm-waste-request.component';
 import { DisplayCustomerFeedbackComponent } from './modules/display-customer-feedback/display-customer-feedback.component';
+import { LocationComponent } from './webportal/modules/waste-request/location/location.component';
 import { CheckOutComponent } from './webportal/modules/check-out/check-out.component';
+import { CustomerAccountComponent } from './webportal/modules/customer-account/customer-account.component';
 
 const routes: Routes = [
   {
@@ -125,9 +127,18 @@ const routes: Routes = [
         component: TermDetailsComponent,
       },
       {
+        path: 'location',
+        component: LocationComponent,
+      },
+      {
         path: 'checkOut',
-        component: CheckOutComponent
-      }
+        component: CheckOutComponent,
+      },
+      {
+        path: 'myAccount',
+        component: CustomerAccountComponent,
+
+      },
     ],
   },
   {

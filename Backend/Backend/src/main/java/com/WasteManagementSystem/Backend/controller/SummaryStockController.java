@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.WasteManagementSystem.Backend.entity.SummaryStock;
 import com.WasteManagementSystem.Backend.repository.SummaryStockRepository;
+import com.WasteManagementSystem.Backend.service.SummaryStockService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -30,6 +31,7 @@ public class SummaryStockController{
     @Autowired
 
     private SummaryStockRepository summaryStockrepo;
+    private SummaryStockService summaryStockService;
 
     @PostMapping("/summaryStock")
     public SummaryStock createSummaryStock(@Valid @RequestBody SummaryStock summaryStock, BindingResult bindingResult) {
@@ -74,4 +76,16 @@ public class SummaryStockController{
         return ResponseEntity.ok(updatedSummaryStock);
     }
 
+    // @GetMapping("/summaryStockNew/{wasteType}")
+    // public ResponseEntity<SummaryStock> findSummaryStockByWasteType(@PathVariable(value = "id") int summaryStockId)
+    //     throws ResourceNotFoundException {
+    //         SummaryStock summaryStock = summaryStockrepo.findByWasteType(summaryStockId)
+    //       .orElseThrow(() -> new ResourceNotFoundException("type not found for this id :: " + summaryStockId));
+    //     return ResponseEntity.ok().body(summaryStock);
+    // }
+
+    // @GetMapping("/getStock/{wasteType}")
+	// public List<SummaryStock> getSummaryStocks(@PathVariable String wasteType) {
+	// 	return summaryStockService.fetchSummaryStockByWasteType(wasteType);
+	// }
 }

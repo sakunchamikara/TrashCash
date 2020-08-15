@@ -78,9 +78,9 @@ export class InsertCollectedWasteComponent implements OnInit {
               this.id = data1;
              
 
-              this.summaryStockService.updateSummaryStock(data1,this.summaryStock)
-              .subscribe(data => console.log(data),
-               error => {console.log(error);this.errorMsg = 'Something went Wrong !!!';});
+              // this.summaryStockService.updateSummaryStock(data1,this.summaryStock)
+              // .subscribe(data => console.log(data),
+              //  error => {console.log(error);this.errorMsg = 'Something went Wrong !!!';});
             this.summaryStock = new SummaryStock();
             console.log("testing floaaaat"+this.summaryStock);
               

@@ -24,6 +24,7 @@ export class InsertCollectedWasteComponent implements OnInit {
   successMsg: any;
   errorMsg: any;
   chk: boolean;
+  id: number;
 
   ngOnInit() {
     this.chk = false;
@@ -65,10 +66,45 @@ export class InsertCollectedWasteComponent implements OnInit {
       console.log(this.summaryStock);
     }
 
+
+    onUpdateSummary(){
+      this.summaryStockService.getSummaryWasteListByCount().subscribe(
+        data=>{
+          console.log("count "+data);
+          this.summaryStockService.getSummaryWasteListById().subscribe(
+            data1=>{
+              console.log("id "+data1);
+              this.summaryStock.total = this.summaryStock.total + data[0];
+              this.id = data1;
+             
+
+              this.summaryStockService.updateSummaryStock(data1,this.summaryStock)
+              .subscribe(data => console.log(data),
+               error => {console.log(error);this.errorMsg = 'Something went Wrong !!!';});
+            this.summaryStock = new SummaryStock();
+            console.log("testing floaaaat"+this.summaryStock);
+              
+            }
+            );
+
+        }
+      );
+
+      // this.summaryStockService.updateSummaryStock(this.id,this.summaryStock).subscribe(
+      //   data2=>{
+      //     console.log("update "+data2);
+      //   }
+      // );
+
+     
+
+      
+    }
+
     checkName(cName: string){
       this.summaryStockService.getSummaryWasteListByType().subscribe(
         data => {
-          console.log(data);
+          console.log("test"+data);
           this.chk=false;
           this.arr=data;
   
@@ -77,7 +113,7 @@ export class InsertCollectedWasteComponent implements OnInit {
               console.log("found");
               console.log(i);
               this.chk=true;
-              // this.cancelInsertDialog(i);
+              this.onUpdateSummary();
             }
             
         }

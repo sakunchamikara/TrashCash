@@ -48,6 +48,17 @@ public class SummaryStockController{
 	public @ResponseBody List<String> getAllWasteType() {
 	    return summaryStockrepo.getAllWasteType();
     }
+
+    @GetMapping(path="/summaryStockCount/wasteType")
+	public @ResponseBody List<Integer> getAllWaste() {
+	    return summaryStockrepo.getAllWaste();
+    }
+
+    @GetMapping(path="/summaryStockId/wasteType")
+	public @ResponseBody List<Integer> getAllWasteId() {
+	    return summaryStockrepo.getAllWasteId();
+    }
+
     @PutMapping("/summaryStock/{id}")
     public ResponseEntity<SummaryStock> updateSummaryStock(@PathVariable(value = "id") int summaryStockId,
          @Valid @RequestBody SummaryStock summaryStockDetails) throws ResourceNotFoundException {

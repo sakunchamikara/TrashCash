@@ -14,4 +14,10 @@ public interface SummaryStockRepository extends JpaRepository<SummaryStock, Inte
 	
 	@Query("select c.wasteType from SummaryStock c")
 	   List<String> getAllWasteType();
+
+	@Query("select c.total from SummaryStock c")
+	   List<Integer> getAllWaste();
+
+	   @Query("select c.id from SummaryStock c  where c.wasteType=wasteType")
+	   List<Integer> getAllWasteId();
 }

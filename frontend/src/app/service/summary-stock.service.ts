@@ -22,5 +22,21 @@ export class SummaryStockService {
     return this.http.get(url)
     
   }
+
+  getSummaryWasteListByCount(): Observable<any> {
+    let url = `http://localhost:8080/summaryStockCount/wasteType`;
+    return this.http.get(url)
+    
+  }
+
+  getSummaryWasteListById(): Observable<any> {
+    let url = `http://localhost:8080/summaryStockId/wasteType`;
+    return this.http.get(url)
+    
+  }
+
+  updateSummaryStock(id:number,value:any):Observable<Object>{
+    return this.http.put(`${this.baseUrl}/${id}`,value);
+  }
 }
 

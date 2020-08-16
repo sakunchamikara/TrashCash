@@ -3,6 +3,7 @@ package com.WasteManagementSystem.Backend.controller;
 import javax.validation.Valid;
 import org.springframework.validation.BindingResult;
 
+import java.io.IOException;
 import java.util.HashMap;
 //import java.util.HashMap;
 import java.util.List;
@@ -22,27 +23,51 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 //import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.WasteManagementSystem.Backend.entity.Event;
 import com.WasteManagementSystem.Backend.repository.EventRepository;
+import com.WasteManagementSystem.Backend.service.EventService;
 
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class EventController {
 
-    @Autowired
+    private byte[] byts;
 
+    @Autowired
     private EventRepository eventrepo;
+    @Autowired
+    private EventService eventservice;
 
     @PostMapping("/events")
-    public Event createEvent(@Valid @RequestBody Event event, BindingResult bindingResult) {
+    public Event createEvent(@Valid @RequestBody Event event, BindingResult bindingResult)throws Exception {
+        String tempName = event.getEventName();
+		if (tempName != null && !"".equals(tempName)) {
+			Event userObj = eventservice.fetchEventByEventName(tempName);
+			if (userObj != null) {
+				throw new Exception("Event with " + tempName + " is already exist !!!");
+
+			}
+		}
+        
+        
         if (bindingResult.hasErrors()) {
 			return null;
-		}
-        return eventrepo.save(event);
+        }
+        event.setImage(this.byts);
+        Event userObj = null;
+        userObj = eventservice.saveEvent(event);
+        return userObj;
     }
+
+    @PostMapping("/uploadImage")
+    public void uploadImage(@RequestParam("imageFile") MultipartFile file) throws IOException {
+		this.byts = file.getBytes();
+	}
 
     @GetMapping("/events")
     public List<Event> getAllEvents() {

@@ -50,6 +50,7 @@ import { ShowEventComponent } from './webportal/modules/show-event/show-event.co
 import { EventDetailsComponent } from './webportal/modules/show-event/event-details/event-details.component';
 import { DisplayCustomerFeedbackComponent } from './modules/display-customer-feedback/display-customer-feedback.component';
 import { LocationComponent } from './webportal/modules/waste-request/location/location.component';
+import { ViewAgentConfirmedRequestComponent } from 'src/app/modules/agent/view-agent-confirmed-request/view-agent-confirmed-request.component';
 import { CheckOutComponent } from './webportal/modules/check-out/check-out.component';
 import { CustomerAccountComponent } from './webportal/modules/customer-account/customer-account.component';
 
@@ -276,6 +277,10 @@ const routes: Routes = [
       {
         path: 'ViewDB',
         component: ViewDbComponent,
+      },
+      {
+        path: 'viewConfirmedRequests',
+        component: ViewAgentConfirmedRequestComponent,
       },
     ],
   },

@@ -11,12 +11,12 @@ import java.util.List;
 
 @Service
 public class CustomerWasteRequestService{
+  
     @Autowired
-
     private CustomerWasteRequestRepository repo;
 
-
-    public List<CustomerWasteRequest> fetchWasteRequestByCustomer(String customer) {
-		        return repo.findByCustomer(customer);
+    
+    public List<CustomerWasteRequest> fetchUserByEmail(String email) {
+		return repo.findByEmail(email);
 	}
 }

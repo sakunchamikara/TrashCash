@@ -10,6 +10,7 @@ import { UpdateProductComponent } from 'src/app/modules/products/view-product/up
 import { UpdateCollectedWasteComponent } from 'src/app/modules/collected-waste/update-collected-waste/update-collected-waste.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ViewPlacedRequestsComponent } from 'src/app/modules/agent/view-placed-requests/view-placed-requests.component';
+import { ViewAgentConfirmedRequestComponent } from 'src/app/modules/agent/view-agent-confirmed-request/view-agent-confirmed-request.component';
 
 import { SharedModule } from 'src/app/shared/shared.module';
 import {
@@ -95,6 +96,7 @@ import { DisplayCustomerFeedbackComponent } from 'src/app/modules/display-custom
     SendMailComponent,
     ViewPlacedRequestsComponent,
     DisplayCustomerFeedbackComponent,
+    ViewAgentConfirmedRequestComponent,
   ],
   imports: [
     CommonModule,

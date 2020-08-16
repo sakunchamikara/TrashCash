@@ -63,9 +63,9 @@ import { CustomerAccountComponent } from '../../modules/customer-account/custome
     MatSelectModule,
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAzSnXXXXXXXXXXXXXXXXXSZGGWU',
-      libraries: ['places']
-    })
+      apiKey: 'AIzaSyCPiA2tVxt2l98yR3fzKkNhNsfp_dN-S8U',
+      libraries: ['places'],
+    }),
   ],
   providers: [NavbarComponent],
 })

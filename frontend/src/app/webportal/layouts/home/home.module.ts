@@ -26,6 +26,7 @@ import {AgmCoreModule} from '@agm/core';
 import { CheckOutComponent } from '../../modules/check-out/check-out.component';
 import { NavbarComponent } from '../../includes/navbar/navbar.component';
 import { CustomerAccountComponent } from '../../modules/customer-account/customer-account.component';
+import { RecycledProductAddComponent } from '../../modules/Outsource-company/recycled-product-add/recycled-product-add.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { CustomerAccountComponent } from '../../modules/customer-account/custome
     CustomerFeedbackComponent,
     CheckOutComponent,
     CustomerAccountComponent,
+    RecycledProductAddComponent
   ],
   imports: [
     FormsModule,

@@ -91,12 +91,12 @@ export class InsertProductsComponent implements OnInit {
    // this.submitted = true;
     this.save();
     alert('INSERT SUCCESSFUL!!');
-    this.pageRefresh();
+    //this.pageRefresh();
   }
   
-  pageRefresh() {
-    location.reload();
- }
+//   pageRefresh() {
+//     location.reload();
+//  }
 
   gotoList() {
     this.router.navigate(['system/ViewProducts']);

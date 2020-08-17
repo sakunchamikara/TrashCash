@@ -47,6 +47,7 @@ public class CustomerWasteRequestController {
     public List<CustomerWasteRequest> getAllCustomerWasteRequests() {
         return customerWasteRequestRepo.findAll();
     }
+
     @DeleteMapping("/customerWasteRequest/{id}")
     public Map<String, Boolean> deletecteCustomerWasteRequest(@PathVariable(value = "id") int customerWasteRequestId)
          throws ResourceNotFoundException {
@@ -70,9 +71,15 @@ public class CustomerWasteRequestController {
         customerWasteRequest.setDate(customerWasteRequestDetails.getDate());
         customerWasteRequest.setCustomer(customerWasteRequestDetails.getCustomer());
         customerWasteRequest.setStatus(customerWasteRequestDetails.getStatus());
+        customerWasteRequest.setEmail(customerWasteRequestDetails.getEmail());
        ;
         final CustomerWasteRequest updatedCustomerWasteRequest = customerWasteRequestRepo.save(customerWasteRequest);
         return ResponseEntity.ok(updatedCustomerWasteRequest);
+    }
+
+    @GetMapping("/getRequestedWaste/{email}")
+    public List<CustomerWasteRequest> getCustomerWasteRequests(@PathVariable String email) {
+        return service.fetchUserByEmail(email);
     }
 	
 	@GetMapping("/customerWasteRequest/{id}")
@@ -83,9 +90,7 @@ public class CustomerWasteRequestController {
         return ResponseEntity.ok().body(customerWasteRequest);
     }
 
-    // @GetMapping("/getCustomerWasteRequest/{customer}")
-    // public List<CustomerWasteRequest> getCustomerWasteRequest(@PathVariable String customer) {
-    //     return service.fetchWasteRequestByCustomer(customer);
-    // }
     
+    
+
 }

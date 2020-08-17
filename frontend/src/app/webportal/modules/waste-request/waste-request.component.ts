@@ -48,11 +48,11 @@ export class WasteRequestComponent implements OnInit {
     console.log(this.email);
 
     if(this.email){
-        if(this.location){
+        // if(this.location){
           this.reloadData();
-        }else{
-          this.route.navigate(['/customer/location']);
-        }
+        // }else{
+        //   this.route.navigate(['/customer/location']);
+        // }
      
     }
     else{
@@ -76,6 +76,7 @@ export class WasteRequestComponent implements OnInit {
   save(){
     this.wasteRequest.date = new Date();
     this.wasteRequest.status ='Pending';
+    this.wasteRequest.email = this.email;
 
     console.log(this.customer.firstName);
     // this.retrieveRequests=this.customerWasteRequestService.getCustomerWasteRequests(this.customer.firstName);
@@ -90,13 +91,13 @@ export class WasteRequestComponent implements OnInit {
         
       }
     );
-   
-
-    
   }
 
   reloadData(){
-     this.retrieveRequests=this.customerWasteRequestService.getCustomerWasteRequestList();
+
+    //  this.retrieveRequests=this.customerWasteRequestService.getCustomerWasteRequestList();
+    console.log("reload");
+    this.retrieveRequests = this.customerWasteRequestService.getWasteListByEmail(this.email);
      this.retrieveRequests.forEach(obj=>{
           this.successMsg=null;
        obj.forEach(childOb=>{

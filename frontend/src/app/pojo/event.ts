@@ -4,6 +4,7 @@ export class Event {
     location:string;
     date:Date;
     image:string;
+    retrievedImage:String;
     notes:string;
   
     constructor() { }

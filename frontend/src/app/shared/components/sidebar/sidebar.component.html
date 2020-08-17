@@ -61,7 +61,7 @@
     <button mat-menu-item [matMenuTriggerFor]="agent">Agent</button>
     <mat-menu #agent="matMenu">
       <a mat-menu-item [routerLink]="'/system/viewPlacedRequests'" class="btn btn-primary-outline pull-right">Pending Waste Requests</a>
-      <a mat-menu-item  class="btn btn-primary-outline pull-right">Confirmed Waste Requests</a>
+      <a mat-menu-item [routerLink]="'/system/viewConfirmedRequests'"  class="btn btn-primary-outline pull-right">Confirmed Waste Requests</a>
     </mat-menu>
     <button mat-menu-item [matMenuTriggerFor]="outsource">Waste Requests</button>
     <mat-menu #outsource="matMenu">

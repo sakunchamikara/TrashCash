@@ -11,5 +11,6 @@ import java.util.List;
 @Repository
 public interface CustomerWasteRequestRepository extends JpaRepository<CustomerWasteRequest, Integer> {
 
-    public List<CustomerWasteRequest> findByCustomer(String customer);
+    // public List<CustomerWasteRequest> findByCustomer(String customer);
+    public List<CustomerWasteRequest> findByEmail(String email);
 }

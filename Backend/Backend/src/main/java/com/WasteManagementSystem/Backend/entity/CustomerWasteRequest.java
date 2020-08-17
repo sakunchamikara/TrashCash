@@ -28,12 +28,13 @@ public class CustomerWasteRequest {
 	private String customer;
 	@NotNull
 	private String status;
+	private String email;
 
 
 	public CustomerWasteRequest(){
 
 	}
-    public CustomerWasteRequest(int id, String wasteType,int quantity,Date date,String customer,String status,String details){
+    public CustomerWasteRequest(int id, String wasteType,int quantity,Date date,String customer,String status,String email,String details){
         super();
 		this.id = id;
 		this.wasteType = wasteType;
@@ -41,6 +42,7 @@ public class CustomerWasteRequest {
 		this.date = date;
 		this.customer = customer;
 		this.status = status;
+		this.email = email;
     }
 
     public int getId() {
@@ -88,6 +90,12 @@ public class CustomerWasteRequest {
 	}
 	public void setStatus(String status){
 		this.status = status;
+	}
+	public String getEmail(){
+		return email;
+	}
+	public void setEmail(String email){
+		this.email = email;
 	}
     
 }

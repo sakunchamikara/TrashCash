@@ -12,8 +12,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SummaryStockRepository extends JpaRepository<SummaryStock, Integer>{
 
-     public SummaryStock findByWasteType(String wasteType);
-	// public List<SummaryStock> findByWasteType(String wasteType);
+    //  public SummaryStock findByWasteType(String wasteType);
+	 public List<SummaryStock> findByWasteType(String wasteType);
 
 	@Query("select c.wasteType from SummaryStock c")
 	   List<String> getAllWasteType();

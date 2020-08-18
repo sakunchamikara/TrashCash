@@ -21,6 +21,7 @@ export class CollectedWasteComponent implements OnInit {
 
   ngOnInit() {
     this.reloadData();
+    this.test();
   }
 
   reloadData() {
@@ -55,5 +56,14 @@ export class CollectedWasteComponent implements OnInit {
           'User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'
         )
       );
+  }
+
+  test(){
+    this.collectedWasteService.getWasteByType("Paper").subscribe(
+      (data)=>{
+        console.log(data);
+      },
+      (error)=> console.log(error)
+    );
   }
 }

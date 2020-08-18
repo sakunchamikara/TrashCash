@@ -9,7 +9,10 @@ import { Observable } from 'rxjs';
   styleUrls: ['./show-event.component.scss']
 })
 export class ShowEventComponent implements OnInit {
-events: Observable<Event[]>;
+//events: Observable<Event[]>;
+eventList: Array<Event>;
+eventEmptyListFlag = false;
+activeFlag = '';
 successMsg: any;
 errorMsg: any;
 
@@ -18,11 +21,23 @@ errorMsg: any;
   ) { }
 
   ngOnInit() {
-    this.reloadData();
+    this.getEvents();
   }
 
-  reloadData(){
-    this.events = this.eventService.getEventList();
+  getEvents() {
+    this.eventService.getEventList().subscribe(
+      (data) => {
+        this.eventList = data;
+        if (data.length > 0) {
+          this.eventEmptyListFlag = false;
+        } else {
+          this.eventEmptyListFlag = true;
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
 }

@@ -1,53 +1,52 @@
-<div class="col-container">
-    <div class="form-row">
-        <div class="col-md-12">
+<div class="main">
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-5">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
           <li class="breadcrumb-item " aria-current="page">Customer feedback</li>
-         <!--
-          <li class="breadcrumb-item active" *ngIf="!activeFlag" aria-current="page">All</li>
-          -->
           <li class="breadcrumb-item active" *ngIf="activeFlag" aria-current="page">{{activeFlag}}</li>
         </ol>
       </nav>
-        </div>
-    </div>
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div class="card shadow-lg border-0 rounded-lg mt-5">
+    <!-- <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="D0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="D0" class="active"></li> -->
         <!-- <li data-target="#myCarousel" data-slide-to="1" class=""></li>
         <li data-target="#myCarousel" data-slide-to="2" class=""></li> -->
-      </ol>
+      <!-- </ol>
       <div class="carousel-inner">
-        <div class="carousel-item active">
+        <div class="carousel-item active"> -->
           <!-- <svg class="bd-placeholder-img" width="100%" height="100%"  preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"></rect></svg> -->
-          <img src="/assets/images/others/feedback1.jpg" alt="" width="1600" height="600">
+        
+          <!-- <img src="/assets/images/others/feedback1.jpg" alt="" width="1600" height="600">
+      
           <div class="container">
             <div class="carousel-caption text-left">
               <h1>Here to help!</h1>
               <p>Your feedback and enquiry is important to us, so we will endeavour to respond to you at our earliest. Your feedback will help us continuously improve ourselves to make it better for you and our other valued Customers.</p>
-              <!-- <button class="btn btn-flat btn-md" (click)="open(mymodal)"
-              style="background-color: #FFFFFF; transition: none 0s ease 0s; text-align: inherit; line-height: 24px; border-width: 0px; margin: 0px; padding: 12px 30px; letter-spacing: 0px; font-weight: 400; font-size: 14px;">
-              ADD YOUR FEEDBACK
-            </button> -->
             </div>
             </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
+
+
+<!-- <div class="col-container c2"> -->
+    <!-- <div class="form-row"> -->
+        <!-- <div class="col-md-12">
+<br> -->
+<div class="card-header justify-content-center">
+  <p class="h3">Add Your Feedback</p>
 </div>
-
-<div class="col-container c2">
-    <div class="form-row">
-        <div class="col-md-12">
-<br>
+<div class="card-body">
           <form (ngSubmit)="onSubmit()" #customerFeedbackForm="ngForm">
-          <h3>Add Your Feedback</h3>
+          <!-- <h3>Add Your Feedback</h3> -->
 
-          <div class="form-row">
-            <div class="form-group col-md-6 ">
+          <!-- <div class="form-row"> -->
+            <div class="form-group">
               <label for="">Category</label>
               <select class="form-control"  name="feedbackType" id="feedbackType" [(ngModel)]="customerFeed.feedbackType">
                 <option value="" style="display: none" >Select a Category</option>
@@ -59,46 +58,50 @@
                 <option>Other</option>
               </select>
             </div>
-          </div>
+          <!-- </div> -->
 
-          <div class="form-row">
-            <div class="form-group col-md-6">
+          <!-- <div class="form-row"> -->
+            <div class="form-group">
               <label for="">First Name</label>
               <input type="text" class="form-control"  name="cusFeedFirstName" id="cusFeedFirstName" [(ngModel)]="customerFeed.cusFeedFirstName" placeholder="First Name">
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group">
               <label for="">Last Name</label>
               <input type="text" class="form-control"  name="cusFeedLastName" id="cusFeedLastName" [(ngModel)]="customerFeed.cusFeedLastName" placeholder="Last Name">
             </div>
-          </div>
+          <!-- </div> -->
 
-          <div class="form-row">
-            <div class="form-group col-md-6">
+          <!-- <div class="form-row"> -->
+            <div class="form-group">
               <label for="">Address</label>
               <input type="text" class="form-control"  name="cusFeedAddress" id="cusFeedAddress" [(ngModel)]="customerFeed.cusFeedAddress" placeholder="Address">
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group">
               <label for="">Contact Number</label>
               <input type="number" class="form-control"  name="cusFeedContactNum" id="cusFeedContactNum" [(ngModel)]="customerFeed.cusFeedContactNum" placeholder="Contact Number">
             </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group col-md-6">
+          <!-- </div> -->
+<!-- 
+          <div class="form-row"> -->
+            <div class="form-group">
               <label for="">Email</label>
-              <input type="text" class="form-control"  name="cusFeedEmail" id="cusFeedEmail" [(ngModel)]="customerFeed.cusFeedEmail"  placeholder="Email">
+              <input  class="form-control"  name="cusFeedEmail" id="cusFeedEmail" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" 
+              type="text" aria-describedby="emailHelp" required  [(ngModel)]="customerFeed.cusFeedEmail"  placeholder="Email">
             </div>
-          </div>
+          <!-- </div> -->
    
           <div class="form-group">
             <label for="">Message</label>
             <textarea class="form-control" rows="3"  name="feedback" id="feedback" [(ngModel)]="customerFeed.feedback" ></textarea>
           </div>
-
+          <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
     <button type="submit" class="btn btn-primary">Submit Feedback</button>
+          </div>
   </form>
-  <br>
-        </div>
 </div>
 </div>
-
+</div>
+</div>
+<br>
+</div>
+</div>

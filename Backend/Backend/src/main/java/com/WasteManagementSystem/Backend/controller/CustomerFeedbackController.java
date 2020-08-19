@@ -16,6 +16,7 @@ import java.util.Map;
 import javax.validation.Valid;
 import com.WasteManagementSystem.Backend.entity.CustomerFeedback;
 import com.WasteManagementSystem.Backend.entity.CustomerWasteRequest;
+import com.WasteManagementSystem.Backend.entity.ProductCat;
 import com.WasteManagementSystem.Backend.repository.CustomerFeedbackRepository;
 //import com.WasteManagementSystem.Backend.service.OutwasteService;
 
@@ -47,5 +48,29 @@ public class CustomerFeedbackController {
 	    @GetMapping("/customerFeedback")
 	    public List<CustomerFeedback> getAllCustomerFeedbacks() {
 	        return cusfeedrepo.findAll();
+	    }
+	    
+		@PutMapping("/customerFeedback/{id}")
+	    public ResponseEntity<CustomerFeedback> updateCustomerFeedback(@PathVariable(value = "id") int customerFeedbackId,
+	         @Valid @RequestBody CustomerFeedback customerFeedbackDetails) throws ResourceNotFoundException {
+			CustomerFeedback customerFeedback =cusfeedrepo.findById(customerFeedbackId)
+	        .orElseThrow(() -> new ResourceNotFoundException("Feedback not found for this id :: " + customerFeedbackId));
+
+			
+			
+			customerFeedback.setStatus(customerFeedbackDetails.getStatus());
+			
+			
+	       
+	        final CustomerFeedback updatedCustomerFeedback = cusfeedrepo.save(customerFeedback);
+	        return ResponseEntity.ok(updatedCustomerFeedback);
+	    }
+		
+		@GetMapping("/customerFeedback/{id}")
+	    public ResponseEntity<CustomerFeedback> getCustomerFeedbackById(@PathVariable(value = "id") int customerFeedbackId)
+	        throws ResourceNotFoundException {
+			CustomerFeedback customerFeedback = cusfeedrepo.findById(customerFeedbackId)
+	          .orElseThrow(() -> new ResourceNotFoundException("feedback not found for this id :: " + customerFeedbackId));
+	        return ResponseEntity.ok().body(customerFeedback);
 	    }
 }

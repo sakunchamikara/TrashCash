@@ -35,6 +35,9 @@ public class CustomerFeedback {
 		private String feedback;
 	 @NotNull
 		private Date date;
+	 @NotNull
+		private String status;
+	 
 	 
 	
 
@@ -42,7 +45,7 @@ public class CustomerFeedback {
 	public CustomerFeedback(){
 
 	}
-    public CustomerFeedback(int id, String feedbackType, String cusFeedFirstName,String cusFeedLastName,String cusFeedAddress, int cusFeedConactNum, String cusFeedEmail, String feedback, Date date){
+    public CustomerFeedback(int id, String feedbackType, String cusFeedFirstName,String cusFeedLastName,String cusFeedAddress, int cusFeedConactNum, String cusFeedEmail, String feedback, Date date, String status){
         super();
         this.id = id;
 		this.feedbackType = feedbackType ;
@@ -53,6 +56,7 @@ public class CustomerFeedback {
 		this.cusFeedEmail = cusFeedEmail;
 		this.feedback = feedback;
 		this.date = date;
+		this.status = status;
 		
     }
 
@@ -127,6 +131,14 @@ public class CustomerFeedback {
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+	
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
     
 }

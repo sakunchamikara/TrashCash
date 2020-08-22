@@ -103,6 +103,8 @@ export class InsertCollectedWasteComponent implements OnInit {
           console.log(error);
         }
      );
+
+  
      
     }
 

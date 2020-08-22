@@ -9,7 +9,8 @@ export class SummaryStockService {
 
   
 
-  private baseUrl = 'http://localhost:8080/summaryStock';
+  private baseUrl  = 'http://localhost:8080/summaryStock';
+  private baseUrl2 = 'http://localhost:8080/getwasteStock'
 
   constructor(private http:HttpClient) { }
 
@@ -41,9 +42,15 @@ export class SummaryStockService {
 
   getWasteByType(type: String): Observable<any> {
         
-    const uri = `http://localhost:8080/getStockSummary/${type}`;
+    const uri = `http://localhost:8080/getwasteByType/${type}`;
     return this.http.get(uri);
-}
+  }
+
+  getSummaryWaste(): Observable<any>{
+    return this.http.get(`${this.baseUrl}`);
+  }
+
+ 
 
 
 }

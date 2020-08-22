@@ -16,9 +16,11 @@ public class TestStockService{
   private TestStockRepository repo;
 
   
-  public SummaryStock fetchUserByType(String type) {
+  public List<SummaryStock> fetchUserByType(String type) {
   return repo.findByType(type);
-}
+  }
+
+
     
   
 }

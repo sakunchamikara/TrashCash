@@ -78,6 +78,17 @@ public class SummaryStockController{
         return ResponseEntity.ok(updatedSummaryStock);
     }
 
+    @GetMapping("/getwasteByType/{type}")
+    public List<SummaryStock> getSummaryStock(@PathVariable String type) {
+        return service.fetchUserByType(type);
+    }
+
+    @GetMapping("/summaryStock")
+    public List<CollectedWaste> getAllSummaryStocks() {
+        return summaryStockrepo.findAll();
+    }
+  
+
     // @GetMapping("/summaryStockNew/{wasteType}")
     // public ResponseEntity<SummaryStock> findSummaryStockByWasteType(@PathVariable(value = "id") int summaryStockId)
     //     throws ResourceNotFoundException {

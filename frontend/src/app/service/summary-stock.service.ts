@@ -18,19 +18,19 @@ export class SummaryStockService {
   }
 
   getSummaryWasteListByType(): Observable<any> {
-    let url = `http://localhost:8080/summaryStock/wasteType`;
+    let url = `http://localhost:8080/summaryStock/type`;
     return this.http.get(url)
     
   }
 
   getSummaryWasteListByCount(): Observable<any> {
-    let url = `http://localhost:8080/summaryStockCount/wasteType`;
+    let url = `http://localhost:8080/summaryStockCount/type`;
     return this.http.get(url)
     
   }
 
   getSummaryWasteListById(): Observable<any> {
-    let url = `http://localhost:8080/summaryStockId/wasteType`;
+    let url = `http://localhost:8080/summaryStockId/type`;
     return this.http.get(url)
     
   }
@@ -38,5 +38,13 @@ export class SummaryStockService {
   updateSummaryStock(id:number,value:any):Observable<Object>{
     return this.http.put(`${this.baseUrl}/${id}`,value);
   }
+
+  getWasteByType(type: String): Observable<any> {
+        
+    const uri = `http://localhost:8080/getStockSummary/${type}`;
+    return this.http.get(uri);
+}
+
+
 }
 

@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.WasteManagementSystem.Backend.entity.SummaryStock;
 import com.WasteManagementSystem.Backend.repository.SummaryStockRepository;
 import com.WasteManagementSystem.Backend.service.SummaryStockService;
+import com.WasteManagementSystem.Backend.service.TestStockService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -32,6 +33,7 @@ public class SummaryStockController{
 
     private SummaryStockRepository summaryStockrepo;
     private SummaryStockService summaryStockService;
+    private TestStockService service;
 
     @PostMapping("/summaryStock")
     public SummaryStock createSummaryStock(@Valid @RequestBody SummaryStock summaryStock, BindingResult bindingResult) {
@@ -46,19 +48,19 @@ public class SummaryStockController{
         return summaryStockrepo.findAll();
     }
 
-    @GetMapping(path="/summaryStock/wasteType")
+    @GetMapping(path="/summaryStock/type")
 	public @ResponseBody List<String> getAllWasteType() {
 	    return summaryStockrepo.getAllWasteType();
     }
 
-    @GetMapping(path="/summaryStockCount/wasteType")
+    @GetMapping(path="/summaryStockCount/type")
 	public @ResponseBody List<Integer> getAllWaste() {
 	    return summaryStockrepo.getAllWaste();
     }
 
-    @GetMapping(path="/summaryStockId/wasteType")
+    @GetMapping(path="/summaryStockId/type")
 	public @ResponseBody List<Integer> getAllWasteId() {
-	    return summaryStockrepo.getAllWasteId();
+    return summaryStockrepo.getAllWasteId();
     }
 
     @PutMapping("/summaryStock/{id}")
@@ -67,7 +69,7 @@ public class SummaryStockController{
         SummaryStock summaryStock = summaryStockrepo.findById(summaryStockId)
         .orElseThrow(() -> new ResourceNotFoundException("Waste not found for this id :: " + summaryStockId));
 
-        summaryStock.setWasteType(summaryStockDetails.getWasteType());
+        summaryStock.setType(summaryStockDetails.getType());
         summaryStock.setTotal(summaryStockDetails.getTotal());
        
        
@@ -83,9 +85,5 @@ public class SummaryStockController{
     //       .orElseThrow(() -> new ResourceNotFoundException("type not found for this id :: " + summaryStockId));
     //     return ResponseEntity.ok().body(summaryStock);
     // }
-
-    // @GetMapping("/getStock/{wasteType}")
-	// public List<SummaryStock> getSummaryStocks(@PathVariable String wasteType) {
-	// 	return summaryStockService.fetchSummaryStockByWasteType(wasteType);
-	// }
+    
 }

@@ -35,12 +35,12 @@ export class CollectedWasteServiceService {
     return this.http.put(`${this.baseUrl}/${id}`,value);
   }
 
-  getWasteByType(wasteType:String):Observable<Object>{
+  // getWasteByType(type:String):Observable<Object>{
            
 
-            const uri = `http://localhost:8080/getWaste/${wasteType}`;
-    return this.http.get(uri);
-  }
+  //           const uri = `http://localhost:8080/getWaste/${type}`;
+  //   return this.http.get(uri);
+  // }
 
   public confirm(
     title: string,

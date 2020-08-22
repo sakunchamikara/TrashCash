@@ -26,7 +26,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.WasteManagementSystem.Backend.entity.CollectedWaste;
 import com.WasteManagementSystem.Backend.repository.CollectedWasteRepository;
-import com.WasteManagementSystem.Backend.service.SummaryStockService;
 import com.WasteManagementSystem.Backend.entity.SummaryStock;
 
 
@@ -37,7 +36,7 @@ public class CollectedWasteController {
     @Autowired
 
     private CollectedWasteRepository collectedWasterepo;
-    private SummaryStockService service;
+   
 
     @PostMapping("/collectedWaste")
     public CollectedWaste createCollectedWaste(@Valid @RequestBody CollectedWaste collectedWaste, BindingResult bindingResult) {
@@ -88,9 +87,6 @@ public class CollectedWasteController {
         return ResponseEntity.ok().body(collectedWaste);
     }
 
-    @GetMapping("/getWaste/{wasteType}")
-    public List<SummaryStock> getCollectedWastes(@PathVariable String wasteType) {
-        return service.fetchUserByWasteType(wasteType);
-    }
+  
     
 }

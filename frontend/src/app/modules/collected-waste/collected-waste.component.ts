@@ -21,7 +21,7 @@ export class CollectedWasteComponent implements OnInit {
 
   ngOnInit() {
     this.reloadData();
-    this.test();
+    // this.test();
   }
 
   reloadData() {
@@ -58,12 +58,12 @@ export class CollectedWasteComponent implements OnInit {
       );
   }
 
-  test(){
-    this.collectedWasteService.getWasteByType("Paper").subscribe(
-      (data)=>{
-        console.log(data);
-      },
-      (error)=> console.log(error)
-    );
-  }
+  // test(){
+  //   this.collectedWasteService.getWasteByType("Paper").subscribe(
+  //     (data)=>{
+  //       console.log(data);
+  //     },
+  //     (error)=> console.log(error)
+  //   );
+  // }
 }

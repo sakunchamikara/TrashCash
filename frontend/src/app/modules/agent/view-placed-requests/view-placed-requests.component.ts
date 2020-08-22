@@ -50,6 +50,7 @@ export class ViewPlacedRequestsComponent implements OnInit {
       (error) => console.log(error)
     );
 
+    this.requests = new WasteRequest();
     this.customerWasteRequestService
       .updateCustomerWasteRequest(id, this.requests)
       .subscribe(
@@ -58,6 +59,8 @@ export class ViewPlacedRequestsComponent implements OnInit {
           console.log(error);
         }
       );
-    this.requests = new WasteRequest();
+   
+    this.reloadData();
   }
+
 }

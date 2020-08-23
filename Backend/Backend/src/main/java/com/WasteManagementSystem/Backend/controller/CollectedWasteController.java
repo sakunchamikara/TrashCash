@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.WasteManagementSystem.Backend.entity.CollectedWaste;
 import com.WasteManagementSystem.Backend.repository.CollectedWasteRepository;
+import com.WasteManagementSystem.Backend.entity.SummaryStock;
 
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -35,6 +36,7 @@ public class CollectedWasteController {
     @Autowired
 
     private CollectedWasteRepository collectedWasterepo;
+   
 
     @PostMapping("/collectedWaste")
     public CollectedWaste createCollectedWaste(@Valid @RequestBody CollectedWaste collectedWaste, BindingResult bindingResult) {
@@ -84,5 +86,7 @@ public class CollectedWasteController {
           .orElseThrow(() -> new ResourceNotFoundException("Waste not found for this id :: " + collectedWasteId));
         return ResponseEntity.ok().body(collectedWaste);
     }
+
+  
     
 }

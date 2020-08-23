@@ -23,6 +23,11 @@ export class CustomerWasteRequestService {
     return this.http.get(`${this.baseUrl}`);
   }
 
+  getConfirmedWasteRequestList():Observable<any>{
+    const uri = `http://localhost:8080/confirmedWasterequest`;
+    return this.http.get(uri);
+  }
+
   deleteCustomerWasteRequest(id:number) :Observable<any>{
     return this.http.delete(`${this.baseUrl}/${id}`, {responseType: 'text'});
   }

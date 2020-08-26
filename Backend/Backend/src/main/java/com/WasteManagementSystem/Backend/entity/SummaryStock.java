@@ -16,16 +16,16 @@ public class SummaryStock {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String wasteType;
+    private String type;
     private int total;
 
     public SummaryStock(){ }
 
-    public SummaryStock(int id,String wasteType, int total){
+    public SummaryStock(int id,String type, int total){
 
         super();
         this.id = id;
-        this.wasteType = wasteType;
+        this.type = type;
         this.total = total;
         
     }
@@ -37,11 +37,11 @@ public class SummaryStock {
     public void setId(int id){
         this.id = id;
     }
-    public String getWasteType(){
-        return wasteType;
+    public String getType(){
+        return type;
     }
-    public void setWasteType(String wasteType){
-        this.wasteType = wasteType;
+    public void setType(String type){
+        this.type = type;
     }
     public int getTotal(){
         return total;

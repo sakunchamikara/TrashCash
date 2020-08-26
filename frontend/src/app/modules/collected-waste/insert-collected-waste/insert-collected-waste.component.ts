@@ -5,6 +5,7 @@ import { CollectedWasteServiceService } from 'src/app/service/collected-waste-se
 import { Router } from '@angular/router';
 import { SummaryStockService } from 'src/app/service/summary-stock.service';
 import { SummaryStock } from 'src/app/pojo/summary-stock';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-insert-collected-waste',
@@ -18,6 +19,7 @@ export class InsertCollectedWasteComponent implements OnInit {
   collectedWaste= new CollectedWaste();
   submitted = false;
   summaryStock = new SummaryStock();
+  retrieveStock : Observable<SummaryStock[]>
 
 
   constructor( private collectedWasteService: CollectedWasteServiceService , private router :Router,private summaryStockService:SummaryStockService) { }
@@ -32,7 +34,7 @@ export class InsertCollectedWasteComponent implements OnInit {
 
   save(){
      
-    this.summaryStock.wasteType=this.collectedWaste.wasteType;
+    this.summaryStock.type=this.collectedWaste.wasteType;
     this.summaryStock.total = this.collectedWaste.quantity;
 
     this.collectedWasteService.createCollectedWaste(this.collectedWaste)
@@ -90,15 +92,20 @@ export class InsertCollectedWasteComponent implements OnInit {
         }
       );
 
-      // this.summaryStockService.updateSummaryStock(this.id,this.summaryStock).subscribe(
-      //   data2=>{
-      //     console.log("update "+data2);
-      //   }
-      // );
-
      
 
-      
+     this.summaryStockService.getWasteByType(this.summaryStock.type).subscribe(
+        (data)=>{
+          console.log(data);
+          this.retrieveStock=data;
+
+        },error=>{
+          console.log(error);
+        }
+     );
+
+  
+     
     }
 
     checkName(cName: string){

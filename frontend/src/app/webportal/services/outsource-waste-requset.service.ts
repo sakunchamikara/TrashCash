@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmationDialogComponent } from 'src/app/modules/confirmation-dialog/confirmation-dialog.component';
+import { AlertDialogComponent } from 'src/app/modules/alert-dialog/alert-dialog.component';
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +28,18 @@ export class OutsourceWasteRequsetService {
     return this.http.get(baseUrl);
   }
 
+  getCustomerWasteRequestListByStatus():Observable<any>{
+   // console.log("asjh")
+    const baseUrl = 'http://localhost:8080/getwasteStatus';
+    return this.http.get(baseUrl);
+  }
+
   getWasteListByEmail(email: String): Observable<any> {
     const uri = `http://localhost:8080/getwaste/${email}`;
+    return this.http.get(uri);
+  }
+  getWasteListById(id: number): Observable<any> {
+    const uri = `http://localhost:8080/getwasteid/${id}`;
     return this.http.get(uri);
   }
   deleteCustomerWasteRequest(id:number) :Observable<any>{
@@ -49,6 +60,39 @@ export class OutsourceWasteRequsetService {
 
     return modalRef.result;
 
+}
+public alert(
+  title: string,
+  message: string,
+  btnOkText: string = 'OK',
+  dialogSize: 'sm'|'lg' = 'sm'): Promise<boolean> {
+  const modalRef = this.modalService.open(AlertDialogComponent, { size: dialogSize });
+  modalRef.componentInstance.title = title;
+  modalRef.componentInstance.message = message;
+  modalRef.componentInstance.btnOkText = btnOkText;
+
+  return modalRef.result;
+
+}
+
+public alertupdate(
+  title: string,
+  message: string,
+  btnOkText: string = 'OK',
+  dialogSize: 'sm'|'lg' = 'sm'): Promise<boolean> {
+  const modalRef = this.modalService.open(AlertDialogComponent, { size: dialogSize });
+  modalRef.componentInstance.title = title;
+  modalRef.componentInstance.message = message;
+  modalRef.componentInstance.btnOkText = btnOkText;
+
+  return modalRef.result;
+
+}
+
+
+update(id: number, value: any): Observable<Object> {
+  const baseUrl = `http://localhost:8080/upoutwaste/${id}`;
+  return this.http.put(baseUrl, value);
 }
 
 }

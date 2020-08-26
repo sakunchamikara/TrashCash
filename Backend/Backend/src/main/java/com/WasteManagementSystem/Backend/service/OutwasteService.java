@@ -28,6 +28,12 @@ public  class OutwasteService {
 	public List<OutsourceWasteRequest> fetchUserByEmail(String email) {
 		return repo.findByEmail(email);
 	}
+	public List<OutsourceWasteRequest> fetchUserByStatus() {
+		return repo.findstatus();
+	}
+//	public List<OutsourceWasteRequest> fetchUserById(int id) {
+//		return repo.findById(id);
+//	}
 
 	
 }

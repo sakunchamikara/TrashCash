@@ -66,7 +66,7 @@
     <button mat-menu-item [matMenuTriggerFor]="outsource">Waste Requests</button>
     <mat-menu #outsource="matMenu">
       <a mat-menu-item [routerLink]="'/system/ViewOutRequest'" class="btn btn-primary-outline pull-right">Pending Waste Requests</a>
-      <a mat-menu-item  class="btn btn-primary-outline pull-right">Confirmed Waste Requests</a>
+      <a mat-menu-item  [routerLink]="'/system/viewoutSourceWasteRequest'" class="btn btn-primary-outline pull-right">Confirmed Waste Requests</a>
     </mat-menu>
 
   <mat-divider></mat-divider>

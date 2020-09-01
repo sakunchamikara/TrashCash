@@ -3,15 +3,15 @@ package com.WasteManagementSystem.Backend.controller;
 import javax.validation.Valid;
 import org.springframework.validation.BindingResult;
 
-import java.util.HashMap;
+// import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+// import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
+// import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -83,10 +83,10 @@ public class SummaryStockController{
         return service.fetchUserByType(type);
     }
 
-    @GetMapping("/summaryStock")
-    public List<CollectedWaste> getAllSummaryStocks() {
-        return summaryStockrepo.findAll();
-    }
+    // @GetMapping("/summaryStock")
+    // public List<CollectedWaste> getAllSummaryStocks() {
+    //     return summaryStockrepo.findAll();
+    // }
   
 
     // @GetMapping("/summaryStockNew/{wasteType}")

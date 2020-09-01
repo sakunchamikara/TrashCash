@@ -25,13 +25,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.WasteManagementSystem.Backend.entity.CollectedWaste;
-import com.WasteManagementSystem.Backend.entity.Product;
-import com.WasteManagementSystem.Backend.entity.User;
 import com.WasteManagementSystem.Backend.repository.CollectedWasteRepository;
 //import com.WasteManagementSystem.Backend.service.CustomerWasteRequestService;
 import com.WasteManagementSystem.Backend.service.collectedwasteService;
-
-import com.WasteManagementSystem.Backend.entity.SummaryStock;
 
 
 @CrossOrigin(origins = "http://localhost:4200")

@@ -11,9 +11,9 @@ import org.springframework.data.jpa.repository.Query;
 @Repository
 public interface TestStockRepository extends JpaRepository<SummaryStock, Integer>{
 
-	//  public List<SummaryStock> findByType(String type);
+	 public List<SummaryStock> findByType(String type);
 
 	
-	public List<SummaryStock> findByType(Integer total);
+	// public List<SummaryStock> findByType(Integer total);
 	
 }

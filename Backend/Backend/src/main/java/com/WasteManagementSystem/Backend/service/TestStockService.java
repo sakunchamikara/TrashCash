@@ -14,7 +14,6 @@ public class TestStockService{
   
   @Autowired
   private TestStockRepository repo;
-
   
   public List<SummaryStock> fetchUserByType(String type) {
   return repo.findByType(type);

@@ -13,7 +13,10 @@ export class SidebarComponent implements OnInit {
   email: any;
   currentUser = new User();
   userType: any;
+  isUserLoggedIn: boolean;
+
   ngOnInit() {
+    this.currentUser.image = null;
     this.email = this.authService.getAuthenticatedUser();
     this.authService.getUser(this.email).subscribe(
       (data) => {
@@ -24,6 +27,7 @@ export class SidebarComponent implements OnInit {
         console.log("error in getting user");
       }
     );
-
+    this.isUserLoggedIn = this.authService.isUserLoggedIn();
+    // console.log(btoa('123'));
   }
 }

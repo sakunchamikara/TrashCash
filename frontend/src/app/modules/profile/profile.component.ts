@@ -69,6 +69,7 @@ export class ProfileComponent implements OnInit {
           }
         );
     }
+    this.user.password = btoa(this.user.password);
     this.authService.updateUserProfile(this.user).subscribe(
       (data) => {
         this.user = data;

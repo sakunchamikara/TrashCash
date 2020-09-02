@@ -22,7 +22,9 @@ export class CustomerLoginComponent implements OnInit {
     this.customer.password = btoa(this.customer.password);
     this.authService.loginCustomer(this.customer).subscribe(
       (data) => {
-        this.route.navigate([`/customer/welcome`]);
+        this.route.navigate([`/customer/welcome`]).then(() => {
+          window.location.reload();
+        });
       },
       (error) => {
         this.msg = error.error.message;

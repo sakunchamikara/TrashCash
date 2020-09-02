@@ -50,8 +50,23 @@
         <button mat-button [routerLink]="['/customer/welcome']" [routerLinkActive]="['mat-raised-button']">HOME</button>
 
         <button mat-button [routerLink]="['/customer/shop']" [routerLinkActive]="['mat-raised-button']">SHOP</button>
-        <button mat-button [routerLink]="['/customer/myAccount']" [routerLinkActive]="['mat-raised-button']">MY
-          ACCOUNT</button>
+
+        <button mat-button [matMenuTriggerFor]="customer" [routerLinkActive]="['mat-raised-button']" *ngIf="customerType == 'customer'">MY ACCOUNT</button>
+        <mat-menu #customer="matMenu">
+          <button mat-button [routerLink]="['/customer/myAccount']" [routerLinkActive]="['mat-raised-button']">My Orders</button>
+          <button mat-button [routerLinkActive]="['mat-raised-button']">Edit Profile</button>
+          <button mat-button [routerLinkActive]="['mat-raised-button']">etc</button>
+        </mat-menu>
+
+        <button mat-button [matMenuTriggerFor]="company" [routerLinkActive]="['mat-raised-button']"
+          *ngIf="customerType == 'company'">MY COMPANY</button>
+        <mat-menu #company="matMenu">
+          <button mat-button [routerLinkActive]="['mat-raised-button']">Orders</button>
+          <button mat-button [routerLinkActive]="['mat-raised-button']">Products</button>
+          <button mat-button [routerLinkActive]="['mat-raised-button']">Profile</button>
+          <button mat-button [routerLinkActive]="['mat-raised-button']">etc</button>
+        </mat-menu>
+
         <button mat-button [routerLink]="['/customer/cart']" [routerLinkActive]="['mat-raised-button']">SHOPPING
           CART</button>
 

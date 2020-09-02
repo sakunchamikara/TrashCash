@@ -4,6 +4,8 @@ import { CheckoutService } from '../../services/checkout.service';
 import { Customer } from '../../pojo/customer';
 import { CustomerAuthService } from '../../services/customer-auth.service';
 import { Observable } from 'rxjs';
+import { CustomerCartService } from '../../services/customer-cart.service';
+import { Cart } from '../../pojo/cart';
 
 interface InputData {
   name: string;
@@ -45,8 +47,14 @@ interface PaymentData {
 export class CheckOutComponent implements OnInit {
   constructor(
     private checkoutService: CheckoutService,
-    private customerAuthService: CustomerAuthService
+    private customerAuthService: CustomerAuthService,
+    private customerCartService: CustomerCartService
   ) {}
+
+  total: number;
+  cartDetails: Array<Cart>;
+  cid: number;
+  money: string;
 
   customer: Customer;
   first_name: string;
@@ -59,24 +67,43 @@ export class CheckOutComponent implements OnInit {
   cancel_url = 'http://localhost:4200/customer/checckOut';
   notify_url = 'http://localhost:8080/notifypayment';
   order_id = 'ItemNo12345';
-  items = 'Door bell wireless';
+  items = 'Customer Order';
   currency = 'LKR';
-  amount = '500';
+  amount = '0';
   country = 'Sri Lanka';
   city: string;
 
   ngOnInit() {
+    this.cid = +this.customerAuthService.getAuthenticatedCustomerId();
     this.email = this.customerAuthService.getAuthenticatedCustomer();
     this.customerAuthService.getCustomer(this.email).subscribe(
       (data) => {
         this.customer = data;
         this.first_name = this.customer.firstName;
-        this.last_name = this.customer.lastName;
+        this.last_name = this.customer.type;
         this.email = this.customer.email;
         this.phone = this.customer.contactNumber;
         this.address = this.customer.address;
       },
       (error) => {}
+    );
+    this.setTotal();
+
+  }
+
+  setTotal() {
+    this.customerCartService.getCartDetails(this.cid).subscribe(
+      (data) => {
+        this.cartDetails = data;
+        let sum = 0;
+        for (const cart of this.cartDetails) {
+          sum = sum + +cart.quentity * cart.product.price;
+        }
+        this.total = sum;
+      },
+      (error) => {
+        console.log(error.error.message);
+      }
     );
   }
 
@@ -99,8 +126,8 @@ export class CheckOutComponent implements OnInit {
     data.push({ name: 'return_url', value: `${pd.return_url}` });
     data.push({ name: 'cancel_url', value: `${pd.notify_url}` });
     data.push({ name: 'notify_url', value: `${pd.notify_url}` });
-    data.push({ name: 'first_name', value: `${pd.first_name}` });
-    data.push({ name: 'last_name', value: `${pd.last_name}` });
+    data.push({ name: 'first_name', value: this.customer.firstName });
+    data.push({ name: 'last_name', value: this.customer.type });
     data.push({ name: 'email', value: `${pd.email}` });
     data.push({ name: 'phone', value: `${pd.phone}` });
     data.push({ name: 'address', value: `${pd.address}` });
@@ -109,7 +136,7 @@ export class CheckOutComponent implements OnInit {
     data.push({ name: 'order_id', value: `${pd.order_id}` });
     data.push({ name: 'items', value: `${pd.items}` });
     data.push({ name: 'currency', value: `${pd.currency}` });
-    data.push({ name: 'amount', value: `${pd.amount}` });
+    data.push({ name: 'amount', value: this.total.toString() });
     // data.push({ name: "custom_1", value: `${pd.custom_1}` });
     // data.push({ name: "custom_2", value: `${pd.custom_2}` });
     // data.push({ name: 'hash', value: `${pd.hash}` });

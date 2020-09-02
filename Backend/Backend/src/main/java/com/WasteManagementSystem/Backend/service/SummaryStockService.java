@@ -12,11 +12,13 @@ import java.util.List;
 @Service
 public class SummaryStockService{
   
-    @Autowired
-    private SummaryStockRepository repo;
+  @Autowired
+  private SummaryStockRepository repo;
 
+  
+  public List<SummaryStock> fetchUserByType(String type) {
+  return repo.findByType(type);
+}
     
-  //   public List<SummaryStock> fetchSummaryStockByWasteType(String wasteType) {
-	// 	return repo.findByWasteType(wasteType);
-	// }
+  
 }

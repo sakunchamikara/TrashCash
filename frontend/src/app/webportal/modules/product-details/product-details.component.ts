@@ -90,8 +90,10 @@ export class ProductDetailsComponent implements OnInit {
       this.cart.customerId = +this.customerAuthService.getAuthenticatedCustomerId();
       this.cartService.addToCart(this.cart, this.productId).subscribe(
         (data) => {
-          // this.router.navigate([`customer/product/${this.cart.product}`]);
-          this.successMessage = 'Product Successfully Added To The Cart !';
+          alert("Product Successfully Added To The Cart !");
+          window.location.reload();
+          // this.router.navigate([`customer/cart`]);
+          // this.successMessage = 'Product Successfully Added To The Cart !';
           this.errorMessage = null;
         },
         (error) => {

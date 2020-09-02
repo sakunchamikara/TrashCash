@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {}
 
   registerUser() {
-    // this.user.password = btoa(this.user.password);
+    this.user.password = btoa(this.user.password);
     // console.log(this.user.password);
     this.authService.registerUserFromRemote(this.user).subscribe(
       (data) => {

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Item } from 'src/app/pojo/item';
 import { CustomerCartService } from '../../services/customer-cart.service';
 import { CustomerAuthService } from '../../services/customer-auth.service';
+import { Customer } from '../../pojo/customer';
 
 @Component({
   selector: 'app-navbar',
@@ -24,10 +25,28 @@ export class NavbarComponent implements OnInit {
   itemCount: number;
   cid: number;
   mySubscription: any;
+  currentCustomer: Customer;
+  customerEmail: string;
+  customerType: string;
+  customerName: string;
+
   ngOnInit() {
     this.dropdownRefresh();
     this.cid = +this.customerService.getAuthenticatedCustomerId();
     this.getItemCount();
+    if (this.customerService.isCustomerLoggedIn()) {
+      this.customerEmail = this.customerService.getAuthenticatedCustomer();
+      this.customerService.getCustomer(this.customerEmail).subscribe(
+        (data) => {
+          this.currentCustomer = data;
+          this.customerType = this.currentCustomer.type;
+          this.customerName = this.currentCustomer.firstName;
+        },
+        (error) => {
+          console.log('error in getcustomer function');
+        }
+      );
+    }
   }
 
   dropdownRefresh() {

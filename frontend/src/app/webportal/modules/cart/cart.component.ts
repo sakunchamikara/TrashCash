@@ -1,20 +1,20 @@
-import { Component, OnInit } from "@angular/core";
-import { CustomerCartService } from "../../services/customer-cart.service";
-import { Cart } from "../../pojo/cart";
-import { CustomerAuthService } from "../../services/customer-auth.service";
-import { Router } from "@angular/router";
-import { NgForm } from "@angular/forms";
+import { Component, OnInit } from '@angular/core';
+import { CustomerCartService } from '../../services/customer-cart.service';
+import { Cart } from '../../pojo/cart';
+import { CustomerAuthService } from '../../services/customer-auth.service';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: "app-cart",
-  templateUrl: "./cart.component.html",
-  styleUrls: ["./cart.component.scss"],
+  selector: 'app-cart',
+  templateUrl: './cart.component.html',
+  styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit {
   cartDetails: Array<Cart>;
-  errorMessage = "";
+  errorMessage = '';
   cid: number;
-  productIMG = "";
+  productIMG = '';
   total: number;
   quentity: number;
   cartId: number;
@@ -44,7 +44,7 @@ export class CartComponent implements OnInit {
         }
       );
     } else {
-      this.router.navigate(["/customer/login"]);
+      this.router.navigate(['/customer/login']);
     }
   }
 
@@ -82,6 +82,6 @@ export class CartComponent implements OnInit {
   }
 
   checkOut() {
-    this.router.navigate(["/customer/checkOut"]);
+    this.router.navigate(['/customer/checkOut']);
   }
 }

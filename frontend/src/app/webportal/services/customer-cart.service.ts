@@ -20,4 +20,6 @@ export class CustomerCartService {
   deleteFromCart(cid: number): Observable<any> {
     return this.http.delete<any>(`http://localhost:8080/cart/delete/${cid}`);
   }
+
+  
 }

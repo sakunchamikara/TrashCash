@@ -15,7 +15,6 @@ import java.util.Map;
 
 import javax.validation.Valid;
 import com.WasteManagementSystem.Backend.entity.CustomerFeedback;
-import com.WasteManagementSystem.Backend.entity.CustomerWasteRequest;
 import com.WasteManagementSystem.Backend.repository.CustomerFeedbackRepository;
 //import com.WasteManagementSystem.Backend.service.OutwasteService;
 

@@ -45,7 +45,12 @@ public class CustomerWasteRequestController {
 
     @GetMapping("/customerWasteRequest")
     public List<CustomerWasteRequest> getAllCustomerWasteRequests() {
-        return customerWasteRequestRepo.findAll();
+        return service.findAllPendings();
+    }
+
+    @GetMapping("/confirmedWasterequest")
+    public List<CustomerWasteRequest> getAllConfirmedWasteRequets(){
+        return service.findAllConfirmings();
     }
 
     @DeleteMapping("/customerWasteRequest/{id}")
@@ -89,6 +94,7 @@ public class CustomerWasteRequestController {
           .orElseThrow(() -> new ResourceNotFoundException("Waste request not found for this id :: " + customerWasteRequestId));
         return ResponseEntity.ok().body(customerWasteRequest);
     }
+
 
     
     

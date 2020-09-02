@@ -65,7 +65,7 @@ import { RecycledProductAddComponent } from '../../modules/Outsource-company/rec
     MatSelectModule,
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCPiA2tVxt2l98yR3fzKkNhNsfp_dN-S8U',
+      apiKey: 'googleapikey',
       libraries: ['places'],
     }),
   ],

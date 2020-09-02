@@ -25,8 +25,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.WasteManagementSystem.Backend.entity.CollectedWaste;
-import com.WasteManagementSystem.Backend.entity.Product;
-import com.WasteManagementSystem.Backend.entity.User;
 import com.WasteManagementSystem.Backend.repository.CollectedWasteRepository;
 //import com.WasteManagementSystem.Backend.service.CustomerWasteRequestService;
 import com.WasteManagementSystem.Backend.service.collectedwasteService;
@@ -38,10 +36,9 @@ public class CollectedWasteController {
     
     @Autowired
     private CollectedWasteRepository collectedWasterepo;
-    
     @Autowired
     private collectedwasteService service;
-
+   
     @PostMapping("/collectedWaste")
     public CollectedWaste createCollectedWaste(@Valid @RequestBody CollectedWaste collectedWaste, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
@@ -90,13 +87,11 @@ public class CollectedWasteController {
           .orElseThrow(() -> new ResourceNotFoundException("Waste not found for this id :: " + collectedWasteId));
         return ResponseEntity.ok().body(collectedWaste);
     }
-	
+
 	@GetMapping("/collectWaste/{wasteType}")
 	
 	public CollectedWaste getProduct(@PathVariable String wasteType) {
         return service.fetchUserByCategory(wasteType);
     }
-	
-	
     
 }

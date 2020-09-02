@@ -1,7 +1,7 @@
 export class SummaryStock {
 
     id :number;
-    wasteType: string;
+    type: string;
     total:number;
 
 }

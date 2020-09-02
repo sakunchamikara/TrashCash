@@ -67,28 +67,28 @@ export class InsertCollectedWasteComponent implements OnInit {
     }
 
 
-    onUpdateSummary(){
-      this.summaryStockService.getSummaryWasteListByCount().subscribe(
-        data=>{
-          console.log("count "+data);
-          this.summaryStockService.getSummaryWasteListById().subscribe(
-            data1=>{
-              console.log("id "+data1);
-              this.summaryStock.total = this.summaryStock.total + data[0];
-              this.id = data1;
+    onUpdateSummary(wasteType:String){
+      // this.summaryStockService.getSummaryWasteListByCount().subscribe(
+      //   data=>{
+      //     console.log("count "+data);
+      //     this.summaryStockService.getSummaryWasteListById().subscribe(
+      //       data1=>{
+      //         console.log("id "+data1);
+      //         this.summaryStock.total = this.summaryStock.total + data[0];
+      //         this.id = data1;
              
 
-              // this.summaryStockService.updateSummaryStock(data1,this.summaryStock)
-              // .subscribe(data => console.log(data),
-              //  error => {console.log(error);this.errorMsg = 'Something went Wrong !!!';});
-            this.summaryStock = new SummaryStock();
-            console.log("testing floaaaat"+this.summaryStock);
+      //         // this.summaryStockService.updateSummaryStock(data1,this.summaryStock)
+      //         // .subscribe(data => console.log(data),
+      //         //  error => {console.log(error);this.errorMsg = 'Something went Wrong !!!';});
+      //       this.summaryStock = new SummaryStock();
+      //       console.log("testing floaaaat"+this.summaryStock);
               
-            }
-            );
+      //       }
+      //       );
 
-        }
-      );
+      //   }
+      // );
 
       // this.summaryStockService.updateSummaryStock(this.id,this.summaryStock).subscribe(
       //   data2=>{
@@ -96,13 +96,18 @@ export class InsertCollectedWasteComponent implements OnInit {
       //   }
       // );
 
-     
+     this.summaryStockService.updatetable(wasteType).subscribe(
+       data => {
+         console.log(data)
+         
+       }
+     )
 
       
     }
 
     checkName(cName: string){
-      this.summaryStockService.getSummaryWasteListByType().subscribe(
+      this.summaryStockService.getSummaryWasteListByType().subscribe( 
         data => {
           console.log("test"+data);
           this.chk=false;
@@ -112,8 +117,10 @@ export class InsertCollectedWasteComponent implements OnInit {
             if(i==cName) {
               console.log("found");
               console.log(i);
+              console.log("love")
               this.chk=true;
-              this.onUpdateSummary();
+            
+              this.onUpdateSummary(i);
             }
             
         }

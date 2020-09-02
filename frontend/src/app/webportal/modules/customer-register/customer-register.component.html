@@ -15,7 +15,7 @@
                 <div class="col-md-6">
                   <!-- Form Group (first name)-->
                   <div class="form-group">
-                    <label class="small mb-1" for="inputFirstName">First Name</label>
+                    <label class="small mb-1" for="inputFirstName">Full Name</label>
                     <input name="firstName" #fname="ngModel" [(ngModel)]="customer.firstName" class="form-control py-4"
                       id="inputFirstName" type="text" placeholder="Enter first name" required
                       [class.is-invalid]="fname.invalid && fname.touched">

@@ -29,20 +29,20 @@
             <input type="hidden" name="order_id" [(ngModel)]="order_id">
             <input type="hidden" name="items" [(ngModel)]="items">
             <input type="hidden" name="currency" [(ngModel)]="currency">
-            <input type="hidden" name="amount" [(ngModel)]="amount">
+            <input type="hidden" name="amount" [(ngModel)]="amount" >
 
 
             <label class="small mb-1"><strong>Customer</strong></label>
             <div class="form-row">
               <div class="col-md-4">
                 <div class="form-group">
-                  <input name="first_name" class="form-control" type="text" placeholder="Enter first name"
+                  <input name="first_name" class="form-control" type="text" disabled placeholder="Enter first name"
                     [(ngModel)]="first_name">
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
-                  <input name="last_Name" class="form-control" type="text" placeholder="Enter last name"
+                  <input name="last_Name" class="form-control" type="text" disabled  placeholder="Customer Type"
                     [(ngModel)]="last_name">
                 </div>
               </div>
@@ -103,7 +103,7 @@
               <tbody>
                 <tr>
                   <td>Order Sub Total</td>
-                  <th>Rs.</th>
+                  <th>Rs.{{total}}</th>
                 </tr>
                 <tr>
                   <td>Shipping and handling</td>
@@ -115,7 +115,7 @@
                 </tr>
                 <tr class="total">
                   <td>Total</td>
-                  <th>Rs.</th>
+                  <th>Rs.{{total}}</th>
                 </tr>
               </tbody>
             </table>

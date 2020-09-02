@@ -28,6 +28,7 @@ export class NavbarComponent implements OnInit {
   currentCustomer: Customer;
   customerEmail: string;
   customerType: string;
+  customerName: string;
 
   ngOnInit() {
     this.dropdownRefresh();
@@ -39,6 +40,7 @@ export class NavbarComponent implements OnInit {
         (data) => {
           this.currentCustomer = data;
           this.customerType = this.currentCustomer.type;
+          this.customerName = this.currentCustomer.firstName;
         },
         (error) => {
           console.log('error in getcustomer function');

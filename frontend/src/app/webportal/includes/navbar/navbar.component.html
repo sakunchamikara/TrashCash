@@ -1,6 +1,9 @@
 <mat-toolbar>
   <mat-toolbar-row class="mat-toolbar-row-1">
-    <button mat-flat-button style="background-color: #5cb85c;color: white;">WELCOME GUEST</button>
+    <button mat-flat-button style="background-color: #5cb85c;color: white;text-transform: uppercase;" *ngIf="customerName">WELCOME
+      {{customerName}}</button>
+    <button mat-flat-button style="background-color: #5cb85c;color: white;" *ngIf="!customerName">WELCOME
+      GUEST</button>
 
     <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
       <ul fxLayout="row" fxLayoutGap="20px">

@@ -10,7 +10,7 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item " aria-current="page">Waste requests</li>
+            <li class="breadcrumb-item " aria-current="page">Request For Waste</li>
             <li class="breadcrumb-item active" *ngIf="!activeFlag" aria-current="page">All</li>
             <li class="breadcrumb-item active" *ngIf="activeFlag" aria-current="page">{{activeFlag}}</li>
           </ol>
@@ -23,18 +23,20 @@
       <div class="card p2">
         <div class="card-body ">
           <h4 class="card-title">
-            Place a waste request
+            Request For Waste
           </h4>
-    <form (ngSubmit)="onSubmit()" #wasteForm="ngForm" >
+    <form (ngSubmit)="wasteForm.form.valid && onSubmit()" #wasteForm="ngForm" >
 
       <div class="form-row">
         <div class="form-group col-md-12">
         <label for="wasteType">Waste Type</label>
         
         <!-- <input type="text" class="form-control" id="wasteType" required [(ngModel)]="wasteRequest.wasteType" name="wasteType" > -->
-        <select class="form-control" name="wasteType" id="wasteType" [(ngModel)]="wasteRequest.wasteType" placeholder="Enter waste type" required>
+        <select class="form-control" name="wasteType" id="wasteType" [(ngModel)]="wasteRequest.wasteType" placeholder="Enter waste type" #wasteType="ngModel" [ngClass]="{ 'is-invalid': wasteForm.submitted && wasteType.invalid }" required>
           <option [value]="type" *ngFor="let type of listItems">{{type}}</option>
-          
+          <div *ngIf="wasteForm.submitted && wasteType.invalid" class="invalid-feedback">
+            <div *ngIf="wasteType.errors.required">Waste Type is required</div>
+        </div>
         </select>
         </div>
       </div>
@@ -42,7 +44,10 @@
       <div class="form-row">
         <div class="form-group col-md-12">
         <label for="quantity">Quantity</label>
-        <input type="number" class="form-control" name="quantity" id="quantity"  min="1" oninput="validity.valid||(value='');" placeholder="Enter Waste Quantity in grams" [(ngModel)]="wasteRequest.quantity" required #quantity="ngModel">
+        <input type="number" class="form-control" name="quantity" id="quantity"  min="1" oninput="validity.valid||(value='');" placeholder="Enter Waste Quantity in kilo grams" [(ngModel)]="wasteRequest.quantity" required #quantity="ngModel" [ngClass]="{ 'is-invalid': wasteForm.submitted && quantity.invalid }" required >
+        <div *ngIf="wasteForm.submitted && quantity.invalid" class="invalid-feedback">
+          <div *ngIf="quantity.errors.required">Quantity is required</div>
+      </div>
         </div>
       </div>
   
@@ -69,8 +74,9 @@
 <thead>
   <tr>
     <th>Waste Type</th>
-    <th>Quantity</th>
+    <th>Quantity(kg)</th>
     <th>Date</th>
+    <th>Status</th>
     <th>Action</th>
   
   </tr>
@@ -80,6 +86,7 @@
     <td>{{retrieveRequest.wasteType}}</td>
     <td>{{retrieveRequest.quantity}}</td>
     <td>{{retrieveRequest.date}}</td>
+    <td>{{retrieveRequest.status}}</td>
    
    
     <td>

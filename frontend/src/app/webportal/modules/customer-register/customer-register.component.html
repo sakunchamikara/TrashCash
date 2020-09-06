@@ -15,21 +15,28 @@
                 <div class="col-md-6">
                   <!-- Form Group (first name)-->
                   <div class="form-group">
-                    <label class="small mb-1" for="inputFirstName">First Name</label>
+                    <label class="small mb-1" for="inputFirstName">Full Name</label>
                     <input name="firstName" #fname="ngModel" [(ngModel)]="customer.firstName" class="form-control py-4"
-                      id="inputFirstName" type="text" placeholder="Enter first name" required [class.is-invalid]="fname.invalid && fname.touched">
+                      id="inputFirstName" type="text" placeholder="Enter first name" required
+                      [class.is-invalid]="fname.invalid && fname.touched">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <!-- Form Group (last name)-->
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                     <label class="small mb-1" for="inputLastName">Last Name</label>
                     <input name="lastName" #lname="ngModel" [(ngModel)]="customer.lastName" class="form-control py-4" id="inputLastName"
                       type="text" placeholder="Enter last name" required [class.is-invalid]="lname.invalid && lname.touched">
+                  </div> -->
+                  <div class="form-check text-muted">
+                    <h4>SignUp with Company</h4>
+                    <input type="checkbox" name="theCheckbox" [(ngModel)]="theCheckbox" class="form-control py-4"
+                      data-md-icheck (change)="toggleVisibility($event)" />
                   </div>
                 </div>
               </div>
-              <!-- Form Group (email address)    -->
+
+              <!-- Form Group (email address) -->
               <div class="form-row">
                 <div class="col-md-6">
                   <div class="form-group">
@@ -43,16 +50,18 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label class="small mb-1" for="">Contact Number</label>
-                    <input name="conatactNumber" #cn="ngModel" [(ngModel)]="customer.contactNumber" class="form-control py-4"
-                      type="text" pattern="07[0,1,2,5,6,7,8][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" aria-describedby=""
+                    <input name="conatactNumber" #cn="ngModel" [(ngModel)]="customer.contactNumber"
+                      class="form-control py-4" type="text"
+                      pattern="07[0,1,2,5,6,7,8][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" aria-describedby=""
                       placeholder="Enter contact number" required [class.is-invalid]="cn.invalid && cn.touched">
                   </div>
                 </div>
               </div>
               <div class="form-group">
                 <label class="small mb-1" for="">Address</label>
-                <input name="address" #address="ngModel" [(ngModel)]="customer.address" class="form-control py-4" type="email"
-                  aria-describedby="" placeholder="Enter your address" required [class.is-invalid]="address.invalid && address.touched">
+                <input name="address" #address="ngModel" [(ngModel)]="customer.address" class="form-control py-4"
+                  type="email" aria-describedby="" placeholder="Enter your address" required
+                  [class.is-invalid]="address.invalid && address.touched">
               </div>
               <!-- Form Row    -->
               <div class="form-row">
@@ -60,26 +69,28 @@
                   <!-- Form Group (password)-->
                   <div class="form-group">
                     <label class="small mb-1" for="inputPassword">Password</label>
-                    <strong class="text-danger" style="padding-left: 10px;"
+                    <!-- <strong class="text-danger" style="padding-left: 10px;"
                       [class.d-none]="(confirmPassword.value == password.value) || confirmPassword.untouched">Passwords
-                      Mismatch!!!</strong>
-                    <input name="password" #password="ngModel" #password="ngModel" [(ngModel)]="customer.password" class="form-control py-4" type="password"
-                      placeholder="Enter password" required [class.is-invalid]="password.invalid && password.touched">
+                      Mismatch!!!</strong> -->
+                    <input name="password" #password="ngModel" #password="ngModel" [(ngModel)]="customer.password"
+                      class="form-control py-4" type="password" placeholder="Enter password" required
+                      [class.is-invalid]="password.invalid && password.touched">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <!-- Form Group (confirm password)-->
                   <div class="form-group">
                     <label class="small mb-1" for="inputConfirmPassword">Confirm Password</label>
-                    <input name="confirmPassword" (ngModel)="customer.password" #confirmPassword="ngModel" class="form-control py-4" type="password"
-                      placeholder="Confirm password" required
+                    <input name="confirmPassword" (ngModel)="customer.password" #confirmPassword="ngModel"
+                      class="form-control py-4" type="password" placeholder="Confirm password" required
                       [class.is-invalid]="confirmPassword.invalid && confirmPassword.touched">
                   </div>
                 </div>
 
               </div>
               <!-- Form Group (create account submit)-->
-              <div class="form-group mt-4 mb-0"><button [disabled]="customerRegform.form.invalid || !(confirmPassword.value == password.value)" type="submit"
+              <div class="form-group mt-4 mb-0"><button
+                  [disabled]="customerRegform.form.invalid || !(confirmPassword.value == password.value)" type="submit"
                   class="btn btn-primary btn-block">Create
                   Account</button></div>
             </form>

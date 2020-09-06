@@ -75,7 +75,8 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="name">Image</label>
-                <input type="file" class="form-control" name="image">
+                <input type="file" (change)="onFileChanged($event)">
+                <img [src]="imgURL" height="200" width="200" *ngIf="imgURL">
                 
               </div>
             </div>

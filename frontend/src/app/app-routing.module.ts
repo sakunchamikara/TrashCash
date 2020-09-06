@@ -44,9 +44,17 @@ import { ViewPlacedRequestsComponent } from 'src/app/modules/agent/view-placed-r
 import { TermDetailsComponent } from './webportal/modules/term-details/term-details.component';
 import { CustomerLogoutComponent } from './webportal/modules/customer-logout/customer-logout.component';
 import { OutWasteRequsetComponent } from './webportal/modules/out-waste-requset/out-waste-requset.component';
+import { OutWasteRequestComponent } from './modules/out-waste-request/out-waste-request.component';
+import { ViewDbComponent } from './modules/view-db/view-db.component';
 import { ShowEventComponent } from './webportal/modules/show-event/show-event.component';
 import { EventDetailsComponent } from './webportal/modules/show-event/event-details/event-details.component';
+import { ConfirmWasteRequestComponent } from './modules/out-waste-request/confirm-waste-request/confirm-waste-request.component';
 import { DisplayCustomerFeedbackComponent } from './modules/display-customer-feedback/display-customer-feedback.component';
+import { LocationComponent } from './webportal/modules/waste-request/location/location.component';
+import { ViewAgentConfirmedRequestComponent } from 'src/app/modules/agent/view-agent-confirmed-request/view-agent-confirmed-request.component';
+import { CheckOutComponent } from './webportal/modules/check-out/check-out.component';
+import { CustomerAccountComponent } from './webportal/modules/customer-account/customer-account.component';
+import { RecycledProductAddComponent } from './webportal/modules/Outsource-company/recycled-product-add/recycled-product-add.component';
 
 const routes: Routes = [
   {
@@ -96,7 +104,9 @@ const routes: Routes = [
       },
       {
         path:'outsource-waste-request',
-        component: OutWasteRequsetComponent,
+        component:OutWasteRequsetComponent,
+        // path: 'outsource-waste-request',
+        // component: OutWasteRequsetComponent,
       },
       {
         path: 'cart',
@@ -118,6 +128,23 @@ const routes: Routes = [
         path: 'terms-details/:id',
         component: TermDetailsComponent,
       },
+      {
+        path: 'location',
+        component: LocationComponent,
+      },
+      {
+        path: 'checkOut',
+        component: CheckOutComponent,
+      },
+      {
+        path: 'myAccount',
+        component: CustomerAccountComponent,
+
+      },
+      {
+        path:'Productadd',
+        component:RecycledProductAddComponent
+      }
     ],
   },
   {
@@ -237,11 +264,12 @@ const routes: Routes = [
         path: 'UpdateProductCats/:id',
         component: UpdateProductCatComponent,
       },
-      
-      { path: 'sendMail',
+
+      {
+        path: 'sendMail',
         component: SendMailComponent,
-        //canActivate: [RouteGuardService],
-    },
+        // canActivate: [RouteGuardService],
+      },
       {
         path: 'viewPlacedRequests',
         component: ViewPlacedRequestsComponent,
@@ -250,7 +278,26 @@ const routes: Routes = [
         path: 'displayCustomerFeedbacks',
         component: DisplayCustomerFeedbackComponent,
       },
-      
+      {
+        path:'viewoutSourceWasteRequest',
+        component: ConfirmWasteRequestComponent,
+      },
+      {
+        path:'ViewDB',
+        component:ViewDbComponent,
+      },
+      {
+        path: 'ViewOutRequest',
+        component: OutWasteRequestComponent,
+      },
+      // {
+      //   path: 'ViewDB',
+      //   component: ViewDbComponent,
+      // },
+      {
+        path: 'viewConfirmedRequests',
+        component: ViewAgentConfirmedRequestComponent,
+      },
     ],
   },
 ];

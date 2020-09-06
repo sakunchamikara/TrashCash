@@ -1,5 +1,6 @@
 package com.WasteManagementSystem.Backend.controller;
 
+import org.omg.CORBA.Object;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -84,4 +85,14 @@ public class AuthController {
 	// return null;
 	// }
 	// }
+	@PostMapping("/notifypayment")
+	public void notifypayment(@RequestBody Object object) {
+		System.out.println("===============================================");
+		System.out.println(object);
+		System.out.println("===============================================");
+	}
 }
+
+
+
+

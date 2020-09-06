@@ -14,11 +14,10 @@
     <div class="col-md-9">
 
       <div class="card">
-        <form>
+        <form #form="ngForm" (ngSubmit)="updateCart(form)">
           <div class="card-body">
-            <form>
               <h2 class="card-title" style="color: #333333;">Shopping Cart</h2>
-              <h6 class="card-subtitle mb-2 text-muted">You currnetly have 5 items in your cart</h6>
+              <h6 class="card-subtitle mb-2 text-muted">You currnetly have {{itemCount}} items in your cart</h6>
               <div class="">
 
                 <table class="table table-hover" style="font-size: 14px;">
@@ -52,7 +51,7 @@
                       </td>
 
                       <td>
-                        <input type="checkbox" name="remove[]">
+                        <input type="checkbox" name="{{product.id}}" ngModel>
                       </td>
 
                       <td>
@@ -75,29 +74,26 @@
 
                 </table>
               </div>
-            </form>
           </div>
 
           <div class="card-footer text-muted">
             <div class="float-left">
-
-              <button class="btn btn-outline-primary btn-sm">
+              <button class="btn btn-outline-primary btn-sm" routerLink="/customer/shop">
                 <i class="fa fa-chevron-left"></i> Continue Shopping
               </button>
-
             </div>
 
             <div class="float-right">
-
-              <button type="submit" class="btn btn-outline-dark btn-sm mx-2"><i class="fas fa-sync-alt"></i> Update Cart
+              <button class="btn btn-outline-dark btn-sm mx-2"><i class="fas fa-sync-alt"></i>
+                Update Cart
               </button>
-
-
-              <button type="submit" class="btn btn-outline-success btn-sm">
+              <button type="button" class="btn btn-outline-success btn-sm" (click)="checkOut()">
                 Proceed Checkout <i class="fa fa-chevron-right"></i>
               </button>
-
             </div>
+
+            <br>
+            <br>
 
           </div>
         </form>

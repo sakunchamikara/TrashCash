@@ -1,4 +1,4 @@
-import { Component, OnInit ,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ProductcatService } from 'src/app/service/productcat.service';
 import { NgForm } from '@angular/forms';
 import { Item } from 'src/app/pojo/item';
@@ -19,7 +19,12 @@ export class InsertProductsComponent implements OnInit {
   private selectedFile;
   imgURL: any;
 
-  constructor(private productService:ProductService,private router: Router , private httpClient: HttpClient , private service:ProductcatService) { }
+  constructor(
+    private productService: ProductService,
+    private router: Router,
+    private httpClient: HttpClient,
+    private service: ProductcatService
+  ) {}
 
   public listItems: Array<string> = [];
   successMsg: any;
@@ -27,16 +32,15 @@ export class InsertProductsComponent implements OnInit {
   ngOnInit() {
     this.dropdownRefresh();
   }
-  
 
-  dropdownRefresh(){
-    this.service.getProductCatDropdownValues().subscribe(data=>{
-     console.log(data);
-      data.forEach(element => {
-        this.listItems.push(element["name"])
+  dropdownRefresh() {
+    this.service.getProductCatDropdownValues().subscribe((data) => {
+      console.log(data);
+      data.forEach((element) => {
+        this.listItems.push(element['name']);
       });
-    })
-      }
+    });
+  }
 
   public onFileChanged(event) {
     console.log(event);
@@ -58,14 +62,14 @@ export class InsertProductsComponent implements OnInit {
     const uploadData = new FormData();
     uploadData.append('imageFile', this.selectedFile, this.selectedFile.name);
     this.selectedFile.imageName = this.selectedFile.name;
-
+    console.log(uploadData);
     this.httpClient
       .post('http://localhost:8080/upload', uploadData, { observe: 'response' })
       .subscribe((response) => {
         if (response.status === 200) {
           this.productService.createProduct(this.product).subscribe((data) => {
             console.log(data);
-            this.gotoList();
+            //this.gotoList();
           });
           console.log('Image uploaded successfully');
         } else {
@@ -88,9 +92,16 @@ export class InsertProductsComponent implements OnInit {
     //   );
   }
   onSubmit() {
-    this.submitted = true;
+    // this.submitted = true;
     this.save();
+    alert('INSERT SUCCESSFUL!!');
+    //this.pageRefresh();
   }
+
+  //   pageRefresh() {
+  //     location.reload();
+  //  }
+
   gotoList() {
     this.router.navigate(['system/ViewProducts']);
   }

@@ -18,9 +18,12 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   loginUser() {
+    this.user.password = btoa(this.user.password);
     this.service.loginUserFromRemote(this.user).subscribe(
       (data) => {
-        this.route.navigate([`/system/dashboard/`]);
+        this.route
+          .navigateByUrl('/', { skipLocationChange: true })
+          .then(() => this.route.navigate(['/system/dashboard/']));
       },
       (error) => {
         this.msg = 'Invalid Credentials';

@@ -10,9 +10,9 @@ import { ShopComponent } from '../../modules/shop/shop.component';
 import { CustomerLoginComponent } from '../../modules/customer-login/customer-login.component';
 import { CustomerRegisterComponent } from '../../modules/customer-register/customer-register.component';
 import { WasteRequestComponent } from '../../modules/waste-request/waste-request.component';
-import { FormsModule } from '@angular/forms';
 import { CartComponent } from '../../modules/cart/cart.component';
 import { CustomerFeedbackComponent } from '../../modules/customer-feedback/customer-feedback.component';
+import { LocationComponent } from '../../modules/waste-request/location/location.component';
 
 import { ProductDetailsComponent } from '../../modules/product-details/product-details.component';
 import { WptermsComponent } from '../../modules/wpterms/wpterms.component';
@@ -21,6 +21,12 @@ import { CustomerLogoutComponent } from '../../modules/customer-logout/customer-
 import { OutWasteRequsetComponent } from '../../modules/out-waste-requset/out-waste-requset.component';
 import { ShowEventComponent } from '../../modules/show-event/show-event.component';
 import { EventDetailsComponent } from '../../modules/show-event/event-details/event-details.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {AgmCoreModule} from '@agm/core';
+import { CheckOutComponent } from '../../modules/check-out/check-out.component';
+import { NavbarComponent } from '../../includes/navbar/navbar.component';
+import { CustomerAccountComponent } from '../../modules/customer-account/customer-account.component';
+import { RecycledProductAddComponent } from '../../modules/Outsource-company/recycled-product-add/recycled-product-add.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +45,11 @@ import { EventDetailsComponent } from '../../modules/show-event/event-details/ev
     OutWasteRequsetComponent,
     ShowEventComponent,
     EventDetailsComponent,
+    LocationComponent,
+    CustomerFeedbackComponent,
+    CheckOutComponent,
+    CustomerAccountComponent,
+    RecycledProductAddComponent
   ],
   imports: [
     FormsModule,
@@ -52,6 +63,12 @@ import { EventDetailsComponent } from '../../modules/show-event/event-details/ev
     MatPaginatorModule,
     MatTableModule,
     MatSelectModule,
+    ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'googleapikey',
+      libraries: ['places'],
+    }),
   ],
+  providers: [NavbarComponent],
 })
 export class HomeModule {}

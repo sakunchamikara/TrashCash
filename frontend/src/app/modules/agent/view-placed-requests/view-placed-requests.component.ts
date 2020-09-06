@@ -3,36 +3,32 @@ import { Observable } from 'rxjs';
 import { WasteRequest } from 'src/app/webportal/pojo/waste-request';
 import { CustomerWasteRequestService } from 'src/app/webportal/services/customer-waste-request.service';
 
-
 @Component({
   selector: 'app-view-placed-requests',
   templateUrl: './view-placed-requests.component.html',
-  styleUrls: ['./view-placed-requests.component.scss']
+  styleUrls: ['./view-placed-requests.component.scss'],
 })
 export class ViewPlacedRequestsComponent implements OnInit {
-
-
   requestEmptyListFlag = false;
-  retrieveRequests : Observable<WasteRequest[]>
+  retrieveRequests: Observable<WasteRequest[]>;
 
-  requests : WasteRequest;
+  requests: WasteRequest;
 
-  constructor(private customerWasteRequestService:CustomerWasteRequestService ,) { }
-
+  constructor(
+    private customerWasteRequestService: CustomerWasteRequestService
+  ) {}
 
   ngOnInit() {
-
     this.reloadData();
   }
 
-  reloadData(){
-    
+  reloadData() {
     this.customerWasteRequestService.getCustomerWasteRequestList().subscribe(
       (data) => {
         this.retrieveRequests = data;
         if (data.length > 0) {
           this.requestEmptyListFlag = false;
-          console.log("test"+this.retrieveRequests);
+          console.log('test' + this.retrieveRequests);
         } else {
           this.requestEmptyListFlag = true;
         }
@@ -41,29 +37,30 @@ export class ViewPlacedRequestsComponent implements OnInit {
         console.log(error);
       }
     );
-   }
+  }
 
-   confirm(id:number){
- 
-        this.customerWasteRequestService.getCustomerWasteRequest(id)
-       .subscribe(data => {
-     
-      
-      this.requests = data;
-      this.requests.status='Confirmed';
-      this.requests.quantity=34567;
+  confirm(id: number) {
+    this.customerWasteRequestService.getCustomerWasteRequest(id).subscribe(
+      (data) => {
+        this.requests = data;
+        this.requests.status = 'Confirmed';
+       
+        console.log(data);
+      },
+      (error) => console.log(error)
+    );
 
-      console.log(data);
-      
-    }, error => console.log(error));
-        
- 
-    this.customerWasteRequestService.updateCustomerWasteRequest(id,this.requests)
-    .subscribe(data => console.log(data),
-      error => {console.log(error);});
-      this.requests = new WasteRequest();
- 
-   }
-
+    this.requests = new WasteRequest();
+    this.customerWasteRequestService
+      .updateCustomerWasteRequest(id, this.requests)
+      .subscribe(
+        (data) => console.log(data),
+        (error) => {
+          console.log(error);
+        }
+      );
+   
+    this.reloadData();
+  }
 
 }

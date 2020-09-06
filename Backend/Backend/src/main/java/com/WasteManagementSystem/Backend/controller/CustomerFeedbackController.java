@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -15,11 +16,10 @@ import java.util.Map;
 
 import javax.validation.Valid;
 import com.WasteManagementSystem.Backend.entity.CustomerFeedback;
-<<<<<<< HEAD
+
 import com.WasteManagementSystem.Backend.entity.CustomerWasteRequest;
 import com.WasteManagementSystem.Backend.entity.ProductCat;
-=======
->>>>>>> 1f3e374fe741c7e7bc5c97c7a578d4558281304c
+
 import com.WasteManagementSystem.Backend.repository.CustomerFeedbackRepository;
 //import com.WasteManagementSystem.Backend.service.OutwasteService;
 
@@ -76,4 +76,9 @@ public class CustomerFeedbackController {
 	          .orElseThrow(() -> new ResourceNotFoundException("feedback not found for this id :: " + customerFeedbackId));
 	        return ResponseEntity.ok().body(customerFeedback);
 	    }
+		
+		@GetMapping(path="/customerFeedback/status")
+		public @ResponseBody List<String> getStatus() {
+		    return cusfeedrepo.getStatus();
+		}
 }

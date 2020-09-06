@@ -47,4 +47,11 @@ export class CustomerFeedbackService {
   
   }
 
+  getCountNewFeedback(): Observable<any> {
+    let url = `http://localhost:8080/customerFeedback/status`;
+    return this.http.get(url)
+  }
+
+  
+
 }

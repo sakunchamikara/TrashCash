@@ -63,7 +63,8 @@
           <!-- <div class="form-row"> -->
             <div class="form-group">
               <label for="">First Name</label>
-              <input type="text" class="form-control"  name="cusFeedFirstName" id="cusFeedFirstName" [(ngModel)]="customerFeed.cusFeedFirstName" placeholder="First Name">
+              <input type="text" class="form-control"  name="cusFeedFirstName" #fn="ngModel" id="cusFeedFirstName" [(ngModel)]="customerFeed.cusFeedFirstName" placeholder="First Name"
+              aria-describedby="" required [class.is-invalid]="fn.invalid && fn.touched">
             </div>
             <div class="form-group">
               <label for="">Last Name</label>
@@ -78,15 +79,17 @@
             </div>
             <div class="form-group">
               <label for="">Contact Number</label>
-              <input type="number" class="form-control"  name="cusFeedContactNum" id="cusFeedContactNum" [(ngModel)]="customerFeed.cusFeedContactNum" placeholder="Contact Number">
+              <input type="text" class="form-control"  name="cusFeedContactNum" id="cusFeedContactNum" #cn="ngModel" [(ngModel)]="customerFeed.cusFeedContactNum" placeholder="Contact Number"
+              pattern="07[0,1,2,5,6,7,8][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" aria-describedby="" required [class.is-invalid]="cn.invalid && cn.touched">         
             </div>
           <!-- </div> -->
 <!-- 
           <div class="form-row"> -->
             <div class="form-group">
               <label for="">Email</label>
-              <input  class="form-control"  name="cusFeedEmail" id="cusFeedEmail" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" 
-              type="text" aria-describedby="emailHelp" required  [(ngModel)]="customerFeed.cusFeedEmail"  placeholder="Email">
+              <input  class="form-control"  name="cusFeedEmail" id="cusFeedEmail" #email="ngModel" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" 
+              type="email" aria-describedby="emailHelp" required  [(ngModel)]="customerFeed.cusFeedEmail"  placeholder="Email"
+              [class.is-invalid]="email.invalid && email.touched">
             </div>
           <!-- </div> -->
    

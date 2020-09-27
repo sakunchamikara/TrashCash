@@ -28,7 +28,7 @@
 //import org.springframework.web.bind.annotation.RestController;
 //import org.springframework.web.multipart.MultipartFile;
 //
-//import com.WasteManagementSystem.Backend.entity.Product;
+////import com.WasteManagementSystem.Backend.entity.Product;
 //import com.WasteManagementSystem.Backend.entity.SummaryStock;
 //import com.WasteManagementSystem.Backend.repository.summaryR;
 //import com.WasteManagementSystem.Backend.service.ProductService;
@@ -41,9 +41,14 @@
 //	@Autowired
 //    private summaryS service;
 //	
-//	@GetMapping("/getwastetypeFrom/{wasteType}")
-//    public List<SummaryStock> getwastetypes(@PathVariable String wasteType) {
-//        return service.fetchUserByWastetype(wasteType);
+////	@GetMapping("/getwastetypeFrom/{type}")
+////    public List<SummaryStock> getwastetypes(@PathVariable String type) {
+////        return service.fetchUserByWastetype(type);
+////    }
+//	
+//	@GetMapping("/jeewani/{type}")
+//    public List<SummaryStock> gettypejee(@PathVariable int total) {
+//        return service.fetchwastetype(total);
 //    }
 //
 //}

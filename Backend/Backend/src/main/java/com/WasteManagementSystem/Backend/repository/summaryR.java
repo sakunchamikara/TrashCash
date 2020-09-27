@@ -20,5 +20,5 @@
 //@Repository
 //public interface summaryR extends JpaRepository<SummaryStock, Integer> {
 //	
-//	public List<SummaryStock> findByWasteType(String wasteType);
+//	public List<SummaryStock> findType(int total);
 //}

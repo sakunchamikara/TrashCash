@@ -69,7 +69,7 @@ export class InsertCollectedWasteComponent implements OnInit {
     }
 
 
-    onUpdateSummary(wasteType:String){
+    onUpdateSummary(type:String){
       // this.summaryStockService.getSummaryWasteListByCount().subscribe(
       //   data=>{
       //     console.log("count "+data);
@@ -98,7 +98,7 @@ export class InsertCollectedWasteComponent implements OnInit {
       //   }
       // );
 
-     this.summaryStockService.updatetable(wasteType).subscribe(
+     this.summaryStockService.updatetable(type).subscribe(
        data => {
          console.log(data)
          

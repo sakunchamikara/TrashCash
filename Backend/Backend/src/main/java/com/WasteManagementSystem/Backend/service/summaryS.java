@@ -9,7 +9,7 @@
 //
 //import org.springframework.beans.factory.annotation.Autowired;
 //
-//import com.WasteManagementSystem.Backend.entity.Product;
+////import com.WasteManagementSystem.Backend.entity.Product;
 //
 ////import lombok.var;
 //
@@ -26,8 +26,8 @@
 //	@Autowired
 //	private summaryR repo;
 //	
-//	public List<SummaryStock> fetchUserByWastetype(String wasteType) {
-//		return repo.findByWasteType(wasteType);
+//	public List<SummaryStock> fetchwastetype(int total) {
+//		return repo.findType(total);
 //	}
 //	
 //}

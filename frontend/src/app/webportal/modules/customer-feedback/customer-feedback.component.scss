@@ -1,8 +1,8 @@
-.c2 {
-    margin-left: 25px;
-    margin-right: 25px;
+// .c2 {
+//     margin-left: 25px;
+//     margin-right: 25px;
 
-}
+// }
 
 .cardcss {
     margin: 0 auto; /* Added */
@@ -25,6 +25,18 @@
   .breadcrumb > li + li:before {
     content: ">\00a0";
     color: #cccccc;
+  }
+  .main {
+    background-image: url("/assets/images/others/feedback1.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    padding-top: 40px;
+    padding-bottom: 50px;
+  }
+  .card {
+    background-color: rgba(255, 255, 255, 0.8);
   }
 
 

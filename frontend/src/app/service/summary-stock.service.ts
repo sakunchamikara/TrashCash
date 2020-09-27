@@ -40,6 +40,11 @@ export class SummaryStockService {
     return this.http.put(`${this.baseUrl}/${id}`,value);
   }
 
+  
+  updatetable(type: String): Observable<any> {
+    const uri = `http://localhost:8080/getwastetypeFrom/${type}`;
+    return this.http.get(uri);
+  }
   getWasteByType(type: String): Observable<any> {
         
     const uri = `http://localhost:8080/getwasteByType/${type}`;

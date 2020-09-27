@@ -63,7 +63,7 @@ export class CheckOutComponent implements OnInit {
   phone: number;
   address: string;
   merchant_id = '1214203';
-  return_url = 'http://localhost:4200/customer/cart';
+  return_url = 'http://localhost:4200/customer/myOrders';
   cancel_url = 'http://localhost:4200/customer/checckOut';
   notify_url = 'http://localhost:8080/notifypayment';
   order_id = 'ItemNo12345';

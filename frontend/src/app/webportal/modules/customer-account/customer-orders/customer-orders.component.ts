@@ -1,35 +1,40 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CustomerOrderService } from 'src/app/webportal/services/customer-order.service';
+import { Order } from 'src/app/webportal/pojo/order';
 
 @Component({
-  selector: "app-customer-orders",
-  templateUrl: "./customer-orders.component.html",
-  styleUrls: ["./customer-orders.component.scss"],
+  selector: 'app-customer-orders',
+  templateUrl: './customer-orders.component.html',
+  styleUrls: ['./customer-orders.component.scss'],
 })
 export class CustomerOrdersComponent implements OnInit {
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private orderService: CustomerOrderService
+  ) {}
 
   date = new Date();
-  year: string;
-  month: string;
-  day: string;
-  hour: string;
-  minute: string;
-  second: string;
-  
+  order: Order;
+
   orderId: string;
 
   ngOnInit() {
-    this.orderId = this.route.snapshot.queryParamMap.get("order_id");
+    this.orderId = this.route.snapshot.queryParamMap.get('order_id');
 
-    this.year = this.date.getFullYear().toString();
-    this.month = (this.date.getMonth() + 1).toString();
-    this.day = this.date.getDate().toString();
-    this.hour = this.date.getHours().toString();
-    this.minute = this.date.getMinutes().toString();
-    this.second = this.date.getSeconds().toString();
-    if (this.orderId == null) {
-    } else {
+    if (this.orderId) {
+      this.order.id = this.orderId;
+      this.order.date = this.date;
+      this.order.status = 'Pending';
+
+      this.orderService.setOrderId(this.order).subscribe(
+        (data) => {
+          console.log(data);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
     }
   }
 }

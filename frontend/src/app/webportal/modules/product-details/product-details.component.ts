@@ -26,14 +26,14 @@ export class ProductDetailsComponent implements OnInit {
   errorMessage = '';
   successMessage = '';
 
-  date = new Date();
-  year: string;
-  month: string;
-  day: string;
-  hour: string;
-  minute: string;
-  second: string;
-  orderId: string;
+  // date = new Date();
+  // year: string;
+  // month: string;
+  // day: string;
+  // hour: string;
+  // minute: string;
+  // second: string;
+  // orderId: string;
 
   constructor(
     private productService: ProductService,
@@ -99,17 +99,17 @@ export class ProductDetailsComponent implements OnInit {
     if (this.customerAuthService.isCustomerLoggedIn()) {
       // this.cart.product.id = this.productId;
 
-      this.year = this.date.getFullYear().toString();
-      this.month = (this.date.getMonth() + 1).toString();
-      this.day = this.date.getDate().toString();
-      this.hour = this.date.getHours().toString();
-      this.minute = this.date.getMinutes().toString();
-      this.second = this.date.getSeconds().toString();
-      this.orderId = this.customerId + this.year + this.month + this.day + this.hour + this.minute + this.second;
+      // this.year = this.date.getFullYear().toString();
+      // this.month = (this.date.getMonth() + 1).toString();
+      // this.day = this.date.getDate().toString();
+      // this.hour = this.date.getHours().toString();
+      // this.minute = this.date.getMinutes().toString();
+      // this.second = this.date.getSeconds().toString();
+      // this.orderId = this.customerId + this.year + this.month + this.day + this.hour + this.minute + this.second;
+      // this.cart.orderId = this.orderId;
 
       this.cart.customerId = +this.customerAuthService.getAuthenticatedCustomerId();
-      this.cart.orderId = this.orderId;
-      
+
       this.cartService.addToCart(this.cart, this.productId).subscribe(
         (data) => {
           alert('Product Successfully Added To The Cart !');

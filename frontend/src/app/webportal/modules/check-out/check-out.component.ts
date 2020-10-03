@@ -51,6 +51,15 @@ export class CheckOutComponent implements OnInit {
     private customerCartService: CustomerCartService
   ) {}
 
+  date = new Date();
+  year: string;
+  month: string;
+  day: string;
+  hour: string;
+  minute: string;
+  second: string;
+  orderId: string;
+
   total: number;
   cartDetails: Array<Cart>;
   cid: number;
@@ -63,10 +72,10 @@ export class CheckOutComponent implements OnInit {
   phone: number;
   address: string;
   merchant_id = '1214203';
-  return_url = 'http://localhost:4200/customer/cart';
+  return_url = 'http://localhost:4200/customer/myOrders';
   cancel_url = 'http://localhost:4200/customer/checckOut';
   notify_url = 'http://localhost:8080/notifypayment';
-  order_id = 'ItemNo12345';
+  order_id: string;
   items = 'Customer Order';
   currency = 'LKR';
   amount = '0';
@@ -88,7 +97,26 @@ export class CheckOutComponent implements OnInit {
       (error) => {}
     );
     this.setTotal();
+    this.getOrderId();
+  }
 
+  getOrderId() {
+    this.year = this.date.getFullYear().toString();
+    this.month = (this.date.getMonth() + 1).toString();
+    this.day = this.date.getDate().toString();
+    this.hour = this.date.getHours().toString();
+    this.minute = this.date.getMinutes().toString();
+    this.second = this.date.getSeconds().toString();
+    this.orderId =
+      this.cid +
+      this.year +
+      this.month +
+      this.day +
+      this.hour +
+      this.minute +
+      this.second;
+
+    this.order_id = this.orderId;
   }
 
   setTotal() {

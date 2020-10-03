@@ -7,9 +7,9 @@ import { CustomerAuthService } from '../../services/customer-auth.service';
 import { Customer } from '../../pojo/customer';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
+  selector: "app-navbar",
+  templateUrl: "./navbar.component.html",
+  styleUrls: ["./navbar.component.scss"],
 })
 export class NavbarComponent implements OnInit {
   products: Array<Item>;
@@ -29,9 +29,11 @@ export class NavbarComponent implements OnInit {
   customerEmail: string;
   customerType: string;
   customerName: string;
+  isCustomerLoggedIn: boolean;
 
   ngOnInit() {
     this.dropdownRefresh();
+    this.isCustomerLoggedIn = this.customerService.isCustomerLoggedIn();
     this.cid = +this.customerService.getAuthenticatedCustomerId();
     this.getItemCount();
     if (this.customerService.isCustomerLoggedIn()) {
@@ -43,7 +45,7 @@ export class NavbarComponent implements OnInit {
           this.customerName = this.currentCustomer.firstName;
         },
         (error) => {
-          console.log('error in getcustomer function');
+          console.log("error in getcustomer function");
         }
       );
     }
@@ -52,13 +54,13 @@ export class NavbarComponent implements OnInit {
   dropdownRefresh() {
     this.service.getProductCatDropdownValues().subscribe((data) => {
       data.forEach((element) => {
-        this.listItems.push(element['name']);
+        this.listItems.push(element["name"]);
       });
     });
   }
 
   ViewCategory(category: string) {
-    this.router.navigate(['customer', 'shop', category]);
+    this.router.navigate(["customer", "shop", category]);
   }
 
   getItemCount() {

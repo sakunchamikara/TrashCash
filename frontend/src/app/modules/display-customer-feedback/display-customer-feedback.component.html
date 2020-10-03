@@ -25,24 +25,26 @@
     <div class="panel-body">
       <table class="table table-striped">
         <thead>
-          <tr>
+          <tr style="text-align: center">
             <th>Id</th>
             <th>Date</th>
             <th>Type</th>
             <th>Customer Name</th>
-            <th style="text-align: center">Action</th>  
+            <th>Action</th>  
+            <th>Status</th> 
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let addedFeedback of addedFeedbacks">
+          <tr *ngFor="let addedFeedback of addedFeedbacks" style="text-align: center">
             <td>{{addedFeedback.id}}</td>
             <td>{{addedFeedback.date}}</td>
             <td>{{addedFeedback.feedbackType}}</td> 
             <td>{{addedFeedback.cusFeedFirstName}}</td>                
-            <td><button  class="btn btn-primary" id="viewBtn" style="margin-left: 10px">View Message</button>
-                <button  class="btn btn-success" id="pubBtn" style="margin-left: 10px">Publish</button>
-              <!-- <button (click)="updateProductCat(productCat.id)" class="btn btn-info" style="margin-left: 10px">Update</button> -->
+            <td>
+              <button class="btn btn-primary" (click)="viewMsg(addedFeedback.feedback,addedFeedback.id)">View</button>
+              <button  class="btn btn-success" id="pubBtn" style="text-align: center; margin-left: 25px;">Publish</button>   
             </td>
+            <td><span class="badge badge-pill badge-dark" id="labelText">{{addedFeedback.status}}</span></td>
           </tr>
         </tbody>
       </table>
@@ -57,3 +59,6 @@
 
 
 </div>
+
+</div>
+

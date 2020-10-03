@@ -25,6 +25,14 @@ export class CustomerFeedbackService {
     return this.http.get(`${this.baseUrl}`);
   }
 
+  updateCustomerFeedback(id:number,value:any):Observable<Object>{
+    return this.http.put(`${this.baseUrl}/${id}`,value);
+  }
+
+  getCustomerFeedback(id:number) :Observable<any>{
+    return this.http.get(`${this.baseUrl}/${id}`);
+  }
+
   public alert(
     title: string,
     message: string,
@@ -38,5 +46,12 @@ export class CustomerFeedbackService {
     return modalRef.result;
   
   }
+
+  getCountNewFeedback(): Observable<any> {
+    let url = `http://localhost:8080/customerFeedback/status`;
+    return this.http.get(url)
+  }
+
+  
 
 }

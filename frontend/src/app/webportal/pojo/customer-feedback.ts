@@ -11,6 +11,7 @@ export class CustomerFeedback {
     cusFeedEmail: string;
     feedback: string;
     date: Date;
+    status: string;
 
 
     constructor(){}

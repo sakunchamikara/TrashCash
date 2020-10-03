@@ -21,9 +21,19 @@ export class ProductDetailsComponent implements OnInit {
   randomProduct: Array<Item>;
 
   isCustomerLoggedIn = false;
+  customerId: string;
   cart = new Cart();
   errorMessage = '';
   successMessage = '';
+
+  // date = new Date();
+  // year: string;
+  // month: string;
+  // day: string;
+  // hour: string;
+  // minute: string;
+  // second: string;
+  // orderId: string;
 
   constructor(
     private productService: ProductService,
@@ -37,6 +47,7 @@ export class ProductDetailsComponent implements OnInit {
     this.productId = +this.route.snapshot.params['id'];
     this.getProductById(this.productId);
     this.getRandomProducts();
+    this.customerId = this.customerAuthService.getAuthenticatedCustomerId();
   }
 
   getProducts() {
@@ -87,10 +98,21 @@ export class ProductDetailsComponent implements OnInit {
   addToCart() {
     if (this.customerAuthService.isCustomerLoggedIn()) {
       // this.cart.product.id = this.productId;
+
+      // this.year = this.date.getFullYear().toString();
+      // this.month = (this.date.getMonth() + 1).toString();
+      // this.day = this.date.getDate().toString();
+      // this.hour = this.date.getHours().toString();
+      // this.minute = this.date.getMinutes().toString();
+      // this.second = this.date.getSeconds().toString();
+      // this.orderId = this.customerId + this.year + this.month + this.day + this.hour + this.minute + this.second;
+      // this.cart.orderId = this.orderId;
+
       this.cart.customerId = +this.customerAuthService.getAuthenticatedCustomerId();
+
       this.cartService.addToCart(this.cart, this.productId).subscribe(
         (data) => {
-          alert("Product Successfully Added To The Cart !");
+          alert('Product Successfully Added To The Cart !');
           window.location.reload();
           // this.router.navigate([`customer/cart`]);
           // this.successMessage = 'Product Successfully Added To The Cart !';

@@ -55,6 +55,7 @@ import { ViewAgentConfirmedRequestComponent } from 'src/app/modules/agent/view-a
 import { CheckOutComponent } from './webportal/modules/check-out/check-out.component';
 import { CustomerAccountComponent } from './webportal/modules/customer-account/customer-account.component';
 import { RecycledProductAddComponent } from './webportal/modules/Outsource-company/recycled-product-add/recycled-product-add.component';
+import { OutsourceComponent } from './webportal/layout/outsource/outsource.component';
 
 const routes: Routes = [
   {
@@ -144,8 +145,16 @@ const routes: Routes = [
       {
         path:'Productadd',
         component:RecycledProductAddComponent
-      }
+      },
+      // {
+      //   path:'outsource',
+      //   component:OutsourceComponent
+      // }
     ],
+  },
+  {
+    path:'outsource',
+    component:OutsourceComponent,
   },
   {
     path: 'system',

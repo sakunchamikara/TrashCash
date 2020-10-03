@@ -27,6 +27,7 @@ import { CheckOutComponent } from '../../modules/check-out/check-out.component';
 import { NavbarComponent } from '../../includes/navbar/navbar.component';
 import { CustomerAccountComponent } from '../../modules/customer-account/customer-account.component';
 import { RecycledProductAddComponent } from '../../modules/Outsource-company/recycled-product-add/recycled-product-add.component';
+import { CustomerOrdersComponent } from '../../modules/customer-account/customer-orders/customer-orders.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { RecycledProductAddComponent } from '../../modules/Outsource-company/rec
     CustomerFeedbackComponent,
     CheckOutComponent,
     CustomerAccountComponent,
-    RecycledProductAddComponent
+    RecycledProductAddComponent,
+    CustomerOrdersComponent
   ],
   imports: [
     FormsModule,

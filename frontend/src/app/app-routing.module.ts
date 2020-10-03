@@ -55,11 +55,13 @@ import { ViewAgentConfirmedRequestComponent } from 'src/app/modules/agent/view-a
 import { CheckOutComponent } from './webportal/modules/check-out/check-out.component';
 import { CustomerAccountComponent } from './webportal/modules/customer-account/customer-account.component';
 import { RecycledProductAddComponent } from './webportal/modules/Outsource-company/recycled-product-add/recycled-product-add.component';
+
 import { OutsourceComponent } from './webportal/layout/outsource/outsource.component';
 import { OutprofileComponent } from './webportal/outsource/outprofile/outprofile.component';
 import { OutdashboardComponent } from './webportal/outsource/outdashboard/outdashboard.component';
 import { OutRequestWasteComponent } from './webportal/outsource/out-request-waste/out-request-waste.component';
 
+import { CustomerOrdersComponent } from './webportal/modules/customer-account/customer-orders/customer-orders.component';
 
 const routes: Routes = [
   {
@@ -150,10 +152,15 @@ const routes: Routes = [
         path:'Productadd',
         component:RecycledProductAddComponent
       },
+
       // {
       //   path:'outsource',
       //   component:OutsourceComponent
       // }
+      {
+        path: 'myOrders',
+        component: CustomerOrdersComponent
+      }
     ],
   },
   {

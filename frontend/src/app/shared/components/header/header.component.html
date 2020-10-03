@@ -19,6 +19,26 @@
           </button>
         </li>
         <li>
+          <button mat-button [matMenuTriggerFor]="feed">
+            <mat-icon>notifications</mat-icon>
+            <a><span class="badge badge-pill badge-danger count-notif">{{noNew}}</span></a>
+          </button>
+          <mat-menu #feed="matMenu">
+            
+            <button mat-menu-item>
+              <i class="fas fa-address-card"></i>
+              Requests
+              <a><span class="badge badge-pill badge-danger"></span></a>
+            </button>
+        
+            <button mat-menu-item routerLink="/system/displayCustomerFeedbacks">
+              <i class="fas fa-comment"></i>
+              Feedbacks
+              <a><span class="badge badge-pill badge-danger">{{noNew}}</span></a>
+            </button>
+          </mat-menu>
+        </li>
+        <li>
           <button mat-button [matMenuTriggerFor]="menu">
             <mat-icon>person_outline</mat-icon>
           </button>

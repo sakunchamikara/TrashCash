@@ -6,7 +6,7 @@ export class Customer {
   contactNumber: number;
   address: string;
   password: string;
-  location:string;
+  location: string;
 
 
   constructor() {}

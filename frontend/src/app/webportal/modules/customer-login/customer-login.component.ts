@@ -25,7 +25,7 @@ export class CustomerLoginComponent implements OnInit {
         console.log(data)
         console.log(data.type)
         if(data.type == 'company'){
-        this.route.navigate([`/outsource`]).then(() => {
+        this.route.navigate([`/outsource/dashboard`]).then(() => {
          // window.location.reload();
         });
       }

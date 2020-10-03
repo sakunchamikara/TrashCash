@@ -3,8 +3,12 @@ package com.WasteManagementSystem.Backend.customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.WasteManagementSystem.Backend.entity.User;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -47,5 +51,11 @@ public class CustomerAuthController {
     @GetMapping("/getCustomer/{email}")
 	public Customer getCustomer(@PathVariable String email) {
 		return CustomerAuthService.fetchCustomerByEmail(email);
+	}
+    
+    @PutMapping("/updateCustomerProfile")
+	public Customer updateCustomerProfile(@RequestBody Customer customer) {
+    	Customer updatedUser = CustomerAuthService.saveUser(customer);
+		return updatedUser;
 	}
 }

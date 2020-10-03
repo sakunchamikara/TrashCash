@@ -56,6 +56,10 @@ import { CheckOutComponent } from './webportal/modules/check-out/check-out.compo
 import { CustomerAccountComponent } from './webportal/modules/customer-account/customer-account.component';
 import { RecycledProductAddComponent } from './webportal/modules/Outsource-company/recycled-product-add/recycled-product-add.component';
 import { OutsourceComponent } from './webportal/layout/outsource/outsource.component';
+import { OutprofileComponent } from './webportal/outsource/outprofile/outprofile.component';
+import { OutdashboardComponent } from './webportal/outsource/outdashboard/outdashboard.component';
+import { OutRequestWasteComponent } from './webportal/outsource/out-request-waste/out-request-waste.component';
+
 
 const routes: Routes = [
   {
@@ -155,6 +159,20 @@ const routes: Routes = [
   {
     path:'outsource',
     component:OutsourceComponent,
+    children:[
+      {
+        path:'profile',
+        component:OutprofileComponent,
+      },
+      {
+        path:'dashboard',
+        component:OutdashboardComponent,
+      },
+      {
+        path:'WasteRequsetAdd',
+        component:OutRequestWasteComponent,
+      }
+    ]
   },
   {
     path: 'system',

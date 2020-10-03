@@ -5,7 +5,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import {HeaderComponent} from './components/header/header.component';
 // import { SidebarComponent } from './components/sidebar/sidebar.component';
  import { MatDividerModule, MatToolbarModule, MatIconModule, MatButtonModule, MatMenuModule, MatListModule } from '@angular/material';
-// import { FlexLayoutModule } from '@angular/flex-layout';
+ import { FlexLayoutModule } from '@angular/flex-layout';
  import { RouterModule } from '@angular/router';
 //import { HeaderComponent } from './components/header/header.component';
 // import { AreaComponent } from './widgets/area/area.component';
@@ -30,7 +30,7 @@ import {HeaderComponent} from './components/header/header.component';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    //FlexLayoutModule,
+    FlexLayoutModule,
     MatMenuModule,
     MatListModule,
     RouterModule,

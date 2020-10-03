@@ -1,0 +1,48 @@
+<mat-toolbar style="background-color:#000000;color:white;">
+    <mat-toolbar-row>
+      <button mat-icon-button  (click)="toggleSideBar()">
+        <mat-icon>menu</mat-icon>
+      </button>
+  
+      <span> APP LOGO </span>
+  
+      <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+        <ul fxLayout="row" fxLayoutGap="20px">
+          <li>
+            <button mat-icon-button>
+              <mat-icon>settings</mat-icon>
+            </button>
+          </li>
+          <li>
+            <button mat-icon-button>
+              <mat-icon>help_outline</mat-icon>
+            </button>
+          </li>
+          <li>
+            <button mat-button [matMenuTriggerFor]="menu">
+              <mat-icon>person_outline</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item routerLink="/system/login" *ngIf="!this.authservice.isCustomerLoggedIn()">
+                <i class="fas fa-sign-in-alt"></i>
+                Login
+              </button>
+              <button mat-menu-item routerLink="/system/register" *ngIf="!this.authservice.isCustomerLoggedIn()">
+                <i class="fas fa-user"></i>
+                Register
+              </button>
+              <button mat-menu-item routerLink="/system/profile" *ngIf="this.authservice.isCustomerLoggedIn()">
+                <i class="fas fa-user"></i>
+                Profile
+              </button>
+              <button mat-menu-item routerLink="/system/logout" *ngIf="this.authservice.isCustomerLoggedIn()">
+                <mat-icon>exit_to_app</mat-icon>
+                Logout
+              </button>
+            </mat-menu>
+          </li>
+        </ul>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  

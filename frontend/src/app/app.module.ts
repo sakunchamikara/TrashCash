@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DefaultModule } from './layouts/default/default.module';
 import { HomeModule } from './webportal/layouts/home/home.module';
+import {OutModule} from './webportal/layout/outsource/outsource.module'
 import { LogoutComponent } from './modules/logout/logout.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -22,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 
+
 @NgModule({
   declarations: [AppComponent, LogoutComponent],
   imports: [
@@ -29,6 +31,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     BrowserAnimationsModule,
     DefaultModule, // default component and dashboard component has declared here
+    OutModule,
     HomeModule,
     FormsModule,
     MatFormFieldModule,

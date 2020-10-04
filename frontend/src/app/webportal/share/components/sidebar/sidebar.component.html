@@ -4,8 +4,8 @@
         <h5>WELCOME</h5>
         <h5 style="text-transform: uppercase">{{userType}}</h5>
       </div>
-      <!-- <img *ngIf="!currentUser.image" src="/assets/images/others/pro.png" alt="Soufiane FADIL">
-      <img *ngIf="currentUser.image" src="{{'data:image/jpeg;base64,'+currentUser.image}} " alt="Soufiane FADIL"> -->
+      <img *ngIf="!currentUser.image" src="/assets/images/others/pro.png" alt="Soufiane FADIL">
+      <img *ngIf="currentUser.image" src="{{'data:image/jpeg;base64,'+currentUser.image}} " alt="Soufiane FADIL">
   
     </div>
   
@@ -14,29 +14,29 @@
   
     <!-- <h2 matSubheader>Pages</h2> -->
     <!-- <div *ngIf="userType === 'admin'"> -->
-      <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/dashboard">Dashboard</a>
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/outsource/dashboard">Dashboard</a>
   
-      <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/posts">Posts</a>
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/outsource/WasteRequsetAdd">Waste Request</a>
   
-      <a mat-list-item routerLinkActive="list-item-active" [matMenuTriggerFor]="productcat">Recycled Product
-        Categories</a>
-      <mat-menu #productcat="matMenu">
+      <!-- <a mat-list-item routerLinkActive="list-item-active" [matMenuTriggerFor]="productcat">Recycled Product
+        Categories</a> -->
+      <!-- <mat-menu #productcat="matMenu">
         <button mat-menu-list-item [routerLink]="'/system/productCats'" class="btn btn-primary-outline pull-right"> Insert
           New Product Category</button>
         <button mat-menu-list-item [routerLink]="'/system/viewProductCat'" class="btn btn-primary-outline pull-right">
           View
           Product Categories</button>
-      </mat-menu>
+      </mat-menu> -->
   
-      <a mat-menu-item [matMenuTriggerFor]="product">Products</a>
+      <!-- <a mat-menu-item [matMenuTriggerFor]="product">Products</a>
       <mat-menu #product="matMenu">
         <a mat-menu-item [routerLink]="'/system/products'" class="btn btn-primary-outline pull-right"> Insert New
           Product</a>
         <a mat-menu-item [routerLink]="'/system/ViewProducts'" class="btn btn-primary-outline pull-right"> View
           Products</a>
-      </mat-menu>
+      </mat-menu> -->
   
-      <a mat-menu-item [matMenuTriggerFor]="wasteStock">Waste Stock</a>
+      <!-- <a mat-menu-item [matMenuTriggerFor]="wasteStock">Waste Stock</a>
   
       <mat-menu #wasteStock="matMenu">
         <a mat-menu-item [routerLink]="'/system/insertCollectedWaste'" class="btn btn-primary-outline pull-right"> Insert
@@ -51,40 +51,40 @@
           Terms</button>
         <button mat-menu-item [routerLink]="'/system/viewterms'" class="btn btn-primary-outline pull-right"> View
           Terms</button>
-      </mat-menu>
+      </mat-menu> -->
   
-      <button mat-menu-item [matMenuTriggerFor]="events">Events</button>
+      <!-- <button mat-menu-item [matMenuTriggerFor]="events">Events</button>
   
       <mat-menu #events="matMenu">
         <a mat-menu-item [routerLink]="'/system/addEvent'" class="btn btn-primary-outline pull-right"> Add Event</a>
         <a mat-menu-item [routerLink]="'/system/viewEvent'" class="btn btn-primary-outline pull-right"> View Events</a>
-      </mat-menu>
+      </mat-menu> -->
   
-      <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/sendMail">Email</a>
+      <!-- <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/sendMail">Email</a>
   
       <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/displayCustomerFeedbacks">Customer
-        Feedbacks</a>
+        Feedbacks</a> -->
       <!-- <mat-menu #productcat="matMenu">
       <button  mat-menu-list-item [routerLink]="'/system/productCats'" class="btn btn-primary-outline pull-right">  Insert New Product Category</button>
       <button  mat-menu-list-item [routerLink]="'/system/viewProductCat'" class="btn btn-primary-outline pull-right">  View Product Categories</button>
   </mat-menu> -->
   
-      <button mat-menu-item [matMenuTriggerFor]="agent">Agent</button>
+      <!-- <button mat-menu-item [matMenuTriggerFor]="agent">Agent</button>
       <mat-menu #agent="matMenu">
         <a mat-menu-item [routerLink]="'/system/viewPlacedRequests'" class="btn btn-primary-outline pull-right">Pending
           Waste Requests</a>
         <a mat-menu-item [routerLink]="'/system/viewConfirmedRequests'"
           class="btn btn-primary-outline pull-right">Confirmed
           Waste Requests</a>
-      </mat-menu>
-      <button mat-menu-item [matMenuTriggerFor]="outsource">Waste Requests</button>
+      </mat-menu> -->
+      <!-- <button mat-menu-item [matMenuTriggerFor]="outsource">Waste Requests</button>
       <mat-menu #outsource="matMenu">
         <a mat-menu-item [routerLink]="'/system/ViewOutRequest'" class="btn btn-primary-outline pull-right">Pending Waste
           Requests</a>
         <a mat-menu-item [routerLink]="'/system/viewoutSourceWasteRequest'"
           class="btn btn-primary-outline pull-right">Confirmed Waste Requests</a>
       </mat-menu>
-  
+   -->
       <mat-divider></mat-divider>
   
       <h2 matSubheader>Tools</h2>

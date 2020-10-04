@@ -26,6 +26,9 @@ import { ShareModule } from 'src/app/webportal/share/share.module';
 // import { EventDetailsComponent } from '../../modules/show-event/event-details/event-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {AgmCoreModule} from '@agm/core';
+import { OutprofileComponent } from '../../outsource/outprofile/outprofile.component';
+import { OutdashboardComponent } from '../../outsource/outdashboard/outdashboard.component';
+import { OutRequestWasteComponent } from '../../outsource/out-request-waste/out-request-waste.component';
 // import { CheckOutComponent } from '../../modules/check-out/check-out.component';
 // import { NavbarComponent } from '../../includes/navbar/navbar.component';
 // import { CustomerAccountComponent } from '../../modules/customer-account/customer-account.component';
@@ -34,6 +37,9 @@ import {AgmCoreModule} from '@agm/core';
 @NgModule({
   declarations: [
     OutsourceComponent,
+    OutprofileComponent,
+    OutdashboardComponent,
+    OutRequestWasteComponent
     // WelcomeComponent,
     // ShopComponent,
     // CustomerLoginComponent,

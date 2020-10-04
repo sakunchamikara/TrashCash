@@ -52,4 +52,7 @@ export class CustomerAuthService {
     sessionStorage.removeItem(AUTHENTICATED_CUSTOMER);
     sessionStorage.removeItem(AUTHENTICATED_CUSTOMER_ID);
   }
+  updateUserProfile(customer) {
+    return this.http.put<Customer>(`http://localhost:8080/updateCustomerProfile`, customer);
+  }
 }

@@ -1,5 +1,5 @@
-export class Order {
-  id: string;
+export class Orders {
+  id: number;
   date: Date;
   status: string;
   constructor() {}

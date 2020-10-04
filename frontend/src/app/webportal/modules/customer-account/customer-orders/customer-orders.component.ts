@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CustomerOrderService } from 'src/app/webportal/services/customer-order.service';
-import { Order } from 'src/app/webportal/pojo/order';
+import { Orders } from 'src/app/webportal/pojo/orders';
 
 @Component({
   selector: 'app-customer-orders',
@@ -15,7 +15,7 @@ export class CustomerOrdersComponent implements OnInit {
   ) {}
 
   date = new Date();
-  order: Order;
+  order = new Orders();
 
   orderId: string;
 
@@ -23,11 +23,11 @@ export class CustomerOrdersComponent implements OnInit {
     this.orderId = this.route.snapshot.queryParamMap.get('order_id');
 
     if (this.orderId) {
-      this.order.id = this.orderId;
+      this.order.id = +this.orderId;
       this.order.date = this.date;
       this.order.status = 'Pending';
-
-      this.orderService.setOrderId(this.order).subscribe(
+      console.log(this.order);
+      this.orderService.setOrder(this.order).subscribe(
         (data) => {
           console.log(data);
         },

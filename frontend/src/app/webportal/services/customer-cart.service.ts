@@ -1,10 +1,10 @@
-import { Injectable } from "@angular/core";
-import { Cart } from "../pojo/cart";
-import { Observable } from "rxjs";
-import { HttpClient } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { Cart } from '../pojo/cart';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class CustomerCartService {
   constructor(private http: HttpClient) {}
@@ -21,5 +21,5 @@ export class CustomerCartService {
     return this.http.delete<any>(`http://localhost:8080/cart/delete/${cid}`);
   }
 
-  
+
 }

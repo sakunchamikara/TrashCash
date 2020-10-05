@@ -52,6 +52,17 @@ export class CustomerFeedbackService {
     return this.http.get(url)
   }
 
+  // getCountNewFeedback(): Observable<any> {
+  //   let url = `http://localhost:8080/customerFeedback/status`;
+  //   return this.http.get(url)
+  // }
+
+  getPublishedFeedback(): Observable<any> {
+    let url = `http://localhost:8080/customerFeedback/status/published`;
+    return this.http.get(url)
+  }
+
+
   
 
 }

@@ -12,29 +12,32 @@ import javax.persistence.Table;
 import com.WasteManagementSystem.Backend.entity.Product;
 
 @Entity
-@Table(name="cart")
+@Table(name = "cart")
 public class Cart {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private int customerId;
-	
-	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="product_id")
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "product_id")
 	private Product product;
 	private int quentity;
 	private String orderId;
-	
-	public Cart( ) {}
+	private String status;
 
-	public Cart(int id, int customerId, Product product, int quentity, String orderId) {
+	public Cart() {
+	}
+
+	public Cart(int id, int customerId, Product product, int quentity, String orderId, String status) {
 		super();
 		this.id = id;
 		this.customerId = customerId;
 		this.product = product;
 		this.quentity = quentity;
 		this.orderId = orderId;
+		this.status = status;
 	}
 
 	public int getId() {
@@ -52,7 +55,6 @@ public class Cart {
 	public void setCustomerId(int customerId) {
 		this.customerId = customerId;
 	}
-
 
 	public Product getProduct() {
 		return product;
@@ -78,11 +80,18 @@ public class Cart {
 		this.orderId = orderId;
 	}
 
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	@Override
 	public String toString() {
 		return "Cart [customerId=" + customerId + ", id=" + id + ", orderId=" + orderId + ", product=" + product
-				+ ", quentity=" + quentity + "]";
+				+ ", quentity=" + quentity + ", status=" + status + "]";
 	}
-	
-	
+
 }

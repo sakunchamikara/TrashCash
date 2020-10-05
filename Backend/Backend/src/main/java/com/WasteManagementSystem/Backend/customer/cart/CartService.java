@@ -28,4 +28,8 @@ public class CartService {
 	public void updateCart(int cartId) {
 		repo.deleteById(cartId);
 	}
+
+	public void updateCartOrder(Cart cart) {
+		repo.updateCartOrder(cart);
+	}
 }

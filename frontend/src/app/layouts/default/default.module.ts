@@ -11,6 +11,7 @@ import { UpdateCollectedWasteComponent } from 'src/app/modules/collected-waste/u
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ViewPlacedRequestsComponent } from 'src/app/modules/agent/view-placed-requests/view-placed-requests.component';
 
+
 import { SharedModule } from 'src/app/shared/shared.module';
 import {
   MatSidenavModule,
@@ -49,6 +50,7 @@ import { TermsComponent } from 'src/app/modules/terms/terms.component';
 import { AddtermsComponent } from 'src/app/modules/terms/addterms/addterms.component';
 import { ViewtermsComponent } from 'src/app/modules/terms/viewterms/viewterms.component';
 import { UpdateTermsComponent } from 'src/app/modules/terms/update-terms/update-terms.component';
+import { AccepttermsComponent} from 'src/app/modules/terms/acceptterms/acceptterms.component';
 import { ConfirmationDialogComponent } from 'src/app/modules/confirmation-dialog/confirmation-dialog.component';
 import { AlertDialogComponent } from 'src/app/modules/alert-dialog/alert-dialog.component';
 import { CollectedWasteServiceService } from 'src/app/service/collected-waste-service.service';
@@ -95,6 +97,7 @@ import { DisplayCustomerFeedbackComponent } from 'src/app/modules/display-custom
     SendMailComponent,
     ViewPlacedRequestsComponent,
     DisplayCustomerFeedbackComponent,
+    AccepttermsComponent,
   ],
   imports: [
     CommonModule,

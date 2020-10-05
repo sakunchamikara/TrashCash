@@ -24,9 +24,10 @@ import { WptermsComponent } from './webportal/modules/wpterms/wpterms.component'
 //import { TermdiscripComponent } from './modules/terms/termdiscrip/termdiscrip.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
+//import { AccepttermsComponent } from './modules/terms/acceptterms/acceptterms.component';
 
 @NgModule({
-  declarations: [AppComponent, LogoutComponent, ],
+  declarations: [AppComponent, LogoutComponent,  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

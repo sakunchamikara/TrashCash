@@ -18,11 +18,12 @@ public class Customer {
 	private int contactNumber;
 	private String address;
 	private String password;
+	private Boolean termStatus;
 	
 	public Customer() { }
 	
 	public Customer(int id, String firstName, String lastName, String email, int contactNumber, String address,
-			String password) {
+			String password, Boolean termStatus) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -31,6 +32,7 @@ public class Customer {
 		this.contactNumber = contactNumber;
 		this.address = address;
 		this.password = password;
+		this.termStatus = termStatus;
 	}
 
 	public int getId() {
@@ -89,10 +91,18 @@ public class Customer {
 		this.password = password;
 	}
 
+	public Boolean getTermStatus() {
+		return termStatus;
+	}
+
+	public void setTermStatus(boolean termStatus) {
+		this.termStatus = termStatus;
+	}
+
 	@Override
 	public String toString() {
 		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", contactNumber=" + contactNumber + ", address=" + address + ", password=" + password + "]";
+				+ ", contactNumber=" + contactNumber + ", address=" + address + ", password=" + password + ", termStatus=" + termStatus + "]";
 	}
 
 }

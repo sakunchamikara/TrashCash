@@ -30,6 +30,7 @@ import { TermsComponent } from './modules/terms/terms.component';
 import { AddtermsComponent } from './modules/terms/addterms/addterms.component';
 import { ViewtermsComponent } from './modules/terms/viewterms/viewterms.component';
 import { UpdateTermsComponent } from './modules/terms/update-terms/update-terms.component';
+import { AccepttermsComponent} from './modules/terms/acceptterms/acceptterms.component';
 import { SendMailComponent } from './modules/send-mail/send-mail.component';
 import { WptermsComponent } from './webportal/modules/wpterms/wpterms.component';
 import { CustomerLoginComponent } from './webportal/modules/customer-login/customer-login.component';
@@ -234,6 +235,10 @@ const routes: Routes = [
       {
         path: 'UpdateTerms/:id',
         component: UpdateTermsComponent,
+      },
+      {
+        path: 'acceptterms',
+        component: AccepttermsComponent,
       },
       {
         path: 'UpdateProductCats/:id',

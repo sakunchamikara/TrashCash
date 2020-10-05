@@ -20,4 +20,8 @@ public class CustomerAuthenticationService {
 	public Customer fetchCustomerByEmailAndPassword(String email,String password) {
 		return repo.findByEmailAndPassword(email, password);
 	}
+
+	public List<CustomerList> findBytermstatus(){
+		return repo.findBytermstatus();
+	}
 }

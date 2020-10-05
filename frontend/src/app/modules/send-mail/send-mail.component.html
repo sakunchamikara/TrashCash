@@ -48,9 +48,10 @@
             </div>
 
             <div class="form-row">
-                <div class="form-group col-md-12">
+                <div class="form-group col-md-8">
                 <label for="">To :</label>
                 <br>
+                <!--
                 <div class="form-check ">
                   <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
                   <label class="form-check-label" for="inlineRadio1">Staff</label>
@@ -66,8 +67,10 @@
                 <div class="form-check ">
                   <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
                   <label class="form-check-label" for="inlineRadio2">Customers</label>
-                </div>
-                </div>
+                </div> -->
+               
+                <input type="text" class="form-control"  [(ngModel)]="dataset.email" name="email" required>
+              </div>
               </div>
 
            
@@ -75,12 +78,12 @@
             <div class="form-row">
               <div class="form-group col-md-8">
                 <label for="">Description</label>
-                <textarea rows="6" type="text" class="form-control" id="description"  name="description"  required  >
+                <textarea rows="6" type="text" class="form-control" id="description" [(ngModel)]="dataset.description" name="description"  required  >
                 </textarea>                                       
               </div>
             </div>              
         
-            <button type="submit" class="btn btn-primary float-right">Send</button>
+            <button type="submit" class="btn btn-primary float-right" (click)="onSubmit()">Send</button>
           </form>
         
     <!--  <div [hidden]="!submitted">

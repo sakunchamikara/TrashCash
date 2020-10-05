@@ -1,7 +1,5 @@
 package com.WasteManagementSystem.Backend.controller;
 
-import java.util.Optional;
-
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

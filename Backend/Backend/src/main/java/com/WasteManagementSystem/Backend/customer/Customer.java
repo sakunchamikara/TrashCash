@@ -23,10 +23,8 @@ public class Customer {
 	
 	public Customer() { }
 
-	
 	public Customer(int id, String firstName, String type, String email, int contactNumber, String address,
-			String password,String location, Boolean termStatus) {
-		super();
+			String password, Boolean termStatus, String location) {
 		this.id = id;
 		this.firstName = firstName;
 		this.type = type;
@@ -93,26 +91,30 @@ public class Customer {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getLocation(){
-		return location;
-	}
-	public void setLocation(String location){
-		this.location=location;
-	}
 
 	public Boolean getTermStatus() {
 		return termStatus;
 	}
 
-	public void setTermStatus(boolean termStatus) {
+	public void setTermStatus(Boolean termStatus) {
 		this.termStatus = termStatus;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
 	}
 
 	@Override
 	public String toString() {
-		
-		return "Customer [id=" + id + ", firstName=" + firstName + ", type=" + type + ", email=" + email
-				+ ", contactNumber=" + contactNumber + ", address=" + address + ", password=" + password + ", location=" +location +", termStatus=" +termStatus +"]";
+		return "Customer [address=" + address + ", contactNumber=" + contactNumber + ", email=" + email + ", firstName="
+				+ firstName + ", id=" + id + ", location=" + location + ", password=" + password + ", termStatus="
+				+ termStatus + ", type=" + type + "]";
 	}
+	
+	
 
 }

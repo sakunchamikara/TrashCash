@@ -1,12 +1,11 @@
 package com.WasteManagementSystem.Backend.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
 
 import com.WasteManagementSystem.Backend.entity.SummaryStock;
 
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import org.springframework.data.jpa.repository.Query;
 
 @Repository
 public interface TestStockRepository extends JpaRepository<SummaryStock, Integer>{

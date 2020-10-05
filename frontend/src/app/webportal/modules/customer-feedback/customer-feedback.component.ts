@@ -26,6 +26,8 @@ export class CustomerFeedbackComponent implements OnInit {
 
   save() {
     this.customerFeed.date = new Date();
+    this.customerFeed.status ='New';
+     //console.log(this.customer.firstName);
     //console.log(this.customer.firstName);
     // this.retrieveRequests=this.customerWasteRequestService.getCustomerWasteRequests(this.customer.firstName);
     //this.wasteRequest.customer = this.customer.firstName;

@@ -13,7 +13,7 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String firstName;
-	private String lastName;
+	private String type = "customer";
 	private String email;
 	private int contactNumber;
 	private String address;
@@ -24,15 +24,22 @@ public class Customer {
 	
 	public Customer(int id, String firstName, String lastName, String email, int contactNumber, String address,
 			String password, Boolean termStatus) {
+	private String location;
+	
+	public Customer() { }
+	
+	public Customer(int id, String firstName, String type, String email, int contactNumber, String address,
+			String password,String location) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
-		this.lastName = lastName;
+		this.type = type;
 		this.email = email;
 		this.contactNumber = contactNumber;
 		this.address = address;
 		this.password = password;
 		this.termStatus = termStatus;
+		this.location = location;
 	}
 
 	public int getId() {
@@ -51,12 +58,12 @@ public class Customer {
 		this.firstName = firstName;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getType() {
+		return type;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public String getEmail() {
@@ -90,6 +97,12 @@ public class Customer {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getLocation(){
+		return location;
+	}
+	public void setLocation(String location){
+		this.location=location;
+	}
 
 	public Boolean getTermStatus() {
 		return termStatus;
@@ -103,6 +116,8 @@ public class Customer {
 	public String toString() {
 		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
 				+ ", contactNumber=" + contactNumber + ", address=" + address + ", password=" + password + ", termStatus=" + termStatus + "]";
+		return "Customer [id=" + id + ", firstName=" + firstName + ", type=" + type + ", email=" + email
+				+ ", contactNumber=" + contactNumber + ", address=" + address + ", password=" + password + ", location=" +location +"]";
 	}
 
 }

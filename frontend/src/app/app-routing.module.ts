@@ -49,7 +49,20 @@ import { OutWasteRequestComponent } from './modules/out-waste-request/out-waste-
 import { ViewDbComponent } from './modules/view-db/view-db.component';
 import { ShowEventComponent } from './webportal/modules/show-event/show-event.component';
 import { EventDetailsComponent } from './webportal/modules/show-event/event-details/event-details.component';
+import { ConfirmWasteRequestComponent } from './modules/out-waste-request/confirm-waste-request/confirm-waste-request.component';
 import { DisplayCustomerFeedbackComponent } from './modules/display-customer-feedback/display-customer-feedback.component';
+import { LocationComponent } from './webportal/modules/waste-request/location/location.component';
+import { ViewAgentConfirmedRequestComponent } from 'src/app/modules/agent/view-agent-confirmed-request/view-agent-confirmed-request.component';
+import { CheckOutComponent } from './webportal/modules/check-out/check-out.component';
+import { CustomerAccountComponent } from './webportal/modules/customer-account/customer-account.component';
+import { RecycledProductAddComponent } from './webportal/modules/Outsource-company/recycled-product-add/recycled-product-add.component';
+
+import { OutsourceComponent } from './webportal/layout/outsource/outsource.component';
+import { OutprofileComponent } from './webportal/outsource/outprofile/outprofile.component';
+import { OutdashboardComponent } from './webportal/outsource/outdashboard/outdashboard.component';
+import { OutRequestWasteComponent } from './webportal/outsource/out-request-waste/out-request-waste.component';
+
+import { CustomerOrdersComponent } from './webportal/modules/customer-account/customer-orders/customer-orders.component';
 
 const routes: Routes = [
   {
@@ -98,8 +111,10 @@ const routes: Routes = [
         component: WasteRequestComponent,
       },
       {
-        path: 'outsource-waste-request',
-        component: OutWasteRequsetComponent,
+        path:'outsource-waste-request',
+        component:OutWasteRequsetComponent,
+        // path: 'outsource-waste-request',
+        // component: OutWasteRequsetComponent,
       },
       {
         path: 'cart',
@@ -121,7 +136,51 @@ const routes: Routes = [
         path: 'terms-details/:id',
         component: TermDetailsComponent,
       },
+      {
+        path: 'location',
+        component: LocationComponent,
+      },
+      {
+        path: 'checkOut',
+        component: CheckOutComponent,
+      },
+      {
+        path: 'myAccount',
+        component: CustomerAccountComponent,
+
+      },
+      {
+        path:'Productadd',
+        component:RecycledProductAddComponent
+      },
+
+      // {
+      //   path:'outsource',
+      //   component:OutsourceComponent
+      // }
+      {
+        path: 'myOrders',
+        component: CustomerOrdersComponent
+      }
     ],
+  },
+  {
+    path:'outsource',
+    component:OutsourceComponent,
+    children:[
+      {
+        path:'profile',
+        component:OutprofileComponent,
+      },
+      {
+        path:'dashboard',
+        component:OutdashboardComponent,
+      },
+      {
+        path:'WasteRequsetAdd',
+        component:OutRequestWasteComponent,
+      }
+    ]
   },
   {
     path: 'system',
@@ -259,12 +318,24 @@ const routes: Routes = [
         component: DisplayCustomerFeedbackComponent,
       },
       {
+        path:'viewoutSourceWasteRequest',
+        component: ConfirmWasteRequestComponent,
+      },
+      {
+        path:'ViewDB',
+        component:ViewDbComponent,
+      },
+      {
         path: 'ViewOutRequest',
         component: OutWasteRequestComponent,
       },
+      // {
+      //   path: 'ViewDB',
+      //   component: ViewDbComponent,
+      // },
       {
-        path: 'ViewDB',
-        component: ViewDbComponent,
+        path: 'viewConfirmedRequests',
+        component: ViewAgentConfirmedRequestComponent,
       },
     ],
   },

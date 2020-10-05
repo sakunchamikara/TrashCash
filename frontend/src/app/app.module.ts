@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DefaultModule } from './layouts/default/default.module';
 import { HomeModule } from './webportal/layouts/home/home.module';
+import {OutModule} from './webportal/layout/outsource/outsource.module'
 import { LogoutComponent } from './modules/logout/logout.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -16,23 +17,31 @@ import {
   MatIconModule,
 } from '@angular/material';
 import { FormsModule } from '@angular/forms';
-import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
-import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
-import { WptermsComponent } from './webportal/modules/wpterms/wpterms.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
-//import { TermdiscripComponent } from './modules/terms/termdiscrip/termdiscrip.component';
+
+
+
+
+
+
+
 
 import { ReactiveFormsModule } from '@angular/forms';
 //import { AccepttermsComponent } from './modules/terms/acceptterms/acceptterms.component';
 
 @NgModule({
   declarations: [AppComponent, LogoutComponent,  ],
+
+@NgModule({
+  declarations: [AppComponent, LogoutComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     DefaultModule, // default component and dashboard component has declared here
+    OutModule,
     HomeModule,
     FormsModule,
     MatFormFieldModule,

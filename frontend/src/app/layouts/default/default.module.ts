@@ -10,6 +10,7 @@ import { UpdateProductComponent } from 'src/app/modules/products/view-product/up
 import { UpdateCollectedWasteComponent } from 'src/app/modules/collected-waste/update-collected-waste/update-collected-waste.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ViewPlacedRequestsComponent } from 'src/app/modules/agent/view-placed-requests/view-placed-requests.component';
+import { ViewAgentConfirmedRequestComponent } from 'src/app/modules/agent/view-agent-confirmed-request/view-agent-confirmed-request.component';
 
 
 import { SharedModule } from 'src/app/shared/shared.module';
@@ -58,6 +59,7 @@ import { NewtermsService } from 'src/app/service/newterms.service';
 import { OutWasteRequestComponent } from 'src/app/modules/out-waste-request/out-waste-request.component';
 import { ViewDbComponent } from 'src/app/modules/view-db/view-db.component';
 import { SendMailComponent } from 'src/app/modules/send-mail/send-mail.component';
+import { ConfirmWasteRequestComponent } from 'src/app/modules/out-waste-request/confirm-waste-request/confirm-waste-request.component';
 //import { NewtermsService } from 'src/app/service/newterms.service';
 
 import { DisplayCustomerFeedbackComponent } from 'src/app/modules/display-customer-feedback/display-customer-feedback.component';
@@ -92,12 +94,15 @@ import { DisplayCustomerFeedbackComponent } from 'src/app/modules/display-custom
     ConfirmationDialogComponent,
     ViewPlacedRequestsComponent,
     ViewDbComponent,
+    ConfirmWasteRequestComponent,
+
     // TermdiscripComponent,
     AlertDialogComponent,
     SendMailComponent,
     ViewPlacedRequestsComponent,
     DisplayCustomerFeedbackComponent,
     AccepttermsComponent,
+    ViewAgentConfirmedRequestComponent,
   ],
   imports: [
     CommonModule,

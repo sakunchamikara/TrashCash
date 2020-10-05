@@ -1,12 +1,14 @@
 export class Customer {
   id: number;
   firstName: string;
-  lastName: string;
+  type: string;
   email: string;
   contactNumber: number;
   address: string;
   password: string;
   termStatus: boolean;
+  location: string;
+
 
   constructor() {}
 }

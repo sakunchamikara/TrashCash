@@ -1,6 +1,9 @@
 <mat-toolbar>
   <mat-toolbar-row class="mat-toolbar-row-1">
-    <button mat-flat-button style="background-color: #5cb85c;color: white;">WELCOME GUEST</button>
+    <button mat-flat-button style="background-color: #5cb85c;color: white;text-transform: uppercase;" *ngIf="customerName">WELCOME
+      {{customerName}}</button>
+    <button mat-flat-button style="background-color: #5cb85c;color: white;" *ngIf="!customerName">WELCOME
+      GUEST</button>
 
     <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
       <ul fxLayout="row" fxLayoutGap="20px">
@@ -19,19 +22,20 @@
             <mat-icon>person_outline</mat-icon>
           </button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item routerLink="/customer/login">
+            <button mat-menu-item routerLink="/customer/login" *ngIf="!isCustomerLoggedIn">
               <i class="fas fa-sign-in-alt"></i>
               Login
             </button>
-            <button mat-menu-item routerLink="/customer/register">
+            <button mat-menu-item routerLink="/customer/register" *ngIf="!isCustomerLoggedIn">
               <i class="fas fa-user"></i>
               Register
             </button>
-            <button mat-menu-item routerLink="/customer/profile">
+            <!-- <button mat-menu-item routerLink="/outsource/profile"> -->
+            <button mat-menu-item routerLink="/customer/profile" *ngIf="isCustomerLoggedIn">
               <i class="fas fa-user"></i>
               profile
             </button>
-            <button mat-menu-item routerLink="/customer/logout">
+            <button mat-menu-item routerLink="/customer/logout" *ngIf="isCustomerLoggedIn">
               <i class="fas fa-sign-out-alt"></i>
               Logout
             </button>
@@ -50,13 +54,31 @@
         <button mat-button [routerLink]="['/customer/welcome']" [routerLinkActive]="['mat-raised-button']">HOME</button>
 
         <button mat-button [routerLink]="['/customer/shop']" [routerLinkActive]="['mat-raised-button']">SHOP</button>
-        <button mat-button [routerLinkActive]="['mat-raised-button']">MY ACCOUNT</button>
-        <button mat-button [routerLink]="['/customer/cart']"  [routerLinkActive]="['mat-raised-button']" >SHOPPING CART</button>
+
+        <button mat-button [matMenuTriggerFor]="customer" [routerLinkActive]="['mat-raised-button']" *ngIf="customerType == 'customer'">MY ACCOUNT</button>
+        <mat-menu #customer="matMenu">
+          <button mat-button [routerLink]="['/customer/myAccount']" [routerLinkActive]="['mat-raised-button']">My Orders</button>
+          <button mat-button [routerLinkActive]="['mat-raised-button']">Edit Profile</button>
+          <button mat-button [routerLinkActive]="['mat-raised-button']">etc</button>
+        </mat-menu>
+
+        <button mat-button [matMenuTriggerFor]="company" [routerLinkActive]="['mat-raised-button']"
+          *ngIf="customerType == 'company'">MY COMPANY</button>
+        <mat-menu #company="matMenu">
+          <button mat-button [routerLinkActive]="['mat-raised-button']">Orders</button>
+          <button mat-button [routerLinkActive]="['mat-raised-button']">Products</button>
+          <button mat-button [routerLinkActive]="['mat-raised-button']">Profile</button>
+          <button mat-button [routerLinkActive]="['mat-raised-button']">etc</button>
+        </mat-menu>
+
+        <button mat-button [routerLink]="['/customer/cart']" [routerLinkActive]="['mat-raised-button']">SHOPPING
+          CART</button>
 
         <button mat-button [matMenuTriggerFor]="others" [routerLinkActive]="['mat-raised-button']">OTHERS</button>
         <mat-menu #others="matMenu">
           <button mat-button [routerLinkActive]="['mat-raised-button']">CONTACT US</button>
-          <button mat-button [routerLink]="['/customer/showevent']" [routerLinkActive]="['mat-raised-button']">EVENTS & CAMPAIGNS</button>
+          <button mat-button [routerLink]="['/customer/showevent']" [routerLinkActive]="['mat-raised-button']">EVENTS &
+            CAMPAIGNS</button>
           <button mat-button [routerLink]="['/customer/wpterms']" [routerLinkActive]="['mat-raised-button']">TERMS &
             CONDITIONS</button>
         </mat-menu>
@@ -66,10 +88,10 @@
     <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
       <ul fxLayout="row" fxLayoutGap="20px">
         <li>
-          <button mat-flat-button style="background-color: #9CC026;color: white;">
+          <button mat-flat-button style="background-color: #9CC026;color: white;" [routerLink]="['/customer/cart']">
             <!-- rgb(2, 205, 219) -->
-            <mat-icon>shopping_cart</mat-icon>
-            0 items in your shopping cart
+            <mat-icon>shopping_cart</mat-icon> shopping cart <span class="badge badge-pill badge-danger"> {{itemCount}}
+            </span>
           </button>
         </li>
 

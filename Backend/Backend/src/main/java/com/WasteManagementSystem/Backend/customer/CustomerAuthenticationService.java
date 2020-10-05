@@ -3,6 +3,8 @@ package com.WasteManagementSystem.Backend.customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.WasteManagementSystem.Backend.entity.User;
+
 
 @Service
 public class CustomerAuthenticationService {
@@ -23,5 +25,8 @@ public class CustomerAuthenticationService {
 
 	public List<CustomerList> findBytermstatus(){
 		return repo.findBytermstatus();
+	
+	public Customer saveUser(Customer customer) {
+		return repo.save(customer);
 	}
 }

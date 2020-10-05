@@ -7,7 +7,7 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb shadow p-3 mb-5 bg-white rounded">
             <li class="breadcrumb-item"><a href="#"><i class="fad fa-tachometer-alt-fastest"></i> Dashboard</a></li>
-            <li class="breadcrumb-item active" aria-current="page">View Waste Requests</li>
+            <li class="breadcrumb-item active" aria-current="page">View Pending Waste Requests</li>
           </ol>
         </nav>
       </div>
@@ -30,7 +30,7 @@
           <div class="row" *ngIf="!requestEmptyListFlag">
 
            
-            <div class="col-lg-4 col-md-6 mb-4" *ngFor="let retrieveRequest of retrieveRequests;let wastecat of new">
+            <div class="col-lg-4 col-md-6 mb-4" *ngFor="let retrieveRequest of retrieveRequests">
               <div class="card h-100 text-center">
               
                 <div class="card-body">
@@ -40,12 +40,12 @@
         
                   <h5>Type : {{retrieveRequest.wasteType}}</h5>
                   <h5>Quantity(kg) : {{retrieveRequest.quantity}}</h5>
-                  <!-- <h5>Available Waste(kg) :{{wastecat.amount}}</h5> -->
+                  <!-- <h5>Status :{{retrieveRequest.status}}</h5> -->
                   <!-- <button type="button" class="btn btn-outline-success">Accept</button> -->
-                  <button type="button" class="btn btn-primary" (click)="viewBook(retrieveRequest.id)"> Accept</button>
-                  <div class="col-md-3">
+                  <button type="button" class="btn btn-primary" (click)="confirm(retrieveRequest.id,retrieveRequest.wasteType,retrieveRequest.quantity)"> Accept</button>
+                  <!-- <div class="col-md-3">
                     <app-view-db *ngIf="action === 'view'" [retrieveRequest]="selectedBook"></app-view-db>
-                  </div>
+                  </div> -->
                 </div>
                 
               </div>

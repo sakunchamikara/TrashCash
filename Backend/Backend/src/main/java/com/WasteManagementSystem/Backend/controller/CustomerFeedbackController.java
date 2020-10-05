@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -15,7 +16,10 @@ import java.util.Map;
 
 import javax.validation.Valid;
 import com.WasteManagementSystem.Backend.entity.CustomerFeedback;
+
 import com.WasteManagementSystem.Backend.entity.CustomerWasteRequest;
+import com.WasteManagementSystem.Backend.entity.ProductCat;
+
 import com.WasteManagementSystem.Backend.repository.CustomerFeedbackRepository;
 //import com.WasteManagementSystem.Backend.service.OutwasteService;
 
@@ -48,4 +52,33 @@ public class CustomerFeedbackController {
 	    public List<CustomerFeedback> getAllCustomerFeedbacks() {
 	        return cusfeedrepo.findAll();
 	    }
+	    
+		@PutMapping("/customerFeedback/{id}")
+	    public ResponseEntity<CustomerFeedback> updateCustomerFeedback(@PathVariable(value = "id") int customerFeedbackId,
+	         @Valid @RequestBody CustomerFeedback customerFeedbackDetails) throws ResourceNotFoundException {
+			CustomerFeedback customerFeedback =cusfeedrepo.findById(customerFeedbackId)
+	        .orElseThrow(() -> new ResourceNotFoundException("Feedback not found for this id :: " + customerFeedbackId));
+
+			
+			
+			customerFeedback.setStatus(customerFeedbackDetails.getStatus());
+			
+			
+	       
+	        final CustomerFeedback updatedCustomerFeedback = cusfeedrepo.save(customerFeedback);
+	        return ResponseEntity.ok(updatedCustomerFeedback);
+	    }
+		
+		@GetMapping("/customerFeedback/{id}")
+	    public ResponseEntity<CustomerFeedback> getCustomerFeedbackById(@PathVariable(value = "id") int customerFeedbackId)
+	        throws ResourceNotFoundException {
+			CustomerFeedback customerFeedback = cusfeedrepo.findById(customerFeedbackId)
+	          .orElseThrow(() -> new ResourceNotFoundException("feedback not found for this id :: " + customerFeedbackId));
+	        return ResponseEntity.ok().body(customerFeedback);
+	    }
+		
+		@GetMapping(path="/customerFeedback/status")
+		public @ResponseBody List<String> getStatus() {
+		    return cusfeedrepo.getStatus();
+		}
 }

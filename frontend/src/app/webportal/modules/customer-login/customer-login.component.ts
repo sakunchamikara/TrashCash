@@ -19,9 +19,21 @@ export class CustomerLoginComponent implements OnInit {
   ngOnInit() {}
 
   loginCustomer() {
+    this.customer.password = btoa(this.customer.password);
     this.authService.loginCustomer(this.customer).subscribe(
       (data) => {
-        this.route.navigate([`/customer/welcome`]);
+        console.log(data)
+        console.log(data.type)
+        if(data.type == 'company'){
+        this.route.navigate([`/outsource/dashboard`]).then(() => {
+         // window.location.reload();
+        });
+      }
+      if(data.type == 'customer'){
+        this.route.navigate([`/customer/welcome`]).then(() => {
+         // window.location.reload();
+        });
+      }
       },
       (error) => {
         this.msg = error.error.message;

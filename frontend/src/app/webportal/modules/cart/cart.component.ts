@@ -1,28 +1,29 @@
-import { Component, OnInit } from "@angular/core";
-import { CustomerCartService } from "../../services/customer-cart.service";
-import { Cart } from "../../pojo/cart";
-import { CustomerAuthService } from "../../services/customer-auth.service";
-import { Router } from "@angular/router";
-import { NgForm } from "@angular/forms";
+import { Component, OnInit } from '@angular/core';
+import { CustomerCartService } from '../../services/customer-cart.service';
+import { Cart } from '../../pojo/cart';
+import { CustomerAuthService } from '../../services/customer-auth.service';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: "app-cart",
-  templateUrl: "./cart.component.html",
-  styleUrls: ["./cart.component.scss"],
+  selector: 'app-cart',
+  templateUrl: './cart.component.html',
+  styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit {
   cartDetails: Array<Cart>;
-  errorMessage = "";
+  errorMessage = '';
   cid: number;
-  productIMG = "";
+  productIMG = '';
   total: number;
   quentity: number;
   cartId: number;
   cartidString: string;
+  itemCount: number;
   constructor(
     private customerCartService: CustomerCartService,
     private customerAuthService: CustomerAuthService,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit() {
@@ -36,13 +37,14 @@ export class CartComponent implements OnInit {
         (data) => {
           this.cartDetails = data;
           this.setTotal();
+          this.itemCount = data.length;
         },
         (error) => {
           this.errorMessage = error.error.message;
         }
       );
     } else {
-      this.router.navigate(["/customer/login"]);
+      this.router.navigate(['/customer/login']);
     }
   }
 
@@ -76,5 +78,10 @@ export class CartComponent implements OnInit {
         );
       }
     }
+    location.reload();
+  }
+
+  checkOut() {
+    this.router.navigate(['/customer/checkOut']);
   }
 }

@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="form-row">
-    <div class="col-md-12">
-      <br>
+  <br>
+  <div class="row">
+    <div class="col-md-9">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -11,19 +11,26 @@
         </ol>
       </nav>
     </div>
+
+    <div class="col-md-3">
+      <form class="form-inline">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search.." name="search">
+          <button type="submit" style="background-color: #eb943e;color: #e8f1ee;" class="btn float-right"><i class="fa fa-search"></i></button>
+        </div>
+      </form>
+    </div>
   </div>
 
   <div class="row">
 
     <div class="col-lg-3">
-
       <div class="list-group">
         <a class="list-group-item " [class.active]="category.name === activeFlag" (click)="getCatProduct(category.name)"
           *ngFor="let category of categoryList">{{category.name}}</a>
       </div>
       <br>
     </div>
-    <!-- /.col-lg-3 -->
 
     <div class="col-lg-9">
 
@@ -39,14 +46,15 @@
 
         <div class="col-lg-4 col-md-6 mb-4" *ngFor="let product of productList;">
           <div class="card h-100 text-center">
-            <a href="#"><img class="card-img-top p-3" src="{{'data:image/jpeg;base64,'+product.image1}}" height="200"
-                width="100" alt=""></a>
+            <img class="card-img-top p-3" src="{{'data:image/jpeg;base64,'+product.image1}}" height="200" width="100"
+              alt="">
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#">{{product.title}}</a>
+                <a>{{product.title}}</a>
               </h4>
               <h5>Rs. {{product.price}}</h5>
-              <button type="button" routerLink="/customer/product/{{product.id}}" class="btn btn-outline-success">View Details</button>
+              <button type="button" routerLink="/customer/product/{{product.id}}" class="btn btn-outline-success">View
+                Details</button>
             </div>
             <!-- <div class="card-footer">
               <small class="text-muted">★ ★ ★ ★ ☆</small>

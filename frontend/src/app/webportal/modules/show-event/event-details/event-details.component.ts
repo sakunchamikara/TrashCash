@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { EventService } from 'src/app/service/event.service';
+import { Event } from 'src/app/pojo/event';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-event-details',
@@ -8,18 +10,32 @@ import { EventService } from 'src/app/service/event.service';
   styleUrls: ['./event-details.component.scss']
 })
 export class EventDetailsComponent implements OnInit {
-  events: Observable<Event[]>;
+  productEmptyListFlag = false;
+  EventId: number;
+  eventImage: string;
+  events = new Event;
   successMsg: any;
   errorMsg: any;
   
-  constructor( private eventService: EventService) { }
+  constructor( private eventService: EventService,private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.reloadData();
+    this.EventId = this.route.snapshot.params['id'];
+    this.getTermById(this.EventId);
   }
 
-  reloadData(){
-    this.events = this.eventService.getEventList();
+    getTermById(EventId) {
+      this.eventService.getEvent(EventId).subscribe(
+        (data) => {
+          this.events = data;
+          this.eventImage = 'data:image/jpeg;base64,' + data.image;
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+      console.log(this.events);
   }
 
 

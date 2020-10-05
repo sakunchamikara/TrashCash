@@ -24,13 +24,13 @@ public class Cart {
 	@JoinColumn(name = "product_id")
 	private Product product;
 	private int quentity;
-	private String orderId;
+	private int orderId;
 	private String status;
 
 	public Cart() {
 	}
 
-	public Cart(int id, int customerId, Product product, int quentity, String orderId, String status) {
+	public Cart(int id, int customerId, Product product, int quentity, int orderId, String status) {
 		super();
 		this.id = id;
 		this.customerId = customerId;
@@ -72,11 +72,11 @@ public class Cart {
 		this.quentity = quentity;
 	}
 
-	public String getOrderId() {
+	public int getOrderId() {
 		return orderId;
 	}
 
-	public void setOrderId(String orderId) {
+	public void setOrderId(int orderId) {
 		this.orderId = orderId;
 	}
 

@@ -16,8 +16,8 @@ public class CartService {
 		return repo.save(cart);
 	}
 
-	public Cart checkProduct(int customerId, Product product) {
-		return repo.findByCustomerIdAndProduct(customerId, product);
+	public Cart checkProduct(int customerId, Product product,String status) {
+		return repo.findByCustomerIdAndProductAndStatus(customerId, product, status);
 	}
 
 	public List<Cart> getCartDetails(int customerId) {
@@ -29,7 +29,5 @@ public class CartService {
 		repo.deleteById(cartId);
 	}
 
-	// public void updateCartOrder(Cart cart) {
-	// 	repo.updateCartOrder(cart);
-	// }
+	
 }

@@ -54,10 +54,10 @@ public class CustomerAuthController {
 		return CustomerAuthService.fetchCustomerByEmail(email);
 	}
 
-    @GetMapping("/termstatus")
-    public List<customerstatus> getAllTermStatus(){
-        return CustomerAuthService.findAllTermStatus();
-    }
+    // @GetMapping("/termstatus")
+    // public List<customerstatus> getAllTermStatus(){
+    //     return CustomerAuthService.findAllTermStatus();
+    // }
     
     @PutMapping("/updateCustomerProfile")
 	public Customer updateCustomerProfile(@RequestBody Customer customer) {

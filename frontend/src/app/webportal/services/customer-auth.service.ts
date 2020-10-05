@@ -10,6 +10,7 @@ export const AUTHENTICATED_CUSTOMER_ID = 'authenticaterCustomerid';
   providedIn: 'root',
 })
 export class CustomerAuthService {
+  baseUrl: any;
   constructor(private http: HttpClient) {}
 
   public registerCustomer(customer: Customer): Observable<any> {
@@ -52,6 +53,14 @@ export class CustomerAuthService {
     sessionStorage.removeItem(AUTHENTICATED_CUSTOMER);
     sessionStorage.removeItem(AUTHENTICATED_CUSTOMER_ID);
   }
+
+  getCustomerList(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`);
+  }
+
+  getCustomerStatus(): Observable<any>{
+    const uri = `http://localhost:8080/customerstatus`;
+    return this.http.get(uri);
   updateUserProfile(customer) {
     return this.http.put<Customer>(`http://localhost:8080/updateCustomerProfile`, customer);
   }

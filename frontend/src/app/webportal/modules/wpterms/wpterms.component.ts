@@ -33,22 +33,6 @@ export class WptermsComponent implements OnInit {
     this.terms = this.newtermService.getNewtermList();
   }
 
- // getTerms(){
- //   this.newtermService.getNewtermList().subscribe(
-   //   (data) => {
-     //   this.termList = data;
-       // if (data.length > 0) {
-         // this.termEmptyListFlag = false;
-       // } else {
-       //   this.termEmptyListFlag = true;
-       // }
-      //},
-     // (error) => {
-    //    console.log(error);
-    //  }
-   // );
-  //}
-
-  
+ 
 
 }

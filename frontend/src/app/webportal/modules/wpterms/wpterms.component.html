@@ -5,7 +5,7 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item " aria-current="page">Terms</li>
+          <li class="breadcrumb-item " aria-current="page">Terms & Conditons</li>
          <!--
           <li class="breadcrumb-item active" *ngIf="!activeFlag" aria-current="page">All</li>
           -->
@@ -21,30 +21,33 @@
       <div class="row" *ngIf="termEmptyListFlag">
         <div class="card cardcss border-success mb-3">
           <div class="card-body text-success">
-            <h2 class="card-title"> <i class="fad fa-heart-broken"></i> Terms <i
+            <h2 class="card-title"> <i class="fad fa-heart-broken"></i> Terms & Conditions <i
                 class="fal fa-frown-open"></i></h2>
           </div>
         </div>
       </div>
       <div class="row" *ngIf="!termEmptyListFlag">
 
-        <div class="col-lg-4 col-md-6 mb-4" *ngFor="let term of terms | async">
-          <div class="card h-100 text-center">
-         
-            <div class="card-body">
-              <h4 class="card-title">
-              <b> {{term.title}}  </b> 
-              </h4>
-              <h5> {{term.turl}}</h5>
-              <button type="button" routerLink="/customer/terms-details/{{term.id}}" class="btn btn-outline-success">View Details</button>
-            </div>
-            <!-- <div class="card-footer">
-              <small class="text-muted">★ ★ ★ ★ ☆</small>
-            </div> -->
+       <div class="card col-lg-16" >
+        <div class="col-lg-16 col-md-16 mb-4" *ngFor="let term of terms | async">
+        <div class="card">
+          <div class="card-header">
+            <b> {{term.title}}  </b> 
+          </div>
+          <div class="card-body">
+            <h6 class="card-title">{{term.turl}}</h6>
+          </div>
+          <div class="card-body">
+            {{term.tdiscrip}} 
+
+          <!--
+            <button type="button" routerLink="/customer/terms-details/{{term.id}}" class="btn btn-outline-success">View Details</button>
+          -->   
+
           </div>
         </div>
-
-
+        </div>
+      </div> 
       </div>
       <!-- /.row -->
 

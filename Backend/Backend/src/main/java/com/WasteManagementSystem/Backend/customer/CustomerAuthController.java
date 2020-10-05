@@ -55,8 +55,8 @@ public class CustomerAuthController {
 	}
 
     @GetMapping("/termstatus")
-    public List<customerstatus> getAllTermStatus(){
-        return CustomerAuthService.findAllTermStatus();
+   public List<customerstatus> getAllTermStatus(){
+       return CustomerAuthService.findAllTermStatus();
     }
     
     @PutMapping("/updateCustomerProfile")

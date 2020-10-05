@@ -19,17 +19,13 @@ public class Customer {
 	private String address;
 	private String password;
 	private Boolean termStatus;
-	
-	public Customer() { }
-	
-	public Customer(int id, String firstName, String lastName, String email, int contactNumber, String address,
-			String password, Boolean termStatus) {
 	private String location;
 	
 	public Customer() { }
+
 	
 	public Customer(int id, String firstName, String type, String email, int contactNumber, String address,
-			String password,String location) {
+			String password,String location, Boolean termStatus) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -114,10 +110,9 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", contactNumber=" + contactNumber + ", address=" + address + ", password=" + password + ", termStatus=" + termStatus + "]";
+		
 		return "Customer [id=" + id + ", firstName=" + firstName + ", type=" + type + ", email=" + email
-				+ ", contactNumber=" + contactNumber + ", address=" + address + ", password=" + password + ", location=" +location +"]";
+				+ ", contactNumber=" + contactNumber + ", address=" + address + ", password=" + password + ", location=" +location +", termStatus=" +termStatus +"]";
 	}
 
 }

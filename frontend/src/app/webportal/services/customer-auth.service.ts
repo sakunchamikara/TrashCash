@@ -60,7 +60,9 @@ export class CustomerAuthService {
 
   getCustomerStatus(): Observable<any>{
     const uri = `http://localhost:8080/customerstatus`;
-    return this.http.get(uri);
+    return this.http.get(uri);}
+
+    
   updateUserProfile(customer) {
     return this.http.put<Customer>(`http://localhost:8080/updateCustomerProfile`, customer);
   }

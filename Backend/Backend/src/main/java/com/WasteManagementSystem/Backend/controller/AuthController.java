@@ -1,6 +1,6 @@
 package com.WasteManagementSystem.Backend.controller;
 
-import org.omg.CORBA.Object;
+//import org.omg.CORBA.Object;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

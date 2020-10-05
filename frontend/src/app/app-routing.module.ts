@@ -30,6 +30,7 @@ import { TermsComponent } from './modules/terms/terms.component';
 import { AddtermsComponent } from './modules/terms/addterms/addterms.component';
 import { ViewtermsComponent } from './modules/terms/viewterms/viewterms.component';
 import { UpdateTermsComponent } from './modules/terms/update-terms/update-terms.component';
+import { AccepttermsComponent} from './modules/terms/acceptterms/acceptterms.component';
 import { SendMailComponent } from './modules/send-mail/send-mail.component';
 import { WptermsComponent } from './webportal/modules/wpterms/wpterms.component';
 import { CustomerLoginComponent } from './webportal/modules/customer-login/customer-login.component';
@@ -57,6 +58,10 @@ import { CustomerAccountComponent } from './webportal/modules/customer-account/c
 import { RecycledProductAddComponent } from './webportal/modules/Outsource-company/recycled-product-add/recycled-product-add.component';
 
 import { OutsourceComponent } from './webportal/layout/outsource/outsource.component';
+import { OutprofileComponent } from './webportal/outsource/outprofile/outprofile.component';
+import { OutdashboardComponent } from './webportal/outsource/outdashboard/outdashboard.component';
+import { OutRequestWasteComponent } from './webportal/outsource/out-request-waste/out-request-waste.component';
+
 import { CustomerOrdersComponent } from './webportal/modules/customer-account/customer-orders/customer-orders.component';
 
 const routes: Routes = [
@@ -162,6 +167,20 @@ const routes: Routes = [
   {
     path:'outsource',
     component:OutsourceComponent,
+    children:[
+      {
+        path:'profile',
+        component:OutprofileComponent,
+      },
+      {
+        path:'dashboard',
+        component:OutdashboardComponent,
+      },
+      {
+        path:'WasteRequsetAdd',
+        component:OutRequestWasteComponent,
+      }
+    ]
   },
   {
     path: 'system',
@@ -275,6 +294,10 @@ const routes: Routes = [
       {
         path: 'UpdateTerms/:id',
         component: UpdateTermsComponent,
+      },
+      {
+        path: 'acceptterms',
+        component: AccepttermsComponent,
       },
       {
         path: 'UpdateProductCats/:id',

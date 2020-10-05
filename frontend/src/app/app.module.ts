@@ -24,6 +24,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 
+
+
+
+
+import { ReactiveFormsModule } from '@angular/forms';
+//import { AccepttermsComponent } from './modules/terms/acceptterms/acceptterms.component';
+
+@NgModule({
+  declarations: [AppComponent, LogoutComponent,  ],
+
 @NgModule({
   declarations: [AppComponent, LogoutComponent],
   imports: [

@@ -6,6 +6,7 @@ export class Cart {
   product: Item;
   quentity: string;
   orderId: string;
+  status: string;
 
   constructor() {}
 }

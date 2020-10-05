@@ -47,6 +47,9 @@
 
     <button mat-menu-item [matMenuTriggerFor]="terms">Terms</button>
     <mat-menu #terms="matMenu">
+         <button  mat-menu-item [routerLink]="'/system/addterms'" class="btn btn-primary-outline pull-right">  Add Terms</button>  
+         <button  mat-menu-item [routerLink]="'/system/viewterms'" class="btn btn-primary-outline pull-right">  View Terms</button>
+         <button  mat-menu-item [routerLink]="'/system/acceptterms'" class="btn btn-primary-outline pull-right">  Accepted Terms Details</button>    
       <button mat-menu-item [routerLink]="'/system/addterms'" class="btn btn-primary-outline pull-right"> Add
         Terms</button>
       <button mat-menu-item [routerLink]="'/system/viewterms'" class="btn btn-primary-outline pull-right"> View

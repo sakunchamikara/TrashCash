@@ -96,5 +96,13 @@ public class SummaryStockController{
     //       .orElseThrow(() -> new ResourceNotFoundException("type not found for this id :: " + summaryStockId));
     //     return ResponseEntity.ok().body(summaryStock);
     // }
+
+    @GetMapping("/summaryStock/{id}")
+    public ResponseEntity<SummaryStock>  getSummaryWastebyId(@PathVariable(value = "id") int summaryStockId)
+        throws ResourceNotFoundException {
+            SummaryStock summaryStock = summaryStockrepo.findById(summaryStockId)
+          .orElseThrow(() -> new ResourceNotFoundException("Waste stock not found for this id :: " + summaryStockId));
+        return ResponseEntity.ok().body(summaryStock);
+    }
     
 }

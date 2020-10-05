@@ -10,8 +10,7 @@ export class SummaryStockService {
   
 
   private baseUrl  = 'http://localhost:8080/summaryStock';
-  private baseUrl2 = 'http://localhost:8080/getwasteStock'
-
+  
   constructor(private http:HttpClient) { }
 
   createSummaryStock(summaryStock: Object) : Observable <Object>{
@@ -55,8 +54,15 @@ export class SummaryStockService {
     return this.http.get(`${this.baseUrl}`);
   }
 
+  getSummaryWastebyId(id:number) :Observable<any>{
+    return this.http.get(`${this.baseUrl}/${id}`);
+  }
+
+
  
 
 
+
 }
+
 

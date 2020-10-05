@@ -19,18 +19,12 @@ public class Customer {
 	private String address;
 	private String password;
 	private Boolean termStatus;
-	
-	public Customer() { }
-	
-	public Customer(int id, String firstName, String lastName, String email, int contactNumber, String address,
-			String password, Boolean termStatus) {
 	private String location;
 	
 	public Customer() { }
-	
+
 	public Customer(int id, String firstName, String type, String email, int contactNumber, String address,
-			String password,String location) {
-		super();
+			String password, Boolean termStatus, String location) {
 		this.id = id;
 		this.firstName = firstName;
 		this.type = type;
@@ -97,27 +91,30 @@ public class Customer {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getLocation(){
-		return location;
-	}
-	public void setLocation(String location){
-		this.location=location;
-	}
 
 	public Boolean getTermStatus() {
 		return termStatus;
 	}
 
-	public void setTermStatus(boolean termStatus) {
+	public void setTermStatus(Boolean termStatus) {
 		this.termStatus = termStatus;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
 	}
 
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", contactNumber=" + contactNumber + ", address=" + address + ", password=" + password + ", termStatus=" + termStatus + "]";
-		return "Customer [id=" + id + ", firstName=" + firstName + ", type=" + type + ", email=" + email
-				+ ", contactNumber=" + contactNumber + ", address=" + address + ", password=" + password + ", location=" +location +"]";
+		return "Customer [address=" + address + ", contactNumber=" + contactNumber + ", email=" + email + ", firstName="
+				+ firstName + ", id=" + id + ", location=" + location + ", password=" + password + ", termStatus="
+				+ termStatus + ", type=" + type + "]";
 	}
+	
+	
 
 }

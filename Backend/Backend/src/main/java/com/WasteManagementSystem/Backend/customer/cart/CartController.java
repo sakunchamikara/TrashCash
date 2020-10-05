@@ -60,9 +60,9 @@ public class CartController {
 		return ResponseEntity.noContent().build();
 	}
 
-	@PutMapping("/updateCartOrder")
-	public String updateCartOrder(@RequestBody Cart cart) {
-		cartService.updateCartOrder(cart);
-		return "ok";
-	}
+	// @PutMapping("/updateCartOrder")
+	// public String updateCartOrder(@RequestBody Cart cart) {
+	// 	cartService.updateCartOrder(cart);
+	// 	return "ok";
+	// }
 }

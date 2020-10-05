@@ -19,5 +19,5 @@ public interface CartRepository extends JpaRepository<Cart, Integer> {
 
     // @Query(value= "UPDATE cart SET order_id = :cart.orderId,status = 'paid' WHERE
     // customer_id = :cart.customerId and status = 'pending'", nativeQuery = true)
-    public void updateCartOrder(Cart cart);
+    // public void updateCartOrder(Cart cart);
 }

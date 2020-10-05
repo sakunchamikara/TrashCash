@@ -29,7 +29,7 @@ public class CartService {
 		repo.deleteById(cartId);
 	}
 
-	public void updateCartOrder(Cart cart) {
-		repo.updateCartOrder(cart);
-	}
+	// public void updateCartOrder(Cart cart) {
+	// 	repo.updateCartOrder(cart);
+	// }
 }

@@ -113,4 +113,9 @@ public class ProductController {
         return productservice.getRandomProduct();
     }
 
+    @GetMapping("/searchProduct/{keyword}")
+    public List<Product> serchProduct(@PathVariable String keyword) {
+        return productservice.searchProduct(keyword);
+    }
+
 }

@@ -6,7 +6,7 @@ export class Customer {
   contactNumber: number;
   address: string;
   password: string;
-  termStatus: boolean;
+  termStatus: number;
   location: string;
 
 

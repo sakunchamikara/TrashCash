@@ -72,7 +72,7 @@
 
         <button mat-button [matMenuTriggerFor]="others" [routerLinkActive]="['mat-raised-button']">OTHERS</button>
         <mat-menu #others="matMenu">
-          <button mat-button [routerLinkActive]="['mat-raised-button']">CONTACT US</button>
+          <button mat-button [routerLink]="['/customer/contactus']" [routerLinkActive]="['mat-raised-button']">CONTACT US</button>
           <button mat-button [routerLink]="['/customer/showevent']" [routerLinkActive]="['mat-raised-button']">EVENTS &
             CAMPAIGNS</button>
           <button mat-button [routerLink]="['/customer/wpterms']" [routerLinkActive]="['mat-raised-button']">TERMS &

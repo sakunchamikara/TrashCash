@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="form-row">
+    <div class="col-md-12">
+      <br>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item " aria-current="page">Events</li>
+         
+          <li class="breadcrumb-item active" *ngIf="!activeFlag" aria-current="page">All</li>
+          
+          <li class="breadcrumb-item active" *ngIf="activeFlag" aria-current="page">{{activeFlag}}</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-9">
+
+      <div class="row" *ngIf="eventEmptyListFlag">
+        <div class="card cardcss border-success mb-3">
+          <div class="card-body text-success">
+            <h2 class="card-title"> <i class="fad fa-heart-broken"></i> No events available <i
+                class="fal fa-frown-open"></i></h2>
+          </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="!eventEmptyListFlag">
+
+        <div class="col-lg-4 col-md-6 mb-4" *ngFor="let event of eventList">
+          <div class="card h-100 text-center">
+            <a href="#"><img class="card-img-top p-3" src="{{'data:image/jpeg;base64,'+event.image}}" height="200"
+              width="100" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+              <b> {{event.eventName}}  </b> 
+              </h4>
+              <h5> {{event.location}}</h5>
+              <h5>{{event.date}}</h5>
+              <button type="button" routerLink="/customer/event-details/{{event.id}}" class="btn btn-outline-success">View Details</button>
+            </div>
+            <!-- <div class="card-footer">
+              <small class="text-muted">★ ★ ★ ★ ☆</small>
+            </div> -->
+          </div>
+        </div>
+
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.col-lg-9 -->
+
+  </div>
+
+  </div>

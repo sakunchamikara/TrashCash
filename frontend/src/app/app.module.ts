@@ -5,19 +5,22 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DefaultModule } from './layouts/default/default.module';
 import { HomeModule } from './webportal/layouts/home/home.module';
+import {OutModule} from './webportal/layout/outsource/outsource.module';
 import { LogoutComponent } from './modules/logout/logout.component';
-import { ProfileComponent } from './modules/profile/profile.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { MatSliderModule } from '@angular/material/slider';
-import { InsertProductCatComponent } from './modules/product-cat/insert-product-cat/insert-product-cat.component';
-import { ViewProductCatComponent } from './modules/product-cat/view-product-cat/view-product-cat.component';
+import {
+  MatToolbarModule,
+  MatButtonModule,
+  MatMenuModule,
+  MatIconModule,
+} from '@angular/material';
 import { FormsModule } from '@angular/forms';
-import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
-import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
+import { ReactiveFormsModule } from '@angular/forms';
+// import { AccepttermsComponent } from './modules/terms/acceptterms/acceptterms.component';
 
-//updated
+
 @NgModule({
   declarations: [AppComponent, LogoutComponent],
   imports: [
@@ -25,11 +28,17 @@ import { ViewCollectedWasteComponent } from './modules/collected-waste/view-coll
     AppRoutingModule,
     BrowserAnimationsModule,
     DefaultModule, // default component and dashboard component has declared here
+    OutModule,
     HomeModule,
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    ReactiveFormsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatIconModule,
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

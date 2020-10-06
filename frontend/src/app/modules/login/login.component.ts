@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  user = new User(null, '', '', new Date(), '', '', '', '', null, '');
+  user = new User();
   msg = '';
 
   constructor(private service: AuthserviceService, private route: Router) {}
@@ -18,13 +18,14 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   loginUser() {
+    this.user.password = btoa(this.user.password);
     this.service.loginUserFromRemote(this.user).subscribe(
       (data) => {
-        console.log('success');
-        this.route.navigate([`/system/dashboard/`]);
+        this.route
+          .navigateByUrl('/', { skipLocationChange: true })
+          .then(() => this.route.navigate(['/system/dashboard/']));
       },
       (error) => {
-        console.log('unsuccess');
         this.msg = 'Invalid Credentials';
       }
     );

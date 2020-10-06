@@ -23,7 +23,7 @@
 
           <div class="panel panel-primary">
             <div class="panel-heading">
-              <h4>Terms List</h4>
+              <h4>Terms & Conditions</h4>
             </div>
             <div class="panel-body">
               <table class="table table-striped">
@@ -31,22 +31,17 @@
                   <tr>
                     <th>Term Title</th>
                     <th>Term URL</th>
-                    <th>Term Discription</th>               
-                    <th>Action</th>
-
+                    <th>Term Discription</th>
+                    <th colspan="2">Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let term of terms | async">
-                    <td>{{term.title}}</td>
-                    <td>{{term.turl}}</td>
-                    <td>{{term.tdiscrip}}</td>
-                   
-                    <td><button (click)="deleteTerm(term.id)" class="btn btn-danger">Delete</button>
-                      <button (click)="updateTerm(term.id)" class="btn btn-info"
-                        style="margin-left: 10px">Update</button>
-
-                    </td>
+                    <td >{{term.title}}</td>
+                    <td >{{term.turl}}</td>
+                    <td >{{term.tdiscrip}}</td>
+                    <td ><button (click)="openConfirmationDialog(term.id)" class="btn btn-danger">Delete</button></td>
+                    <td ><button (click)="updateTerm(term.id)" class="btn btn-info">Update</button></td>
                   </tr>
                 </tbody>
               </table>

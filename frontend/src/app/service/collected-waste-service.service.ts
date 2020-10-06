@@ -32,8 +32,15 @@ export class CollectedWasteServiceService {
   }
 
   updateCollectedWaste(id:number,value:any):Observable<Object>{
-    return this.http.put(`${this.baseUrl}/${id}`,value)
+    return this.http.put(`${this.baseUrl}/${id}`,value);
   }
+
+  // getWasteByType(type:String):Observable<Object>{
+           
+
+  //           const uri = `http://localhost:8080/getWaste/${type}`;
+  //   return this.http.get(uri);
+  // }
 
   public confirm(
     title: string,
@@ -49,6 +56,15 @@ export class CollectedWasteServiceService {
 
     return modalRef.result;
 
+}
+ getWasteCatDropdownValues(): Observable<any> {
+  return this.http.get(`${this.baseUrl}`);
+}
+
+
+getQuantity(wasteType:string): Observable<any> {
+  const uri = `http://localhost:8080/collectWaste/${wasteType}`;
+  return this.http.get(uri);
 }
 }
 

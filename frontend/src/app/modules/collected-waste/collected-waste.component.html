@@ -32,7 +32,7 @@
 
 
     <div class="row">
-      <div class="col-lg-9 col-md-9">
+      <div class="col-lg-8 col-md-8">
         <div class="card p2">
           <div class="card-body ">
             <h4 class="card-title">
@@ -74,4 +74,42 @@
 </div>
 
 </div>
+
+<div class="col-lg-3 col-md-3">
+  <div class="card p2">
+    <div class="card-body ">
+      <h4 class="card-title">
+        Summary Stock
+      </h4>
+<div class="panel-body">
+<table class="table table-striped">
+<thead>
+  <tr>
+    <th>Wast Type</th>
+    <th>Total Amount</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let stockWaste of stockWastes | async">
+    <td>{{stockWaste.type}}</td>
+    <td>{{stockWaste.total}}</td>
+   
+    <td>
+   
+        
+    </td>
+  </tr>
+</tbody>
+</table>
 </div>
+
+</div>
+</div>
+
+</div>
+
+ <div class="col-lg-1 col-md-1"></div>
+</div>
+
+
+

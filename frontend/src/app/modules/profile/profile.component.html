@@ -12,7 +12,7 @@
       </nav>
     </div>
     <div *ngIf="successMsg" class="col-md-6">
-      <div  class="alert alert-success alert-dismissible fade show" role="alert">
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
         {{successMsg}}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -40,18 +40,17 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="">First Name</label>
-                <input type="text" class="form-control" name="fname" [(ngModel)]="user.fisrtName" required>
+                <input type="text" class="form-control" name="firstName" [(ngModel)]="user.fisrtName" required>
               </div>
               <div class="form-group col-md-6">
                 <label for="">Last Name</label>
-                <input type="text" class="form-control" name="lname" [(ngModel)]="user.lastName" required>
+                <input type="text" class="form-control" name="lastName" [(ngModel)]="user.lastName" required>
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="">BirthDay</label>
-                <input type="date" class="form-control" name="bdate" [ngModel]="user.birthday | date:'yyyy-MM-dd'"
-                  (ngModel)="todo.targetDate = $event" required>
+                <label for="">Contact Number</label>
+                <input type="text" class="form-control" name="contactNumber" [(ngModel)]="user.contactNumber" required>
               </div>
               <div class="form-group col-md-6">
                 <label for="">Role</label>
@@ -75,12 +74,9 @@
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="">Contact Number</label>
-                <input type="text" class="form-control" name="cnumber" [(ngModel)]="user.contactNumber" required>
-              </div>
-              <div class="form-group col-md-6">
                 <label for="">Profile picture</label>
                 <input type="file" accept="image/*" (change)="onSelectFile($event)" class="form-control" name="image">
+                <img [src]="imgURL" height="100" width="100" *ngIf="imgURL">
               </div>
             </div>
             <div class="form-row">
@@ -90,8 +86,8 @@
                   #password="ngModel">
               </div>
               <div class="form-group col-md-6">
-                <label for="">Password Again</label>
-                <input type="password" class="form-control" name="passwordAgain" [(ngModel)]="user.password" required
+                <label for="">Confirm Password</label>
+                <input type="password" class="form-control" name="passwordAgain" (ngModel)="user.password" required
                   #cpassword="ngModel" [class.is-invalid]="cpassword.invalid && cpassword.touched">
               </div>
               <small class="text-danger" [class.d-none]="(cpassword.value == password.value) || cpassword.untouched">
@@ -100,71 +96,6 @@
             </div>
             <button type="submit" class="btn btn-primary float-right">Update</button>
           </form>
-
-          <!-- <form [formGroup]="reactiveForm">
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="">First Name</label>
-                <input type="text" class="form-control" name="fname" [(ngModel)]="user.fisrtName" required>
-              </div>
-              <div class="form-group col-md-6">
-                <label for="">Last Name</label>
-                <input type="text" class="form-control" name="fname" [(ngModel)]="user.lastName" required>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="">BirthDay</label>
-                <input type="date" class="form-control" name="bdate" [ngModel]="user.birthday | date:'yyyy-MM-dd'"
-                  (ngModel)="todo.targetDate = $event" required>
-              </div>
-              <div class="form-group col-md-6">
-                <label for="">Role</label>
-                <select class="form-control" name="userType" [(ngModel)]="user.userType" required>
-                  <option [value]="roles" *ngFor="let roles of Roles">{{roles}}</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="inputEmail4">Email</label>
-                <input type="email" class="form-control" name="email" [(ngModel)]="user.email" required
-                  pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
-              </div>
-              <div class=" form-group col-md-6">
-                <label for="">Gender</label>
-                <select class="form-control" name="gender" [(ngModel)]="user.gender" required>
-                  <option [value]="gender" *ngFor="let gender of Gender">{{gender}}</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="">Contact Number</label>
-                <input type="text" class="form-control" name="cnumber" [(ngModel)]="user.contactNumber" required>
-              </div>
-              <div class="form-group col-md-6">
-                <label for="">Profile picture</label>
-                <input type="file" accept="image/*" (change)="onSelectFile($event)" class="form-control" name="fname">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="">Password</label>
-                <input type="password" class="form-control" name="password" [(ngModel)]="user.password" required
-                  #password="ngModel">
-              </div>
-              <div class="form-group col-md-6">
-                <label for="">Password Again</label>
-                <input type="password" class="form-control" name="passwordAgain" [(ngModel)]="user.password" required
-                  #cpassword="ngModel" [class.is-invalid]="cpassword.invalid && cpassword.touched">
-              </div>
-              <small class="text-danger" [class.d-none]="(cpassword.value == password.value) || cpassword.untouched">
-                Passwords Mismatch!!!</small>
-
-            </div>
-            <button type="submit" class="btn btn-primary float-right" (click)="updateUserProfileWithImage(reactiveForm)">Update</button>
-          </form> -->
         </div>
       </div>
 
@@ -172,9 +103,7 @@
 
     <div class="col-lg-3 col-md-3">
       <div class="card p3">
-        <img class="card-img-top"
-            src="/assets/images/others/pro.png"
-            alt="">
+        <img class="card-img-top" src="{{user.propic}}" alt="">
         <div class="card-body">
           <h4 class="card-title">
             {{user.fisrtName}} {{user.lastName}}
@@ -188,108 +117,6 @@
       </div>
     </div>
   </div>
-
-  <!-- <div fxLayout="row">
-    <div fxLayout="row" fxFlex="2"></div>
-
-    <div fxLayout="row" fxFlex="70">
-      <mat-card class="edit-user">
-        <mat-card-header>
-          <mat-card-title>Edit User</mat-card-title>
-        </mat-card-header>
-
-        <form class="example-form" #registerform="ngForm">
-          <mat-card-content class="card-content">
-            <mat-form-field>
-              <input matInput placeholder="First Name" name="fname" [(ngModel)]="user.fisrtName" required>
-            </mat-form-field>
-
-            <mat-form-field>
-              <input matInput placeholder="Last Name" name="lname" [(ngModel)]="user.lastName" required>
-            </mat-form-field>
-
-            <mat-form-field>
-              <mat-label>Enter birthday </mat-label>
-              <input matInput [matDatepicker]="picker" name="birthday" [(ngModel)]="user.birthday" required>
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-
-            <mat-form-field>
-              <mat-label>Choose a role...</mat-label>
-              <mat-select matNativeControl name="userType" [(ngModel)]="user.userType" required>
-                <mat-option [value]="roles" *ngFor="let roles of Roles">{{roles}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-
-            <mat-form-field class="right">
-              <input matInput placeholder="Email" type="email" name="email" [(ngModel)]="user.email" required
-                pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
-            </mat-form-field>
-
-            <mat-form-field>
-              <mat-label>Choose Gender ...</mat-label>
-              <mat-select matNativeControl name="gender" [(ngModel)]="user.gender" required>
-                <mat-option [value]="gender" *ngFor="let gender of Gender">{{gender}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-
-            <mat-form-field>
-              <input matInput type="password" placeholder="Password" name="password" [(ngModel)]="user.password"
-                #password="ngModel" required>
-            </mat-form-field>
-
-            <mat-form-field>
-              <input matInput type="password" placeholder="Password Again" name="passwordAgain"
-                (ngModel)="user.password" #cpassword="ngModel" required
-                [class.is-invalid]="cpassword.invalid && cpassword.touched">
-            </mat-form-field>
-            <small style="padding-left: 50px;"
-              [class.d-none]="(cpassword.value == password.value) || cpassword.untouched">Passwords Mismatch!!!</small>
-
-
-            <div>
-              <label for="">Profile Picture : </label>
-              <input class="form-control-file" type="file" placeholder="Contact nummber" name="cnumber" required>
-            </div>
-
-            <mat-form-field>
-              <input matInput placeholder="Contact nummber" name="cnumber" required>
-            </mat-form-field>
-
-
-          </mat-card-content>
-          <div class="button">
-            <button mat-raised-button color="primary" type="submit">Submit</button>
-          </div>
-
-        </form>
-      </mat-card>
-    </div>
-    <div fxLayout="row" fxFlex="2"></div>
-    <div fxLayout="row" fxFlex="30">
-      <mat-card class="profile-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>Shiba Inu</mat-card-title>
-          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </mat-card-header>
-        <img style="width: 300px;height: 200px;" mat-card-image
-          src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-          <p>
-            The Shiba
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-  </div> -->
 
 </div>
 

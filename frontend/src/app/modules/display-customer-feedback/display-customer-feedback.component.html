@@ -1,0 +1,64 @@
+<div class="col-container">
+   
+    <br>
+    <div class="row p1">
+      <div class="">
+  
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb shadow p-3 mb-5 bg-white rounded">
+            <li class="breadcrumb-item"><a href="#"><i class="fad fa-tachometer-alt-fastest"></i> Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">View Customer Feedbacks</li>
+          </ol>
+        </nav>
+      </div>
+     
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-9 col-md-9">
+          <div class="card p2">
+            <div class="card-body ">
+              <h4 class="card-title">
+                Customer Feedback
+              </h4>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr style="text-align: center">
+            <th>Id</th>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Customer Name</th>
+            <th>Action</th>  
+            <th>Status</th> 
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let addedFeedback of addedFeedbacks" style="text-align: center">
+            <td>{{addedFeedback.id}}</td>
+            <td>{{addedFeedback.date}}</td>
+            <td>{{addedFeedback.feedbackType}}</td> 
+            <td>{{addedFeedback.cusFeedFirstName}}</td>                
+            <td>
+              <button class="btn btn-primary" (click)="viewMsg(addedFeedback.feedback,addedFeedback.id)">View</button>
+              <button  class="btn btn-success" id="pubBtn" style="text-align: center; margin-left: 25px;">Publish</button>   
+            </td>
+            <td><span class="badge badge-pill badge-dark" id="labelText">{{addedFeedback.status}}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+  </div>
+  </div>
+  
+  </div>
+
+
+
+
+</div>
+
+</div>
+

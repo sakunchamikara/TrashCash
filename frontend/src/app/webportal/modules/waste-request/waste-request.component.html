@@ -1,0 +1,112 @@
+
+  <div class="container">
+   
+    <div class="form-row">
+        <div class="col-md-12">
+          <br>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item " aria-current="page">Waste requests</li>
+                <li class="breadcrumb-item active" *ngIf="!activeFlag" aria-current="page">All</li>
+                <li class="breadcrumb-item active" *ngIf="activeFlag" aria-current="page">{{activeFlag}}</li>
+            </ol>
+          </nav>
+        </div>
+    </div>
+
+
+  <div class="row">
+    <div class="col-lg-4 col-md-4">
+      <div class="card p2">
+          <div class="card-body ">
+
+              <h4 class="card-title">
+                 Place a waste request
+              </h4>
+              
+           <form (ngSubmit)="onSubmit()" #wasteForm="ngForm" >
+
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="wasteType">Waste Type</label>
+                  <select class="form-control" name="wasteType" id="wasteType" [(ngModel)]="wasteRequest.wasteType" placeholder="Enter waste type" required>
+                  <option [value]="type" *ngFor="let type of Types">{{type}}</option>
+                  </select>
+                </div>
+              </div>
+  
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" class="form-control" name="quantity" id="quantity"  min="1" oninput="validity.valid||(value='');" placeholder="Enter Waste Quantity in grams" [(ngModel)]="wasteRequest.quantity" required #quantity="ngModel">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary float-right">Submit</button>
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+
+
+<div class="col-lg-1 col-md-1"></div>
+<div class="col-lg-7 col-md-7">
+  <div class="card p2">
+    <div class="card-body ">
+      <h4 class="card-title">
+       Placed waste requests
+      </h4>
+<div class="panel-body">
+<table class="table table-striped">
+<thead>
+  <tr>
+    <th>Wast Type</th>
+    <th>Quantity</th>
+    <th>Date</th>
+    <th>Status</th>
+    <th>Action</th>
+  
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let retrieveRequest of retrieveRequests | async">
+    <td>{{retrieveRequest.wasteType}}</td>
+    <td>{{retrieveRequest.quantity}}</td>
+    <td>{{retrieveRequest.date}}</td>
+    <td>{{retrieveRequest.status}}</td>
+    <!-- <td>{{successMsg}}</td> -->
+   
+   
+    <td>
+  
+      <button (click)="openConfirmationDialog(retrieveRequest.id)" class="btn btn-danger">Cancel</button>
+      <!-- <button (click)="updateCustomerWasteRequest(retrieveRequest.id)" class="btn btn-info" style="margin-left: 10px">Update</button> -->
+        
+    </td>
+  
+  </tr>
+  
+
+
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+
+
+
+
+   
+  </div>
+ 
+  
+  
+  
+  

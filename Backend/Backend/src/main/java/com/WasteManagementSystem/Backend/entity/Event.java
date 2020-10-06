@@ -1,12 +1,15 @@
 package com.WasteManagementSystem.Backend.entity;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.Range;
+//import org.hibernate.validator.constraints.Range;
+// import org.hibernate.validator.constraints.Range;
 import java.sql.Date;
 
+import javax.persistence.Column;
 //import javax.validation.constraints.NotEmpty;
 //import javax.validation.constraints.Min;
-import javax.persistence.Column;
+//import javax.persistence.Column;
+// import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,7 +29,9 @@ public class Event {
     private String location;
 	private Date date;
 	
-	private String image;
+	//private String image;
+	@Column(name = "image", length = 1000)
+	private byte[] image;
 
 	private String notes;
 
@@ -35,7 +40,7 @@ public class Event {
 	public Event() {
 		}
 	
-	public Event ( int id ,String eventName,String location,Date date,String image, String notes ) {	
+	public Event ( int id ,String eventName,String location,Date date,byte[] image, String notes ) {	
 		super();
 		this.id = id;
 		this.eventName = eventName;
@@ -77,11 +82,11 @@ public class Event {
 		this.date = date;
 	}
 	
-	public String getImage() {
+	public byte[] getImage() {
 		return image;
 	}
 
-	public void setImage(String image) {
+	public void setImage(byte[] image) {
 		this.image = image;
 	}
 

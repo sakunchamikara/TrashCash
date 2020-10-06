@@ -1,9 +1,7 @@
 package com.WasteManagementSystem.Backend.controller;
 
+import org.omg.CORBA.Object;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,20 +10,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.IOException;
-
 import com.WasteManagementSystem.Backend.entity.User;
 import com.WasteManagementSystem.Backend.service.RegistrationService;
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import org.springframework.web.bind.annotation.PutMapping;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class AuthController {
+
+	public byte[] bytes;
 
 	@Autowired
 	private RegistrationService service;
@@ -66,16 +60,39 @@ public class AuthController {
 
 	@PutMapping("/updateUser")
 	public User updateUserProfile(@RequestBody User user) {
+		user.setImage(this.bytes);
 		User updatedUser = service.saveUser(user);
 		return updatedUser;
 	}
 
-	// @PutMapping("/updateUserProfileWithImage")
-	// public ResponseEntity<User> updateUserProfileWithImage(@RequestParam("file")
-	// MultipartFile file,@RequestParam("user") String user) throws
-	// JsonParseException,JsonMappingException,IOException {
-	// User person = new ObjectMapper().readValue(user, User.class);
+	@PostMapping("/profilePicture")
+	public void uploadImage(@RequestParam("imageFile") MultipartFile file) throws IOException {
+		this.bytes = file.getBytes();
+	}
 
-	// return new ResponseEntity<User>(new User(""),HttpStatus.OK);
+	// @PutMapping("/updateUserProfileWithImage")
+	// public User updateUserProfileWithImage(@RequestParam("file") MultipartFile
+	// file, @RequestBody User user)
+	// throws JsonParseException, JsonMappingException, IOException {
+
+	// User person = user;
+	// person.setImage(file.getBytes());
+
+	// User dbperson = service.saveUser(person);
+	// if (dbperson != null) {
+	// return person;
+	// } else {
+	// return null;
 	// }
+	// }
+	@PostMapping("/notifypayment")
+	public void notifypayment(@RequestBody Object object) {
+		System.out.println("===============================================");
+		System.out.println(object);
+		System.out.println("===============================================");
+	}
 }
+
+
+
+

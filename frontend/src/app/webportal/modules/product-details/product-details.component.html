@@ -1,0 +1,97 @@
+<div class="container">
+  <div class="form-row">
+    <div class="col-md-12">
+      <br>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item" routerLink="/customer/shop">Products</li>
+          <li class="breadcrumb-item active" aria-current="page">{{item.category}}</li>
+
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <div class="alert alert-success" role="alert" *ngIf="successMessage">
+    {{successMessage}} <a routerLink='/customer/shop' class="alert-link">Check More Products</a>
+  </div>
+
+  <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+    {{errorMessage}} <a routerLink='/customer/cart' class="alert-link"> . Check Cart</a>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <img class="img-fluid rounded mb-4 mb-lg-0" height="300" width="400" src="{{productImage}}" alt="">
+    </div>
+
+    <div class="col-lg-6">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="card-title">{{item.title}}</h2>
+          <hr>
+          <p class="card-text text-muted">{{item.details}}</p>
+          <h5><em>Rs. {{item.price}} </em></h5>
+          <br>
+          <form #addToCartForm="ngForm" (ngSubmit)="addToCart()">
+            <div class="form-inline">
+              <label>Quentity</label>
+              <input type="text" class="form-control mx-sm-3" #quentity="ngModel" name="quentity" [(ngModel)]="cart.quentity"
+                placeholder="Enter Product Quentity" required [class.is-invalid]="quentity.invalid && quentity.touched">
+            </div>
+            <br>
+            <hr>
+            <div class="form-group float-right">
+              <button type="button" class="btn btn-danger"><i class="fas fa-money-bill-wave"></i> Buy Now</button>
+              <button type="submit" class="btn btn-warning ml-2" style="color: white;" [disabled]="addToCartForm.form.invalid"><i
+                  class="far fa-shopping-cart"></i> Add to Cart</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Call to Action Well -->
+  <div class="card my-5 py-4">
+    <div class="card-body">
+      <h3 class="text-muted">Check Our Other Products ! <i class="fal fa-smile-beam"></i></h3>
+    </div>
+  </div>
+
+
+
+  <div class="row text-center">
+
+    <div class="col-lg-3 col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h3 class="card-text text-center">Products</h3>
+          <h3 class="card-text text-center">You</h3>
+          <h3 class="card-text text-center">May Be</h3>
+          <h3 class="card-text text-center">Like</h3>
+          <h3 class="card-text text-center"><i class="fal fa-smile-beam"></i></h3>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 mb-4" *ngFor="let product of randomProduct;">
+      <div class="card h-100">
+        <img class="card-img-top" src="{{'data:image/jpeg;base64,'+product.image1}}" width="100" height="200" alt="">
+        <div class="card-body">
+          <h4 class="card-title">{{product.title}}</h4>
+          <h5>Rs. {{product.price}}</h5>
+        </div>
+        <div class="card-footer">
+          <a class="btn btn-primary" (click)="navigateToRandomProduct(product.id)">Find Out More!</a>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>

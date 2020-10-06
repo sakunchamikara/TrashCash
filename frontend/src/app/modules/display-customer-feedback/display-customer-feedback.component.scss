@@ -1,0 +1,34 @@
+.p1{
+    margin-left: 25px;
+  }
+  
+  .p2{
+    margin-left: 25px;
+  
+  }
+  
+  .p3{
+    // max-width: 400px;
+    margin-right: 25px;
+  
+  }
+  
+  .col-container {
+    display: table;
+    width: 100%;
+  }
+  .col {
+    display: table-cell;
+  }
+
+  .dark-modal .modal-content {
+    background-color: #292b2c;
+    color: white;
+  }
+  .dark-modal .close {
+    color: white;
+  }
+  .light-blue-backdrop {
+    background-color: #5cb3fd;
+  }
+  

@@ -1,0 +1,96 @@
+<div class="row p1">
+    <div class="">
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb shadow p-3 mb-5 bg-white rounded">
+          <li class="breadcrumb-item"><a href="#"><i class="fad fa-tachometer-alt-fastest"></i> Dashboard</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Send mail</li>
+        </ol>
+      </nav>
+    </div>
+
+    <!-- <div *ngIf="successMsg" class="col-md-6">
+      <div  class="alert alert-success alert-dismissible fade show" role="alert">
+        {{successMsg}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+    <div *ngIf="errorMsg" class="col-md-6">
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{errorMsg}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div> -->
+  </div>
+
+
+  <div class="row">
+    <div class="col-lg-6 col-md-8">
+      <div class="card p2">
+        <div class="card-body">
+          <h4 class="card-title">
+           Create Mail
+          </h4>
+
+
+     <form (ngSubmit)="onSubmit()" #mailForm="ngForm">
+
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <label for="">From :</label>
+                <input  type="text" class="form-control" id="sendAdd"  name="sendAdd" required >
+
+              </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                <label for="">To :</label>
+                <br>
+                <!--
+                <div class="form-check ">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                  <label class="form-check-label" for="inlineRadio1">Staff</label>
+                </div>
+                <div class="form-check ">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                  <label class="form-check-label" for="inlineRadio2">Agents</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                  <label class="form-check-label" for="inlineRadio3">Outsource Companies</label>
+                </div>
+                <div class="form-check ">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                  <label class="form-check-label" for="inlineRadio2">Customers</label>
+                </div> -->
+
+                <input type="text" class="form-control"  [(ngModel)]="dataset.email" name="email" required>
+              </div>
+              </div>
+
+
+
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <label for="">Description</label>
+                <textarea rows="6" type="text" class="form-control" id="description" [(ngModel)]="dataset.description" name="description"  required  >
+                </textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary float-right" (click)="onSubmit()">Send</button>
+          </form>
+
+    <!--  <div [hidden]="!submitted">
+          <h4>You submitted successfully!</h4>
+    -->
+
+      </div>
+    </div>
+  </div>
+</div>

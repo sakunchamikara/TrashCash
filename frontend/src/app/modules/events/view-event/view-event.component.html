@@ -8,6 +8,8 @@
           <ol class="breadcrumb shadow p-3 mb-5 bg-white rounded">
             <li class="breadcrumb-item"><a href="#"><i class="fad fa-tachometer-alt-fastest"></i> Dashboard</a></li>
             <li class="breadcrumb-item active" aria-current="page">View Events</li>
+            <li class="breadcrumb-item active" *ngIf="!activeFlag" aria-current="page">All</li>
+            <li class="breadcrumb-item active" *ngIf="activeFlag" aria-current="page">{{activeFlag}}</li>
           </ol>
         </nav>
       </div>
@@ -26,6 +28,15 @@
                 <h4>Event List</h4>
               </div>
               <div class="panel-body">
+                <div class="row" *ngIf="eventEmptyListFlag">
+                  <div class="card cardcss border-success mb-3">
+                    <div class="card-body text-success">
+                      <h2 class="card-title"> <i class="fad fa-heart-broken"></i> No events available <i
+                          class="fal fa-frown-open"></i></h2>
+                    </div>
+                  </div>
+                </div>
+                <div class="row" *ngIf="!eventEmptyListFlag">
                 <table class="table table-striped">
                   <thead>
                     <tr>
@@ -39,14 +50,14 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let event of events | async">
+                    <tr *ngFor="let event of events">
                       <td>{{event.eventName}}</td>
                       <td>{{event.location}}</td>
                       <td>{{event.date}}</td>
-                      <td>{{event.image}}</td>
+                      <td><img src="{{event.retrievedImage}}" height="200" width="200"></td>
                       <td>{{event.notes}}</td>
                      
-                      <td><button (click)="deleteEvent(event.id)" class="btn btn-danger">Delete</button>
+                      <td><button (click)="openConfirmationDialog(event.id)" class="btn btn-danger">Delete</button>
                         <button (click)="updateEvent(event.id)" class="btn btn-info"
                           style="margin-left: 10px">Update</button>
   
@@ -54,6 +65,7 @@
                     </tr>
                   </tbody>
                 </table>
+                </div>
               </div>
             </div>
           </div>

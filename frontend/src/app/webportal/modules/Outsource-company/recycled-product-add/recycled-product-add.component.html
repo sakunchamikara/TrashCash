@@ -1,0 +1,157 @@
+
+  <div class="container">
+   
+    <br>
+ 
+
+    <div class="form-row">
+      <div class="col-md-12">
+        <br>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item " aria-current="page">Add Recycled Products</li>
+            <li class="breadcrumb-item active" *ngIf="!activeFlag" aria-current="page">All</li>
+            <li class="breadcrumb-item active" *ngIf="activeFlag" aria-current="page">{{activeFlag}}</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+  <div class="row">
+    <div class="col-lg-4 col-md-4">
+      <div class="card p2">
+        <div class="card-body ">
+          <h4 class="card-title">
+            Add Recycled Products
+          </h4>
+    <form (ngSubmit)="wasteForm.form.valid && onSubmit()" #wasteForm="ngForm" >
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+            <label for="category">Product Category</label>
+            <input type="text" class="form-control" name="category" id="category"  placeholder="Enter product category" [(ngModel)]="product.category" required #category="ngModel" [ngClass]="{ 'is-invalid': wasteForm.submitted && category.invalid }" required >
+            <div *ngIf="wasteForm.submitted && category.invalid" class="invalid-feedback">
+              <div *ngIf="category.errors.required">category is required</div>
+          </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-12">
+            <label for="title">Product Name</label>
+            <input type="text" class="form-control" name="title" id="title"  placeholder="Enter product title" [(ngModel)]="product.title" required #title="ngModel" [ngClass]="{ 'is-invalid': wasteForm.submitted && title.invalid }" required >
+            <div *ngIf="wasteForm.submitted && title.invalid" class="invalid-feedback">
+              <div *ngIf="title.errors.required">title is required</div>
+          </div>
+            </div>
+          </div>
+  
+      <div class="form-row">
+        <div class="form-group col-md-12">
+            <label for="image1">Image(Required)</label>   
+              <input type="file" (change)="onFileChanged($event)" >
+             <img [src]="imgURL" height="200" width="200" *ngIf="imgURL" >
+         </div>
+        <div class="form-group col-md-6">
+        <label for="quantity">Quantity</label>
+        <input type="number" class="form-control" name="quantity" id="quantity"  min="1" oninput="validity.valid||(value='');" placeholder="Enter quantity" [(ngModel)]="product.quantity" required #quantity="ngModel" [ngClass]="{ 'is-invalid': wasteForm.submitted && quantity.invalid }" required >
+        <div *ngIf="wasteForm.submitted && quantity.invalid" class="invalid-feedback">
+          <div *ngIf="quantity.errors.required">Quantity is required</div>
+      </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="price">Price(Rs.)</label>
+            <input type="number" class="form-control" name="price" id="price"  min="0.01" step="0.01" oninput="validity.valid||(value='');" placeholder="Enter price" [(ngModel)]="product.price" required #price="ngModel" [ngClass]="{ 'is-invalid': wasteForm.submitted && price.invalid }" required >
+            <div *ngIf="wasteForm.submitted && price.invalid" class="invalid-feedback">
+              <div *ngIf="price.errors.required">price is required</div>
+          </div>
+        </div>
+        <div class=" form-group col-md-6">
+            <label for="discount">Discount(%)</label>
+            <input type="number"  class="form-control" id="discount" min="0.01" step="0.01" oninput="validity.valid||(value='');"  [(ngModel)]="product.discount" name="discount">
+            <!-- <input type="text"  class="form-control" id="discount" required [(ngModel)]="product.discount" name="discount"> -->
+          </div>
+          <div class=" form-group col-md-12">
+            <label for="details">Description</label>
+            <textarea  class="form-control" id="details"  [(ngModel)]="product.details" name="details"></textarea>
+            <!-- <input type="text"  class="form-control" id="details" required [(ngModel)]="product.details" name="details"> -->
+          </div>
+        
+      </div>
+  
+     
+      
+      <button type="submit" class="btn btn-primary float-right">Submit</button>
+    </form>
+
+  </div>
+</div>
+
+</div>
+
+
+<!-- <div class="col-lg-1 col-md-1"></div> -->
+<div class="col-lg-6 col-md-6">
+  <div class="sec">
+  <div class="card p2">
+    <div class="card-body ">
+      <h4 class="card-title">
+       View Add Recycled Products
+      </h4>
+<div class="panel-body">
+<table class="table table-striped">
+<thead>
+  <tr>
+    <th>Product Category</th>
+    <th>Product Name</th>
+    <th>Product Image</th>
+    <th>Quantity</th>
+    <th>Price(Rs)</th>
+    <th>Discount</th>
+    <th>New Price</th>
+    <th>Date</th>
+    <th>Action</th>
+  
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let retrieveRequest of retrieveRequests">
+    <td>{{retrieveRequest.category}}</td>
+    <td>{{retrieveRequest.title}}</td>
+    <td><img src="{{retrieveRequest.retrievedImage}}" height="100" width="100"></td>
+    <td>{{retrieveRequest.quantity}}</td>
+    <td>{{retrieveRequest.price}}</td>
+    <td>{{retrieveRequest.discount + '%'}}</td>
+    <td>{{retrieveRequest.newprice}}</td>
+    <td>{{retrieveRequest.date}}</td>
+
+   
+   
+    <td>
+  
+      <button (click)="openConfirmationDialog(retrieveRequest.id)" class="btn btn-danger">Cancel</button>
+      <!-- <button (click)="updateCustomerproduct(retrieveRequest.id)" class="btn btn-info" style="margin-left: 10px">Update</button> -->
+        
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+
+
+   
+  </div>
+  <br>
+  
+  
+  
+  

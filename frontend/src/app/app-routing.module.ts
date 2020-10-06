@@ -15,15 +15,10 @@ import { ViewProductComponent } from './modules/products/view-product/view-produ
 import { UpdateProductComponent } from './modules/products/view-product/update-product/update-product.component';
 import { UpdateCollectedWasteComponent } from 'src/app/modules/collected-waste/update-collected-waste/update-collected-waste.component';
 
-
 import { CollectedWasteComponent } from './modules/collected-waste/collected-waste.component';
 import { ProfileComponent } from './modules/profile/profile.component';
-//import { ProductCatComponent } from './modules/product-cat/product-cat.component';
 import { InsertCollectedWasteComponent } from './modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
 import { ViewCollectedWasteComponent } from './modules/collected-waste/view-collected-waste/view-collected-waste.component';
-//import { AddEventComponent } from './modules/events/add-event/add-event.component';
-//import { ViewEventComponent } from './modules/events/view-event/view-event.component';
-
 import { InsertProductCatComponent } from './modules/product-cat/insert-product-cat/insert-product-cat.component';
 import { ViewProductCatComponent } from './modules/product-cat/view-product-cat/view-product-cat.component';
 import { UpdateProductCatComponent } from './modules/product-cat/update-product-cat/update-product-cat.component';
@@ -35,6 +30,38 @@ import { TermsComponent } from './modules/terms/terms.component';
 import { AddtermsComponent } from './modules/terms/addterms/addterms.component';
 import { ViewtermsComponent } from './modules/terms/viewterms/viewterms.component';
 import { UpdateTermsComponent } from './modules/terms/update-terms/update-terms.component';
+import { AccepttermsComponent } from './modules/terms/acceptterms/acceptterms.component';
+import { SendMailComponent } from './modules/send-mail/send-mail.component';
+import { WptermsComponent } from './webportal/modules/wpterms/wpterms.component';
+import { CustomerLoginComponent } from './webportal/modules/customer-login/customer-login.component';
+import { CustomerRegisterComponent } from './webportal/modules/customer-register/customer-register.component';
+import { WasteRequestComponent } from './webportal/modules/waste-request/waste-request.component';
+import { CartComponent } from './webportal/modules/cart/cart.component';
+import { CustomerFeedbackComponent } from './webportal/modules/customer-feedback/customer-feedback.component';
+
+import { ProductDetailsComponent } from './webportal/modules/product-details/product-details.component';
+import { ViewPlacedRequestsComponent } from 'src/app/modules/agent/view-placed-requests/view-placed-requests.component';
+import { TermDetailsComponent } from './webportal/modules/term-details/term-details.component';
+import { CustomerLogoutComponent } from './webportal/modules/customer-logout/customer-logout.component';
+import { OutWasteRequsetComponent } from './webportal/modules/out-waste-requset/out-waste-requset.component';
+import { OutWasteRequestComponent } from './modules/out-waste-request/out-waste-request.component';
+import { ViewDbComponent } from './modules/view-db/view-db.component';
+import { ShowEventComponent } from './webportal/modules/show-event/show-event.component';
+import { EventDetailsComponent } from './webportal/modules/show-event/event-details/event-details.component';
+import { ConfirmWasteRequestComponent } from './modules/out-waste-request/confirm-waste-request/confirm-waste-request.component';
+import { DisplayCustomerFeedbackComponent } from './modules/display-customer-feedback/display-customer-feedback.component';
+import { LocationComponent } from './webportal/modules/waste-request/location/location.component';
+import { ViewAgentConfirmedRequestComponent } from 'src/app/modules/agent/view-agent-confirmed-request/view-agent-confirmed-request.component';
+import { CheckOutComponent } from './webportal/modules/check-out/check-out.component';
+import { CustomerAccountComponent } from './webportal/modules/customer-account/customer-account.component';
+import { RecycledProductAddComponent } from './webportal/modules/Outsource-company/recycled-product-add/recycled-product-add.component';
+
+import { OutsourceComponent } from './webportal/layout/outsource/outsource.component';
+import { OutprofileComponent } from './webportal/outsource/outprofile/outprofile.component';
+import { OutdashboardComponent } from './webportal/outsource/outdashboard/outdashboard.component';
+import { OutRequestWasteComponent } from './webportal/outsource/out-request-waste/out-request-waste.component';
+
+import { CustomerOrdersComponent } from './webportal/modules/customer-account/customer-orders/customer-orders.component';
 
 const routes: Routes = [
   {
@@ -47,12 +74,109 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       {
+        path: 'showevent',
+        component: ShowEventComponent,
+      },
+      {
+        path: 'event-details/:id',
+        component: EventDetailsComponent,
+      },
+      {
         path: 'welcome',
         component: WelcomeComponent,
       },
       {
         path: 'shop',
         component: ShopComponent,
+      },
+      {
+        path: 'wpterms',
+        component: WptermsComponent,
+      },
+      {
+        path: 'login',
+        component: CustomerLoginComponent,
+      },
+      {
+        path: 'register',
+        component: CustomerRegisterComponent,
+      },
+      {
+        path: 'logout',
+        component: CustomerLogoutComponent,
+      },
+      {
+        path: 'waste-request',
+        component: WasteRequestComponent,
+      },
+      {
+        path: 'outsource-waste-request',
+        component: OutWasteRequsetComponent,
+        // path: 'outsource-waste-request',
+        // component: OutWasteRequsetComponent,
+      },
+      {
+        path: 'cart',
+        component: CartComponent,
+      },
+      {
+        path: 'wpterms',
+        component: WptermsComponent,
+      },
+      {
+        path: 'feedback',
+        component: CustomerFeedbackComponent,
+      },
+      {
+        path: 'product/:id',
+        component: ProductDetailsComponent,
+      },
+      {
+        path: 'terms-details/:id',
+        component: TermDetailsComponent,
+      },
+      {
+        path: 'location',
+        component: LocationComponent,
+      },
+      {
+        path: 'checkOut',
+        component: CheckOutComponent,
+      },
+      {
+        path: 'myAccount',
+        component: CustomerAccountComponent,
+      },
+      {
+        path: 'Productadd',
+        component: RecycledProductAddComponent,
+      },
+
+      // {
+      //   path:'outsource',
+      //   component:OutsourceComponent
+      // }
+      {
+        path: 'myOrders',
+        component: CustomerOrdersComponent,
+      },
+    ],
+  },
+  {
+    path: 'outsource',
+    component: OutsourceComponent,
+    children: [
+      {
+        path: 'profile',
+        component: OutprofileComponent,
+      },
+      {
+        path: 'dashboard',
+        component: OutdashboardComponent,
+      },
+      {
+        path: 'WasteRequsetAdd',
+        component: OutRequestWasteComponent,
       },
     ],
   },
@@ -169,12 +293,48 @@ const routes: Routes = [
         path: 'UpdateTerms/:id',
         component: UpdateTermsComponent,
       },
-
+      {
+        path: 'acceptterms',
+        component: AccepttermsComponent,
+      },
       {
         path: 'UpdateProductCats/:id',
         component: UpdateProductCatComponent,
       },
 
+      {
+        path: 'sendMail',
+        component: SendMailComponent,
+        // canActivate: [RouteGuardService],
+      },
+      {
+        path: 'viewPlacedRequests',
+        component: ViewPlacedRequestsComponent,
+      },
+      {
+        path: 'displayCustomerFeedbacks',
+        component: DisplayCustomerFeedbackComponent,
+      },
+      {
+        path: 'viewoutSourceWasteRequest',
+        component: ConfirmWasteRequestComponent,
+      },
+      {
+        path: 'ViewDB',
+        component: ViewDbComponent,
+      },
+      {
+        path: 'ViewOutRequest',
+        component: OutWasteRequestComponent,
+      },
+      // {
+      //   path: 'ViewDB',
+      //   component: ViewDbComponent,
+      // },
+      {
+        path: 'viewConfirmedRequests',
+        component: ViewAgentConfirmedRequestComponent,
+      },
     ],
   },
 ];

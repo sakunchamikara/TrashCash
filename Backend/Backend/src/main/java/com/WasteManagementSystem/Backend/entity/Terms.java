@@ -1,11 +1,13 @@
 package com.WasteManagementSystem.Backend.entity;
-import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.Range;
+import javax.validation.constraints.NotNull;
+import javax.persistence.Column;
+
+//import org.hibernate.validator.constraints.Range;
 
 //import javax.validation.constraints.NotEmpty;
 //import javax.validation.constraints.Min;
-import javax.persistence.Column;
+//import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,23 +24,25 @@ public class Terms {
 	@NotNull
 	private String title;
 	@NotNull
-    private String turl;
-@NotNull
- private String tdiscrip;
-@NotNull
-	
-	
+	private String turl;
+	@NotNull
+	@Column(columnDefinition = "TEXT")
+	private String tdiscrip;
+
+	@NotNull
+
 	public Terms() {
-		}
-	
-	public Terms ( int id ,String title,String turl, String tdiscrip ) {	
+	}
+
+	public Terms(int id, String title, String turl, String tdiscrip) {
 		super();
 		this.id = id;
 		this.title = title;
-		this.turl = turl ;
+		this.turl = turl;
 		this.tdiscrip = tdiscrip;
-		
+
 	}
+
 	public int getId() {
 		return id;
 	}
@@ -46,7 +50,7 @@ public class Terms {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
 	public String getTitle() {
 		return title;
 	}
@@ -54,7 +58,7 @@ public class Terms {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	
+
 	public String getTurl() {
 		return turl;
 	}
@@ -71,12 +75,4 @@ public class Terms {
 		this.tdiscrip = tdiscrip;
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	   
 }

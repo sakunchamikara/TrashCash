@@ -2,6 +2,7 @@ package com.WasteManagementSystem.Backend.controller;
 
 import javax.validation.Valid;
 
+import java.io.IOException;
 import java.util.HashMap;
 //import java.util.HashMap;
 import java.util.List;
@@ -22,14 +23,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 //import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
-//import com.WasteManagementSystem.Backend.entity.CollectedWaste;
 import com.WasteManagementSystem.Backend.entity.ProductCat;
-//import com.WasteManagementSystem.Backend.entity.Product;
-//import com.WasteManagementSystem.Backend.entity.ProductCat;
+
 import com.WasteManagementSystem.Backend.repository.ProductCatRepository;
-//import com.WasteManagementSystem.Backend.service.ProductService;
+
+//import com.WasteManagementSystem.Backend.service.ProductCatService;
 
 import org.springframework.validation.BindingResult;
 
@@ -38,17 +41,32 @@ import org.springframework.validation.BindingResult;
 @RestController
 public class ProductCatController {
 	
+    private byte[] bytess;
+	
+	
+	
 	@Autowired
 	private ProductCatRepository productcatRepository;
 	
+	//@Autowired
+	//private ProductCatService service;
+	
 	
 	@PostMapping("/productCats")
-    public ProductCat createProductCat(@Valid @RequestBody ProductCat productcat, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return null;
-        }
+	public ProductCat createProductCat(@Valid @RequestBody ProductCat productcat, BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			return null;
+		}
+		productcat.setImg(this.bytess);
         return productcatRepository.save(productcat);
+//        this.bytes = null;
     }
+	
+	//adding image
+		@PostMapping("/uploadImg")
+		public void uploadImage(@RequestParam("imageFile") MultipartFile file) throws IOException {
+			this.bytess = file.getBytes();
+		}
 	
 	@GetMapping("/productCats")
     public List<ProductCat> getAllProductCats() {
@@ -92,4 +110,9 @@ public class ProductCatController {
         final ProductCat updatedProductCat = productcatRepository.save(productCat);
         return ResponseEntity.ok(updatedProductCat);
     }
+	
+	@GetMapping(path="/productCats/name")
+	public @ResponseBody List<String> getAllName() {
+	    return productcatRepository.getAllName();
+	}
 }

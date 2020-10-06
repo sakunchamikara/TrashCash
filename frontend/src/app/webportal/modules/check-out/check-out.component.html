@@ -1,0 +1,132 @@
+<div class="container">
+  <div class="form-row">
+    <div class="col-md-12">
+      <br>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-9">
+
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title" style="color: #333333;">Confirm Your Details</h2>
+          <h6 class="card-subtitle mb-2 text-muted">You currnetly have 5 items in your cart</h6>
+          <div style="display:none" id="submit-form-container"></div>
+          <form #form="ngForm" (ngSubmit)="checkOut(form)">
+
+
+            <input type="hidden" name="merchant_id" [(ngModel)]="merchant_id">
+            <input type="hidden" name="return_url" [(ngModel)]="return_url">
+            <input type="hidden" name="cancel_url" [(ngModel)]="cancel_url">
+            <input type="hidden" name="notify_url" [(ngModel)]="notify_url">
+
+            <input type="hidden" name="order_id" [(ngModel)]="order_id">
+            <input type="hidden" name="items" [(ngModel)]="items">
+            <input type="hidden" name="currency" [(ngModel)]="currency">
+            <input type="hidden" name="amount" [(ngModel)]="amount" >
+
+
+            <label class="small mb-1"><strong>Customer</strong></label>
+            <div class="form-row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <input name="first_name" class="form-control" type="text" disabled placeholder="Enter first name"
+                    [(ngModel)]="first_name">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <input name="last_Name" class="form-control" type="text" disabled  placeholder="Customer Type"
+                    [(ngModel)]="last_name">
+                </div>
+              </div>
+
+              <input type="hidden" name="email" [(ngModel)]="email">
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <input name="phone" class="form-control" type="text" placeholder="Mobile" [(ngModel)]="phone">
+                </div>
+              </div>
+            </div>
+
+            <label class="small mb-1"><strong>Address</strong></label>
+
+            <div class="form-row">
+              <div class="col-md-9">
+                <div class="form-group">
+                  <input name="address" class="form-control" type="text" placeholder="Address" [(ngModel)]="address">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <input name="city" class="form-control" type="text" placeholder="City" [(ngModel)]="city">
+                </div>
+              </div>
+
+              <input type="hidden" name="country" [(ngModel)]="country">
+
+            </div>
+            <hr>
+            <div class="form-group">
+              <button class="btn btn-danger btn-lg float-right"><small>Place Order</small></button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-3" id="content">
+      <!--col-md-3 begin-->
+      <div class="card" id="order-summary">
+        <!--box begin-->
+        <div class="card-header" style="color: #333333;">
+          <!--box-header begin-->
+          <h4>Order-Summary</h4>
+        </div>
+        <div class="card-body">
+          <p class="text-muted" style="color: #777777;font-size: 14px;">
+            Shiping and adtional cost are clculatrd based on value you have enterd
+          </p>
+
+          <div class="">
+            <!--table-reponsive begin-->
+            <table class="table table-hover">
+              <tbody>
+                <tr>
+                  <td>Order Sub Total</td>
+                  <th>Rs.{{total}}</th>
+                </tr>
+                <tr>
+                  <td>Shipping and handling</td>
+                  <th>Rs.0</th>
+                </tr>
+                <tr>
+                  <td>Tax</td>
+                  <th>Rs.0</th>
+                </tr>
+                <tr class="total">
+                  <td>Total</td>
+                  <th>Rs.{{total}}</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--table-reponsive end-->
+        </div>
+      </div>
+      <!--box end-->
+    </div>
+    <!--col-md-3 end-->
+
+  </div>
+  <!--row same-height-row end-->
+</div>

@@ -1,17 +1,75 @@
-<mat-card>
-  <div class="box">
-    <h2>TrashCash</h2>
-    <h2>TrashCash</h2>
-    <h2>TrashCash</h2>
-    <h2>TrashCash</h2>
-    <h2>TrashCash</h2>
-    <h2>TrashCash</h2>
-    <h2>TrashCash</h2>
-    <h2>TrashCash</h2>
-    <h2>TrashCash</h2>
-    <h2>TrashCash</h2>
-    <h2>TrashCash</h2>
-    <h2>TrashCash</h2>
-    <h2>TrashCash</h2>
+<div class="container">
+  <br>
+  <div class="row">
+    <div class="col-md-9">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item " aria-current="page">Products</li>
+          <li class="breadcrumb-item active" *ngIf="!activeFlag" aria-current="page">All</li>
+          <li class="breadcrumb-item active" *ngIf="activeFlag" aria-current="page">{{activeFlag}}</li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="col-md-3">
+      <form class="form-inline">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search.." name="search">
+          <button type="submit" style="background-color: #eb943e;color: #e8f1ee;" class="btn float-right"><i class="fa fa-search"></i></button>
+        </div>
+      </form>
+    </div>
   </div>
-</mat-card>
+
+  <div class="row">
+
+    <div class="col-lg-3">
+      <div class="list-group">
+        <a class="list-group-item " [class.active]="category.name === activeFlag" (click)="getCatProduct(category.name)"
+          *ngFor="let category of categoryList">{{category.name}}</a>
+      </div>
+      <br>
+    </div>
+
+    <div class="col-lg-9">
+
+      <div class="row" *ngIf="productEmptyListFlag">
+        <div class="card cardcss border-success mb-3">
+          <div class="card-body text-success">
+            <h2 class="card-title"> <i class="fad fa-heart-broken"></i> No Products Available !!! <i
+                class="fal fa-frown-open"></i></h2>
+          </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="!productEmptyListFlag">
+
+        <div class="col-lg-4 col-md-6 mb-4" *ngFor="let product of productList;">
+          <div class="card h-100 text-center">
+            <img class="card-img-top p-3" src="{{'data:image/jpeg;base64,'+product.image1}}" height="200" width="100"
+              alt="">
+            <div class="card-body">
+              <h4 class="card-title">
+                <a>{{product.title}}</a>
+              </h4>
+              <h5>Rs. {{product.price}}</h5>
+              <button type="button" routerLink="/customer/product/{{product.id}}" class="btn btn-outline-success">View
+                Details</button>
+            </div>
+            <!-- <div class="card-footer">
+              <small class="text-muted">★ ★ ★ ★ ☆</small>
+            </div> -->
+          </div>
+        </div>
+
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.col-lg-9 -->
+
+  </div>
+  <!-- /.row -->
+
+</div>

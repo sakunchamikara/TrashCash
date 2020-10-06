@@ -7,12 +7,12 @@
     <form class="example-form" #registerform="ngForm" (ngSubmit)="registerUser()">
       <!-- <small [class.text-danger]="msg.status==500">{{msg.message}}</small> -->
       <mat-card-content class="card-content">
-<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="errorMessage">
-  {{errorMessage}}
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="errorMessage">
+          {{errorMessage}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
         <mat-form-field>
           <input matInput placeholder="First Name" name="fname" [(ngModel)]="user.fisrtName" required>
         </mat-form-field>
@@ -22,10 +22,9 @@
         </mat-form-field>
 
         <mat-form-field>
-          <mat-label>Enter birthday </mat-label>
-          <input matInput [matDatepicker]="picker" name="birthday" [(ngModel)]="user.birthday" required>
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
+          <mat-label>Contact Number </mat-label>
+          <input matInput name="contactNumber" pattern="07[1,2,5,6,7,8][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"
+            [(ngModel)]="user.contactNumber" required>
         </mat-form-field>
 
         <mat-form-field>
@@ -55,7 +54,7 @@
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput type="password" placeholder="Password Again" name="passwordAgain" (ngModel)="user.password"
+          <input matInput type="password" placeholder="Confirm Password" name="passwordAgain" (ngModel)="user.password"
             #cpassword="ngModel" required [class.is-invalid]="cpassword.invalid && cpassword.touched">
           <!-- class binding->from ui to class file -->
         </mat-form-field>
@@ -64,7 +63,8 @@
 
       </mat-card-content>
       <div class="button">
-        <button mat-stroked-button color="accent" [disabled]="registerform.form.invalid" type="submit"
+        <button mat-stroked-button color="accent"
+          [disabled]="registerform.form.invalid || !(cpassword.value == password.value)" type="submit"
           class="btn-block">Register</button>
       </div>
 

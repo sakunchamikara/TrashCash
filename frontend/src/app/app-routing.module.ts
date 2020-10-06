@@ -62,6 +62,7 @@ import { OutdashboardComponent } from './webportal/outsource/outdashboard/outdas
 import { OutRequestWasteComponent } from './webportal/outsource/out-request-waste/out-request-waste.component';
 
 import { CustomerOrdersComponent } from './webportal/modules/customer-account/customer-orders/customer-orders.component';
+import { ContactusComponent } from './webportal/modules/contactus/contactus.component';
 
 const routes: Routes = [
   {
@@ -92,6 +93,11 @@ const routes: Routes = [
       {
         path: 'wpterms',
         component: WptermsComponent,
+      },
+
+      {
+        path: 'contactus',
+        component: ContactusComponent,
       },
       {
         path: 'login',

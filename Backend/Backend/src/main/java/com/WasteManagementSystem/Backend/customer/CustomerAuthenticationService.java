@@ -1,5 +1,7 @@
 package com.WasteManagementSystem.Backend.customer;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,10 +22,14 @@ public class CustomerAuthenticationService {
 		return repo.findByEmailAndPassword(email, password);
 	}
 
-	// public List<CustomerList> findBytermstatus(){
-	// return repo.findBytermstatus();
-	// }
+	public List<Customer> findBytermstatus(){
+		int termStatus = 1;
+		return repo.findBytermStatus(termStatus);
+	}
+
 	public Customer saveUser(Customer customer) {
 		return repo.save(customer);
 	}
+
+	
 }

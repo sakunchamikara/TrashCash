@@ -12,6 +12,17 @@ import { Cart } from 'src/app/webportal/pojo/cart';
   styleUrls: ['./customer-orders.component.scss'],
 })
 export class CustomerOrdersComponent implements OnInit {
+
+  orderCount: number;
+  carts: Array<Cart>;
+  date = new Date();
+  order = new Orders();
+  cart = new Cart();
+  customerId: number;
+  viewOrders: Array<Orders>;
+
+  orderId: string;
+
   constructor(
     private route: ActivatedRoute,
     private orderService: CustomerOrderService,
@@ -19,21 +30,16 @@ export class CustomerOrdersComponent implements OnInit {
     private customerAuth: CustomerAuthService
   ) {}
 
-  date = new Date();
-  order = new Orders();
-  cart = new Cart();
-  customerId: number;
-
-  orderId: string;
-
   ngOnInit() {
     this.orderId = this.route.snapshot.queryParamMap.get('order_id');
+    this.customerId = +this.customerAuth.getAuthenticatedCustomerId();
 
     if (this.orderId) {
       this.order.id = +this.orderId;
       this.order.date = this.date;
       this.order.status = 'Pending';
-      console.log(this.order);
+      this.order.customerId = this.customerId;
+
       this.orderService.setOrder(this.order).subscribe(
         (data) => {
           console.log(data);
@@ -43,18 +49,46 @@ export class CustomerOrdersComponent implements OnInit {
         }
       );
 
-      this.customerId = +this.customerAuth.getAuthenticatedCustomerId();
-      this.cart.customerId = this.customerId;
-      this.cart.orderId = this.orderId;
-      this.cart.status = 'paid';
-      this.cartService.updateCartOrder(this.cart).subscribe(
+      this.cartService.getCartDetails(this.customerId).subscribe(
         (data) => {
-          console.log(data);
+          this.carts = data;
+          this.carts.forEach((element) => {
+            element.customerId = this.customerId;
+            // element.order.id = +this.orderId;
+            element.status = 'Paid';
+          });
+          this.updatecartorder();
         },
         (error) => {
           console.log(error);
         }
       );
     }
+
+    this.getOrderDetails(this.customerId);
+  }
+
+  updatecartorder() {
+    this.cartService.updateCartOrder(this.carts, +this.orderId).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getOrderDetails(customerId) {
+    this.orderService.getOrdersById(customerId).subscribe(
+      (data) => {
+        this.viewOrders = data;
+        this.orderCount = data.length;
+        console.log(this.viewOrders);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

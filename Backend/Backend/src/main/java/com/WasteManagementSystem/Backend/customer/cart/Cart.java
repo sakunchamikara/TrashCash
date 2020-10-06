@@ -9,7 +9,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.WasteManagementSystem.Backend.customer.orders.Orders;
 import com.WasteManagementSystem.Backend.entity.Product;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "cart")
@@ -24,19 +26,20 @@ public class Cart {
 	@JoinColumn(name = "product_id")
 	private Product product;
 	private int quentity;
-	private String orderId;
+	@JsonIgnore
+	@ManyToOne
+	private Orders order;
 	private String status;
 
 	public Cart() {
 	}
 
-	public Cart(int id, int customerId, Product product, int quentity, String orderId, String status) {
-		super();
+	public Cart(int id, int customerId, Product product, int quentity, Orders order, String status) {
 		this.id = id;
 		this.customerId = customerId;
 		this.product = product;
 		this.quentity = quentity;
-		this.orderId = orderId;
+		this.order = order;
 		this.status = status;
 	}
 
@@ -72,12 +75,12 @@ public class Cart {
 		this.quentity = quentity;
 	}
 
-	public String getOrderId() {
-		return orderId;
+	public Orders getOrder() {
+		return order;
 	}
 
-	public void setOrderId(String orderId) {
-		this.orderId = orderId;
+	public void setOrder(Orders order) {
+		this.order = order;
 	}
 
 	public String getStatus() {
@@ -90,8 +93,12 @@ public class Cart {
 
 	@Override
 	public String toString() {
-		return "Cart [customerId=" + customerId + ", id=" + id + ", orderId=" + orderId + ", product=" + product
+		return "Cart [customerId=" + customerId + ", id=" + id + ", order=" + order + ", product=" + product
 				+ ", quentity=" + quentity + ", status=" + status + "]";
 	}
+
+	
+
+	
 
 }

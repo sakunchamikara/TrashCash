@@ -14,17 +14,19 @@ public class Orders {
 	private int id;
 	private Date date;
 	private String status;
+	private int customerId;
 	
 	
 	public Orders() {
 	}
 	
-	public Orders(int id, Date date, String status) {
-		super();
+	public Orders(int id, Date date, String status, int customerId) {
 		this.id = id;
 		this.date = date;
 		this.status = status;
+		this.customerId = customerId;
 	}
+	
 
 	public int getId() {
 		return id;
@@ -48,10 +50,21 @@ public class Orders {
 		this.status = status;
 	}
 
+	public int getcustomerId() {
+		return customerId;
+	}
+
+	public void setcustomerId(int customerId) {
+		this.customerId = customerId;
+	}
+
 	@Override
 	public String toString() {
-		return "Orders [id=" + id + ", date=" + date + ", status=" + status + "]";
+		return "Orders [customerId=" + customerId + ", date=" + date + ", id=" + id + ", status=" + status + "]";
 	}
+
+
+	
 
 	
 	

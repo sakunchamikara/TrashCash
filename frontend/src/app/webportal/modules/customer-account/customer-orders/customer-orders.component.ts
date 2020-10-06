@@ -24,6 +24,7 @@ export class CustomerOrdersComponent implements OnInit {
   order = new Orders();
   cart = new Cart();
   customerId: number;
+  viewOrders: Array<Orders>;
 
   orderId: string;
 
@@ -35,7 +36,7 @@ export class CustomerOrdersComponent implements OnInit {
       this.order.id = +this.orderId;
       this.order.date = this.date;
       this.order.status = 'Pending';
-      console.log(this.order);
+      this.order.customerId = this.customerId;
 
       this.orderService.setOrder(this.order).subscribe(
         (data) => {
@@ -55,18 +56,31 @@ export class CustomerOrdersComponent implements OnInit {
             element.status = 'paid';
           });
           this.updatecartorder();
-          console.log(this.carts);
         },
         (error) => {
           console.log(error);
         }
       );
     }
+
+    this.getOrderDetails(this.customerId);
   }
 
   updatecartorder() {
     this.cartService.updateCartOrder(this.carts).subscribe(
       (data) => {
+        console.log(data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getOrderDetails(customerId) {
+    this.orderService.getOrdersById(customerId).subscribe(
+      (data) => {
+        this.viewOrders = data;
         console.log(data);
       },
       (error) => {

@@ -29,13 +29,14 @@
       <div class="card">
         <div class="card-body">
           <h2 class="card-title" style="color: #333333;">My Orders</h2>
-          <h6 class="card-subtitle mb-2 text-muted">You currnetly have 5 Orders</h6>
+          <h6 class="card-subtitle mb-2 text-muted">View your All Orders From Here !</h6>
           <div class="">
 
             <table class="table table-hover" style="font-size: 14px;">
               <thead>
                 <tr>
-                  <th colspan="2">Order Id</th>
+                  <th>Order Id</th>
+                  <th>Status</th>
                   <th>Product</th>
                   <th>Quentity</th>
                   <th>Price</th>
@@ -44,27 +45,12 @@
               </thead>
 
               <tbody>
-                <tr>
-                  date = {{date}}
+
+                <tr *ngFor="let order of viewOrders">
+                  <td>{{order.id}}</td>
+                  <td>{{order.status}}</td>
                 </tr>
-                <tr>
-                  <td> year = {{year}}</td>
-                </tr>
-                <tr>
-                  <td> month = {{month}}</td>
-                </tr>
-                <tr>
-                  <td> day = {{day}}</td>
-                </tr>
-                <tr>
-                  <td> hour = {{hour}}</td>
-                </tr>
-                <tr>
-                  <td> minute = {{minute}}</td>
-                </tr>
-                <tr>
-                  <td> second = {{second}}</td>
-                </tr>
+
               </tbody>
 
               <tfoot>

@@ -21,9 +21,9 @@ export class CustomerCartService {
     return this.http.delete<any>(`http://localhost:8080/cart/delete/${cid}`);
   }
 
-  public updateCartOrder(cart: Array<Cart>): Observable<any> {
+  public updateCartOrder(cart: Array<Cart>, orderId: number): Observable<any> {
     return this.http.post<any>(
-      'http://localhost:8080/updateCartOrder',
+      `http://localhost:8080/updateCartOrder/${orderId}`,
       cart
     );
   }

@@ -3,6 +3,7 @@ package com.WasteManagementSystem.Backend.customer.cart;
 import java.util.List;
 import java.util.Optional;
 
+import com.WasteManagementSystem.Backend.customer.orders.Orders;
 import com.WasteManagementSystem.Backend.entity.Product;
 import com.WasteManagementSystem.Backend.repository.ProductRepository;
 
@@ -60,9 +61,12 @@ public class CartController {
 		return ResponseEntity.noContent().build();
 	}
 
-	@PostMapping("/updateCartOrder")
-	public String updateCartOrder(@RequestBody List<Cart> carts) {
+	@PostMapping("/updateCartOrder/{orderId}")
+	public String updateCartOrder(@PathVariable(value = "orderId") int orderId ,@RequestBody List<Cart> carts) {
+		Orders orderObj = new Orders();
+		orderObj.setId(orderId);
 		for (Cart cart : carts){
+			cart.setOrder(orderObj);
 			cartService.SaveCart(cart);
 		}
 		return "ok";

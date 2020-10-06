@@ -12,13 +12,8 @@ import { Cart } from 'src/app/webportal/pojo/cart';
   styleUrls: ['./customer-orders.component.scss'],
 })
 export class CustomerOrdersComponent implements OnInit {
-  constructor(
-    private route: ActivatedRoute,
-    private orderService: CustomerOrderService,
-    private cartService: CustomerCartService,
-    private customerAuth: CustomerAuthService
-  ) {}
-
+  
+  orderCount: number;
   carts: Array<Cart>;
   date = new Date();
   order = new Orders();
@@ -27,6 +22,13 @@ export class CustomerOrdersComponent implements OnInit {
   viewOrders: Array<Orders>;
 
   orderId: string;
+
+  constructor(
+    private route: ActivatedRoute,
+    private orderService: CustomerOrderService,
+    private cartService: CustomerCartService,
+    private customerAuth: CustomerAuthService
+  ) {}
 
   ngOnInit() {
     this.orderId = this.route.snapshot.queryParamMap.get('order_id');
@@ -52,8 +54,8 @@ export class CustomerOrdersComponent implements OnInit {
           this.carts = data;
           this.carts.forEach((element) => {
             element.customerId = this.customerId;
-            element.orderId = this.orderId;
-            element.status = 'paid';
+            // element.order.id = +this.orderId;
+            element.status = 'Paid';
           });
           this.updatecartorder();
         },
@@ -67,7 +69,7 @@ export class CustomerOrdersComponent implements OnInit {
   }
 
   updatecartorder() {
-    this.cartService.updateCartOrder(this.carts).subscribe(
+    this.cartService.updateCartOrder(this.carts, +this.orderId).subscribe(
       (data) => {
         console.log(data);
       },
@@ -81,7 +83,8 @@ export class CustomerOrdersComponent implements OnInit {
     this.orderService.getOrdersById(customerId).subscribe(
       (data) => {
         this.viewOrders = data;
-        console.log(data);
+        this.orderCount = data.length;
+        console.log(this.viewOrders);
       },
       (error) => {
         console.log(error);

@@ -36,21 +36,26 @@
               <thead>
                 <tr>
                   <th>Order Id</th>
-                  <th>Status</th>
                   <th>Product</th>
                   <th>Quentity</th>
-                  <th>Price</th>
+                  <th>Unit Price</th>
+                  <th>Status</th>
                   <th>Order Date</th>
                 </tr>
               </thead>
 
-              <tbody>
-
-                <tr *ngFor="let order of viewOrders">
+              <tbody *ngFor="let order of viewOrders">
+                <tr *ngFor="let item of order.cart">
                   <td>{{order.id}}</td>
-                  <td>{{order.status}}</td>
+                  <td>{{item.product.title}}</td>
+                  <td>{{item.quentity}}</td>
+                  <td>{{item.product.price}}</td>
+                  <td *ngIf="order.status == 'Pending'"><button type="button"
+                      class="btn btn-outline-warning btn-sm">{{order.status}}</button></td>
+                  <td *ngIf="order.status == 'Shipped'"><button type="button"
+                      class="btn btn-outline-success btn-sm">{{order.status}}</button></td>
+                  <td>{{order.date | date}}</td>
                 </tr>
-
               </tbody>
 
               <tfoot>
@@ -59,7 +64,7 @@
 
                   <th colspan="5">Total</th>
 
-                  <th colspan="2">5</th>
+                  <th colspan="2">{{orderCount}}</th>
 
                 </tr>
 

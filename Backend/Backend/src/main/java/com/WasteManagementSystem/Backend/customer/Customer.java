@@ -18,13 +18,13 @@ public class Customer {
 	private int contactNumber;
 	private String address;
 	private String password;
-	private Boolean termStatus;
+	private int termStatus;
 	private String location;
 	
 	public Customer() { }
 
 	public Customer(int id, String firstName, String type, String email, int contactNumber, String address,
-			String password, Boolean termStatus, String location) {
+			String password, int termStatus, String location) {
 		this.id = id;
 		this.firstName = firstName;
 		this.type = type;
@@ -92,11 +92,11 @@ public class Customer {
 		this.password = password;
 	}
 
-	public Boolean getTermStatus() {
+	public int getTermStatus() {
 		return termStatus;
 	}
 
-	public void setTermStatus(Boolean termStatus) {
+	public void setTermStatus(int termStatus) {
 		this.termStatus = termStatus;
 	}
 

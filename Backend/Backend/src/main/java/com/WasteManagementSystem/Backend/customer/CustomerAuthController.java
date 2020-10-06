@@ -1,5 +1,7 @@
 package com.WasteManagementSystem.Backend.customer;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -60,5 +62,10 @@ public class CustomerAuthController {
 	public Customer updateCustomerProfile(@RequestBody Customer customer) {
     	Customer updatedUser = CustomerAuthService.saveUser(customer);
 		return updatedUser;
-	}
+    }
+    
+    @GetMapping("/customerstatus")
+    public List<Customer> getTermsAceptedCustomers() {
+        return CustomerAuthService.findBytermstatus();
+    }
 }

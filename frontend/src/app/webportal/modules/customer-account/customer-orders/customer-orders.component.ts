@@ -12,7 +12,7 @@ import { Cart } from 'src/app/webportal/pojo/cart';
   styleUrls: ['./customer-orders.component.scss'],
 })
 export class CustomerOrdersComponent implements OnInit {
-  
+
   orderCount: number;
   carts: Array<Cart>;
   date = new Date();

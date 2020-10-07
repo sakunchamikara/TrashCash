@@ -63,6 +63,7 @@ import { ConfirmWasteRequestComponent } from 'src/app/modules/out-waste-request/
 //import { NewtermsService } from 'src/app/service/newterms.service';
 
 import { DisplayCustomerFeedbackComponent } from 'src/app/modules/display-customer-feedback/display-customer-feedback.component';
+import { ContactdetailsComponent } from 'src/app/modules/contactdetails/contactdetails.component';
 
 @NgModule({
   declarations: [
@@ -103,6 +104,7 @@ import { DisplayCustomerFeedbackComponent } from 'src/app/modules/display-custom
     DisplayCustomerFeedbackComponent,
     AccepttermsComponent,
     ViewAgentConfirmedRequestComponent,
+    ContactdetailsComponent,
   ],
   imports: [
     CommonModule,

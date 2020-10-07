@@ -74,4 +74,10 @@ public class CustomerFeedbackController {
 		public @ResponseBody List<String> getStatus() {
 		    return cusfeedrepo.getStatus();
 		}
+		
+		@GetMapping(path="/customerFeedback/status/published")
+		public @ResponseBody List<CustomerFeedback> getPublishedFeedbacks() {
+		    return cusfeedrepo.getPublishedFeedbacks();
+		}
+		
 }

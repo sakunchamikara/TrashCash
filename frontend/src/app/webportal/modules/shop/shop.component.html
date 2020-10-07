@@ -13,11 +13,12 @@
     </div>
 
     <div class="col-md-3">
-      <form class="form-inline">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search.." name="search">
-          <button type="submit" style="background-color: #eb943e;color: #e8f1ee;" class="btn float-right"><i class="fa fa-search"></i></button>
-        </div>
+      <form ngNativeValidate #searchForm="ngForm" (ngSubmit)="searchProduct(searchForm)">
+      <div class="form-inline form-group">
+        <input type="text" class="form-control" placeholder="Search.." name="search" ngModel required>
+        <button type="submit" style="background-color: #eb943e;color: #e8f1ee;" class="btn float-right"><i
+            class="fa fa-search"></i></button>
+      </div>
       </form>
     </div>
   </div>
@@ -32,7 +33,7 @@
       <br>
     </div>
 
-    <div class="col-lg-9">
+    <div class="col-lg-9" *ngIf="productFlag">
 
       <div class="row" *ngIf="productEmptyListFlag">
         <div class="card cardcss border-success mb-3">
@@ -59,6 +60,42 @@
             <!-- <div class="card-footer">
               <small class="text-muted">★ ★ ★ ★ ☆</small>
             </div> -->
+          </div>
+        </div>
+
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.col-lg-9 -->
+    <div class="col-lg-9" *ngIf="searchFlag && !categoryProductFlag">
+
+      <div class="row" *ngIf="searchedProductEmptyFlag">
+        <div class="card cardcss border-success mb-3">
+          <div class="card-body text-success">
+            <h2 class="card-title"> <i class="fad fa-heart-broken"></i> No Products Available !!! <i
+                class="fal fa-frown-open"></i></h2>
+          </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="!searchedProductEmptyFlag">
+
+        <div class="col-lg-4 col-md-6 mb-4" *ngFor="let product of searchedProduct;">
+          <div class="card h-100 text-center">
+            <img class="card-img-top p-3" src="{{'data:image/jpeg;base64,'+product.image1}}" height="200" width="100"
+              alt="">
+            <div class="card-body">
+              <h4 class="card-title">
+                <a>{{product.title}}</a>
+              </h4>
+              <h5>Rs. {{product.price}}</h5>
+              <button type="button" routerLink="/customer/product/{{product.id}}" class="btn btn-outline-success">View
+                Details</button>
+            </div>
+            <!-- <div class="card-footer">
+                  <small class="text-muted">★ ★ ★ ★ ☆</small>
+                </div> -->
           </div>
         </div>
 

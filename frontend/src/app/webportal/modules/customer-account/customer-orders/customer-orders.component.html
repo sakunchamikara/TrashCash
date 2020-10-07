@@ -29,41 +29,32 @@
       <div class="card">
         <div class="card-body">
           <h2 class="card-title" style="color: #333333;">My Orders</h2>
-          <h6 class="card-subtitle mb-2 text-muted">You currnetly have 5 Orders</h6>
+          <h6 class="card-subtitle mb-2 text-muted">View your All Orders From Here !</h6>
           <div class="">
 
             <table class="table table-hover" style="font-size: 14px;">
               <thead>
                 <tr>
-                  <th colspan="2">Order Id</th>
+                  <th>Order Id</th>
                   <th>Product</th>
                   <th>Quentity</th>
-                  <th>Price</th>
+                  <th>Unit Price</th>
+                  <th>Status</th>
                   <th>Order Date</th>
                 </tr>
               </thead>
 
-              <tbody>
-                <tr>
-                  date = {{date}}
-                </tr>
-                <tr>
-                  <td> year = {{year}}</td>
-                </tr>
-                <tr>
-                  <td> month = {{month}}</td>
-                </tr>
-                <tr>
-                  <td> day = {{day}}</td>
-                </tr>
-                <tr>
-                  <td> hour = {{hour}}</td>
-                </tr>
-                <tr>
-                  <td> minute = {{minute}}</td>
-                </tr>
-                <tr>
-                  <td> second = {{second}}</td>
+              <tbody *ngFor="let order of viewOrders">
+                <tr *ngFor="let item of order.cart">
+                  <td>{{order.id}}</td>
+                  <td>{{item.product.title}}</td>
+                  <td>{{item.quentity}}</td>
+                  <td>{{item.product.price}}</td>
+                  <td *ngIf="order.status == 'Pending'"><button type="button"
+                      class="btn btn-outline-warning btn-sm">{{order.status}}</button></td>
+                  <td *ngIf="order.status == 'Shipped'"><button type="button"
+                      class="btn btn-outline-success btn-sm">{{order.status}}</button></td>
+                  <td>{{order.date | date}}</td>
                 </tr>
               </tbody>
 
@@ -73,7 +64,7 @@
 
                   <th colspan="5">Total</th>
 
-                  <th colspan="2">5</th>
+                  <th colspan="2">{{orderCount}}</th>
 
                 </tr>
 

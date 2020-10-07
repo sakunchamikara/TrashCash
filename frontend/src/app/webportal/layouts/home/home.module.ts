@@ -28,6 +28,7 @@ import { NavbarComponent } from '../../includes/navbar/navbar.component';
 import { CustomerAccountComponent } from '../../modules/customer-account/customer-account.component';
 import { RecycledProductAddComponent } from '../../modules/Outsource-company/recycled-product-add/recycled-product-add.component';
 import { CustomerOrdersComponent } from '../../modules/customer-account/customer-orders/customer-orders.component';
+import { ContactusComponent } from '../../modules/contactus/contactus.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { CustomerOrdersComponent } from '../../modules/customer-account/customer
     CheckOutComponent,
     CustomerAccountComponent,
     RecycledProductAddComponent,
-    CustomerOrdersComponent
+    CustomerOrdersComponent,
+    ContactusComponent,
   ],
   imports: [
     FormsModule,

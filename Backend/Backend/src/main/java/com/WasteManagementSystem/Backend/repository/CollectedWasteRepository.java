@@ -1,13 +1,9 @@
 package com.WasteManagementSystem.Backend.repository;
 
-import java.util.List;
+import com.WasteManagementSystem.Backend.entity.CollectedWaste;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-
-import com.WasteManagementSystem.Backend.entity.CollectedWaste;
-//import com.WasteManagementSystem.Backend.entity.Product;
-import com.WasteManagementSystem.Backend.entity.CustomerWasteRequest;
 import org.springframework.data.repository.query.Param;
 
 

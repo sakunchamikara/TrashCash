@@ -31,5 +31,9 @@ public  class ProductService {
 
 	public List<Product> getRandomProduct() {
 		return repo.findAllByRandom();
+	}
+
+	public List<Product> searchProduct(String keyword) {
+		return repo.findAll(keyword);
 	}	
 }

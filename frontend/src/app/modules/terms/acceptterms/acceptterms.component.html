@@ -1,9 +1,9 @@
 <div class="col-container">
     <br>
-  
+
     <div class="row p1">
       <div class="">
-  
+
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb shadow p-3 mb-5 bg-white rounded">
             <li class="breadcrumb-item"><a href="#"><i class="fad fa-tachometer-alt-fastest"></i> Dashboard</a></li>
@@ -12,7 +12,7 @@
         </nav>
       </div>
     </div>
-  
+
     <div class="row">
       <div class="col-lg-10 col-md-10">
         <div class="card p2">
@@ -20,7 +20,7 @@
             <!-- <h4 class="card-title">
                 View Product
               </h4> -->
-  
+
             <div class="panel panel-primary">
               <div class="panel-heading">
                 <h4>Terms Accepted Customers List</h4>
@@ -30,20 +30,16 @@
                   <thead>
                     <tr>
                       <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Email</th>               
+                      <th>Email</th>
                       <th>Contact Number</th>
-  
+
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let termstatus of termstatus  | async">
+                    <tr *ngFor="let customer of customers">
                       <td>{{customer.firstName}}</td>
-                      <td>{{customer.lastname}}</td>
                       <td>{{customer.email}}</td>
                       <td>{{customer.contactNumber}}</td>
-                     
-                     
                     </tr>
                   </tbody>
                 </table>
@@ -54,4 +50,4 @@
       </div>
     </div>
   </div>
-  
+

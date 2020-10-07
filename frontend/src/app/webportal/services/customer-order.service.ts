@@ -12,4 +12,8 @@ export class CustomerOrderService {
   public setOrder(order: Orders): Observable<any> {
     return this.httpClient.post<any>('http://localhost:8080/setOrder', order);
   }
+
+  public getOrdersById(id: number): Observable<Orders[]> {
+    return this.httpClient.get<any>(`http://localhost:8080/getOrders/${id}`);
+  }
 }

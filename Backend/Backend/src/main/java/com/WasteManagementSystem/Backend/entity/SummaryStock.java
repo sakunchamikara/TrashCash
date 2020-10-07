@@ -1,9 +1,5 @@
 package com.WasteManagementSystem.Backend.entity;
-import org.hibernate.validator.constraints.Range;
 
-import java.sql.Date;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

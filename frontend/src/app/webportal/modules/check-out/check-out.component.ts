@@ -109,8 +109,8 @@ export class CheckOutComponent implements OnInit {
     this.second = this.date.getSeconds().toString();
     this.orderId =
       this.cid +
-      this.year +
-      this.month +
+      // this.year +
+      // this.month +
       this.day +
       this.hour +
       this.minute +

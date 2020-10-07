@@ -8,15 +8,17 @@ import { CustomerFeedbackService } from 'src/app/webportal/services/customer-fee
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(public authservice: AuthserviceService, private customerFeedbackService: CustomerFeedbackService) {}
+  constructor(
+    public authservice: AuthserviceService,
+    private customerFeedbackService: CustomerFeedbackService
+  ) {}
 
   @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
 
   isUserLoggedIn: any;
 
   public feedbackStatus: Array<string> = [];
-  public noNew:any;
-  
+  public noNew: any;
 
   ngOnInit() {
     this.getNumberOfNotifications();
@@ -25,22 +27,19 @@ export class HeaderComponent implements OnInit {
   toggleSideBar() {
     this.isUserLoggedIn = this.authservice.isUserLoggedIn();
     if (this.isUserLoggedIn) {
-    this.toggleSideBarForMe.emit();
-    setTimeout(() => {
-      window.dispatchEvent(new Event('resize'));
-    }, 300);
-  }
+      this.toggleSideBarForMe.emit();
+      setTimeout(() => {
+        window.dispatchEvent(new Event('resize'));
+      }, 300);
+    }
   }
 
   getNumberOfNotifications() {
     this.customerFeedbackService.getCountNewFeedback().subscribe((data) => {
-      console.log(data);
       data.forEach((element) => {
-        this.feedbackStatus.push(element['status']);
-        this.noNew =this.feedbackStatus.length;
+        this.feedbackStatus.push(element[`status`]);
+        this.noNew = this.feedbackStatus.length;
       });
     });
   }
-
-
 }

@@ -30,7 +30,7 @@ import { TermsComponent } from './modules/terms/terms.component';
 import { AddtermsComponent } from './modules/terms/addterms/addterms.component';
 import { ViewtermsComponent } from './modules/terms/viewterms/viewterms.component';
 import { UpdateTermsComponent } from './modules/terms/update-terms/update-terms.component';
-import { AccepttermsComponent} from './modules/terms/acceptterms/acceptterms.component';
+import { AccepttermsComponent } from './modules/terms/acceptterms/acceptterms.component';
 import { SendMailComponent } from './modules/send-mail/send-mail.component';
 import { WptermsComponent } from './webportal/modules/wpterms/wpterms.component';
 import { CustomerLoginComponent } from './webportal/modules/customer-login/customer-login.component';
@@ -38,7 +38,6 @@ import { CustomerRegisterComponent } from './webportal/modules/customer-register
 import { WasteRequestComponent } from './webportal/modules/waste-request/waste-request.component';
 import { CartComponent } from './webportal/modules/cart/cart.component';
 import { CustomerFeedbackComponent } from './webportal/modules/customer-feedback/customer-feedback.component';
-
 
 import { ProductDetailsComponent } from './webportal/modules/product-details/product-details.component';
 import { ViewPlacedRequestsComponent } from 'src/app/modules/agent/view-placed-requests/view-placed-requests.component';
@@ -63,6 +62,7 @@ import { OutdashboardComponent } from './webportal/outsource/outdashboard/outdas
 import { OutRequestWasteComponent } from './webportal/outsource/out-request-waste/out-request-waste.component';
 
 import { CustomerOrdersComponent } from './webportal/modules/customer-account/customer-orders/customer-orders.component';
+import { ContactusComponent } from './webportal/modules/contactus/contactus.component';
 
 const routes: Routes = [
   {
@@ -94,6 +94,11 @@ const routes: Routes = [
         path: 'wpterms',
         component: WptermsComponent,
       },
+
+      {
+        path: 'contactus',
+        component: ContactusComponent,
+      },
       {
         path: 'login',
         component: CustomerLoginComponent,
@@ -111,8 +116,8 @@ const routes: Routes = [
         component: WasteRequestComponent,
       },
       {
-        path:'outsource-waste-request',
-        component:OutWasteRequsetComponent,
+        path: 'outsource-waste-request',
+        component: OutWasteRequsetComponent,
         // path: 'outsource-waste-request',
         // component: OutWasteRequsetComponent,
       },
@@ -147,11 +152,10 @@ const routes: Routes = [
       {
         path: 'myAccount',
         component: CustomerAccountComponent,
-
       },
       {
-        path:'Productadd',
-        component:RecycledProductAddComponent
+        path: 'Productadd',
+        component: RecycledProductAddComponent,
       },
 
       // {
@@ -160,27 +164,27 @@ const routes: Routes = [
       // }
       {
         path: 'myOrders',
-        component: CustomerOrdersComponent
-      }
+        component: CustomerOrdersComponent,
+      },
     ],
   },
   {
-    path:'outsource',
-    component:OutsourceComponent,
-    children:[
+    path: 'outsource',
+    component: OutsourceComponent,
+    children: [
       {
-        path:'profile',
-        component:OutprofileComponent,
+        path: 'profile',
+        component: OutprofileComponent,
       },
       {
-        path:'dashboard',
-        component:OutdashboardComponent,
+        path: 'dashboard',
+        component: OutdashboardComponent,
       },
       {
-        path:'WasteRequsetAdd',
-        component:OutRequestWasteComponent,
-      }
-    ]
+        path: 'WasteRequsetAdd',
+        component: OutRequestWasteComponent,
+      },
+    ],
   },
   {
     path: 'system',
@@ -318,12 +322,12 @@ const routes: Routes = [
         component: DisplayCustomerFeedbackComponent,
       },
       {
-        path:'viewoutSourceWasteRequest',
+        path: 'viewoutSourceWasteRequest',
         component: ConfirmWasteRequestComponent,
       },
       {
-        path:'ViewDB',
-        component:ViewDbComponent,
+        path: 'ViewDB',
+        component: ViewDbComponent,
       },
       {
         path: 'ViewOutRequest',

@@ -10,6 +10,7 @@ import { LogoutComponent } from './modules/logout/logout.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { NgxSocialShareModule } from 'ngx-social-share';
 import {
   MatToolbarModule,
   MatButtonModule,
@@ -40,6 +41,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatMenuModule,
     MatIconModule,
+    NgxSocialShareModule,
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

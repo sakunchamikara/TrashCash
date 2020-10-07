@@ -16,7 +16,24 @@ export class CustomerFeedbackComponent implements OnInit {
 
   successMsg: any;
 
-  ngOnInit() {}
+  feedback: CustomerFeedback;
+addedFeedbacks : Observable<CustomerFeedback[]>
+
+  ngOnInit() {
+    this.reloadData();
+  }
+
+  reloadData() {
+    
+    this.customerFeedbackService.getPublishedFeedback().subscribe(
+      (data)=>{
+        console.log(data);
+        this.addedFeedbacks = data;
+      }
+    );
+    
+
+  }
 
   onSubmit() {
     this.submitted = true;

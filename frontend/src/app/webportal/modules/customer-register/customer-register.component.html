@@ -86,13 +86,15 @@
                       [class.is-invalid]="confirmPassword.invalid && confirmPassword.touched">
                   </div>
                 </div>
+                <div class="col-md-12">
+                  <label for="">By signing up for an account you agree to our <a routerLink="/customer/wpterms">Terms and Conditions</a></label>
+                </div>
 
               </div>
               <!-- Form Group (create account submit)-->
               <div class="form-group mt-4 mb-0"><button
                   [disabled]="customerRegform.form.invalid || !(confirmPassword.value == password.value)" type="submit"
-                  class="btn btn-primary btn-block">Create
-                  Account</button></div>
+                  class="btn btn-primary btn-block">Sign Up</button></div>
             </form>
           </div>
           <div class="card-footer text-center">

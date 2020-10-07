@@ -42,7 +42,7 @@
             <td>{{addedFeedback.cusFeedFirstName}}</td>                
             <td>
               <button class="btn btn-primary" (click)="viewMsg(addedFeedback.feedback,addedFeedback.id)">View</button>
-              <button  class="btn btn-success" id="pubBtn" style="text-align: center; margin-left: 25px;">Publish</button>   
+              <button  class="btn btn-success" (click)="publishToWeb(addedFeedback.feedback,addedFeedback.id)" id="pubBtn" style="text-align: center; margin-left: 25px;">Publish</button>   
             </td>
             <td><span class="badge badge-pill badge-dark" id="labelText">{{addedFeedback.status}}</span></td>
           </tr>

@@ -108,3 +108,34 @@
 <br>
 </div>
 </div>
+<br>
+<br>
+<div id="display">
+
+  <section id="team" class="pb-5">
+    <div class="container">
+        <h5 class="section-title h1">Customer Feedbacks</h5>
+        <div class="row">
+            <!-- Team member -->
+            <div *ngFor="let addedFeedback of addedFeedbacks" class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip" >
+                    <div class="mainflip flip-0">
+                        <div class="frontside">
+                            <div class="card border-primary mb-3">
+                                <div class="card-body">
+                                    <!-- <img class="card-img-top" src="/src/assets/images/webportal/feedIcon.png"> -->
+                                    <h4 class="card-title text-center">{{addedFeedback.cusFeedFirstName}} {{addedFeedback.cusFeedLastName}} </h4>
+                                    <p class="card">{{addedFeedback.feedback}}</p>
+                                </div>
+                            </div>
+                        </div>     
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+</section>
+
+</div>

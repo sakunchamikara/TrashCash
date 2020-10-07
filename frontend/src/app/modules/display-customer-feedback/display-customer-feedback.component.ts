@@ -16,7 +16,7 @@ export class DisplayCustomerFeedbackComponent implements OnInit {
   closeResult: string;
   
 feedback: CustomerFeedback;
-  addedFeedbacks : Observable<CustomerFeedback[]>
+addedFeedbacks : Observable<CustomerFeedback[]>
   // closeResult: string;
 
   constructor(private customerFeedbackService:CustomerFeedbackService,
@@ -60,10 +60,7 @@ feedback: CustomerFeedback;
    this.feedback = new CustomerFeedback();
 
   this.productcatService.alert('Feedback ID -'+cid,msg);
-//this.reloadData();
-//  var newStatus = (<HTMLInputElement>document.getElementById('labelText')).value;
-//   newStatus = this.feedback.status;
-   // (document.getElementById('labelText') as HTMLBodyElement).textContent = "Viewed";
+
    
  }, error => console.log(error));
      
@@ -71,6 +68,30 @@ feedback: CustomerFeedback;
  
     // (document.getElementById('labelText') as HTMLImageElement). = badge badge-pill badge-success;
   }
+
+  publishToWeb(msg: any,cid: number){
+
+    this.customerFeedbackService.getCustomerFeedback(cid)
+    .subscribe(data => {
+  
+   
+      this.feedback = data;
+   this.feedback.status="published";
+
+
+   console.log(data);
+   
+   this.customerFeedbackService.updateCustomerFeedback(cid,this.feedback)
+ .subscribe(data => console.log(data),
+  error => {console.log(error);});
+   this.feedback = new CustomerFeedback();
+
+   //(<HTMLInputElement> document.getElementById("pubBtn")).disabled = true;
+
+   
+ }, error => console.log(error));
+  
+}
 
 
 }

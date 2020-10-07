@@ -64,6 +64,7 @@ import { OutRequestWasteComponent } from './webportal/outsource/out-request-wast
 import { CustomerOrdersComponent } from './webportal/modules/customer-account/customer-orders/customer-orders.component';
 import { ContactusComponent } from './webportal/modules/contactus/contactus.component';
 import { CustomerInviteFriendsComponent } from './webportal/modules/customer-account/customer-invite-friends/customer-invite-friends.component';
+import { ContactdetailsComponent} from './modules/contactdetails/contactdetails.component';
 
 const routes: Routes = [
   {
@@ -300,6 +301,12 @@ const routes: Routes = [
         path: 'viewterms',
         component: ViewtermsComponent,
       },
+
+      {
+        path: 'contactdetails',
+        component: ContactdetailsComponent,
+      },
+
       {
         path: 'UpdateTerms/:id',
         component: UpdateTermsComponent,

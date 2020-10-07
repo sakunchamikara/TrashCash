@@ -11,8 +11,6 @@ import { UpdateCollectedWasteComponent } from 'src/app/modules/collected-waste/u
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ViewPlacedRequestsComponent } from 'src/app/modules/agent/view-placed-requests/view-placed-requests.component';
 import { ViewAgentConfirmedRequestComponent } from 'src/app/modules/agent/view-agent-confirmed-request/view-agent-confirmed-request.component';
-
-
 import { SharedModule } from 'src/app/shared/shared.module';
 import {
   MatSidenavModule,
@@ -40,10 +38,8 @@ import { CollectedWasteComponent } from 'src/app/modules/collected-waste/collect
 import { UpdateEventComponent } from 'src/app/modules/events/update-event/update-event.component';
 import { ViewEventComponent } from 'src/app/modules/events/view-event/view-event.component';
 import { AddEventComponent } from 'src/app/modules/events/add-event/add-event.component';
-
 import { InsertCollectedWasteComponent } from 'src/app/modules/collected-waste/insert-collected-waste/insert-collected-waste.component';
 import { ViewCollectedWasteComponent } from 'src/app/modules/collected-waste/view-collected-waste/view-collected-waste.component';
-
 import { InsertProductCatComponent } from 'src/app/modules/product-cat/insert-product-cat/insert-product-cat.component';
 import { ViewProductCatComponent } from 'src/app/modules/product-cat/view-product-cat/view-product-cat.component';
 import { UpdateProductCatComponent } from 'src/app/modules/product-cat/update-product-cat/update-product-cat.component';
@@ -60,9 +56,10 @@ import { OutWasteRequestComponent } from 'src/app/modules/out-waste-request/out-
 import { ViewDbComponent } from 'src/app/modules/view-db/view-db.component';
 import { SendMailComponent } from 'src/app/modules/send-mail/send-mail.component';
 import { ConfirmWasteRequestComponent } from 'src/app/modules/out-waste-request/confirm-waste-request/confirm-waste-request.component';
-//import { NewtermsService } from 'src/app/service/newterms.service';
-
 import { DisplayCustomerFeedbackComponent } from 'src/app/modules/display-customer-feedback/display-customer-feedback.component';
+import { PendingOrdersComponent } from 'src/app/modules/orders/pending-orders/pending-orders.component';
+import { AcceptedOrdersComponent } from 'src/app/modules/orders/accepted-orders/accepted-orders.component';
+import { CompletedOrdersComponent } from 'src/app/modules/orders/completed-orders/completed-orders.component';
 
 @NgModule({
   declarations: [
@@ -95,14 +92,15 @@ import { DisplayCustomerFeedbackComponent } from 'src/app/modules/display-custom
     ViewPlacedRequestsComponent,
     ViewDbComponent,
     ConfirmWasteRequestComponent,
-
-    // TermdiscripComponent,
     AlertDialogComponent,
     SendMailComponent,
     ViewPlacedRequestsComponent,
     DisplayCustomerFeedbackComponent,
     AccepttermsComponent,
     ViewAgentConfirmedRequestComponent,
+    PendingOrdersComponent,
+    AcceptedOrdersComponent,
+    CompletedOrdersComponent,
   ],
   imports: [
     CommonModule,

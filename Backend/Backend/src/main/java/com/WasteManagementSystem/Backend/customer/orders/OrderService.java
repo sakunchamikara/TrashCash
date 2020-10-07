@@ -18,4 +18,8 @@ public class OrderService {
 		return orderRepo.getOrderById(id);
 	}
 
+	public List<Orders> findByStatus(String type) {
+		return orderRepo.findByStatus(type);
+	}
+
 }

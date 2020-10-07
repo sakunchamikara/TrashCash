@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -28,4 +30,10 @@ public class OrderController {
 	public List<Orders> getOrderById(@PathVariable int id) {
 		return orderService.findByCustomerId(id);
 	}
+
+	@GetMapping(value="getOrdersByType/{type}")
+	public List<Orders> getOrdersByType(@PathVariable String type) {
+		return orderService.findByStatus(type);
+	}
+	
 }

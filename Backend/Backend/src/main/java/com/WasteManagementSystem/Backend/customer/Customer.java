@@ -1,10 +1,15 @@
 package com.WasteManagementSystem.Backend.customer;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.WasteManagementSystem.Backend.customer.orders.Orders;
 
 @Entity
 @Table(name = "customer")
@@ -20,11 +25,13 @@ public class Customer {
 	private String password;
 	private int termStatus;
 	private String location;
+	@OneToMany(mappedBy="customer")
+	private List<Orders> orders;
 	
 	public Customer() { }
 
 	public Customer(int id, String firstName, String type, String email, int contactNumber, String address,
-			String password, int termStatus, String location) {
+			String password, int termStatus, String location, List<Orders> orders) {
 		this.id = id;
 		this.firstName = firstName;
 		this.type = type;
@@ -34,7 +41,9 @@ public class Customer {
 		this.password = password;
 		this.termStatus = termStatus;
 		this.location = location;
+		this.orders = orders;
 	}
+	
 
 	public int getId() {
 		return id;
@@ -107,13 +116,24 @@ public class Customer {
 	public void setLocation(String location) {
 		this.location = location;
 	}
+	
+
+	public List<Orders> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Orders> orders) {
+		this.orders = orders;
+	}
 
 	@Override
 	public String toString() {
 		return "Customer [address=" + address + ", contactNumber=" + contactNumber + ", email=" + email + ", firstName="
-				+ firstName + ", id=" + id + ", location=" + location + ", password=" + password + ", termStatus="
-				+ termStatus + ", type=" + type + "]";
+				+ firstName + ", id=" + id + ", location=" + location + ", orders=" + orders + ", password=" + password
+				+ ", termStatus=" + termStatus + ", type=" + type + "]";
 	}
+
+	
 	
 	
 

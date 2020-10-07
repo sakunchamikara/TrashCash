@@ -1,4 +1,5 @@
 import { Cart } from './cart';
+import { Customer } from './customer';
 
 export class Orders {
   id: number;
@@ -6,5 +7,6 @@ export class Orders {
   status: string;
   customerId: number;
   cart: Array<Cart>;
+  customer: Customer;
   constructor() {}
 }

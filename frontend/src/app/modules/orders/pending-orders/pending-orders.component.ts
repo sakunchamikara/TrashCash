@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NewtermsService } from 'src/app/service/newterms.service';
 import { OrdersService } from 'src/app/service/orders.service';
 import { Orders } from 'src/app/webportal/pojo/orders';
 
@@ -8,10 +9,13 @@ import { Orders } from 'src/app/webportal/pojo/orders';
   styleUrls: ['./pending-orders.component.scss'],
 })
 export class PendingOrdersComponent implements OnInit {
-
   type: string;
   ordersList: Array<Orders>;
-  constructor(private ordersService: OrdersService) {}
+  pendingOrder = new Orders();
+  constructor(
+    private ordersService: OrdersService,
+    private confirmationDialog: NewtermsService
+  ) {}
 
   ngOnInit() {
     this.getPendingOrders();
@@ -28,5 +32,28 @@ export class PendingOrdersComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  takeOrderAction(oid: number) {
+    // this.confirmationDialog
+    //   .confirm('Please confirm..', 'Do you really want to Update Order Status?')
+    //   .then((confirmed) => {
+    //     if (confirmed) {
+          this.pendingOrder.id = oid;
+          this.pendingOrder.status = 'Accepted';
+          this.ordersService
+            .updatePendingOrderStatus(this.pendingOrder)
+            .subscribe(
+              (data) => {
+                console.log(data);
+                this.getPendingOrders();
+              },
+              (error) => {
+                console.log('error in update ending orders');
+              }
+            );
+  //       }
+  //     })
+  //     .catch(() => console.log('cancelled'));
   }
 }

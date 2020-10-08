@@ -111,15 +111,7 @@
   <div *ngIf="userType === 'staff'">
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/dashboard">Dashboard</a>
 
-    <a mat-list-item routerLinkActive="list-item-active" [matMenuTriggerFor]="productcat">Recycled Product
-      Categories</a>
-    <mat-menu #productcat="matMenu">
-      <button mat-menu-list-item [routerLink]="'/system/productCats'" class="btn btn-primary-outline pull-right"> Insert
-        New Product Category</button>
-      <button mat-menu-list-item [routerLink]="'/system/viewProductCat'" class="btn btn-primary-outline pull-right">
-        View
-        Product Categories</button>
-    </mat-menu>
+
 
     <a mat-menu-item [matMenuTriggerFor]="product">Products</a>
     <mat-menu #product="matMenu">
@@ -127,6 +119,15 @@
         Product</a>
       <a mat-menu-item [routerLink]="'/system/ViewProducts'" class="btn btn-primary-outline pull-right"> View
         Products</a>
+    </mat-menu>
+
+    <a mat-list-item routerLinkActive="list-item-active" [matMenuTriggerFor]="productcat">Recycled Product
+      Categories</a>
+    <mat-menu #productcat="matMenu">
+      <button mat-menu-list-item [routerLink]="'/system/productCats'" class="btn btn-primary-outline pull-right"> Insert
+        New Product Category</button>
+      <button mat-menu-list-item [routerLink]="'/system/viewProductCat'" class="btn btn-primary-outline pull-right">
+        View Product Categories</button>
     </mat-menu>
 
     <a mat-menu-item [matMenuTriggerFor]="wasteStock">Waste Stock</a>
@@ -137,8 +138,8 @@
         stock</a>
     </mat-menu>
 
-    <a mat-list-item routerLinkActive="list-item-active" [matMenuTriggerFor]="productcat">Customer Orders</a>
-    <mat-menu #productcat="matMenu">
+    <a mat-list-item routerLinkActive="list-item-active" [matMenuTriggerFor]="orders">Customer Orders</a>
+    <mat-menu #orders="matMenu">
       <button mat-menu-list-item [routerLink]="'/system/pendingOrders'"
         class="btn btn-primary-outline pull-right">Pending
         Orders</button>

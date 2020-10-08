@@ -13,4 +13,8 @@ public interface OrderRepository extends JpaRepository<Orders, Integer> {
     public List<Orders> getOrderById(int id);
 
 	public List<Orders> findByStatus(String type);
+	
+	public Orders save(Orders order);
+	
+	public Orders findById(int id);
 }

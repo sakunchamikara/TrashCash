@@ -2,6 +2,7 @@ package com.WasteManagementSystem.Backend.customer;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,7 +26,7 @@ public class Customer {
 	private String password;
 	private int termStatus;
 	private String location;
-	@OneToMany(mappedBy="customer")
+	@OneToMany(mappedBy="customer", cascade = CascadeType.ALL)
 	private List<Orders> orders;
 	
 	public Customer() { }

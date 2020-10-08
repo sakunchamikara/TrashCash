@@ -14,7 +14,7 @@
   </div>
 
   <div class="row">
-    <div class="col-lg-12 col-md-12">
+    <div class="col-lg-10 col-md-10">
       <div class="card p2">
         <div class="card-body ">
           <div class="panel panel-primary">
@@ -26,8 +26,6 @@
                 <thead>
                   <tr>
                     <th>Order ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
                     <th>Status</th>
                     <th>Action</th>
                     <th>Date</th>
@@ -36,10 +34,8 @@
                 <tbody>
                   <tr *ngFor="let order of ordersList">
                     <td>{{order.id}}</td>
-                    <td>{{order.customerId}}</td>
-                    <td>{{order.customerId}}</td>
                     <td><p class="text-warning">{{order.status}}</p></td>
-                    <td><button type="button" class="btn btn-success btn-sm">Accept</button></td>
+                    <td><button (click)="takeOrderAction(order.id)" class="btn btn-success btn-sm" >Accept</button></td>
                     <td>{{order.date | date}}</td>
                   </tr>
                 </tbody>

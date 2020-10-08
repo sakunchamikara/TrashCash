@@ -1,18 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { CustomerOrderService } from 'src/app/webportal/services/customer-order.service';
-import { Orders } from 'src/app/webportal/pojo/orders';
-import { CustomerCartService } from 'src/app/webportal/services/customer-cart.service';
-import { CustomerAuthService } from 'src/app/webportal/services/customer-auth.service';
-import { Cart } from 'src/app/webportal/pojo/cart';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { CustomerOrderService } from "src/app/webportal/services/customer-order.service";
+import { Orders } from "src/app/webportal/pojo/orders";
+import { CustomerCartService } from "src/app/webportal/services/customer-cart.service";
+import { CustomerAuthService } from "src/app/webportal/services/customer-auth.service";
+import { Cart } from "src/app/webportal/pojo/cart";
 
 @Component({
-  selector: 'app-customer-orders',
-  templateUrl: './customer-orders.component.html',
-  styleUrls: ['./customer-orders.component.scss'],
+  selector: "app-customer-orders",
+  templateUrl: "./customer-orders.component.html",
+  styleUrls: ["./customer-orders.component.scss"],
 })
 export class CustomerOrdersComponent implements OnInit {
-
   orderCount: number;
   carts: Array<Cart>;
   date = new Date();
@@ -31,16 +30,15 @@ export class CustomerOrdersComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.orderId = this.route.snapshot.queryParamMap.get('order_id');
+    this.orderId = this.route.snapshot.queryParamMap.get("order_id");
     this.customerId = +this.customerAuth.getAuthenticatedCustomerId();
 
     if (this.orderId) {
       this.order.id = +this.orderId;
       this.order.date = this.date;
-      this.order.status = 'Pending';
-      this.order.customerId = this.customerId;
+      this.order.status = "Pending";
 
-      this.orderService.setOrder(this.order).subscribe(
+      this.orderService.setOrder(this.order, this.customerId).subscribe(
         (data) => {
           console.log(data);
         },
@@ -54,8 +52,7 @@ export class CustomerOrdersComponent implements OnInit {
           this.carts = data;
           this.carts.forEach((element) => {
             element.customerId = this.customerId;
-            // element.order.id = +this.orderId;
-            element.status = 'Paid';
+            element.status = "Paid";
           });
           this.updatecartorder();
         },
@@ -66,6 +63,7 @@ export class CustomerOrdersComponent implements OnInit {
     }
 
     this.getOrderDetails(this.customerId);
+    this.getAllOrders();
   }
 
   updatecartorder() {
@@ -85,6 +83,18 @@ export class CustomerOrdersComponent implements OnInit {
         this.viewOrders = data;
         this.orderCount = data.length;
         console.log(this.viewOrders);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getAllOrders() {
+    this.orderService.getAllOrders().subscribe(
+      (data) => {
+        console.log("data");
+        console.log(data);
       },
       (error) => {
         console.log(error);

@@ -16,7 +16,7 @@ public class EmailController {
 	
 	@GetMapping("/sendMail/{email}")
 	public String sendEmail(@PathVariable (value = "email",required = true )String email) {
-		
 		return emailService.sendEmail(email);
 	}
+
 }

@@ -157,6 +157,7 @@
         Terms</button>
     </mat-menu>
 
+
     <button mat-menu-item [matMenuTriggerFor]="events">Events</button>
     <mat-menu #events="matMenu">
       <a mat-menu-item [routerLink]="'/system/addEvent'" class="btn btn-primary-outline pull-right"> Add Event</a>
@@ -164,6 +165,8 @@
     </mat-menu>
 
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/sendMail">Email</a>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/contactdetails">Contact details</a>
 
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/displayCustomerFeedbacks">Customer
       Feedbacks</a>

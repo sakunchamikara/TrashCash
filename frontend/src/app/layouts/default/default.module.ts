@@ -60,6 +60,7 @@ import { DisplayCustomerFeedbackComponent } from 'src/app/modules/display-custom
 import { PendingOrdersComponent } from 'src/app/modules/orders/pending-orders/pending-orders.component';
 import { AcceptedOrdersComponent } from 'src/app/modules/orders/accepted-orders/accepted-orders.component';
 import { CompletedOrdersComponent } from 'src/app/modules/orders/completed-orders/completed-orders.component';
+import { ContactdetailsComponent } from 'src/app/modules/contactdetails/contactdetails.component';
 
 @NgModule({
   declarations: [
@@ -101,6 +102,7 @@ import { CompletedOrdersComponent } from 'src/app/modules/orders/completed-order
     PendingOrdersComponent,
     AcceptedOrdersComponent,
     CompletedOrdersComponent,
+    ContactdetailsComponent,
   ],
   imports: [
     CommonModule,

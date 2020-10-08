@@ -66,6 +66,7 @@ import { ContactusComponent } from './webportal/modules/contactus/contactus.comp
 import { PendingOrdersComponent } from './modules/orders/pending-orders/pending-orders.component';
 import { AcceptedOrdersComponent } from './modules/orders/accepted-orders/accepted-orders.component';
 import { CompletedOrdersComponent } from './modules/orders/completed-orders/completed-orders.component';
+import { ContactdetailsComponent} from './modules/contactdetails/contactdetails.component';
 
 const routes: Routes = [
   {
@@ -298,6 +299,12 @@ const routes: Routes = [
         path: 'viewterms',
         component: ViewtermsComponent,
       },
+
+      {
+        path: 'contactdetails',
+        component: ContactdetailsComponent,
+      },
+
       {
         path: 'UpdateTerms/:id',
         component: UpdateTermsComponent,

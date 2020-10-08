@@ -58,10 +58,10 @@ public class EventController {
         if (bindingResult.hasErrors()) {
 			return null;
         }
-        event.setImage(this.byts);
-        Event userObj = null;
-        userObj = eventservice.saveEvent(event);
-        return userObj;
+        event.setImage(this.byts); 
+        Event eventObj = new Event();
+        eventObj = eventservice.saveEvent(event);
+        return eventObj;
     }
 
     @PostMapping("/uploadImage")

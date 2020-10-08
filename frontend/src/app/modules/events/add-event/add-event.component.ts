@@ -48,7 +48,7 @@ export class AddEventComponent implements OnInit {
     uploadData.append('imageFile', this.selectedFile, this.selectedFile.name);
     this.selectedFile.imageName = this.selectedFile.name;
 
-    this.httpClient.post('http://localhost:8080/upload', uploadData, { observe: 'response' })
+    this.httpClient.post('http://localhost:8080/uploadImage', uploadData, { observe: 'response' })
       .subscribe((response) => {
         if (response.status === 200) {
           this.eventService.createEvent(this.event).subscribe(

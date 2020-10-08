@@ -54,7 +54,7 @@
                       <td>{{event.eventName}}</td>
                       <td>{{event.location}}</td>
                       <td>{{event.date}}</td>
-                      <td><img src="{{event.retrievedImage}}" height="200" width="200"></td>
+                      <td><img src="{{'data:image/jpeg;base64,' +event.image}}" height="200" width="200"></td>
                       <td>{{event.notes}}</td>
                      
                       <td><button (click)="openConfirmationDialog(event.id)" class="btn btn-danger">Delete</button>

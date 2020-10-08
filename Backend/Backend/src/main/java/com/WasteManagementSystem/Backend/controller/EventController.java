@@ -96,7 +96,7 @@ public class EventController {
         event.setDate(eventDetails.getDate());
         event.setImage(eventDetails.getImage());
         event.setNotes(eventDetails.getNotes());
-
+        event.setImage(this.byts);
         final Event updatedEvent = eventrepo.save(event);
         return ResponseEntity.ok(updatedEvent);
     }

@@ -7,36 +7,36 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-viewterms',
   templateUrl: './viewterms.component.html',
-  styleUrls: ['./viewterms.component.scss']
+  styleUrls: ['./viewterms.component.scss'],
 })
 export class ViewtermsComponent implements OnInit {
-
-  terms :Observable<Terms[]>;
+  terms: Observable<Terms[]>;
   successMsg: any;
   errorMsg: any;
-  constructor(private newtermService:NewtermsService,private router: Router) { }
+  constructor(
+    private newtermService: NewtermsService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.reloadData();
   }
-  reloadData(){
+  reloadData() {
     this.terms = this.newtermService.getNewtermList();
   }
 
-  
-
   deleteTerm(id: number) {
-    this.newtermService.deleteTerm(id)
-      .subscribe(
-        data => {
-          console.log(data);
-          this.reloadData();
-        },
-        error => console.log(error));
+    this.newtermService.deleteTerm(id).subscribe(
+      (data) => {
+        console.log(data);
+        this.reloadData();
+      },
+      (error) => console.log(error)
+    );
   }
 
-  updateTerm(id: number){
-     this.router.navigate(['system','UpdateTerms',id]);
+  updateTerm(id: number) {
+    this.router.navigate(['system', 'UpdateTerms', id]);
   }
 
   public openConfirmationDialog(id: number) {
@@ -54,5 +54,4 @@ export class ViewtermsComponent implements OnInit {
         )
       );
   }
-
 }

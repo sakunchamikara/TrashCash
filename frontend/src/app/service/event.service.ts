@@ -12,13 +12,13 @@ import { AlertDialogComponent } from '../modules/alert-dialog/alert-dialog.compo
 export class EventService {
 
   private baseUrl = 'http://localhost:8080/events';
-  
-  
-  constructor(private http:HttpClient,private modalService: NgbModal) { }
+
+
+  constructor(private http: HttpClient,private modalService: NgbModal) { }
 
   createEvent(event: Object): Observable<Object> {
     return this.http.post<any>(`${this.baseUrl}`, event);
-    
+
   }
   getEventList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);

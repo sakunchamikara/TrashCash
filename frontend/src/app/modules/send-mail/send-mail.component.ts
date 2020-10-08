@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { EmailService } from 'src/app/service/email.service';
 
 @Component({
   selector: 'app-send-mail',
@@ -8,32 +9,20 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SendMailComponent {
 
-  title = 'EmailTemplate';
+  email: string;
+  constructor(private emailService: EmailService) { }
 
-  dataset: Details = {
-    email:'',
-    description:''
-  };
-
-  constructor(private https: HttpClient) { }
-
-  onSubmit() {
-    this.https.post<Details>('http://localhost:8080/sendmail', this.dataset).subscribe(
-      res => {
-        this.dataset = res;
-        console.log(this.dataset);
-        alert('Email Sent successfully');
-        this.dataset.email = '';
-        this.dataset.description = '';
-
-        
-      });
+  ngOnInit() {
+    this.email = "prgshan@gmail.com";
+    this.emailService.sendEmail(this.email).subscribe(
+      data => { 
+        console.log(data); 
+      }, 
+      error => { 
+        console.log(error);
+      }
+    );
   }
 
 }
 
-interface Details
-{
-  email:string;
-  description:string;
-}

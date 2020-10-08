@@ -4,11 +4,16 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.WasteManagementSystem.Backend.customer.Customer;
 import com.WasteManagementSystem.Backend.customer.cart.Cart;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="orders")
@@ -18,75 +23,83 @@ public class Orders {
 	private int id;
 	private Date date;
 	private String status;
-	private int customerId;
 	@OneToMany(mappedBy = "order")
 	private List<Cart> cart;
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "customer_id")
+	private Customer customer;
 	
 	
 	public Orders() {
 	}
 
-	public Orders(int id, Date date, String status, int customerId, List<Cart> cart) {
+
+	public Orders(int id, Date date, String status, List<Cart> cart, Customer customer) {
+		super();
 		this.id = id;
 		this.date = date;
 		this.status = status;
-		this.customerId = customerId;
 		this.cart = cart;
+		this.customer = customer;
 	}
+
 
 	public int getId() {
 		return id;
 	}
 
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 
 	public Date getDate() {
 		return date;
 	}
 
+
 	public void setDate(Date date) {
 		this.date = date;
 	}
+
 
 	public String getStatus() {
 		return status;
 	}
 
+
 	public void setStatus(String status) {
 		this.status = status;
 	}
 
-	public int getCustomerId() {
-		return customerId;
-	}
-
-	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
-	}
 
 	public List<Cart> getCart() {
 		return cart;
 	}
 
+
 	public void setCart(List<Cart> cart) {
 		this.cart = cart;
 	}
 
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+
 	@Override
 	public String toString() {
-		return "Orders [cart=" + cart + ", customerId=" + customerId + ", date=" + date + ", id=" + id + ", status="
-				+ status + "]";
+		return "Orders [id=" + id + ", date=" + date + ", status=" + status + ", cart=" + cart + ", customer="
+				+ customer + "]";
 	}
-	
-	
 
-
-	
-
-	
-	
-	
 	
 }

@@ -17,22 +17,17 @@ export class CustomerFeedbackComponent implements OnInit {
   successMsg: any;
 
   feedback: CustomerFeedback;
-addedFeedbacks : Observable<CustomerFeedback[]>
+  addedFeedbacks: Observable<CustomerFeedback[]>;
 
   ngOnInit() {
     this.reloadData();
   }
 
   reloadData() {
-    
-    this.customerFeedbackService.getPublishedFeedback().subscribe(
-      (data)=>{
-        console.log(data);
-        this.addedFeedbacks = data;
-      }
-    );
-    
-
+    this.customerFeedbackService.getPublishedFeedback().subscribe((data) => {
+      console.log(data);
+      this.addedFeedbacks = data;
+    });
   }
 
   onSubmit() {
@@ -43,11 +38,11 @@ addedFeedbacks : Observable<CustomerFeedback[]>
 
   save() {
     this.customerFeed.date = new Date();
-    this.customerFeed.status ='New';
-     //console.log(this.customer.firstName);
-    //console.log(this.customer.firstName);
+    this.customerFeed.status = 'New';
+    // console.log(this.customer.firstName);
+    // console.log(this.customer.firstName);
     // this.retrieveRequests=this.customerWasteRequestService.getCustomerWasteRequests(this.customer.firstName);
-    //this.wasteRequest.customer = this.customer.firstName;
+    // this.wasteRequest.customer = this.customer.firstName;
     this.customerFeedbackService
       .createCustomerFeedback(this.customerFeed)
       .subscribe(

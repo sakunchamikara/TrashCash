@@ -58,6 +58,10 @@ export class SummaryStockService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
+  getWasteCatDropdownValues(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`);
+  }
+
 
  
 

@@ -16,7 +16,7 @@
     <div class="col-lg-3">
 
       <div class="list-group">
-        <a class="list-group-item " routerLink="/customer/shop">My Orders</a>
+        <a class="list-group-item " routerLink="/customer/myOrders">My Orders</a>
         <a class="list-group-item " routerLink="/customer/feedback">Manage Feedback</a>
         <a class="list-group-item ">Edit Account</a>
         <a class="list-group-item ">Message Center</a>
@@ -26,6 +26,9 @@
     <!-- /.col-lg-3 -->
 
     <div class="col-lg-9">
+      <div class="alert alert-success" role="alert" *ngIf="emailFlag">
+        {{emailFlag}}
+      </div>
       <div class="card">
         <div class="card-body">
           <h2 class="card-title" style="color: #333333;">My Orders</h2>

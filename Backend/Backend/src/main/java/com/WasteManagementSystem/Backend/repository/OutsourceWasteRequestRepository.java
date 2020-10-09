@@ -19,6 +19,9 @@ public interface OutsourceWasteRequestRepository extends JpaRepository<Outsource
 	@Query(value = "SELECT * FROM outsource_waste_request  WHERE outsource_waste_request.status= 'Pending' OR outsource_waste_request.status = 'Not Availabale At The Moment'", nativeQuery = true)
 	public List<OutsourceWasteRequest> findstatus();
 	
+	@Query(value = "SELECT * FROM outsource_waste_request  WHERE outsource_waste_request.status= 'Confirmed'", nativeQuery = true)
+	public List<OutsourceWasteRequest> findstatusCon();
+	
 	
 	
 }

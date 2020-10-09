@@ -19,13 +19,11 @@ import {
 } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-//import { ContactdetailsComponent } from './modules/contactdetails/contactdetails.component';
-//import { ContactusComponent } from './webportal/modules/contactus/contactus.component';
-// import { AccepttermsComponent } from './modules/terms/acceptterms/acceptterms.component';
+
 
 
 @NgModule({
-  declarations: [AppComponent, LogoutComponent,  ],
+  declarations: [AppComponent, LogoutComponent,],
   imports: [
     BrowserModule,
     AppRoutingModule,

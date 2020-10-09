@@ -34,6 +34,12 @@ export class OutsourceWasteRequsetService {
     return this.http.get(baseUrl);
   }
 
+  getCustomerWasteRequestListConfirmed():Observable<any>{
+    // console.log("asjh")
+     const baseUrl = 'http://localhost:8080/getwasteStatusCon';
+     return this.http.get(baseUrl);
+   }
+
   getWasteListByEmail(email: String): Observable<any> {
     const uri = `http://localhost:8080/getwaste/${email}`;
     return this.http.get(uri);

@@ -29,6 +29,7 @@ import { CustomerAccountComponent } from '../../modules/customer-account/custome
 import { RecycledProductAddComponent } from '../../modules/Outsource-company/recycled-product-add/recycled-product-add.component';
 import { CustomerOrdersComponent } from '../../modules/customer-account/customer-orders/customer-orders.component';
 import { ContactusComponent } from '../../modules/contactus/contactus.component';
+import { CustomerInviteFriendsComponent } from '../../modules/customer-account/customer-invite-friends/customer-invite-friends.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { ContactusComponent } from '../../modules/contactus/contactus.component'
     RecycledProductAddComponent,
     CustomerOrdersComponent,
     ContactusComponent,
+    CustomerInviteFriendsComponent,
   ],
   imports: [
     FormsModule,
@@ -69,7 +71,7 @@ import { ContactusComponent } from '../../modules/contactus/contactus.component'
     MatSelectModule,
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'googleapikey',
+      apiKey: 'AIzaSyAOSPkCem6dwlUjUHR23nQzteLSAy8gRv8',
       libraries: ['places'],
     }),
   ],

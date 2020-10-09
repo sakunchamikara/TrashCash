@@ -55,7 +55,7 @@
                   <td>{{item.product.price}}</td>
                   <td *ngIf="order.status == 'Pending'"><button type="button"
                       class="btn btn-outline-warning btn-sm">{{order.status}}</button></td>
-                  <td *ngIf="order.status == 'Shipped'"><button type="button"
+                  <td *ngIf="order.status == 'Accepted'"><button type="button"
                       class="btn btn-outline-success btn-sm">{{order.status}}</button></td>
                   <td>{{order.date | date}}</td>
                 </tr>

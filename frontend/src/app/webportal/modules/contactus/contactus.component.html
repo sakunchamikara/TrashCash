@@ -47,27 +47,62 @@
 				<div class="form-group">
 				  <label class="control-label col-sm-2" for="name"> Name:</label>
 				  <div class="col-sm-15">          
-					<input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" [(ngModel)]="contactus.name">
+					<input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" [(ngModel)]="contactus.name" required
+					>
 				  </div>
+				  <!--
+					  #name="ngModel" [class.is-invalid]="name.invalid && name.touched"
+				  <div *ngIf="name.errors && (name.invalid && name.touched)">
+					<small class="text-danger" *ngIf="name.errors.required">Name is a required field</small>
+				  </div>
+				  -->
 				</div>
+
+
 				<div class="form-group">
 				  <label class="control-label col-sm-2" for="email">Email:</label>
 				  <div class="col-sm-15">          
-					<input type="text" class="form-control" id="email" placeholder="Enter Email" name="email" [(ngModel)]="contactus.email">
+					<input type="text" class="form-control" id="email" placeholder="Enter Email" name="email" [(ngModel)]="contactus.email"
+					required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+					>
 				  </div>
+
+				 <!--
+					 #email="ngModel" [class.is-invalid]="email.invalid && email.touched"
+				  <div *ngIf="email.errors && (email.invalid && email.touched)">
+					<small class="text-danger" *ngIf="email.errors.required">Email is a required field</small>
+				  </div>
+				-->
 				</div>
+
 				<div class="form-group">
 				  <label class="control-label col-sm-2" for="phone">Phone Number:</label>
 				  <div class="col-sm-15">
-					<input type="email" class="form-control" id="phone" placeholder="Enter Phone Number" name="phone" [(ngModel)]="contactus.phone">
+					<input type="number" class="form-control" id="phone" placeholder="Enter Phone Number" name="phone" [(ngModel)]="contactus.phone" required
+					>
 				  </div>
+				  <!--
+					  #phone="ngModel" [class.is-invalid]="phone.invalid && phone.touched"
+				  <div *ngIf="phone.errors && (phone.invalid && phone.touched)">
+					<small class="text-danger" *ngIf="phone.errors.required">Phone is a required field</small>
+				  </div>
+				  -->
 				</div>
+
 				<div class="form-group">
 				  <label class="control-label col-sm-2" for="message">Message:</label>
 				  <div class="col-sm-15">
-					<textarea class="form-control" rows="5" id="message" name="message" [(ngModel)]="contactus.message"></textarea>
+					<textarea class="form-control" rows="5" id="message" name="message" [(ngModel)]="contactus.message" required
+					></textarea>
 				  </div>
+				<!--  
+					#message="ngModel" [class.is-invalid]="message.invalid && message.touched"
+					<div *ngIf="message.errors && (message.invalid && message.touched)">
+					<small class="text-danger" *ngIf="message.errors.required">Message is a required field</small>
+				  </div> 
+				-->
 				</div>
+
 				<div class="form-group">        
 				  <div class="col-sm-offset-2 col-sm-15">
                     <button type="submit" class="btn btn-primary float-right" [disabled]="contactusForm.form.invalid">Submit</button>

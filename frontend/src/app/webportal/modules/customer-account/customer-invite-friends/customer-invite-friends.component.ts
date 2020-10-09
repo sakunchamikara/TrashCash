@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NgxSocialShareModule } from 'ngx-social-share';
+// import { NgxSocialShareModule } from 'ngx-social-share';
 
 @Component({
   selector: 'app-customer-invite-friends',

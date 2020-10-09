@@ -1,0 +1,79 @@
+<div class="container">
+    <div class="form-row">
+      <div class="col-md-12">
+        <br>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item " aria-current="page">My Account</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  
+    <div class="row">
+  
+      <div class="col-lg-3">
+  
+        <div class="list-group">
+          <a class="list-group-item " routerLink="/customer/shop">My Orders</a>
+          <a class="list-group-item " routerLink="/customer/myFeedbacks">My Feedbacks</a>
+          <a class="list-group-item ">Edit Account</a>
+          <a class="list-group-item ">Message Center</a>
+        </div>
+        <br>
+      </div>
+      <!-- /.col-lg-3 -->
+  
+      <div class="col-lg-9">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title" style="color: #333333;">My Feedbacks</h2>
+            <h6 class="card-subtitle mb-2 text-muted">View your All posted feedbacks From Here !</h6>
+            <div class="">
+  
+              <table class="table table-hover" style="font-size: 14px;">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Feedback</th>
+                    <th>Status</th>
+                    <th>Response</th>
+                  </tr>
+                </thead>
+  
+                <tbody >
+                  <tr *ngFor="let add of added">
+                    <!-- <td>{{add.id}}</td>
+                    <td>{{item.product.title}}</td>
+                    <td>{{item.quentity}}</td>
+                    <td>{{item.quentity}}</td>
+                    <td>{{item.product.price}}</td>
+                    <td *ngIf="order.status == 'Pending'"><button type="button"
+                        class="btn btn-outline-warning btn-sm"></button></td>
+                    <td *ngIf="order.status == 'Accepted'"><button type="button"
+                        class="btn btn-outline-success btn-sm"></button></td> -->
+                    <!-- <td>{{order.date | date}}</td> --> 
+                    <td>{{add.date}}</td>
+                  </tr>
+                </tbody>
+  
+                <tfoot>
+  
+                 
+  
+                </tfoot>
+  
+              </table>
+            </div>
+          </div>
+        </div>
+        <br>
+      </div>
+      <!-- /.col-lg-9 -->
+  
+    </div>
+    <!-- /.row -->
+  
+  </div>
+  

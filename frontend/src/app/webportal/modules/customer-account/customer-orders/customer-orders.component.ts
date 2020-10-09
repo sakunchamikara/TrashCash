@@ -64,6 +64,7 @@ export class CustomerOrdersComponent implements OnInit {
 
     this.getOrderDetails(this.customerId);
     this.getAllOrders();
+
   }
 
   updatecartorder() {

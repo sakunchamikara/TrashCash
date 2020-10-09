@@ -29,6 +29,8 @@ import { CustomerAccountComponent } from '../../modules/customer-account/custome
 import { RecycledProductAddComponent } from '../../modules/Outsource-company/recycled-product-add/recycled-product-add.component';
 import { CustomerOrdersComponent } from '../../modules/customer-account/customer-orders/customer-orders.component';
 import { ContactusComponent } from '../../modules/contactus/contactus.component';
+import { CustomerMyFeedbacksComponent } from '../../modules/customer-acount/customer-my-feedbacks/customer-my-feedbacks.component';
+
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { ContactusComponent } from '../../modules/contactus/contactus.component'
     RecycledProductAddComponent,
     CustomerOrdersComponent,
     ContactusComponent,
+    CustomerMyFeedbacksComponent,
+
   ],
   imports: [
     FormsModule,

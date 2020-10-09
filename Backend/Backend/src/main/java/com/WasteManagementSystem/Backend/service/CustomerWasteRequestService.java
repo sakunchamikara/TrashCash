@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.WasteManagementSystem.Backend.entity.CustomerWasteRequest;
 import com.WasteManagementSystem.Backend.repository.CustomerWasteRequestRepository;
 
+import java.sql.Date;
 import java.util.List;
 
 
@@ -27,4 +28,8 @@ public class CustomerWasteRequestService{
   public List<CustomerWasteRequest> findAllConfirmings(){
     return repo.findByConfirmed();
   }
+  
+ public List<CustomerWasteRequest> fetchReport(int year, int month) {
+		return repo.findDate(year,month);
+}
 }

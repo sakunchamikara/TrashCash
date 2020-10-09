@@ -67,7 +67,8 @@ import { PendingOrdersComponent } from './modules/orders/pending-orders/pending-
 import { AcceptedOrdersComponent } from './modules/orders/accepted-orders/accepted-orders.component';
 import { CompletedOrdersComponent } from './modules/orders/completed-orders/completed-orders.component';
 import { ContactdetailsComponent} from './modules/contactdetails/contactdetails.component';
-
+//import { CustomerMyFeedbacksComponent } from './webportal/modules/customer-account/customer-my-feedbacks/customer-my-feedbacks.component';
+import { CustomerMyFeedbacksComponent } from './webportal/modules/customer-acount/customer-my-feedbacks/customer-my-feedbacks.component';
 const routes: Routes = [
   {
     path: '',
@@ -169,6 +170,10 @@ const routes: Routes = [
       {
         path: 'myOrders',
         component: CustomerOrdersComponent,
+      },
+      {
+        path: 'myFeedbacks',
+        component: CustomerMyFeedbacksComponent,
       },
     ],
   },

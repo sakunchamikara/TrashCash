@@ -62,6 +62,10 @@ export class CustomerFeedbackService {
     return this.http.get(url)
   }
 
+  getFeedbackOfUser(): Observable<any> {
+    let url = `http://localhost:8080/customerFeedback/`;
+    return this.http.get(url)
+  }
 
   
 

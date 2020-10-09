@@ -80,4 +80,10 @@ public class CustomerFeedbackController {
 		    return cusfeedrepo.getPublishedFeedbacks();
 		}
 		
+		@GetMapping(path="/customerFeedback/email")
+		public @ResponseBody List<CustomerFeedback> getFeedbacksOfUser() {
+		    return cusfeedrepo.getFeedbacksOfUser();
+		}
+		
+		
 }

@@ -18,5 +18,9 @@ public interface CustomerFeedbackRepository extends JpaRepository<CustomerFeedba
 	
 	@Query("select cf from CustomerFeedback cf where cf.status='published'")
 	   List<CustomerFeedback> getPublishedFeedbacks();
+	
+	@Query("select cf from CustomerFeedback cf")
+	   List<CustomerFeedback> getFeedbacksOfUser();
+	
 
 }

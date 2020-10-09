@@ -68,6 +68,8 @@ import { PendingOrdersComponent } from './modules/orders/pending-orders/pending-
 import { AcceptedOrdersComponent } from './modules/orders/accepted-orders/accepted-orders.component';
 import { CompletedOrdersComponent } from './modules/orders/completed-orders/completed-orders.component';
 import { ContactdetailsComponent} from './modules/contactdetails/contactdetails.component';
+import { ViewConfirmedOrdersComponent } from './modules/agent/view-confirmed-orders/view-confirmed-orders.component';
+import { ViewPendingOrdersComponent } from './modules/agent/view-pending-orders/view-pending-orders.component';
 
 const routes: Routes = [
   {
@@ -367,6 +369,14 @@ const routes: Routes = [
       {
         path: 'completedOrders',
         component: CompletedOrdersComponent,
+      },
+      {
+        path: 'viewConfirmedOrders',
+        component: ViewConfirmedOrdersComponent,
+      },
+      {
+        path: 'viewPendingOrders',
+        component: ViewPendingOrdersComponent,
       },
     ],
   },

@@ -11,10 +11,9 @@ import com.sendgrid.Request;
 import com.sendgrid.Response;
 import com.sendgrid.SendGrid;
 import com.sendgrid.helpers.mail.Mail;
-<<<<<<< HEAD
-=======
+
 import com.sendgrid.helpers.mail.objects.Content;
->>>>>>> aa27904ebe70f909f8ce6a91201f962e5b820ae8
+
 import com.sendgrid.helpers.mail.objects.Email;
 import com.sendgrid.helpers.mail.objects.Personalization;
 

@@ -23,11 +23,11 @@
               <mat-icon>person_outline</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
-              <button mat-menu-item routerLink="/system/login" *ngIf="!this.authservice.isCustomerLoggedIn()">
+              <button mat-menu-item routerLink="/customer/login" *ngIf="!this.authservice.isCustomerLoggedIn()">
                 <i class="fas fa-sign-in-alt"></i>
                 Login
               </button>
-              <button mat-menu-item routerLink="/system/register" *ngIf="!this.authservice.isCustomerLoggedIn()">
+              <button mat-menu-item routerLink="/customer/register" *ngIf="!this.authservice.isCustomerLoggedIn()">
                 <i class="fas fa-user"></i>
                 Register
               </button>
@@ -35,7 +35,7 @@
                 <i class="fas fa-user"></i>
                 Profile
               </button>
-              <button mat-menu-item routerLink="/system/logout" *ngIf="this.authservice.isCustomerLoggedIn()">
+              <button mat-menu-item routerLink="/customer/logout" *ngIf="this.authservice.isCustomerLoggedIn()">
                 <mat-icon>exit_to_app</mat-icon>
                 Logout
               </button>

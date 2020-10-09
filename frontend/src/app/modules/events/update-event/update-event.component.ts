@@ -51,6 +51,7 @@ export class UpdateEventComponent implements OnInit {
       .subscribe((response) => {
         if (response.status === 200) {
           this.eventService.updateEvent(this.id, this.event).subscribe(data => console.log(data), error => console.log(error));
+          //this.event = new Event();
           this.gotoList();
           console.log('Image uploaded successfully');
         } else {
@@ -69,7 +70,8 @@ export class UpdateEventComponent implements OnInit {
   // }
 
   onSubmit() {
-    this.updateEvent();    
+    this.updateEvent(); 
+    alert('UPDATE SUCCESSFUL!!');     
   }
   gotoList(){
     this.router.navigate(['system/viewEvent']);

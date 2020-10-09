@@ -23,7 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [AppComponent, LogoutComponent, ],
+  declarations: [AppComponent, LogoutComponent,],
   imports: [
     BrowserModule,
     AppRoutingModule,

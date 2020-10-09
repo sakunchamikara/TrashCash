@@ -11,6 +11,10 @@ import com.sendgrid.Request;
 import com.sendgrid.Response;
 import com.sendgrid.SendGrid;
 import com.sendgrid.helpers.mail.Mail;
+<<<<<<< HEAD
+=======
+import com.sendgrid.helpers.mail.objects.Content;
+>>>>>>> aa27904ebe70f909f8ce6a91201f962e5b820ae8
 import com.sendgrid.helpers.mail.objects.Email;
 import com.sendgrid.helpers.mail.objects.Personalization;
 
@@ -43,13 +47,23 @@ public class EmailService {
 	public Mail prepareMail(String email) {
 		Mail mail = new Mail();
 		Email fromEmail = new Email();
-		fromEmail.setEmail("2017cs014@stu.ucsc.cmb.ac.lk");
+		fromEmail.setEmail("ssakunchamikara@gmail.com");
+		
 		Email to = new Email();
 		to.setEmail(email);
 		
+		Content content = new Content("text/plain", "and easy to do anywhere, even with Java");
+		String subject = "Sending with SendGrid is Fun";
+		
 		Personalization personalization = new Personalization();
+		
 		personalization.addTo(to);
-		mail.setTemplateId(templateId);
+		mail.addContent(content);
+//		mail.setTemplateId(templateId);
+		mail.setFrom(fromEmail);
+		mail.setSubject(subject);
+		mail.addPersonalization(personalization);
+		
 		return mail;
 	}
 }

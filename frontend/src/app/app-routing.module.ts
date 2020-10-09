@@ -69,6 +69,7 @@ import { CompletedOrdersComponent } from './modules/orders/completed-orders/comp
 import { ContactdetailsComponent} from './modules/contactdetails/contactdetails.component';
 //import { CustomerMyFeedbacksComponent } from './webportal/modules/customer-account/customer-my-feedbacks/customer-my-feedbacks.component';
 import { CustomerMyFeedbacksComponent } from './webportal/modules/customer-acount/customer-my-feedbacks/customer-my-feedbacks.component';
+
 const routes: Routes = [
   {
     path: '',

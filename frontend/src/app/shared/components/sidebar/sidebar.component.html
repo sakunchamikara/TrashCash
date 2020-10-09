@@ -170,6 +170,14 @@
 
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/displayCustomerFeedbacks">Customer
       Feedbacks</a>
+
+      <button mat-menu-item [matMenuTriggerFor]="outsource">Waste Requests Status</button>
+      <mat-menu #outsource="matMenu">
+         <a mat-menu-item [routerLink]="'/system/ViewOutRequest'" class="btn btn-primary-outline pull-right">Pending Waste
+        Requests</a>
+         <a mat-menu-item [routerLink]="'/system/viewoutSourceWasteRequest'"
+        class="btn btn-primary-outline pull-right">Confirmed Waste Requests</a>
+    </mat-menu>
     <!-- <mat-menu #productcat="matMenu">
       <button  mat-menu-list-item [routerLink]="'/system/productCats'" class="btn btn-primary-outline pull-right">  Insert New Product Category</button>
       <button  mat-menu-list-item [routerLink]="'/system/viewProductCat'" class="btn btn-primary-outline pull-right">  View Product Categories</button>
@@ -206,13 +214,13 @@
         class="btn btn-primary-outline pull-right">Confirmed
         Waste Requests</a>
     </mat-menu>
-    <button mat-menu-item [matMenuTriggerFor]="outsource">Waste Requests Status</button>
+    <!-- <button mat-menu-item [matMenuTriggerFor]="outsource">Waste Requests Status</button>
     <mat-menu #outsource="matMenu">
       <a mat-menu-item [routerLink]="'/system/ViewOutRequest'" class="btn btn-primary-outline pull-right">Pending Waste
         Requests</a>
       <a mat-menu-item [routerLink]="'/system/viewoutSourceWasteRequest'"
         class="btn btn-primary-outline pull-right">Confirmed Waste Requests</a>
-    </mat-menu>
+    </mat-menu> -->
   </div>
 
 

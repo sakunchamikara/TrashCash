@@ -99,8 +99,7 @@ export class OutRequestWasteComponent implements OnInit {
         //this.submitted = true;
         this.save();
         //this.updatesucessBox();
-        this.pageRefresh();
-        alert('SUCCESS!!');
+        
          
         
       }

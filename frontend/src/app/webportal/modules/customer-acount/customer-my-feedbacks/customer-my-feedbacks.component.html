@@ -16,7 +16,7 @@
       <div class="col-lg-3">
   
         <div class="list-group">
-          <a class="list-group-item " routerLink="/customer/shop">My Orders</a>
+          <a class="list-group-item " routerLink="/customer/myOrders">My Orders</a>
           <a class="list-group-item " routerLink="/customer/myFeedbacks">My Feedbacks</a>
           <a class="list-group-item ">Edit Account</a>
           <a class="list-group-item ">Message Center</a>
@@ -43,7 +43,7 @@
                 </thead>
   
                 <tbody >
-                  <tr *ngFor="let add of added">
+                  <tr *ngFor="let userFeedback of userFeedbacks">
                     <!-- <td>{{add.id}}</td>
                     <td>{{item.product.title}}</td>
                     <td>{{item.quentity}}</td>
@@ -54,7 +54,12 @@
                     <td *ngIf="order.status == 'Accepted'"><button type="button"
                         class="btn btn-outline-success btn-sm"></button></td> -->
                     <!-- <td>{{order.date | date}}</td> --> 
-                    <td>{{add.date}}</td>
+                    <!-- <td>{{add.date}}</td> -->
+                    <td>{{userFeedback.date}}</td>
+                    <td>{{userFeedback.feedback}}</td>
+                    <td>{{userFeedback.status}}</td>
+                    <td>{{userFeedback.email}}</td>
+                    <!-- <td>{{item.product.price}}</td> -->
                   </tr>
                 </tbody>
   

@@ -33,6 +33,7 @@
                     <th>Category</th>
                     <th>Image</th>
                     <!-- <th>Image2</th> -->
+                    <th>Quantity</th>
                     <th>Price</th>
                     <th>Description</th>
                     <th colspan="2">Action</th>
@@ -46,7 +47,7 @@
                     <!-- <td>{{product.image1}}</td> -->
                     <td><img src="{{product.retrievedImage}}" height="100" width="100"></td>
                     <!-- <td>{{product.image2}}</td> -->
-
+                    <td>{{product.quantity}}</td>
                     <td>{{product.price}}</td>
                     <td>{{product.details}}</td>
                     <td><button (click)="openConfirmationDialog(product.id)" class="btn btn-danger">Delete</button>

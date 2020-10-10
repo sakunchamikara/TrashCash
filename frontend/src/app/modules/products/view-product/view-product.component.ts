@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from "rxjs";
 import { NgForm } from '@angular/forms';
 import { Item} from 'src/app/pojo/item';
+import { User} from 'src/app/pojo/user';
 import { ProductService } from 'src/app/service/product.service';
 import { Router } from '@angular/router';
+import { AuthserviceService} from 'src/app/service/authservice.service';
 
 
 @Component({
@@ -14,18 +16,35 @@ import { Router } from '@angular/router';
 export class ViewProductComponent implements OnInit {
   products: Array<Item>;
   productsRecieved: Array<Item>;
+  user:User;
+  email:any;
   // products : Observable<Item[]>;
-  constructor(private productService: ProductService,private router: Router) { }
+  constructor(private productService: ProductService,private router: Router,private authService: AuthserviceService) { }
 
   ngOnInit() {
-    this.reloadData();
+    
+    this.email = this.authService.getAuthenticatedUser();
+    this.user = new User();
+
+    this.authService.getUser(this.email).subscribe((data) => {
+      this.user = data;
+       //  this.cus=JSON.stringify(this.customer.firstName);
+      
+      
+       
+       });
+
+       if(this.email){
+        this.reloadData();
+     }
+   
   }
   // reloadData(){
   //   this.products = this.productService.getProductList();
   // }
 
   reloadData(){
-   this.productService.getProductList().subscribe(
+   this.productService.getProductListByEmail(this.email).subscribe(
       response => this.handleSuccessfulResponse(response));
   }
 
@@ -38,11 +57,13 @@ export class ViewProductComponent implements OnInit {
       const bookwithRetrievedImageField = new Item();
       bookwithRetrievedImageField.id = product.id;
       bookwithRetrievedImageField.title = product.title;
+      
       bookwithRetrievedImageField.category = product.category;
       //populate retrieved image field so that product image can be displayed
       bookwithRetrievedImageField.retrievedImage = 'data:image/jpeg;base64,' + product.image1;
       bookwithRetrievedImageField.image1=product.image1;
       // bookwithRetrievedImageField.image2=product.image2;
+      bookwithRetrievedImageField.quantity = product.quantity;
       bookwithRetrievedImageField.price = product.price;
       bookwithRetrievedImageField.details = product.details;
       this.products.push(bookwithRetrievedImageField);

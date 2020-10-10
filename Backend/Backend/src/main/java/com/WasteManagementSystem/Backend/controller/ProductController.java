@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.WasteManagementSystem.Backend.entity.OutsourceWasteRequest;
 import com.WasteManagementSystem.Backend.entity.Product;
 //import com.WasteManagementSystem.Backend.entity.User;
 //import com.WasteManagementSystem.Backend.entity.User;
@@ -117,5 +118,12 @@ public class ProductController {
     public List<Product> serchProduct(@PathVariable String keyword) {
         return productservice.searchProduct(keyword);
     }
+    
+    //getproduct by company
+    //view all requests to company
+	 @GetMapping("/getcompanyproduct/{email}")
+	    public List<Product> getcompanyProduct(@PathVariable String email) {
+	        return productservice.fetchProductByEmail(email);
+	    }
 
 }

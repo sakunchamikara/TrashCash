@@ -38,6 +38,11 @@ export class ProductService {
     return this.http.get(uri);
   }
 
+  getProductListByEmail(email: string): Observable<any> {
+    const uri = `http://localhost:8080/getcompanyproduct/${email}`;
+    return this.http.get(uri);
+  }
+
   //
   getProductCatDropdownValues(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);

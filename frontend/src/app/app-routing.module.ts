@@ -67,6 +67,8 @@ import { PendingOrdersComponent } from './modules/orders/pending-orders/pending-
 import { AcceptedOrdersComponent } from './modules/orders/accepted-orders/accepted-orders.component';
 import { CompletedOrdersComponent } from './modules/orders/completed-orders/completed-orders.component';
 import { ContactdetailsComponent} from './modules/contactdetails/contactdetails.component';
+import { AddReProductComponent } from './webportal/outsource/add-re-product/add-re-product.component';
+import { UpdateComponent } from './webportal/outsource/add-re-product/update/update.component';
 
 const routes: Routes = [
   {
@@ -157,10 +159,10 @@ const routes: Routes = [
         path: 'myAccount',
         component: CustomerAccountComponent,
       },
-      {
-        path: 'Productadd',
-        component: RecycledProductAddComponent,
-      },
+      // {
+      //   path: 'Productadd',
+      //   component: RecycledProductAddComponent,
+      // },
 
       // {
       //   path:'outsource',
@@ -188,6 +190,14 @@ const routes: Routes = [
         path: 'WasteRequsetAdd',
         component: OutRequestWasteComponent,
       },
+      {
+        path:'AddRecycledProduct',
+        component:AddReProductComponent,
+      },
+      {
+        path:'Update/:id',
+        component:UpdateComponent,
+      }
     ],
   },
   {

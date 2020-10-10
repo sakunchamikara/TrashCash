@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.WasteManagementSystem.Backend.entity.OutsourceWasteRequest;
 
 //import lombok.var;
 
@@ -36,4 +37,8 @@ public  class ProductService {
 	public List<Product> searchProduct(String keyword) {
 		return repo.findAll(keyword);
 	}	
+	
+	public List<Product> fetchProductByEmail(String email) {
+		return repo.findByEmail(email);
+	}
 }

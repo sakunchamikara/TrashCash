@@ -1,5 +1,6 @@
 package com.WasteManagementSystem.Backend.repository;
 
+import com.WasteManagementSystem.Backend.entity.OutsourceWasteRequest;
 import com.WasteManagementSystem.Backend.entity.Product;
 //import com.WasteManagementSystem.Backend.entity.User;
 
@@ -25,5 +26,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
 	@Query(value= "SELECT * FROM product WHERE title LIKE %:keyword%",nativeQuery = true)
 	public List<Product> findAll(String keyword);
+	
+	public List<Product> findByEmail(String email);
 	
 }

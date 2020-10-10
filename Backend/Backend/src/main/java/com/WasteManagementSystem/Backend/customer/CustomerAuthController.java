@@ -68,4 +68,10 @@ public class CustomerAuthController {
     public List<Customer> getTermsAceptedCustomers() {
         return CustomerAuthService.findBytermstatus();
     }
+    
+    
+    @GetMapping("/getCustomerByType/{type}")
+	public String[] getUserByType(@PathVariable String type) {
+		return CustomerAuthService.findCompanyByType(type); 
+	}
 }

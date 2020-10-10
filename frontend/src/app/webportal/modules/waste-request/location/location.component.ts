@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, NgZone ,AfterViewInit} from '@angular/core';
 import { MapsAPILoader } from '@agm/core';
 
 @Component({
@@ -18,9 +18,13 @@ export class LocationComponent implements OnInit {
   @ViewChild('search', {static:true}) 
   public searchElementRef: ElementRef;
 
+  @ViewChild('mapRef', {static: true }) mapElement: ElementRef;
+
   constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) { }
 
   ngOnInit() {
+
+    // this.renderMap();
     this.mapsAPILoader.load().then(()=>{
       this.setCurrentLocation();
       this.geoCoder = new google.maps.Geocoder;
@@ -52,10 +56,10 @@ export class LocationComponent implements OnInit {
     }
   }
 
-  markerDragEnd($event:MouseEvent){
+  markerDragEnd($event:any){
     console.log($event);
-    // this.latitude=$event.coords.lat;
-    // this.longitude = $event.coords.lng;
+    this.latitude=$event.coords.lat;
+    this.longitude = $event.coords.lng;
     this.getAddress(this.latitude,this.longitude);
   }
 
@@ -75,5 +79,56 @@ export class LocationComponent implements OnInit {
         }
     });
 
+  }
+
+
+  loadMap = () => {
+    var map = new window['google'].maps.Map(this.mapElement.nativeElement, {
+      center: {lat: 24.5373, lng: 81.3042},
+      zoom: 8
+    });
+
+    var marker = new window['google'].maps.Marker({
+      position: {lat: 24.5373, lng: 81.3042},
+      map: map,
+      title: 'Hello World!',
+      draggable: true,
+      animation: window['google'].maps.Animation.DROP,
+    });
+
+    var contentString = '<div id="content">'+
+    '<div id="siteNotice">'+
+    '</div>'+
+    '<h3 id="thirdHeading" class="thirdHeading">W3path.com</h3>'+
+    '<div id="bodyContent">'+
+    '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>'+
+    '</div>'+
+    '</div>';
+
+    var infowindow = new window['google'].maps.InfoWindow({
+      content: contentString
+    });
+
+      marker.addListener('click', function() {
+        infowindow.open(map, marker);
+      });
+
+  }
+
+  renderMap() {
+
+    window['initMap'] = () => {
+      this.loadMap();     
+    }
+    if(!window.document.getElementById('google-map-script')) {
+      var s = window.document.createElement("script");
+      s.id = "google-map-script";
+      s.type = "text/javascript";
+      s.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCjX18JKeMwwJLdWueKkhJnY7ND-IeE-Kk;callback=initMap";
+
+      window.document.body.appendChild(s);
+    } else {
+      this.loadMap();
+    }
   }
 }

@@ -77,4 +77,8 @@ export class CustomerAuthService {
       `http://localhost:8080/getCustomerById/${id}`
     );
   }
+
+  getUserByType(email: string): Observable<String[]> {
+    return this.http.get<any>(`http://localhost:8080/getCustomerByType/${email}`);
+  }
 }

@@ -11,11 +11,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UpdateEventComponent implements OnInit {
   private selectedFile;
-  id : number;
-  event : Event;
+  id: number;
+  event: Event;
   imgURL: any;
 
-  constructor(private route: ActivatedRoute,private router: Router,private eventService:EventService, private httpClient: HttpClient ) { }
+
+  constructor(private route: ActivatedRoute, private router: Router, private eventService: EventService, private httpClient: HttpClient) { }
 
   ngOnInit() {
     this.event = new Event();
@@ -23,11 +24,11 @@ export class UpdateEventComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
 
     this.eventService.getEvent(this.id)
-    .subscribe(data => {
-      console.log(data)
-      
-      this.event = data;
-    }, error => console.log(error));
+      .subscribe(data => {
+        console.log(data)
+
+        this.event = data;
+      }, error => console.log(error));
   }
 
   public onFileChanged(event) {
@@ -43,22 +44,31 @@ export class UpdateEventComponent implements OnInit {
   }
 
   updateEvent() {
-    const uploadData = new FormData();
-    uploadData.append('imageFile', this.selectedFile, this.selectedFile.name);
-    this.selectedFile.imageName = this.selectedFile.name;
+    console.log("*****************************");
+    console.log(this.selectedFile);
+    if (this.selectedFile) {
+      const uploadData = new FormData();
+      uploadData.append('imageFile', this.selectedFile, this.selectedFile.name);
+      this.selectedFile.imageName = this.selectedFile.name;
 
-    this.httpClient.post('http://localhost:8080/uploadImage', uploadData, { observe: 'response' })
-      .subscribe((response) => {
-        if (response.status === 200) {
-          this.eventService.updateEvent(this.id, this.event).subscribe(data => console.log(data), error => console.log(error));
-          //this.event = new Event();
-          this.gotoList();
-          console.log('Image uploaded successfully');
-        } else {
-          console.log('Image not uploaded successfully');
+      this.httpClient.post('http://localhost:8080/uploadImage', uploadData, { observe: 'response' })
+        .subscribe((response) => {
+          if (response.status === 200) {
+            this.eventService.updateEvent(this.id, this.event).subscribe(data => console.log(data), error => console.log(error));
+            //this.event = new Event();
+            this.gotoList();
+            console.log('Image uploaded successfully');
+          } else {
+            console.log('Image not uploaded successfully');
+          }
         }
-      }
-      );
+        );
+    } else {
+      this.eventService.updateEvent(this.id, this.event).subscribe(data => console.log(data), error => console.log(error));
+      //this.event = new Event();
+      this.gotoList();
+    }
+
   }
 
   // updateEvent() {
@@ -70,10 +80,10 @@ export class UpdateEventComponent implements OnInit {
   // }
 
   onSubmit() {
-    this.updateEvent(); 
-    alert('UPDATE SUCCESSFUL!!');     
+    this.updateEvent();
+    alert('UPDATE SUCCESSFUL!!');
   }
-  gotoList(){
+  gotoList() {
     this.router.navigate(['system/viewEvent']);
   }
 

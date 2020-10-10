@@ -1,0 +1,72 @@
+<div class="col-container">
+    <br>
+  
+    <div class="row p1">
+      <div class="">
+  
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb shadow p-3 mb-5 bg-white rounded">
+            <li class="breadcrumb-item"><a href="#"><i class="fad fa-tachometer-alt-fastest"></i> Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">View Product</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <div class="card p2">
+          <div class="card-body ">
+            <!-- <h4 class="card-title">
+                View Product
+              </h4> -->
+  
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h4>Product List</h4>
+              </div>
+              <div class="panel-body">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Title</th>
+                      <th>Category</th>
+                      <th>Image</th>
+                      <!-- <th>Image2</th> -->
+                      <th>Quantity</th>
+                      <th>Price</th>
+                      <th>Description</th>
+                      <th>Company Name</th>
+                      <!-- <th colspan="2">Action</th> -->
+  
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let product of products">
+
+                      <td>{{product.title}}</td>
+                      <td>{{product.category}}</td>
+                      <!-- <td>{{product.image1}}</td> -->
+                      <td><img src="{{product.retrievedImage}}" height="100" width="100"></td>
+                      <!-- <td>{{product.image2}}</td> -->
+                      <td>{{product.quantity}}</td>
+                      <td>{{product.price}}</td>
+                      <td>{{product.details}}</td>
+                      <td>{{product.customer}}</td>
+                      <!-- <td><button (click)="openConfirmationDialog(product.id)" class="btn btn-danger">Delete</button>
+                      </td>
+                      <td>
+                        <button (click)="updateProduct(product.id)" class="btn btn-info"
+                          style="margin-left: 10px">Update</button>
+                      </td> -->
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

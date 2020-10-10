@@ -39,9 +39,11 @@
           <form (ngSubmit)="todoForm.form.valid && onSubmit()" #todoForm="ngForm">
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="name">Title</label>
-                <input type="text" class="form-control" id="title" required [(ngModel)]="product.title" name="title" placeholder="Enter Title"
-                  #title="ngModel" [ngClass]="{ 'is-invalid': todoForm.submitted && title.invalid }">
+                <label for="name">Product Name</label>
+                <input type="text" class="form-control" id="title" required [(ngModel)]="product.title" name="title" #title="ngModel" [ngClass]="{ 'is-invalid': todoForm.submitted && title.invalid }">
+                <!-- <label for="name">Title</label> -->
+                <!-- <input type="text" class="form-control" id="title" required [(ngModel)]="product.title" name="title" placeholder="Enter Title"
+                  #title="ngModel" [ngClass]="{ 'is-invalid': todoForm.submitted && title.invalid }"> -->
                 <div *ngIf="todoForm.submitted && title.invalid" class="invalid-feedback">
                   <div *ngIf="title.errors.required">Title is required</div>
                 </div>
@@ -67,6 +69,13 @@
               </div>
             </div>
             <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="quantity">Quantity</label>
+                <input type="number" class="form-control" name="quantity" id="quantity"  min="1" oninput="validity.valid||(value='');" placeholder="Enter quantity" [(ngModel)]="product.quantity" required #quantity="ngModel" [ngClass]="{ 'is-invalid': todoForm.submitted && quantity.invalid }" required >
+                <div *ngIf="todoForm.submitted && quantity.invalid" class="invalid-feedback">
+                  <div *ngIf="quantity.errors.required">Quantity is required</div>
+              </div>
+                </div>
               <div class="form-group col-md-6">
                 <label for="name">Price</label>
                 <input type="number" placeholder="Rs." class="form-control" id="price" required

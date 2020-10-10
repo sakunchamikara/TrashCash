@@ -2,9 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ProductcatService } from 'src/app/service/productcat.service';
 import { NgForm } from '@angular/forms';
 import { Item } from 'src/app/pojo/item';
+import { User } from 'src/app/pojo/user';
 import { ProductService } from 'src/app/service/product.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { AuthserviceService} from 'src/app/service/authservice.service'
 //new repository
 @Component({
   selector: 'app-insert-products',
@@ -14,6 +16,8 @@ import { HttpClient } from '@angular/common/http';
 export class InsertProductsComponent implements OnInit {
   product = new Item();
   submitted = false;
+  user:User;
+  email:any;
 
   @Input()
   private selectedFile;
@@ -23,13 +27,24 @@ export class InsertProductsComponent implements OnInit {
     private productService: ProductService,
     private router: Router,
     private httpClient: HttpClient,
-    private service: ProductcatService
+    private service: ProductcatService,
+    private authService: AuthserviceService
   ) {}
 
   public listItems: Array<string> = [];
   successMsg: any;
   errorMsg: any;
   ngOnInit() {
+    this.email = this.authService.getAuthenticatedUser();
+    this.user = new User();
+
+    this.authService.getUser(this.email).subscribe((data) => {
+      this.user = data;
+       //  this.cus=JSON.stringify(this.customer.firstName);
+      
+      
+       
+       });
     this.dropdownRefresh();
   }
 
@@ -59,6 +74,8 @@ export class InsertProductsComponent implements OnInit {
   // }
 
   save() {
+    this.product.date = new Date();
+    this.product.email = this.user.email;
     const uploadData = new FormData();
     uploadData.append('imageFile', this.selectedFile, this.selectedFile.name);
     this.selectedFile.imageName = this.selectedFile.name;
@@ -69,7 +86,7 @@ export class InsertProductsComponent implements OnInit {
         if (response.status === 200) {
           this.productService.createProduct(this.product).subscribe((data) => {
             console.log(data);
-            //this.gotoList();
+            this.gotoList();
           });
           console.log('Image uploaded successfully');
         } else {

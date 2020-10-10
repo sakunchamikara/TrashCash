@@ -1,19 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from "rxjs";
-import { NgForm } from '@angular/forms';
 import { Item} from 'src/app/pojo/item';
 import { User} from 'src/app/pojo/user';
 import { ProductService } from 'src/app/service/product.service';
 import { Router } from '@angular/router';
 import { AuthserviceService} from 'src/app/service/authservice.service';
 
-
 @Component({
-  selector: 'app-view-product',
-  templateUrl: './view-product.component.html',
-  styleUrls: ['./view-product.component.scss']
+  selector: 'app-allview',
+  templateUrl: './allview.component.html',
+  styleUrls: ['./allview.component.scss']
 })
-export class ViewProductComponent implements OnInit {
+export class AllviewComponent implements OnInit {
   products: Array<Item>;
   productsRecieved: Array<Item>;
   user:User;
@@ -23,20 +20,21 @@ export class ViewProductComponent implements OnInit {
 
   ngOnInit() {
     
-    this.email = this.authService.getAuthenticatedUser();
-    this.user = new User();
+    // this.email = this.authService.getAuthenticatedUser();
+    // this.user = new User();
 
-    this.authService.getUser(this.email).subscribe((data) => {
-      this.user = data;
-       //  this.cus=JSON.stringify(this.customer.firstName);
+    // this.authService.getUser(this.email).subscribe((data) => {
+    //   this.user = data;
+    //    //  this.cus=JSON.stringify(this.customer.firstName);
       
       
        
-       });
+    //    });
 
-       if(this.email){
-        this.reloadData();
-     }
+    //    if(this.email){
+    //     this.reloadData();
+    //  }
+    this.reloadData();
    
   }
   // reloadData(){
@@ -44,7 +42,7 @@ export class ViewProductComponent implements OnInit {
   // }
 
   reloadData(){
-   this.productService.getProductListByEmail(this.email).subscribe(
+   this.productService.getProductList().subscribe(
       response => this.handleSuccessfulResponse(response));
   }
 
@@ -66,40 +64,44 @@ export class ViewProductComponent implements OnInit {
       bookwithRetrievedImageField.quantity = product.quantity;
       bookwithRetrievedImageField.price = product.price;
       bookwithRetrievedImageField.details = product.details;
+      bookwithRetrievedImageField.customer = product.customer;
+      if(!product.customer){
+        product.customer = "System";
+      }
       this.products.push(bookwithRetrievedImageField);
       console.log(product);
     }
   }
 
-  deleteProduct(id: number) {
-    this.productService.deleteProduct(id)
-      .subscribe(
-        data => {
-          console.log(data);
-          this.reloadData();
-        },
-        error => console.log(error));
-  }
+  // deleteProduct(id: number) {
+  //   this.productService.deleteProduct(id)
+  //     .subscribe(
+  //       data => {
+  //         console.log(data);
+  //         this.reloadData();
+  //       },
+  //       error => console.log(error));
+  // }
 
-  updateProduct(id: number){
-    this.router.navigate(['system','UpdateProducts',id]);
-  }
+  // updateProduct(id: number){
+  //   this.router.navigate(['system','UpdateProducts',id]);
+  // }
 
-  public openConfirmationDialog(id: number) {
-    this.productService
-      .confirm('Please confirm..', 'Do you really want to delete?')
-      .then((confirmed) => {
-        // console.log('User confirmed:', confirmed);
-        if (confirmed == true) {
-          this.deleteProduct(id);
-        }
-      })
-      .catch(() =>
-        console.log(
-          'User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'
-        )
-      );
-  }
+  // public openConfirmationDialog(id: number) {
+  //   this.productService
+  //     .confirm('Please confirm..', 'Do you really want to delete?')
+  //     .then((confirmed) => {
+  //       // console.log('User confirmed:', confirmed);
+  //       if (confirmed == true) {
+  //         this.deleteProduct(id);
+  //       }
+  //     })
+  //     .catch(() =>
+  //       console.log(
+  //         'User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'
+  //       )
+  //     );
+  // }
+
 
 }
-//

@@ -6,6 +6,7 @@ export class Item {
   quantity:number;
   // image2:string;
   price: number;
+  quentity: number;
   details: string;
   retrievedImage: string;
   date :Date;

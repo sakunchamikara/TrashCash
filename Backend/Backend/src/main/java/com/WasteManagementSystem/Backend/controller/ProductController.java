@@ -92,6 +92,7 @@ public class ProductController {
         product.setImage2(productDetails.getImage2());
         product.setPrice(productDetails.getPrice());
         product.setDetails(productDetails.getDetails());
+        product.setQuentity(productDetails.getQuentity());
         final Product updatedProduct = productrepo.save(product);
         return ResponseEntity.ok(updatedProduct);
     }

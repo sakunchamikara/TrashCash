@@ -71,4 +71,10 @@ export class CustomerAuthService {
       customer
     );
   }
+
+  getCustomerById(id) {
+    return this.http.get<Customer>(
+      `http://localhost:8080/getCustomerById/${id}`
+    );
+  }
 }

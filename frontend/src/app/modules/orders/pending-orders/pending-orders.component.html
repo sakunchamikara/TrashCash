@@ -28,6 +28,7 @@
                     <th>Order ID</th>
                     <th>Status</th>
                     <th>Action</th>
+                    <!-- <th>View Order</th> -->
                     <th>Date</th>
                   </tr>
                 </thead>
@@ -35,7 +36,8 @@
                   <tr *ngFor="let order of ordersList">
                     <td>{{order.id}}</td>
                     <td><p class="text-warning">{{order.status}}</p></td>
-                    <td><button (click)="takeOrderAction(order.id)" class="btn btn-success btn-sm" >Accept</button></td>
+                    <td><button (click)="takeOrderAction(order.id)" class="btn btn-success btn-sm">Accept</button></td>
+                    <!-- <td><button (click)="viewOrder(order.id)" class="btn btn-danger btn-sm">View</button></td> -->
                     <td>{{order.date | date}}</td>
                   </tr>
                 </tbody>

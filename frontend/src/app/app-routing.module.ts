@@ -63,6 +63,7 @@ import { OutRequestWasteComponent } from './webportal/outsource/out-request-wast
 
 import { CustomerOrdersComponent } from './webportal/modules/customer-account/customer-orders/customer-orders.component';
 import { ContactusComponent } from './webportal/modules/contactus/contactus.component';
+import { CustomerInviteFriendsComponent } from './webportal/modules/customer-account/customer-invite-friends/customer-invite-friends.component';
 import { PendingOrdersComponent } from './modules/orders/pending-orders/pending-orders.component';
 import { AcceptedOrdersComponent } from './modules/orders/accepted-orders/accepted-orders.component';
 import { CompletedOrdersComponent } from './modules/orders/completed-orders/completed-orders.component';
@@ -71,6 +72,8 @@ import { AddReProductComponent } from './webportal/outsource/add-re-product/add-
 import { UpdateComponent } from './webportal/outsource/add-re-product/update/update.component';
 import { AllviewComponent } from './modules/products/allview/allview.component';
 
+import { ViewConfirmedOrdersComponent } from './modules/agent/view-confirmed-orders/view-confirmed-orders.component';
+import { ViewPendingOrdersComponent } from './modules/agent/view-pending-orders/view-pending-orders.component';
 
 const routes: Routes = [
   {
@@ -173,6 +176,10 @@ const routes: Routes = [
       {
         path: 'myOrders',
         component: CustomerOrdersComponent,
+      },
+      {
+        path: 'inviteFriends',
+        component: CustomerInviteFriendsComponent,
       },
     ],
   },
@@ -379,6 +386,14 @@ const routes: Routes = [
       {
         path: 'completedOrders',
         component: CompletedOrdersComponent,
+      },
+      {
+        path: 'viewConfirmedOrders',
+        component: ViewConfirmedOrdersComponent,
+      },
+      {
+        path: 'viewPendingOrders',
+        component: ViewPendingOrdersComponent,
       },
     ],
   },

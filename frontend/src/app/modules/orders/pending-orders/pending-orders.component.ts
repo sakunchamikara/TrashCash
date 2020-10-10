@@ -35,10 +35,10 @@ export class PendingOrdersComponent implements OnInit {
   }
 
   takeOrderAction(oid: number) {
-    // this.confirmationDialog
-    //   .confirm('Please confirm..', 'Do you really want to Update Order Status?')
-    //   .then((confirmed) => {
-    //     if (confirmed) {
+    this.confirmationDialog
+      .confirm('Please confirm..', 'Do you really want to Update Order Status?')
+      .then((confirmed) => {
+        if (confirmed) {
           this.pendingOrder.id = oid;
           this.pendingOrder.status = 'Accepted';
           this.ordersService
@@ -52,8 +52,13 @@ export class PendingOrdersComponent implements OnInit {
                 console.log('error in update ending orders');
               }
             );
-  //       }
-  //     })
-  //     .catch(() => console.log('cancelled'));
+        }
+      })
+      .catch(() => console.log('cancelled'));
   }
+
+  // viewOrder(oid: number) {
+
+  // }
+
 }

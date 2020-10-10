@@ -182,6 +182,8 @@
          <a mat-menu-item [routerLink]="'/system/viewoutSourceWasteRequest'"
         class="btn btn-primary-outline pull-right">Confirmed Waste Requests</a>
     </mat-menu>
+
+
     <!-- <mat-menu #productcat="matMenu">
       <button  mat-menu-list-item [routerLink]="'/system/productCats'" class="btn btn-primary-outline pull-right">  Insert New Product Category</button>
       <button  mat-menu-list-item [routerLink]="'/system/viewProductCat'" class="btn btn-primary-outline pull-right">  View Product Categories</button>
@@ -217,6 +219,13 @@
       <a mat-menu-item [routerLink]="'/system/viewConfirmedRequests'"
         class="btn btn-primary-outline pull-right">Confirmed
         Waste Requests</a>
+    </mat-menu>
+    <button mat-menu-item [matMenuTriggerFor]="orders">Recycled Product Orders</button>
+    <mat-menu #orders="matMenu">
+      <a mat-menu-item [routerLink]="'/system/viewPendingOrders'" class="btn btn-primary-outline pull-right">Pending
+        Orders</a>
+      <a mat-menu-item [routerLink]="'/system/viewConfirmedOrders'"
+        class="btn btn-primary-outline pull-right">Confirmed Orders</a>
     </mat-menu>
     <!-- <button mat-menu-item [matMenuTriggerFor]="outsource">Waste Requests Status</button>
     <mat-menu #outsource="matMenu">

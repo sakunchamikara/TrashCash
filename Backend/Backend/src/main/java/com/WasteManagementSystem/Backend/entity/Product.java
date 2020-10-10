@@ -5,6 +5,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Range;
 
 import java.sql.Date;
+import java.util.Arrays;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -76,6 +77,8 @@ public class Product {
 	@Range(min = 0)
 	private float price;
 
+	private int quentity;
+
 	private String details;
 
 	// @OneToMany(mappedBy="product",cascade = CascadeType.REMOVE)
@@ -99,6 +102,7 @@ public class Product {
 		this.email = email;
 		this.customer = customer;
 	}
+	
 
 	// public Product(@NotNull int id, @NotNull String title, @NotNull String
 	// category, byte[] image1, String image2,
@@ -113,6 +117,21 @@ public class Product {
 	// this.details = details;
 	// this.cart = cart;
 	// }
+
+	// public Product(@NotNull int id, @NotNull String title, @NotNull String category, byte[] image1, String image2,
+	// 		@NotNull @Range(min = 0) float price, int quentity, String details) {
+	// 	super();
+	// 	this.id = id;
+	// 	this.title = title;
+	// 	this.category = category;
+	// 	this.image1 = image1;
+	// 	this.image2 = image2;
+	// 	this.price = price;
+	// 	this.quentity = quentity;
+	// 	this.details = details;
+	// }
+
+
 
 	public int getId() {
 		return id;
@@ -170,6 +189,28 @@ public class Product {
 		this.details = details;
 	}
 
+
+
+	public int getQuentity() {
+		return quentity;
+	}
+
+
+
+	public void setQuentity(int quentity) {
+		this.quentity = quentity;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", title=" + title + ", category=" + category + ", image1="
+				+ Arrays.toString(image1) + ", image2=" + image2 + ", price=" + price + ", quentity=" + quentity
+				+ ", details=" + details + "]";
+	}
+
+	
 	// public List<Cart> getCart() {
 	// return cart;
 	// }
@@ -178,5 +219,6 @@ public class Product {
 	// this.cart = cart;
 	// }
 	//
+	
 
 }

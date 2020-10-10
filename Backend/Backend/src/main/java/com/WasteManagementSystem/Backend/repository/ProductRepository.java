@@ -28,6 +28,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 	public List<Product> findAll(String keyword);
 	
 	public List<Product> findByEmail(String email);
+	public List<Product> findByUsertype(String usertype);
 	
 	
 	

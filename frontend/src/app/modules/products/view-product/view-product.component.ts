@@ -17,6 +17,7 @@ export class ViewProductComponent implements OnInit {
   productsRecieved: Array<Item>;
   user: User;
   email: any;
+  usertype:any;
   // products : Observable<Item[]>;
   constructor(
     private productService: ProductService,
@@ -42,9 +43,12 @@ export class ViewProductComponent implements OnInit {
   // }
 
   reloadData() {
+    this.usertype = "trashcash@gmail.com";
     this.productService
-      .getProductListByEmail(this.email)
-      .subscribe((response) => this.handleSuccessfulResponse(response));
+      .getsystemProductByUsername(this.usertype)
+      .subscribe((response) => 
+      this.handleSuccessfulResponse(response)
+      );
   }
 
   handleSuccessfulResponse(response) {

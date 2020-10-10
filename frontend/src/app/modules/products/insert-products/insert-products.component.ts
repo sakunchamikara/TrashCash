@@ -76,6 +76,7 @@ export class InsertProductsComponent implements OnInit {
   save() {
     this.product.date = new Date();
     this.product.email = this.user.email;
+    this.product.usertype = "trashcash@gmail.com";
     const uploadData = new FormData();
     uploadData.append('imageFile', this.selectedFile, this.selectedFile.name);
     this.selectedFile.imageName = this.selectedFile.name;

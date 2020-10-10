@@ -43,6 +43,11 @@ export class ProductService {
     return this.http.get(uri);
   }
 
+  getsystemProductByUsername(usertype: string): Observable<any> {
+    const uri = `http://localhost:8080/getsystemProduct/${usertype}`;
+    return this.http.get(uri);
+  }
+
   //
   getProductCatDropdownValues(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);

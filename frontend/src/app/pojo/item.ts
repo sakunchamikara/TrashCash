@@ -5,6 +5,7 @@ export class Item {
   image1: string;
   // image2:string;
   price: number;
+  quentity: number;
   details: string;
   retrievedImage: string;
 

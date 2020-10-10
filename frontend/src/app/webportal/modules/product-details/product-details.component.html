@@ -32,20 +32,24 @@
           <h2 class="card-title">{{item.title}}</h2>
           <hr>
           <p class="card-text text-muted">{{item.details}}</p>
+          <div class="float-right">
+            <p>Available Quentity : <strong>{{item.quentity}}</strong></p>
+          </div>
           <h5><em>Rs. {{item.price}} </em></h5>
           <br>
           <form #addToCartForm="ngForm" (ngSubmit)="addToCart()">
             <div class="form-inline">
               <label>Quentity</label>
-              <input type="text" class="form-control mx-sm-3" #quentity="ngModel" name="quentity" [(ngModel)]="cart.quentity"
-                placeholder="Enter Product Quentity" required [class.is-invalid]="quentity.invalid && quentity.touched">
+              <input type="text" class="form-control mx-sm-3" #quentity="ngModel" name="quentity"
+                [(ngModel)]="cart.quentity" placeholder="Enter Product Quentity" required max="product.quentity"
+                [class.is-invalid]="quentity.invalid && quentity.touched">
             </div>
             <br>
             <hr>
             <div class="form-group float-right">
               <button type="button" class="btn btn-danger"><i class="fas fa-money-bill-wave"></i> Buy Now</button>
-              <button type="submit" class="btn btn-warning ml-2" style="color: white;" [disabled]="addToCartForm.form.invalid"><i
-                  class="far fa-shopping-cart"></i> Add to Cart</button>
+              <button type="submit" class="btn btn-warning ml-2" style="color: white;"
+                [disabled]="addToCartForm.form.invalid"><i class="far fa-shopping-cart"></i> Add to Cart</button>
             </div>
           </form>
         </div>

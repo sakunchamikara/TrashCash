@@ -109,7 +109,7 @@ import { ViewPendingOrdersComponent } from 'src/app/modules/agent/view-pending-o
     AcceptedOrdersComponent,
     CompletedOrdersComponent,
     ContactdetailsComponent,
-   // AllviewComponent,
+   AllviewComponent,
     ViewConfirmedOrdersComponent,
     ViewPendingOrdersComponent,
   ],

@@ -31,8 +31,10 @@ export class ViewPendingOrdersComponent implements OnInit {
       (data) => {
         this.retrieveOrders = data;
         this.retrieveOrders.forEach(element=>{
-          this.id = element.id
+          this.id = element.id;
+          console.log(element.customer);
             // this.customer(this.id);
+            
         });
 
         

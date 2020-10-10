@@ -35,11 +35,12 @@
               
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="#">Customer : {{retrieveOrder.date}}</a>
+                    <a href="#">Order No : {{retrieveOrder.id}}</a>
+                    <!-- <a href="#">Date : {{retrieveOrder.customer}}</a> -->
                   </h4>
-                  <!-- <h5>Location : </h5>
-                  <h5>Type : {{retrieveOrder.wasteType}}</h5>
-                  <h5>Quantity : {{r.quantity}}</h5> -->
+                  <!-- <h5>Location : </h5> -->
+                  <!-- <h5>Date : {{retrieveOrder.date}}</h5> -->
+                  <h5>Date : {{retrieveOrder.customer}}</h5>
                   <button type="button" class="btn btn-outline-success" (click)="confirm(retrieveOrder.id)">Accept</button>
                 </div>
              

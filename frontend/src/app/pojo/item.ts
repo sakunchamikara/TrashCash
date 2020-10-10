@@ -3,15 +3,14 @@ export class Item {
   title: string;
   category: string;
   image1: string;
-  quantity:number;
+  quantity: number;
   // image2:string;
   price: number;
-  quentity: number;
   details: string;
   retrievedImage: string;
-  date :Date;
-  email:String;
-  customer:String;
+  date: Date;
+  email: string;
+  customer: string;
 
   constructor() {}
 }

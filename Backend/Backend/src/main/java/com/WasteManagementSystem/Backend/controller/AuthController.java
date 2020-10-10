@@ -91,6 +91,11 @@ public class AuthController {
 		System.out.println(object);
 		System.out.println("===============================================");
 	}
+	
+	@GetMapping("/getUserByType/{type}")
+	public String[] getUserByType(@PathVariable String type) {
+		return service.findUsersByType(type); 
+	}
 }
 
 

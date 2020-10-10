@@ -12,6 +12,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ViewPlacedRequestsComponent } from 'src/app/modules/agent/view-placed-requests/view-placed-requests.component';
 import { ViewAgentConfirmedRequestComponent } from 'src/app/modules/agent/view-agent-confirmed-request/view-agent-confirmed-request.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+//import { AllviewComponent } from 'src/app/modules/products/allview/allview.component';
+
 import {
   MatSidenavModule,
   MatDividerModule,
@@ -62,9 +64,9 @@ import { PendingOrdersComponent } from 'src/app/modules/orders/pending-orders/pe
 import { AcceptedOrdersComponent } from 'src/app/modules/orders/accepted-orders/accepted-orders.component';
 import { CompletedOrdersComponent } from 'src/app/modules/orders/completed-orders/completed-orders.component';
 import { ContactdetailsComponent } from 'src/app/modules/contactdetails/contactdetails.component';
-
-
-
+//import { ViewConfirmedOrdersComponent } from 'src/app/modules/agent/view-confirmed-orders/view-confirmed-orders.component';
+import { ViewPendingOrdersComponent } from 'src/app/modules/agent/view-pending-orders/view-pending-orders.component';
+//import { ViewConfirmedOrdersComponent } from './modules/agent/view-confirmed-orders/view-confirmed-orders.component';
 
 @NgModule({
   declarations: [
@@ -108,6 +110,9 @@ import { ContactdetailsComponent } from 'src/app/modules/contactdetails/contactd
     AcceptedOrdersComponent,
     CompletedOrdersComponent,
     ContactdetailsComponent,
+    //AllviewComponent,
+    //ViewConfirmedOrdersComponent,
+    ViewPendingOrdersComponent,
   ],
   imports: [
     CommonModule,

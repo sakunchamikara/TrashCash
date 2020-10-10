@@ -31,5 +31,8 @@ public class CustomerAuthenticationService {
 		return repo.save(customer);
 	}
 
+	public String[] findCompanyByType(String type) {
+		return repo.findByType(type);
+	}
 	
 }

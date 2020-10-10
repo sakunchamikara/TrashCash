@@ -1,6 +1,7 @@
 package com.WasteManagementSystem.Backend.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import com.WasteManagementSystem.Backend.entity.User;
 
@@ -9,4 +10,6 @@ import com.WasteManagementSystem.Backend.entity.User;
 public interface RegistrationRepository extends JpaRepository<User, Integer>{
 	public User findByEmail(String email);
 	public User findByEmailAndPassword(String email,String Password);
+	@Query(value="select email from user where user_type = :type",nativeQuery = true)
+	public String[] findByUserType(String type);
 }

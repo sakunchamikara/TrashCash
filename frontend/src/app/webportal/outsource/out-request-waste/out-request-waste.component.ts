@@ -127,7 +127,7 @@ export class OutRequestWasteComponent implements OnInit {
             this.wasteRequest = new OutWasteRequest();
             this.updateBox(this.wasteRequest.wasteType);
             // this.updatesucessBox();
-            //this.reloadData();
+            this.reloadData();
            
           },
         

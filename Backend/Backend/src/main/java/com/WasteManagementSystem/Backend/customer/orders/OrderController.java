@@ -56,5 +56,14 @@ public class OrderController {
 		orderObj.setStatus(order.getStatus()); 
 		return orderService.saveOrder(orderObj);
 	}
+<<<<<<< HEAD
+=======
+
+	@GetMapping("/agentPendingOrders")
+    public List<Orders> getAllPendingOrders(){
+        return orderService.findAllPendingOrders();
+    }
+>>>>>>> c97b06ef4a08dd1dc8e99918a4f583d2be7ad0ae
 	
 }
+

@@ -31,4 +31,12 @@ public class OrderService {
 		return orderRepo.findById(id);
 	}
 
+<<<<<<< HEAD
+=======
+	public List<Orders> findAllPendingOrders(){
+		return orderRepo.findPending();
+	}
+
+>>>>>>> c97b06ef4a08dd1dc8e99918a4f583d2be7ad0ae
 }
+

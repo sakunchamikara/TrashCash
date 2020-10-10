@@ -25,6 +25,7 @@ export class ProductDetailsComponent implements OnInit {
   cart = new Cart();
   errorMessage = '';
   successMessage = '';
+  maxQuantity: number;
 
   constructor(
     private productService: ProductService,
@@ -62,6 +63,7 @@ export class ProductDetailsComponent implements OnInit {
       (data) => {
         this.item = data;
         this.productImage = 'data:image/jpeg;base64,' + data.image1;
+        this.maxQuantity = this.item.quantity;
       },
       (error) => {
         console.log(error);

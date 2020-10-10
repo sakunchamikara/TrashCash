@@ -105,9 +105,16 @@ public class OutWasteController {
 	        return ResponseEntity.ok(updateWaste);
 	    }
 	 
-	   //view status=confirmed data
+	   //view status=pending data
 	 @GetMapping("/getwasteStatus")
 	    public List<OutsourceWasteRequest> getWasteStatus() {
 	        return service.fetchUserByStatus();
 	    }
+	 
+	 //view status=pending data
+	 @GetMapping("/getwasteStatusCon")
+	    public List<OutsourceWasteRequest> getWasteStatusCon() {
+	        return service.fetchUserByStatusCon();
+	    }
+
 }

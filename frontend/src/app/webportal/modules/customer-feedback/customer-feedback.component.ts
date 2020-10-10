@@ -30,11 +30,6 @@ export class CustomerFeedbackComponent implements OnInit {
 
   ngOnInit() {
     this.reloadData();
-
-    //this.getUserFeedback();
-
-    
-
   }
 
   reloadData() {
@@ -43,6 +38,8 @@ export class CustomerFeedbackComponent implements OnInit {
       this.addedFeedbacks = data;
     });
   }
+
+  
 
   onSubmit() {
     this.submitted = true;

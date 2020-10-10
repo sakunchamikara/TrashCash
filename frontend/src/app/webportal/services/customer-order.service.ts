@@ -19,4 +19,8 @@ export class CustomerOrderService {
   public getOrdersById(id: number): Observable<Orders[]> {
     return this.httpClient.get<any>(`http://localhost:8080/getOrders/${id}`);
   }
+
+  public getAgentPendingOders():Observable<Orders[]> {
+    return this.httpClient.get<any>(`http://localhost:8080/agentPendingOrders`);
+  }
 }

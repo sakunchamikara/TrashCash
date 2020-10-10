@@ -6,6 +6,7 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
           <li class="breadcrumb-item " aria-current="page">My Account</li>
+          <li class="breadcrumb-item " aria-current="page">Order Histpry</li>
         </ol>
       </nav>
     </div>
@@ -16,7 +17,11 @@
     <div class="col-lg-3">
 
       <div class="list-group">
-        <a class="list-group-item " routerLink="/customer/shop">My Orders</a>
+        <a class="list-group-item " routerLink="/customer/myOrders">My Orders</a>
+        <a class="list-group-item " routerLink="/customer/myOrders">My Favourites</a>
+        <a class="list-group-item " routerLink="/customer/myOrders">Help</a>
+        <a class="list-group-item " routerLink="/customer/inviteFriends">Invite Friends</a>
+        <a class="list-group-item " routerLink="/customer/myOrders">Edit Account</a>
         <a class="list-group-item " routerLink="/customer/feedback">Manage Feedback</a>
         <a class="list-group-item ">Edit Account</a>
         <a class="list-group-item ">Message Center</a>
@@ -26,6 +31,9 @@
     <!-- /.col-lg-3 -->
 
     <div class="col-lg-9">
+      <div class="alert alert-success" role="alert" *ngIf="emailFlag">
+        {{emailFlag}}
+      </div>
       <div class="card">
         <div class="card-body">
           <h2 class="card-title" style="color: #333333;">My Orders</h2>
@@ -33,7 +41,7 @@
           <div class="">
 
             <table class="table table-hover" style="font-size: 14px;">
-              <thead>
+              <thead>  
                 <tr>
                   <th>Order Id</th>
                   <th>Product</th>

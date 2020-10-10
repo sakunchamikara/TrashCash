@@ -13,15 +13,15 @@ export class SendMailComponent {
   constructor(private emailService: EmailService) { }
 
   ngOnInit() {
-    this.email = "prgshan@gmail.com";
-    this.emailService.sendEmail(this.email).subscribe(
-      data => { 
-        console.log(data); 
-      }, 
-      error => { 
-        console.log(error);
-      }
-    );
+    // this.email = "prgshan@gmail.com";
+    // this.emailService.sendEmail(this.email).subscribe(
+    //   data => {
+    //     console.log(data);
+    //   },
+    //   error => {
+    //     console.log(error);
+    //   }
+    // );
   }
 
 }

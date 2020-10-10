@@ -27,4 +27,8 @@ export class CustomerCartService {
       cart
     );
   }
+
+  public getByOrder(oid: number): Observable<any> {
+    return this.http.get<any>(`http://localhost:8080/getCartByOrder/${oid}`);
+  }
 }

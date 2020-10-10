@@ -6,6 +6,7 @@ package com.WasteManagementSystem.Backend.service;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -41,4 +42,8 @@ public  class ProductService {
 	public List<Product> fetchProductByEmail(String email) {
 		return repo.findByEmail(email);
 	}
+	public Product updateProductQuantity(Product product) {
+		return repo.save(product);
+	}
+
 }

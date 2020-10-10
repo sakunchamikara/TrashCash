@@ -61,6 +61,8 @@ import { PendingOrdersComponent } from 'src/app/modules/orders/pending-orders/pe
 import { AcceptedOrdersComponent } from 'src/app/modules/orders/accepted-orders/accepted-orders.component';
 import { CompletedOrdersComponent } from 'src/app/modules/orders/completed-orders/completed-orders.component';
 import { ContactdetailsComponent } from 'src/app/modules/contactdetails/contactdetails.component';
+import { ViewConfirmedOrdersComponent } from 'src/app/modules/agent/view-confirmed-orders/view-confirmed-orders.component';
+import { ViewPendingOrdersComponent } from 'src/app/modules/agent/view-pending-orders/view-pending-orders.component';
 
 @NgModule({
   declarations: [
@@ -103,6 +105,8 @@ import { ContactdetailsComponent } from 'src/app/modules/contactdetails/contactd
     AcceptedOrdersComponent,
     CompletedOrdersComponent,
     ContactdetailsComponent,
+    ViewConfirmedOrdersComponent,
+    ViewPendingOrdersComponent,
   ],
   imports: [
     CommonModule,

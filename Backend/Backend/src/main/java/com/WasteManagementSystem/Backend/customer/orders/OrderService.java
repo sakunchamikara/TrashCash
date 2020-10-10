@@ -31,4 +31,9 @@ public class OrderService {
 		return orderRepo.findById(id);
 	}
 
+	public List<Orders> findAllPendingOrders(){
+		return orderRepo.findPending();
+	}
+
 }
+

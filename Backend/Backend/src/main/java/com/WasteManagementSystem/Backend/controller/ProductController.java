@@ -126,6 +126,11 @@ public class ProductController {
 	public List<Product> getcompanyProduct(@PathVariable String email) {
 	    return productservice.fetchProductByEmail(email);
 	}
+	 
+	 @GetMapping("/getsystemProduct/{usertype}")
+	 public List<Product> getsystemProduct(@PathVariable String usertype) {
+		    return productservice.fetchProductByUsertype(usertype);
+		}
 
     @PutMapping("/updateProductQuantity/{pid}")
     public Product updateProductQuantity(@PathVariable int pid,@RequestBody Product product) {

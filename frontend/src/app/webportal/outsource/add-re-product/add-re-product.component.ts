@@ -129,6 +129,7 @@ handleSuccessfulResponse(response) {
     
     this.product.customer = this.customer.firstName;
     this.product.email = this.customer.email;
+    this.product.usertype = this.customer.email;
         
   //   this.value1 =this.product.discount;
   //   this.value2 =this.product.price;

@@ -42,8 +42,12 @@ public  class ProductService {
 	public List<Product> fetchProductByEmail(String email) {
 		return repo.findByEmail(email);
 	}
+	public List<Product> fetchProductByUsertype(String usertype) {
+		return repo.findByUsertype(usertype);
+	}
 	public Product updateProductQuantity(Product product) {
 		return repo.save(product);
 	}
+	
 
 }

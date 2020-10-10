@@ -11,6 +11,7 @@ export class Item {
   date: Date;
   email: string;
   customer: string;
+  usertype:String;
 
   constructor() {}
 }

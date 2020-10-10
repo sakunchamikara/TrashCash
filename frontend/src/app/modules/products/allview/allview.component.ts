@@ -65,9 +65,7 @@ export class AllviewComponent implements OnInit {
       bookwithRetrievedImageField.price = product.price;
       bookwithRetrievedImageField.details = product.details;
       bookwithRetrievedImageField.customer = product.customer;
-      if(!product.customer){
-        product.customer = "System";
-      }
+      
       this.products.push(bookwithRetrievedImageField);
       console.log(product);
     }

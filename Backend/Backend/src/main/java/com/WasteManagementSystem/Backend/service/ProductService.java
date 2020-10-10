@@ -6,9 +6,11 @@ package com.WasteManagementSystem.Backend.service;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.WasteManagementSystem.Backend.entity.OutsourceWasteRequest;
 
 //import lombok.var;
 
@@ -36,4 +38,16 @@ public  class ProductService {
 	public List<Product> searchProduct(String keyword) {
 		return repo.findAll(keyword);
 	}	
+	
+	public List<Product> fetchProductByEmail(String email) {
+		return repo.findByEmail(email);
+	}
+	public List<Product> fetchProductByUsertype(String usertype) {
+		return repo.findByUsertype(usertype);
+	}
+	public Product updateProductQuantity(Product product) {
+		return repo.save(product);
+	}
+	
+
 }

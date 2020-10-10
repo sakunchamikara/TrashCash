@@ -71,4 +71,9 @@ public class CartController {
 		}
 		return "ok";
 	}
+
+	@GetMapping("/getCartByOrder/{oid}")
+	public List<Cart> getCartByOrder(@PathVariable int oid) {
+		return cartService.getCartByOrder(oid);
+	}
 }

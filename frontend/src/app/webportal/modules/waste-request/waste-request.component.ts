@@ -48,11 +48,11 @@ export class WasteRequestComponent implements OnInit {
     console.log(this.email);
 
     if(this.email){
-        // if(this.location){
+        if(this.location){
           this.reloadData();
-        //  }else{
-          // this.route.navigate(['/customer/location']);
-        // }
+         }else{
+          this.route.navigate(['/customer/location']);
+        }
      
     }
     else{

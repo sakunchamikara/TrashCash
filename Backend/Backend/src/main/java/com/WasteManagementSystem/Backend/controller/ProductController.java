@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.WasteManagementSystem.Backend.entity.OutsourceWasteRequest;
 import com.WasteManagementSystem.Backend.entity.Product;
 //import com.WasteManagementSystem.Backend.entity.User;
 //import com.WasteManagementSystem.Backend.entity.User;
@@ -91,7 +92,7 @@ public class ProductController {
         product.setImage2(productDetails.getImage2());
         product.setPrice(productDetails.getPrice());
         product.setDetails(productDetails.getDetails());
-        product.setQuentity(productDetails.getQuentity());
+        product.setQuantity(productDetails.getQuantity());
         final Product updatedProduct = productrepo.save(product);
         return ResponseEntity.ok(updatedProduct);
     }
@@ -118,5 +119,24 @@ public class ProductController {
     public List<Product> serchProduct(@PathVariable String keyword) {
         return productservice.searchProduct(keyword);
     }
+    
+    //getproduct by company
+    //view all requests to company
+	 @GetMapping("/getcompanyproduct/{email}")
+	public List<Product> getcompanyProduct(@PathVariable String email) {
+	    return productservice.fetchProductByEmail(email);
+	}
+	 
+	 @GetMapping("/getsystemProduct/{usertype}")
+	 public List<Product> getsystemProduct(@PathVariable String usertype) {
+		    return productservice.fetchProductByUsertype(usertype);
+		}
 
+    @PutMapping("/updateProductQuantity/{pid}")
+    public Product updateProductQuantity(@PathVariable int pid,@RequestBody Product product) {
+    	Product productObj = productrepo.findById(pid)
+                .orElseThrow(() -> new ResourceNotFoundException("Product not found for this id :: " + pid));
+    	productObj.setQuantity(product.getQuantity());
+        return productservice.updateProductQuantity(productObj);
+    }
 }

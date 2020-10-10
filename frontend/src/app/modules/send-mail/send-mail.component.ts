@@ -7,10 +7,9 @@ import { AuthserviceService } from 'src/app/service/authservice.service';
 @Component({
   selector: 'app-send-mail',
   templateUrl: './send-mail.component.html',
-  styleUrls: ['./send-mail.component.scss']
+  styleUrls: ['./send-mail.component.scss'],
 })
 export class SendMailComponent {
-
   emailContent: string;
   marked = false;
 
@@ -19,16 +18,17 @@ export class SendMailComponent {
   staff = false;
   company = false;
 
-  constructor(private emailService: EmailService,
+  constructor(
+    private emailService: EmailService,
     private customerService: CustomerAuthService,
     private userService: AuthserviceService
-  ) { }
+  ) {}
 
   ngOnInit() {
-    this.emailContent = `Dear All,
+  this.emailContent = `Dear All,
 
 
-  
+
 Thank You,
 Regards.
 TrashCash (PVT) Ltd.`;
@@ -37,109 +37,103 @@ TrashCash (PVT) Ltd.`;
   public getRecievers() {
     if (this.customer) {
       this.customerService.getUserByType('customer').subscribe(
-        data => {
-          data.forEach(element => {
+        (data) => {
+          data.forEach((element) => {
             this.emailService.setContent(this.emailContent).subscribe(
-              (response) => {
-              },
+              (response) => {},
               (error) => {
                 console.log(error);
               }
             );
             this.emailService.sendEmail(element.toString()).subscribe(
-              data => {
+              (data) => {
                 console.log(data);
               },
-              error => {
+              (error) => {
                 console.log(error);
               }
             );
           });
         },
-        error => {
+        (error) => {
           console.log(error);
         }
       );
     }
     if (this.agent) {
       this.userService.getUserByType('agent').subscribe(
-        data => {
-          data.forEach(element => {
+        (data) => {
+          data.forEach((element) => {
             this.emailService.setContent(this.emailContent).subscribe(
-              (response) => {
-              },
+              (response) => {},
               (error) => {
                 console.log(error);
               }
             );
             this.emailService.sendEmail(element.toString()).subscribe(
-              data => {
+              (data) => {
                 console.log(data);
               },
-              error => {
+              (error) => {
                 console.log(error);
               }
             );
           });
         },
-        error => {
+        (error) => {
           console.log(error);
         }
       );
     }
     if (this.company) {
       this.customerService.getUserByType('company').subscribe(
-        data => {
-          data.forEach(element => {
+        (data) => {
+          data.forEach((element) => {
             this.emailService.setContent(this.emailContent).subscribe(
-              (response) => {
-              },
+              (response) => {},
               (error) => {
                 console.log(error);
               }
             );
             this.emailService.sendEmail(element.toString()).subscribe(
-              data => {
+              (data) => {
                 console.log(data);
               },
-              error => {
+              (error) => {
                 console.log(error);
               }
             );
           });
         },
-        error => {
+        (error) => {
           console.log(error);
         }
       );
     }
     if (this.staff) {
       this.userService.getUserByType('staff').subscribe(
-        data => {
-          data.forEach(element => {
+        (data) => {
+          data.forEach((element) => {
             this.emailService.setContent(this.emailContent).subscribe(
-              (response) => {
-              },
+              (response) => {},
               (error) => {
                 console.log(error);
               }
             );
             this.emailService.sendEmail(element.toString()).subscribe(
-              data => {
+              (data) => {
                 console.log(data);
               },
-              error => {
+              (error) => {
                 console.log(error);
               }
             );
           });
-
         },
-        error => {
+        (error) => {
           console.log(error);
         }
       );
     }
   }
 }
-

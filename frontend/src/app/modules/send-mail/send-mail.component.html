@@ -9,7 +9,7 @@
       </nav>
     </div>
 
-    <div *ngIf="successMsg" class="col-md-6">
+    <!-- <div *ngIf="successMsg" class="col-md-6">
       <div  class="alert alert-success alert-dismissible fade show" role="alert">
         {{successMsg}}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -24,7 +24,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-    </div> 
+    </div> -->
   </div>
 
 
@@ -51,7 +51,7 @@
                 <div class="form-group col-md-8">
                 <label for="">Select Receivers</label>
                 <br>
-                
+
                 <div class="form-check ">
                   <input type="checkbox" class="form-check-input" [(ngModel)]="staff" name="staff" id="inlineRadio1" value="option1">
                   <label class="form-check-label" for="inlineRadio1">Staff</label>
@@ -67,7 +67,7 @@
                 <div class="form-check ">
                   <input type="checkbox" class="form-check-input" [(ngModel)]="customer" name="customer" id="inlineRadio2" value="option2">
                   <label class="form-check-label" for="inlineRadio2">Customers</label>
-                </div> 
+                </div>
 
                 <!--<input type="text" class="form-control"  [(ngModel)]="dataset.email" name="email" required>-->
               </div>

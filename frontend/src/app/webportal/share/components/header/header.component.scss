@@ -2,3 +2,29 @@ ul li
 {
   list-style: none;
 }
+// .mat-toolbar-row-1{
+//   background-color: #22AA86;
+//   color: white;
+//   padding-left: 100px;
+//   padding-right: 100px;
+//   }
+  .mat-toolbar-row-2{
+    background-color:lightgray;
+    //color: black;
+  padding-right: 100px;
+  }
+  ul li
+  {
+    list-style: none;
+  }
+  .example-button-row
+  {
+    padding-left: 50px;
+    color: #777777;
+  
+  }
+  .example-button-row button:hover {
+    background-color: #777474;
+    color: black;
+  }
+  

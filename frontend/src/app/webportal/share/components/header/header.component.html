@@ -1,4 +1,4 @@
-<mat-toolbar style="background-color:#000000;color:white;">
+<!-- <mat-toolbar style="background-color:#000000;color:white;">
     <mat-toolbar-row>
       <button mat-icon-button  (click)="toggleSideBar()">
         <mat-icon>menu</mat-icon>
@@ -44,5 +44,111 @@
         </ul>
       </div>
     </mat-toolbar-row>
+  </mat-toolbar> -->
+  
+  <!-- <mat-toolbar> -->
+    
+<mat-toolbar style="background-color:#22AA86;color:white;">
+   
+      <mat-toolbar-row class="mat-toolbar-row-1">
+      
+  
+      <!-- <span> APP LOGO </span> -->
+  
+      <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+        <ul fxLayout="row" fxLayoutGap="20px">
+          <li>
+            <button mat-icon-button>
+              <mat-icon>settings</mat-icon>
+            </button>
+          </li>
+          <li>
+            <button mat-icon-button>
+              <mat-icon>help_outline</mat-icon>
+            </button>
+          </li>
+          <li>
+            <button mat-button [matMenuTriggerFor]="menu">
+              <mat-icon>person_outline</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item routerLink="/customer/login" *ngIf="!this.authservice.isCustomerLoggedIn()">
+                <i class="fas fa-sign-in-alt"></i>
+                Login
+              </button>
+              <button mat-menu-item routerLink="/customer/register" *ngIf="!this.authservice.isCustomerLoggedIn()">
+                <i class="fas fa-user"></i>
+                Register
+              </button>
+              <button mat-menu-item routerLink="/outsource/profile" *ngIf="this.authservice.isCustomerLoggedIn()">
+                <i class="fas fa-user"></i>
+                Profile
+              </button>
+              <button mat-menu-item routerLink="/customer/logout" *ngIf="this.authservice.isCustomerLoggedIn()">
+                <mat-icon>exit_to_app</mat-icon>
+                Logout
+              </button>
+            </mat-menu>
+          </li>
+        </ul>
+      </div>
+    </mat-toolbar-row>
+ 
+    
   </mat-toolbar>
+    <!-- shdsklkldk -->
+  
+    <mat-toolbar-row class="mat-toolbar-row-2">
+      <button mat-icon-button  (click)="toggleSideBar()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <img mat-card-image style="padding-top: 30px;width: 300px;height: 100px;"
+        src="/assets/images/logo/trashcash_logo.png" alt="TrashCash">
+      <div fxFlex fxLayout="row" fxLayoutAlign="start center">
+        <!-- <span style="font-weight: 600;"> TrashCash </span> -->
+        <div class="example-button-row">
+          <button mat-button [routerLink]="['/customer/welcome']" [routerLinkActive]="['mat-raised-button']">HOME</button>
+  
+          <!-- <button mat-button [routerLink]="['/customer/shop']" [routerLinkActive]="['mat-raised-button']">SHOP</button>
+  
+          <button mat-button [routerLink]="['/customer/myAccount']" [routerLinkActive]="['mat-raised-button']" *ngIf="customerType == 'customer'">MY ACCOUNT</button> -->
+         
+  
+          <!-- <button mat-button [matMenuTriggerFor]="company" [routerLinkActive]="['mat-raised-button']"
+            *ngIf="customerType == 'company'">MY COMPANY</button>
+          <mat-menu #company="matMenu">
+            <button mat-button [routerLinkActive]="['mat-raised-button']">Orders</button>
+            <button mat-button [routerLinkActive]="['mat-raised-button']">Products</button>
+            <button mat-button [routerLinkActive]="['mat-raised-button']">Profile</button>
+            <button mat-button [routerLinkActive]="['mat-raised-button']">etc</button>
+          </mat-menu>
+   -->
+          <!-- <button mat-button [routerLink]="['/customer/cart']" [routerLinkActive]="['mat-raised-button']">SHOPPING
+            CART</button> -->
+  
+          <button mat-button [matMenuTriggerFor]="others" [routerLinkActive]="['mat-raised-button']">OTHERS</button>
+          <mat-menu #others="matMenu">
+            <button mat-button [routerLink]="['/customer/contactus']" [routerLinkActive]="['mat-raised-button']">CONTACT US</button>
+            <button mat-button [routerLink]="['/customer/showevent']" [routerLinkActive]="['mat-raised-button']">EVENTS &
+              CAMPAIGNS</button>
+            <button mat-button [routerLink]="['/customer/wpterms']" [routerLinkActive]="['mat-raised-button']">TERMS &
+              CONDITIONS</button>
+          </mat-menu>
+        </div>
+      </div>
+  
+      <!-- <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+        <ul fxLayout="row" fxLayoutGap="20px">
+          <li>
+            <button mat-flat-button style="background-color: #9CC026;color: white;" [routerLink]="['/customer/cart']">
+             
+              <mat-icon>shopping_cart</mat-icon> shopping cart <span class="badge badge-pill badge-danger"> {{itemCount}}
+              </span>
+            </button>
+          </li>
+  
+        </ul>
+      </div> -->
+    </mat-toolbar-row>
+  <!-- </mat-toolbar> -->
   

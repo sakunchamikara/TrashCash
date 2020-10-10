@@ -71,7 +71,7 @@ import { CustomerInviteFriendsComponent } from '../../modules/customer-account/c
     MatSelectModule,
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAOSPkCem6dwlUjUHR23nQzteLSAy8gRv8',
+      apiKey: 'AIzaSyCjX18JKeMwwJLdWueKkhJnY7ND-IeE-Kk',
       libraries: ['places'],
     }),
   ],

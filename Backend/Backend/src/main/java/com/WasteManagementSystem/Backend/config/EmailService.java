@@ -45,7 +45,7 @@ public class EmailService {
 	public Mail prepareMail(String email) {
 		Mail mail = new Mail();
 		Email fromEmail = new Email();
-		fromEmail.setEmail("ssakunchamikara@gmail.com");
+		fromEmail.setEmail("2017is078@stu.ucsc.cmb.ac.lk");
 		
 		Email to = new Email();
 		to.setEmail(email);

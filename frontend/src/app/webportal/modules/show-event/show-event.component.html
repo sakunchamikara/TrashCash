@@ -6,9 +6,9 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
           <li class="breadcrumb-item " aria-current="page">Events</li>
-         
+
           <li class="breadcrumb-item active" *ngIf="!activeFlag" aria-current="page">All</li>
-          
+
           <li class="breadcrumb-item active" *ngIf="activeFlag" aria-current="page">{{activeFlag}}</li>
         </ol>
       </nav>
@@ -16,7 +16,7 @@
   </div>
 
   <div class="row">
-    <div class="col-lg-9">
+    <div class="col-lg-12">
 
       <div class="row" *ngIf="eventEmptyListFlag">
         <div class="card cardcss border-success mb-3">
@@ -27,32 +27,29 @@
         </div>
       </div>
       <div class="row" *ngIf="!eventEmptyListFlag">
-
-        <div class="col-lg-4 col-md-6 mb-4" *ngFor="let event of eventList">
+        <div class="col-lg-3 col-md-3 mb-4" *ngFor="let event of eventList">
           <div class="card h-100 text-center">
-            <a href="#"><img class="card-img-top p-3" src="{{'data:image/jpeg;base64,'+event.image}}" height="200"
-              width="100" alt=""></a>
+            <img class="card-img-top p-3" src="{{'data:image/jpeg;base64,'+event.image}}" height="200"
+                width="100" alt="">
             <div class="card-body">
               <h4 class="card-title">
-              <b> {{event.eventName}}  </b> 
+                <b> {{event.eventName}} </b>
               </h4>
               <h5> {{event.location}}</h5>
               <h5>{{event.date}}</h5>
             </div>
-            
             <div class="card-footer">
-              <button type="button" routerLink="/customer/event-details/{{event.id}}" class="btn btn-outline-success">View Details</button>
-            </div> 
+              <button type="button" routerLink="/customer/event-details/{{event.id}}"
+                class="btn btn-outline-success">View Details</button>
+            </div>
           </div>
         </div>
-
-
       </div>
       <!-- /.row -->
-
+<br>
     </div>
     <!-- /.col-lg-9 -->
 
   </div>
 
-  </div>
+</div>

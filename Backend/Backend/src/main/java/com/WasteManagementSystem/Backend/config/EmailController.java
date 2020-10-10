@@ -6,6 +6,11 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+>>>>>>> c97b06ef4a08dd1dc8e99918a4f583d2be7ad0ae
 =======
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,11 +26,14 @@ public class EmailController {
 	
 	@GetMapping("/sendMail/{email}")
 <<<<<<< HEAD
+<<<<<<< HEAD
 	public String sendEmail(@PathVariable (value = "email",required = true )String email) {
 		return emailService.sendEmail(email);
 	}
 
 =======
+=======
+>>>>>>> c97b06ef4a08dd1dc8e99918a4f583d2be7ad0ae
 	public String sendEmail(@PathVariable (value = "email",required = true )String email){
 		return emailService.sendEmail(email);
 	}
@@ -35,5 +43,8 @@ public class EmailController {
 		emailService.setcontent(content);
 		return "ok";
 	}
+<<<<<<< HEAD
+>>>>>>> c97b06ef4a08dd1dc8e99918a4f583d2be7ad0ae
+=======
 >>>>>>> c97b06ef4a08dd1dc8e99918a4f583d2be7ad0ae
 }

@@ -32,11 +32,17 @@ public class OrderService {
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> c97b06ef4a08dd1dc8e99918a4f583d2be7ad0ae
 	public List<Orders> findAllPendingOrders(){
 		return orderRepo.findPending();
 	}
 
+<<<<<<< HEAD
+>>>>>>> c97b06ef4a08dd1dc8e99918a4f583d2be7ad0ae
+=======
 >>>>>>> c97b06ef4a08dd1dc8e99918a4f583d2be7ad0ae
 }
 

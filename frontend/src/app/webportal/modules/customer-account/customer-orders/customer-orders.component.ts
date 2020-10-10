@@ -129,16 +129,4 @@ export class CustomerOrdersComponent implements OnInit {
       }
     );
   }
-
-  getAllOrders() {
-    this.orderService.getAllOrders().subscribe(
-      (data) => {
-        console.log("data");
-        console.log(data);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
 }

@@ -12,9 +12,13 @@ import com.sendgrid.Response;
 import com.sendgrid.SendGrid;
 import com.sendgrid.helpers.mail.Mail;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 import com.sendgrid.helpers.mail.objects.Content;
 
+=======
+import com.sendgrid.helpers.mail.objects.Content;
+>>>>>>> c97b06ef4a08dd1dc8e99918a4f583d2be7ad0ae
 =======
 import com.sendgrid.helpers.mail.objects.Content;
 >>>>>>> c97b06ef4a08dd1dc8e99918a4f583d2be7ad0ae
@@ -24,18 +28,24 @@ import com.sendgrid.helpers.mail.objects.Personalization;
 @Service
 public class EmailService {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	@Value("${app.sendgrid.templateId}")
 	private String templateId;
 	
 	@Autowired
 	SendGrid sendGrid;
 =======
+=======
+>>>>>>> c97b06ef4a08dd1dc8e99918a4f583d2be7ad0ae
 //	@Value("${app.sendgrid.templateId}")
 //	private String templateId;
 	
 	@Autowired
 	SendGrid sendGrid;
 	Content content;
+<<<<<<< HEAD
+>>>>>>> c97b06ef4a08dd1dc8e99918a4f583d2be7ad0ae
+=======
 >>>>>>> c97b06ef4a08dd1dc8e99918a4f583d2be7ad0ae
 	
 	public String sendEmail(String email) {
@@ -65,7 +75,11 @@ public class EmailService {
 		to.setEmail(email);
 		
 <<<<<<< HEAD
+<<<<<<< HEAD
 		Content content = new Content("text/plain", "and easy to do anywhere, even with Java");
+=======
+//		Content content = new Content("text/plain", "Dear customer, Thank you for being with us!");
+>>>>>>> c97b06ef4a08dd1dc8e99918a4f583d2be7ad0ae
 =======
 //		Content content = new Content("text/plain", "Dear customer, Thank you for being with us!");
 >>>>>>> c97b06ef4a08dd1dc8e99918a4f583d2be7ad0ae
@@ -83,11 +97,17 @@ public class EmailService {
 		return mail;
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> c97b06ef4a08dd1dc8e99918a4f583d2be7ad0ae
 
 	public void setcontent(String c) {
 		content = new Content("text/plain", c);
 		
 	}
+<<<<<<< HEAD
+>>>>>>> c97b06ef4a08dd1dc8e99918a4f583d2be7ad0ae
+=======
 >>>>>>> c97b06ef4a08dd1dc8e99918a4f583d2be7ad0ae
 }

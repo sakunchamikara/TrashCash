@@ -57,12 +57,18 @@ public class OrderController {
 		return orderService.saveOrder(orderObj);
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> c97b06ef4a08dd1dc8e99918a4f583d2be7ad0ae
 
 	@GetMapping("/agentPendingOrders")
     public List<Orders> getAllPendingOrders(){
         return orderService.findAllPendingOrders();
     }
+<<<<<<< HEAD
+>>>>>>> c97b06ef4a08dd1dc8e99918a4f583d2be7ad0ae
+=======
 >>>>>>> c97b06ef4a08dd1dc8e99918a4f583d2be7ad0ae
 	
 }

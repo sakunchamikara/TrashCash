@@ -29,12 +29,7 @@ import { CustomerAccountComponent } from '../../modules/customer-account/custome
 import { RecycledProductAddComponent } from '../../modules/Outsource-company/recycled-product-add/recycled-product-add.component';
 import { CustomerOrdersComponent } from '../../modules/customer-account/customer-orders/customer-orders.component';
 import { ContactusComponent } from '../../modules/contactus/contactus.component';
-import { CustomerMyFeedbacksComponent } from '../../modules/customer-acount/customer-my-feedbacks/customer-my-feedbacks.component';
-import { AddReProductComponent } from '../../outsource/add-re-product/add-re-product.component';
-import { UpdateComponent } from '../../outsource/add-re-product/update/update.component';
-import { AllviewComponent } from 'src/app/modules/products/allview/allview.component';
 import { CustomerInviteFriendsComponent } from '../../modules/customer-account/customer-invite-friends/customer-invite-friends.component';
-import { ViewConfirmedOrdersComponent } from 'src/app/modules/agent/view-confirmed-orders/view-confirmed-orders.component';
 
 @NgModule({
   declarations: [
@@ -60,12 +55,7 @@ import { ViewConfirmedOrdersComponent } from 'src/app/modules/agent/view-confirm
     RecycledProductAddComponent,
     CustomerOrdersComponent,
     ContactusComponent,
-    CustomerMyFeedbacksComponent,
-    AddReProductComponent,
-    UpdateComponent,
-    AllviewComponent,
     CustomerInviteFriendsComponent,
-    ViewConfirmedOrdersComponent,
   ],
   imports: [
     FormsModule,

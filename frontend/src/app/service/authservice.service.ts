@@ -10,6 +10,7 @@ export const AUTHENTICATED_USER = 'authenticaterUser';
   providedIn: 'root',
 })
 export class AuthserviceService {
+  
   constructor(private http: HttpClient) {}
 
   public loginUserFromRemote(user: User): Observable<any> {
@@ -50,4 +51,8 @@ export class AuthserviceService {
   // updateUserProfileWithImage(formdata: FormData): Observable<any> {
   //   return this.http.put(`http://localhost:8080/updateUserWithImage`, formdata);
   // }
+
+  getUserByType(email: string): Observable<String[]> {
+    return this.http.get<any>(`http://localhost:8080/getUserByType/${email}`);
+  }
 }

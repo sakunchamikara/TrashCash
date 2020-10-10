@@ -158,13 +158,30 @@ handleSuccessfulResponse(response) {
     
   }
 
+  
+
+  
+  updateProduct(id: number){
+    this.router.navigate(['outsource','Update',id]);
+  }
+
+  deleteProduct(id: number) {
+    this.service.deleteProduct(id)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.reloadData();
+        },
+        error => console.log(error));
+  }
+
   public openConfirmationDialog(id: number) {
     this.service
-      .confirm('Please confirm..', 'Do you really want to cancel?')
+      .confirm('Please confirm..', 'Do you really want to delete?')
       .then((confirmed) => {
         // console.log('User confirmed:', confirmed);
         if (confirmed == true) {
-          this.deleteCustomerWasteRequest(id);
+          this.deleteProduct(id);
         }
       })
       .catch(() =>
@@ -172,20 +189,6 @@ handleSuccessfulResponse(response) {
           'User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'
         )
       );
-  }
-
-  deleteCustomerWasteRequest(id: number) {
-    this.service.deleteProduct(id).subscribe(
-      (data) => {
-        console.log(data);
-         this.reloadData();
-      },
-      (error) => console.log(error)
-    );
-  }
-
-  updateProduct(id: number){
-    this.router.navigate(['outsource','Update',id]);
   }
 
 

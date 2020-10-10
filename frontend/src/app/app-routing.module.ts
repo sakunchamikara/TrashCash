@@ -69,6 +69,8 @@ import { CompletedOrdersComponent } from './modules/orders/completed-orders/comp
 import { ContactdetailsComponent} from './modules/contactdetails/contactdetails.component';
 import { AddReProductComponent } from './webportal/outsource/add-re-product/add-re-product.component';
 import { UpdateComponent } from './webportal/outsource/add-re-product/update/update.component';
+import { AllviewComponent } from './modules/products/allview/allview.component';
+
 
 const routes: Routes = [
   {
@@ -234,6 +236,11 @@ const routes: Routes = [
       {
         path: 'ViewProducts',
         component: ViewProductComponent,
+        canActivate: [RouteGuardService],
+      },
+      {
+        path:'Viewall',
+        component:AllviewComponent,
         canActivate: [RouteGuardService],
       },
       {

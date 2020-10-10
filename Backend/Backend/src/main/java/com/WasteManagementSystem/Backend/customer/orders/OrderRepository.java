@@ -10,11 +10,16 @@ import org.springframework.stereotype.Repository;
 public interface OrderRepository extends JpaRepository<Orders, Integer> {
 
     @Query(value="SELECT * FROM orders WHERE customer_id = :id",nativeQuery = true)
-    public List<Orders> getOrderById(int id);
+	public List<Orders> getOrderById(int id);
+	
+	@Query(value="select * from  orders WHERE status = 'Accepted'",nativeQuery = true)
+    public List<Orders> findPending();
 
 	public List<Orders> findByStatus(String type);
 	
 	public Orders save(Orders order);
 	
 	public Orders findById(int id);
+
+
 }

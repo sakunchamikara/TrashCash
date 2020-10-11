@@ -41,8 +41,31 @@ export class ContactusComponent implements OnInit {
 
   onSubmit(){
     this.submitted = true;
-    this.save();
+   // this.save();
+
+   this.newcontactService
+   .createNewcontact(this.contactus)
+    .subscribe(
+      (data) => {
+        console.log(data);
+        this.contactus = new Contactus();
+        this.successMsg = `added successfully !`;
+        console.log(this.successMsg);
+        this.newcontactService.confirm(
+          'Thank You',
+          'Your response has been successfully recorded'
+        );
+        // this.reloadData();
+
+        //     }
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+   
   }
+  
 
   gotoList(){
    this.router.navigate(['customer/contactdetails']);

@@ -37,7 +37,28 @@ export class AddtermsComponent implements OnInit {
   }
   onSubmit() {
     this.submitted = true;
-    this.save();
+    //this.save();
+
+    this.newtermService
+      .createNewterm(this.terms)
+      .subscribe(
+        (data) => {
+          console.log(data);
+          this.terms = new Terms();
+          this.successMsg = `feedback added successfully !`;
+          console.log(this.successMsg);
+          this.newtermService.confirm(
+            '',
+            'Term has been successfully added'
+          );
+          // this.reloadData();
+
+          //     }
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   }
   gotoList() {
     this.router.navigate(['system/viewterms']);

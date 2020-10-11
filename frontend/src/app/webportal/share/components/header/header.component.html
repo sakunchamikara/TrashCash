@@ -107,11 +107,13 @@
       <div fxFlex fxLayout="row" fxLayoutAlign="start center">
         <!-- <span style="font-weight: 600;"> TrashCash </span> -->
         <div class="example-button-row">
-          <button mat-button [routerLink]="['/customer/welcome']" [routerLinkActive]="['mat-raised-button']">HOME</button>
+          <button mat-button [routerLink]="['/outsource/dashboard']" [routerLinkActive]="['mat-raised-button']">HOME</button>
   
-          <!-- <button mat-button [routerLink]="['/customer/shop']" [routerLinkActive]="['mat-raised-button']">SHOP</button>
+          <button mat-button [routerLink]="['/outsource/Contact']" [routerLinkActive]="['mat-raised-button']">CONTACT US</button>
   
-          <button mat-button [routerLink]="['/customer/myAccount']" [routerLinkActive]="['mat-raised-button']" *ngIf="customerType == 'customer'">MY ACCOUNT</button> -->
+          <button mat-button [routerLink]="['/outsource/showevent']" [routerLinkActive]="['mat-raised-button']">EVENTS & CAMPAIGNS</button>
+          <button mat-button [routerLink]="['/outsource/addfeedback']" [routerLinkActive]="['mat-raised-button']">YOUR FEEDBACK</button>
+          <button mat-button [routerLink]="['/outsource/term']" [routerLinkActive]="['mat-raised-button']">TERM & CONDITIONS</button>
          
   
           <!-- <button mat-button [matMenuTriggerFor]="company" [routerLinkActive]="['mat-raised-button']"
@@ -126,14 +128,14 @@
           <!-- <button mat-button [routerLink]="['/customer/cart']" [routerLinkActive]="['mat-raised-button']">SHOPPING
             CART</button> -->
   
-          <button mat-button [matMenuTriggerFor]="others" [routerLinkActive]="['mat-raised-button']">OTHERS</button>
+          <!-- <button mat-button [matMenuTriggerFor]="others" [routerLinkActive]="['mat-raised-button']">OTHERS</button>
           <mat-menu #others="matMenu">
             <button mat-button [routerLink]="['/customer/contactus']" [routerLinkActive]="['mat-raised-button']">CONTACT US</button>
             <button mat-button [routerLink]="['/customer/showevent']" [routerLinkActive]="['mat-raised-button']">EVENTS &
               CAMPAIGNS</button>
             <button mat-button [routerLink]="['/customer/wpterms']" [routerLinkActive]="['mat-raised-button']">TERMS &
               CONDITIONS</button>
-          </mat-menu>
+          </mat-menu> -->
         </div>
       </div>
   

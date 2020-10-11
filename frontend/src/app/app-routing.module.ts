@@ -78,6 +78,11 @@ import { AllviewComponent } from './modules/products/allview/allview.component';
 import { ViewConfirmedOrdersComponent } from './modules/agent/view-confirmed-orders/view-confirmed-orders.component';
 import { ViewPendingOrdersComponent } from './modules/agent/view-pending-orders/view-pending-orders.component';
 import { OrdersComponent } from './webportal/outsource/orders/orders.component';
+import { ContactComponent } from './webportal/outsource/contact/contact.component';
+import { EventComponent } from './webportal/outsource/event/event.component';
+import { FeedbackComponent } from './webportal/outsource/feedback/feedback.component';
+import { TermsconComponent } from './webportal/outsource/termscon/termscon.component';
+
 
 const routes: Routes = [
   {
@@ -189,6 +194,7 @@ const routes: Routes = [
         path: 'inviteFriends',
         component: CustomerInviteFriendsComponent,
       },
+     
     ],
   },
   {
@@ -218,6 +224,22 @@ const routes: Routes = [
       {
         path:'ViewOrders',
         component:OrdersComponent
+      },
+      {
+        path:'Contact',
+        component:ContactComponent,
+      },
+      {
+        path:'showevent',
+        component:EventComponent
+      },
+      {
+        path:'addfeedback',
+        component:FeedbackComponent,
+      },
+      {
+        path:'term',
+        component:TermsconComponent,
       }
     ],
   },

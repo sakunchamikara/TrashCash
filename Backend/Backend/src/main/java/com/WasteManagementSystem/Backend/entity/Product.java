@@ -75,7 +75,7 @@ public class Product {
 		this.quantity = quantity;
 	}
 
-	@Column(name = "image1", length = 1000)
+	@Column(name = "image1", length = 100000)
 	private byte[] image1;
 
 	private String image2;

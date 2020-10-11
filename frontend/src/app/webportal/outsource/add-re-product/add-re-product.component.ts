@@ -66,10 +66,10 @@ export class AddReProductComponent implements OnInit {
     // this.submitted = true;
      this.save();
      alert('INSERT SUCCESSFUL!!');
-     //this.pageRefresh();
+     this.pageRefresh();
    }
-   pageRefresh() {
-    location.reload();
+      pageRefresh() {
+         location.reload();
  }
 
  reloadData(){
@@ -109,7 +109,7 @@ handleSuccessfulResponse(response) {
   }
 }
 
- public onFileChanged(event) {
+public onFileChanged(event) {
   console.log(event);
   this.selectedFile = event.target.files[0];
 
@@ -139,16 +139,14 @@ handleSuccessfulResponse(response) {
     const uploadData = new FormData();
     uploadData.append('imageFile', this.selectedFile, this.selectedFile.name);
     this.selectedFile.imageName = this.selectedFile.name;
-
+    console.log(uploadData);
     this.httpClient
-      .post('http://localhost:8080/uploadReProduct', uploadData, { observe: 'response' })
+      .post('http://localhost:8080/upload', uploadData, { observe: 'response' })
       .subscribe((response) => {
         if (response.status === 200) {
           this.service.createProduct(this.product).subscribe((data) => {
             console.log(data);
             this.reloadData();
-            //console.log(this.product.newprice)
-            //this.gotoList();
           });
           console.log('Image uploaded successfully');
         } else {

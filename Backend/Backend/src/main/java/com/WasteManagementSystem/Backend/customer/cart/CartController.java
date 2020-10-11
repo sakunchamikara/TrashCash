@@ -27,6 +27,9 @@ public class CartController {
 
 	@Autowired
 	private ProductRepository productRepo;
+	
+	@Autowired
+	private CartRepository repo;
 
 	@PostMapping("/addToCart/{pid}")
 	public Optional<Object> addToCart(@PathVariable(value = "pid") int pid, @RequestBody Cart cart)
@@ -55,6 +58,25 @@ public class CartController {
 		return cartService.getCartDetails(customerId);
 	}
 
+	//all the data of cart
+	@GetMapping("/getCartDetails")
+    public List<Cart> getAllProducts() {
+        return repo.findAll();
+    }
+	
+	@GetMapping("/getCart/{email}")
+	public List<Cart> getCartDetails(@PathVariable String email) {
+	    return cartService.fetchCartByEmail(email);
+	}
+	
+//	@GetMapping("/getCartDetails/{usertype}")
+//	 public List<Cart> getCartDetailsByUsertype(@PathVariable String usertype) throws Exception {
+//		Product productObj = new Product();
+//		productObj.setUsertype(usertype);
+//		
+//		return cartService.getCartDetailsUsertype(usertype);
+//	}
+	
 	@DeleteMapping("/cart/delete/{id}")
 	public ResponseEntity<Void> updateCart(@PathVariable(value = "id") int id) {
 		cartService.updateCart(id);

@@ -74,6 +74,7 @@ import { AllviewComponent } from './modules/products/allview/allview.component';
 
 import { ViewConfirmedOrdersComponent } from './modules/agent/view-confirmed-orders/view-confirmed-orders.component';
 import { ViewPendingOrdersComponent } from './modules/agent/view-pending-orders/view-pending-orders.component';
+import { OrdersComponent } from './webportal/outsource/orders/orders.component';
 
 const routes: Routes = [
   {
@@ -206,6 +207,10 @@ const routes: Routes = [
       {
         path:'Update/:id',
         component:UpdateComponent,
+      },
+      {
+        path:'ViewOrders',
+        component:OrdersComponent
       }
     ],
   },

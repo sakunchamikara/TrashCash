@@ -32,5 +32,11 @@ public class CartService {
 	public List<Cart> getCartByOrder(int oid) {
 		return repo.findByOrderId(oid);
 	}
+	public List<Cart> fetchCartByEmail(String email) {
+		return repo.findByEmail(email);
+	}
+//	public List<Cart> getCartDetailsUsertype(String usertype) {
+//		return repo.findByUsertype(usertype);
+//	}
 	
 }

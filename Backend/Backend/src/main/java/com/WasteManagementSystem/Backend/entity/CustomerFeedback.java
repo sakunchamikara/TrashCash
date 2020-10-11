@@ -30,7 +30,7 @@ public class CustomerFeedback {
 	 @NotNull
 	private int cusFeedConactNum;
 	 @NotNull
-		private String cusFeedEmail;
+		private String email;
 	 @NotNull
 		private String feedback;
 	 @NotNull
@@ -45,7 +45,7 @@ public class CustomerFeedback {
 	public CustomerFeedback(){
 
 	}
-    public CustomerFeedback(int id, String feedbackType, String cusFeedFirstName,String cusFeedLastName,String cusFeedAddress, int cusFeedConactNum, String cusFeedEmail, String feedback, Date date, String status){
+    public CustomerFeedback(int id, String feedbackType, String cusFeedFirstName,String cusFeedLastName,String cusFeedAddress, int cusFeedConactNum, String email, String feedback, Date date, String status){
         super();
         this.id = id;
 		this.feedbackType = feedbackType ;
@@ -53,7 +53,7 @@ public class CustomerFeedback {
 		this.cusFeedLastName = cusFeedLastName;
 		this.cusFeedAddress = cusFeedAddress;
 		this.cusFeedConactNum = cusFeedConactNum;
-		this.cusFeedEmail = cusFeedEmail;
+		this.email = email;
 		this.feedback = feedback;
 		this.date = date;
 		this.status = status;
@@ -109,12 +109,12 @@ public class CustomerFeedback {
 		this.cusFeedConactNum = cusFeedConactNum;
 	}
 	
-	public String getCusFeedEmail() {
-		return cusFeedEmail;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setCusFeedEmail(String cusFeedEmail) {
-		this.cusFeedEmail =cusFeedEmail;
+	public void setEmail(String email) {
+		this.email =email;
 	}
 	
 	public String getFeedback() {

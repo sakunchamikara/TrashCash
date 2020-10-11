@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.sql.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -95,8 +96,10 @@ public class CustomerWasteRequestController {
         return ResponseEntity.ok().body(customerWasteRequest);
     }
 
-
-    
+	@GetMapping("/getMonthlyReport/{year}/{month}")
+   public List<CustomerWasteRequest> getReport(@PathVariable int year,@PathVariable int month) {
+        return service.fetchReport(year,month);
+    }
     
 
 }

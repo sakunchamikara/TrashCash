@@ -7,20 +7,31 @@ import { Orders } from '../pojo/orders';
   providedIn: 'root',
 })
 export class CustomerOrderService {
-  public getAllOrders():Observable<Orders[]> {
+  public getOrderByOrderId(orderid: number): Observable<any> {
+    return this.httpClient.get<any>(`http://localhost:8080/getOrder/${orderid}`);
+  }
+
+  public getAllOrders(): Observable<Orders[]> {
     return this.httpClient.get<any>(`http://localhost:8080/getAllOrders`);
   }
   constructor(private httpClient: HttpClient) {}
 
   public setOrder(order: Orders, cid: number): Observable<any> {
-    return this.httpClient.post<any>(`http://localhost:8080/setOrder/${cid}`, order);
+    return this.httpClient.post<any>(
+      `http://localhost:8080/setOrder/${cid}`,
+      order
+    );
   }
 
   public getOrdersById(id: number): Observable<Orders[]> {
     return this.httpClient.get<any>(`http://localhost:8080/getOrders/${id}`);
   }
 
-  public getAgentPendingOders():Observable<Orders[]> {
+  public getAgentPendingOders(): Observable<Orders[]> {
     return this.httpClient.get<any>(`http://localhost:8080/agentPendingOrders`);
+  }
+
+  public saveOrder(order: Orders): Observable<any> {
+    return this.httpClient.put<any>(`http://localhost:8080/saveOrder`, order);
   }
 }

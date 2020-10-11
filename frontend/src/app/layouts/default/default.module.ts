@@ -59,6 +59,7 @@ import { ViewDbComponent } from 'src/app/modules/view-db/view-db.component';
 import { SendMailComponent } from 'src/app/modules/send-mail/send-mail.component';
 import { ConfirmWasteRequestComponent } from 'src/app/modules/out-waste-request/confirm-waste-request/confirm-waste-request.component';
 import { DisplayCustomerFeedbackComponent } from 'src/app/modules/display-customer-feedback/display-customer-feedback.component';
+import { GenerateReportsComponent } from 'src/app/modules/generate-reports/generate-reports.component';
 import { PendingOrdersComponent } from 'src/app/modules/orders/pending-orders/pending-orders.component';
 import { AcceptedOrdersComponent } from 'src/app/modules/orders/accepted-orders/accepted-orders.component';
 import { CompletedOrdersComponent } from 'src/app/modules/orders/completed-orders/completed-orders.component';
@@ -101,13 +102,14 @@ import { ViewPendingOrdersComponent } from 'src/app/modules/agent/view-pending-o
     SendMailComponent,
     ViewPlacedRequestsComponent,
     DisplayCustomerFeedbackComponent,
+    GenerateReportsComponent,
     AccepttermsComponent,
     ViewAgentConfirmedRequestComponent,
     PendingOrdersComponent,
     AcceptedOrdersComponent,
     CompletedOrdersComponent,
     ContactdetailsComponent,
-    AllviewComponent,
+   AllviewComponent,
     ViewConfirmedOrdersComponent,
     ViewPendingOrdersComponent,
   ],

@@ -68,6 +68,9 @@ import { PendingOrdersComponent } from './modules/orders/pending-orders/pending-
 import { AcceptedOrdersComponent } from './modules/orders/accepted-orders/accepted-orders.component';
 import { CompletedOrdersComponent } from './modules/orders/completed-orders/completed-orders.component';
 import { ContactdetailsComponent} from './modules/contactdetails/contactdetails.component';
+//import { CustomerMyFeedbacksComponent } from './webportal/modules/customer-account/customer-my-feedbacks/customer-my-feedbacks.component';
+import { CustomerMyFeedbacksComponent } from './webportal/modules/customer-acount/customer-my-feedbacks/customer-my-feedbacks.component';
+import { GenerateReportsComponent } from './modules/generate-reports/generate-reports.component';
 import { AddReProductComponent } from './webportal/outsource/add-re-product/add-re-product.component';
 import { UpdateComponent } from './webportal/outsource/add-re-product/update/update.component';
 import { AllviewComponent } from './modules/products/allview/allview.component';
@@ -177,6 +180,10 @@ const routes: Routes = [
       {
         path: 'myOrders',
         component: CustomerOrdersComponent,
+      },
+      {
+        path: 'myFeedbacks',
+        component: CustomerMyFeedbacksComponent,
       },
       {
         path: 'inviteFriends',
@@ -360,6 +367,11 @@ const routes: Routes = [
         path: 'displayCustomerFeedbacks',
         component: DisplayCustomerFeedbackComponent,
       },
+      {
+        path: 'generateReports',
+        component: GenerateReportsComponent,
+      },
+      
       {
         path: 'viewoutSourceWasteRequest',
         component: ConfirmWasteRequestComponent,

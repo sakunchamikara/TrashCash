@@ -24,8 +24,13 @@
         </div>
           
             <div class="form-group">
-              <label>Your location</label>
-              <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
+                <form form (ngSubmit)=onSubmit() #locationForm="ngForm">
+                    <label> Set Your location</label>
+                    <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Location" autocorrect="off" autocapitalize="off" name="location" id="location" spellcheck="off" type="text" [(ngModel)]="customer.location" #search>
+                    <!-- <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Location" autocorrect="off" autocapitalize="off" name="location" id="location" spellcheck="off" type="text"  #search> -->
+                    <button type="submit" class="btn btn-success float-right">Done</button>
+                </form>
+            
             </div>
           
             <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
@@ -33,7 +38,7 @@
                 (dragEnd)="markerDragEnd($event)"></agm-marker>
             </agm-map>
           
-            <h5>Address: {{address}}</h5>
+            <!-- <h5>Address: {{address}}</h5> -->
             <div>Latitude: {{latitude}}</div>
             <div>Longitude: {{longitude}}</div>
           </div>

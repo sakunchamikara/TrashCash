@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, NgZone ,AfterViewInit} from '@angular/core';
 import { MapsAPILoader } from '@agm/core';
+import { CustomerAuthService } from 'src/app/webportal/services/customer-auth.service';
+import { Customer } from 'src/app/webportal/pojo/customer';
 
 @Component({
   selector: 'app-location',
@@ -14,17 +16,29 @@ export class LocationComponent implements OnInit {
   zoom: number;
   address : string;
   private geoCoder;
+  user = new Customer();
+  customer = new Customer();
+  successMsg: any;
+  errorMsg: any;
 
   @ViewChild('search', {static:true}) 
   public searchElementRef: ElementRef;
 
   @ViewChild('mapRef', {static: true }) mapElement: ElementRef;
+  email: string;
 
-  constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) { }
+  constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone,private authService: CustomerAuthService,) { }
 
   ngOnInit() {
 
-    // this.renderMap();
+    this.email = this.authService.getAuthenticatedCustomer();
+    this.user = new Customer();
+    this.authService.getCustomer(this.email).subscribe((data) => {
+      this.user = data;
+      console.log(this.user);
+    });
+
+
     this.mapsAPILoader.load().then(()=>{
       this.setCurrentLocation();
       this.geoCoder = new google.maps.Geocoder;
@@ -130,5 +144,21 @@ export class LocationComponent implements OnInit {
     } else {
       this.loadMap();
     }
+  }
+
+  onSubmit(){
+    console.log(this.user);
+    this.authService.updateCustomerProfile(this.user.id,this.user).subscribe(
+      (data) => {
+        // this.user = data;
+        this.successMsg = `${this.user.email} was updated successfully !`;
+        alert(this.successMsg);
+        location.reload();
+      },
+      (error) => {
+        this.errorMsg = 'Something went Wrong !!!';
+        console.log(error);
+      }
+    );
   }
 }

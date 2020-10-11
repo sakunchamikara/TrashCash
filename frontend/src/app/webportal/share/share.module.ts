@@ -4,10 +4,11 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 //import { FooterComponent } from './components/footer/footer.component';
 import {HeaderComponent} from './components/header/header.component';
 // import { SidebarComponent } from './components/sidebar/sidebar.component';
- import { MatDividerModule, MatToolbarModule, MatIconModule, MatButtonModule, MatMenuModule, MatListModule } from '@angular/material';
+ import { MatDividerModule, MatToolbarModule, MatIconModule, MatButtonModule, MatMenuModule, MatListModule,MatInputModule } from '@angular/material';
  import { FlexLayoutModule } from '@angular/flex-layout';
  import { RouterModule } from '@angular/router';
 import { FootComponent } from './components/foot/foot.component';
+import { MatFormFieldModule } from "@angular/material/form-field";
 
 //import { HeaderComponent } from './components/header/header.component';
 // import { AreaComponent } from './widgets/area/area.component';
@@ -38,6 +39,8 @@ import { FootComponent } from './components/foot/foot.component';
     MatMenuModule,
     MatListModule,
     RouterModule,
+    MatFormFieldModule,
+    MatInputModule,
     //HighchartsChartModule,
   ],
   exports: [

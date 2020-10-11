@@ -30,9 +30,9 @@ public class Event {
 	private Date date;
 	
 	//private String image;
-	@Column(name = "image", length = 1000)
+	@Column(name = "image", length = 100000)
 	private byte[] image;
-
+	@Column(columnDefinition = "TEXT")
 	private String notes;
 
 	

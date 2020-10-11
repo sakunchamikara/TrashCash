@@ -34,34 +34,27 @@
       </div>
     -->
     <!-- Card -->
-<div class="card card-cascade">
-
-  <!-- Card image -->
-  <div class="view view-cascade">
-    <img class="card-img-top" src="{{eventImage}}"
-      alt="card-cascade">
-    <a href="#!">
-      <div class="mask rgba-white-slight"></div>
-    </a>
-  </div>
-
-  <!-- Card content -->
-  <div class="card-body card-body-cascade text-center">
-
-    <!-- Title -->
-    <h2 class="card-title"><strong> {{events.eventName}}</strong></h2>
-    <!-- Subtitle -->
-    <h5 class="font-weight-bold indigo-text py-2">Event Date:{{events.date}}</h5>
-    <h5 class="font-weight-bold indigo-text py-2">Location:{{events.location}}</h5>
-    <!-- Text -->
-    <p class="card-text">{{events.notes}}
-    </p>
-
-    
-  </div>
-
+    <div class="bs-example">
+    <div class="card" style="max-width: fit-content;">
+        <div class="row no-gutters">
+            <div class="col-sm-5" style="background: #868e96;">
+                <img src="{{eventImage}}" class="card-img-top h-300">
+            </div>
+            <div class="col-sm-7">
+                <div class="card-body">
+                    <h1 class="card-title">{{events.eventName}}</h1>
+                    <h6 class="text-muted">Event Date:{{events.date}}</h6>
+                    <h5 class="font-weight-bold indigo-text py-2">Location:{{events.location}}</h5>
+                    <br>
+                    <p class="card-text">{{events.notes}}</p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<!-- Card -->
+
+
    
 <br>
     

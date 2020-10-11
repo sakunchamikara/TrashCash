@@ -29,12 +29,26 @@ public class CustomerWasteRequest {
 	@NotNull
 	private String status;
 	private String email;
+	private int year;
+	public int getYear() {
+		return year;
+	}
+	public void setYear(int year) {
+		this.year = year;
+	}
+	public int getMonth() {
+		return month;
+	}
+	public void setMonth(int month) {
+		this.month = month;
+	}
+	private int month;
 
 
 	public CustomerWasteRequest(){
 
 	}
-    public CustomerWasteRequest(int id, String wasteType,int quantity,Date date,String customer,String status,String email,String details){
+    public CustomerWasteRequest(int id, String wasteType,int quantity,Date date,String customer,String status,String email,String details,int year, int month){
         super();
 		this.id = id;
 		this.wasteType = wasteType;
@@ -43,6 +57,8 @@ public class CustomerWasteRequest {
 		this.customer = customer;
 		this.status = status;
 		this.email = email;
+		this.year = year;
+		this.month = month;
     }
 
     public int getId() {

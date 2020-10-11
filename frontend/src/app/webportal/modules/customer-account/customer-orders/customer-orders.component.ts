@@ -6,11 +6,13 @@ import { CustomerCartService } from 'src/app/webportal/services/customer-cart.se
 import { CustomerAuthService } from 'src/app/webportal/services/customer-auth.service';
 import { Cart } from 'src/app/webportal/pojo/cart';
 import { EmailService } from 'src/app/service/email.service';
+import { NewtermsService } from 'src/app/service/newterms.service';
+import { Customer } from 'src/app/webportal/pojo/customer';
 
 @Component({
-  selector: 'app-customer-orders',
-  templateUrl: './customer-orders.component.html',
-  styleUrls: ['./customer-orders.component.scss'],
+  selector: "app-customer-orders",
+  templateUrl: "./customer-orders.component.html",
+  styleUrls: ["./customer-orders.component.scss"],
 })
 export class CustomerOrdersComponent implements OnInit {
   orderCount: number;
@@ -20,6 +22,8 @@ export class CustomerOrdersComponent implements OnInit {
   cart = new Cart();
   customerId: number;
   viewOrders: Array<Orders>;
+  completedOrder = new Orders();
+  customer = new Customer();
 
   orderId: string;
   emailMsg: string;
@@ -30,11 +34,12 @@ export class CustomerOrdersComponent implements OnInit {
     private orderService: CustomerOrderService,
     private cartService: CustomerCartService,
     private customerAuth: CustomerAuthService,
-    private emailService: EmailService
+    private emailService: EmailService,
+    private confirmationDialog: NewtermsService
   ) {}
 
   ngOnInit() {
-    this.orderId = this.route.snapshot.queryParamMap.get('order_id');
+    this.orderId = this.route.snapshot.queryParamMap.get("order_id");
     this.customerId = +this.customerAuth.getAuthenticatedCustomerId();
     this.customerMail = this.customerAuth.getAuthenticatedCustomer();
 
@@ -55,8 +60,7 @@ export class CustomerOrdersComponent implements OnInit {
       this.orderService.setOrder(this.order, this.customerId).subscribe(
         (data) => {
           this.emailService.setContent(this.emailMsg).subscribe(
-            (response) => {
-            },
+            (response) => {},
             (error) => {
               console.log(error);
             }
@@ -128,5 +132,33 @@ export class CustomerOrdersComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  completeOrder(orderid: number) {
+    this.confirmationDialog
+      .confirm('Please confirm..', 'Do you really Confirm Order received?')
+      .then((confirmed) => {
+        if (confirmed) {
+          this.orderService.getOrderByOrderId(orderid).subscribe(
+            data => {
+              this.completedOrder = data;
+              console.log(data);
+              this.completedOrder.status = 'Completed';
+              this.orderService.setOrder(this.completedOrder, this.customerId).subscribe(
+                response => {
+                  console.log(response);
+                },
+                error => {
+                  console.log(error);
+                }
+              );
+            },
+            error => {
+              console.log(error);
+            }
+          );
+        }
+      })
+      .catch(() => console.log('cancelled'));
   }
 }

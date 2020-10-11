@@ -1,4 +1,4 @@
-<div class="row p1">
+<!-- <div class="row p1">
     <div class="">
 
       <nav aria-label="breadcrumb">
@@ -37,40 +37,40 @@
           </h4>
 
 
-     <form (ngSubmit)="onSubmit()" #mailForm="ngForm">
+     <form (ngSubmit)="getRecievers()" #mailForm="ngForm">
 
-            <div class="form-row">
+           <!-- <div class="form-row">
               <div class="form-group col-md-8">
                 <label for="">From :</label>
                 <input  type="text" class="form-control" id="sendAdd"  name="sendAdd" required >
 
               </div>
-            </div>
+            </div> -->
 
-            <div class="form-row">
+            <!-- <div class="form-row">
                 <div class="form-group col-md-8">
-                <label for="">To :</label>
+                <label for="">Select Receivers</label>
                 <br>
-                
+
                 <div class="form-check ">
-                  <input type="checkbox" class="form-check-input" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                  <input type="checkbox" class="form-check-input" [(ngModel)]="staff" name="staff" id="inlineRadio1" value="option1">
                   <label class="form-check-label" for="inlineRadio1">Staff</label>
                 </div>
                 <div class="form-check ">
-                  <input type="checkbox" class="form-check-input" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                  <input type="checkbox" class="form-check-input" [(ngModel)]="agent" name="agent" id="inlineRadio2" value="option2">
                   <label class="form-check-label" for="inlineRadio2">Agents</label>
                 </div>
                 <div class="form-check">
-                  <input type="checkbox" class="form-check-input" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                  <input type="checkbox" class="form-check-input" [(ngModel)]="company" name="company" id="inlineRadio3" value="option3">
                   <label class="form-check-label" for="inlineRadio3">Outsource Companies</label>
                 </div>
                 <div class="form-check ">
-                  <input type="checkbox" class="form-check-input" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                  <input type="checkbox" class="form-check-input" [(ngModel)]="customer" name="customer" id="inlineRadio2" value="option2">
                   <label class="form-check-label" for="inlineRadio2">Customers</label>
-                </div> 
+                </div>
 
-                <!--<input type="text" class="form-control"  [(ngModel)]="dataset.email" name="email" required>-->
-              </div>
+                <input type="text" class="form-control"  [(ngModel)]="dataset.email" name="email" required>-->
+              <!-- </div>
               </div>
 
 
@@ -78,19 +78,19 @@
             <div class="form-row">
               <div class="form-group col-md-8">
                 <label for="">Description</label>
-                <textarea rows="6" type="text" class="form-control" id="description" [(ngModel)]="dataset.description" name="description"  required  >
+                <textarea rows="8" type="text" class="form-control" id="description" name="description" [(ngModel)]="emailContent" required  >
                 </textarea>
               </div>
             </div>
 
-            <button type="submit" class="btn btn-primary float-right" (click)="onSubmit()">Send</button>
-          </form>
+            <button type="submit" class="btn btn-primary float-right">Send</button>
+          </form> --> 
 
      <!--<div [hidden]="!submitted">
           <h4>You submitted successfully!</h4>
      -->
 
-      </div>
+      <!-- </div>
     </div>
   </div>
-</div> -->
+</div> --> -->

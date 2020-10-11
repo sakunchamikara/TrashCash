@@ -35,6 +35,12 @@ import { AddReProductComponent } from '../../outsource/add-re-product/add-re-pro
 // import { CustomerAccountComponent } from '../../modules/customer-account/customer-account.component';
 // import { RecycledProductAddComponent } from '../../modules/Outsource-company/recycled-product-add/recycled-product-add.component';
 import { UpdateComponent } from '../../outsource/add-re-product/update/update.component';
+import { OrdersComponent } from '../../outsource/orders/orders.component';
+import { ContactComponent } from '../../outsource/contact/contact.component';
+import { EventComponent } from '../../outsource/event/event.component';
+import { FeedbackComponent } from '../../outsource/feedback/feedback.component';
+import { TermsconComponent } from '../../outsource/termscon/termscon.component';
+
 
 @NgModule({
   declarations: [
@@ -44,6 +50,11 @@ import { UpdateComponent } from '../../outsource/add-re-product/update/update.co
     OutRequestWasteComponent,
     AddReProductComponent,
     UpdateComponent,
+    OrdersComponent,
+    ContactComponent,
+    EventComponent,
+    FeedbackComponent,
+    TermsconComponent,
     // WelcomeComponent,
     // ShopComponent,
     // CustomerLoginComponent,

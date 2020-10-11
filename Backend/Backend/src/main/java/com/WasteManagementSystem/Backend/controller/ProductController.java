@@ -123,8 +123,20 @@ public class ProductController {
     //getproduct by company
     //view all requests to company
 	 @GetMapping("/getcompanyproduct/{email}")
-	    public List<Product> getcompanyProduct(@PathVariable String email) {
-	        return productservice.fetchProductByEmail(email);
-	    }
+	public List<Product> getcompanyProduct(@PathVariable String email) {
+	    return productservice.fetchProductByEmail(email);
+	}
+	 
+	 @GetMapping("/getsystemProduct/{usertype}")
+	 public List<Product> getsystemProduct(@PathVariable String usertype) {
+		    return productservice.fetchProductByUsertype(usertype);
+		}
 
+    @PutMapping("/updateProductQuantity/{pid}")
+    public Product updateProductQuantity(@PathVariable int pid,@RequestBody Product product) {
+    	Product productObj = productrepo.findById(pid)
+                .orElseThrow(() -> new ResourceNotFoundException("Product not found for this id :: " + pid));
+    	productObj.setQuantity(product.getQuantity());
+        return productservice.updateProductQuantity(productObj);
+    }
 }

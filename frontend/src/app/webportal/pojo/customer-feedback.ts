@@ -8,7 +8,7 @@ export class CustomerFeedback {
     cusFeedLastName: string;
     cusFeedAddress: string;
     cusFeedContactNum: number;
-    cusFeedEmail: string;
+    email: string;
     feedback: string;
     date: Date;
     status: string;

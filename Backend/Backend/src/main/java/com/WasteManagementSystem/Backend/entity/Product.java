@@ -29,16 +29,18 @@ public class Product {
 	private Date date;
 	private String email;
 	private String customer;
-	private String user;
+	private String usertype;
 
 	// private String image1;
 
-	public String getUser() {
-		return user;
+	
+
+	public String getUsertype() {
+		return usertype;
 	}
 
-	public void setUser(String user) {
-		this.user = user;
+	public void setUsertype(String usertype) {
+		this.usertype = usertype;
 	}
 
 	public String getCustomer() {
@@ -94,7 +96,7 @@ public class Product {
 	}
 
 	public Product(int id, String title, String category, byte[] image1, String image2,
-			String customer,float price, String details,int quantity,Date date,String email,String user) {
+			String customer,float price, String details,int quantity,Date date,String email,String usertype) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -107,7 +109,7 @@ public class Product {
 		this.date = date;
 		this.email = email;
 		this.customer = customer;
-		this.user = user;
+		this.usertype = usertype;
 	}
 
 	// public Product(@NotNull int id, @NotNull String title, @NotNull String

@@ -15,4 +15,6 @@ export class EmailService {
   public setContent(content: string):Observable<String> {
     return this.httpClient.post<string>(`http://localhost:8080/mailContent`, content);
   }
+
+  
 }

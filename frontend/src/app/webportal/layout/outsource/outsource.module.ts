@@ -35,6 +35,8 @@ import { AddReProductComponent } from '../../outsource/add-re-product/add-re-pro
 // import { CustomerAccountComponent } from '../../modules/customer-account/customer-account.component';
 // import { RecycledProductAddComponent } from '../../modules/Outsource-company/recycled-product-add/recycled-product-add.component';
 import { UpdateComponent } from '../../outsource/add-re-product/update/update.component';
+import { OrdersComponent } from '../../outsource/orders/orders.component';
+
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { UpdateComponent } from '../../outsource/add-re-product/update/update.co
     OutRequestWasteComponent,
     AddReProductComponent,
     UpdateComponent,
+    OrdersComponent,
     // WelcomeComponent,
     // ShopComponent,
     // CustomerLoginComponent,

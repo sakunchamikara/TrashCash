@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { AuthserviceService } from 'src/app/service/authservice.service';
 import { CustomerFeedbackService } from 'src/app/webportal/services/customer-feedback.service';
+import { OutsourceWasteRequsetService } from 'src/app/webportal/services/outsource-waste-requset.service';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,8 @@ import { CustomerFeedbackService } from 'src/app/webportal/services/customer-fee
 export class HeaderComponent implements OnInit {
   constructor(
     public authservice: AuthserviceService,
-    private customerFeedbackService: CustomerFeedbackService
+    private customerFeedbackService: CustomerFeedbackService,
+    private outsourcewasterequsetservice:OutsourceWasteRequsetService
   ) {}
 
   @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
@@ -18,7 +20,10 @@ export class HeaderComponent implements OnInit {
   isUserLoggedIn: any;
 
   public feedbackStatus: Array<string> = [];
-  public noNew: any;
+  public outWasteStatus: Array<string> = [];
+  public noNew1: number;
+  public noNew2: number;
+  public totalNot: number = 0;
 
   ngOnInit() {
     this.getNumberOfNotifications();
@@ -35,11 +40,27 @@ export class HeaderComponent implements OnInit {
   }
 
   getNumberOfNotifications() {
+
     this.customerFeedbackService.getCountNewFeedback().subscribe((data) => {
       data.forEach((element) => {
         this.feedbackStatus.push(element[`status`]);
-        this.noNew = this.feedbackStatus.length;
+        console.log(data.length);
+        //this.noNew1 = this.feedbackStatus.length;
+        this.noNew1 = data.length;
+        console.log(this.noNew1);
       });
     });
+
+   // console.log(this.noNew1);
+    this.outsourcewasterequsetservice.getCountPendingWasteRequests().subscribe((data) => {
+      data.forEach((element) => {
+        this.outWasteStatus.push(element[`status`]);
+        console.log(data.length);
+        //this.noNew2 = this.outWasteStatus.length;
+        this.noNew2 = data.length;
+      });
+    });
+
+
   }
 }

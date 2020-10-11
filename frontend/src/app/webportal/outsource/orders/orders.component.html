@@ -1,0 +1,127 @@
+<div class="container">
+    <div class="form-row">
+      <div class="col-md-12">
+        <br>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item " aria-current="page">My Orders</li>
+              <li class="breadcrumb-item active" *ngIf="!activeFlag" aria-current="page">All</li>
+              <li class="breadcrumb-item active" *ngIf="activeFlag" aria-current="page">{{activeFlag}}</li>
+            </ol>
+          </nav>
+      </div>
+    </div>
+  
+    <div class="row">
+  
+      <!-- <div class="col-lg-3">
+  
+        <div class="list-group">
+          <a class="list-group-item " routerLink="/customer/myOrders">My Orders</a>
+          <a class="list-group-item " routerLink="/customer/myOrders">My Favourites</a>
+          <a class="list-group-item " routerLink="/customer/myOrders">Help</a>
+          <a class="list-group-item " routerLink="/customer/inviteFriends">Invite Friends</a>
+          <a class="list-group-item " routerLink="/customer/myOrders">Edit Account</a>
+          <a class="list-group-item " routerLink="/customer/feedback">Manage Feedback</a>
+          <a class="list-group-item ">Edit Account</a>
+          <a class="list-group-item ">Message Center</a>
+        </div>
+        <br>
+      </div> -->
+      <!-- /.col-lg-3 -->
+  
+      <div class="col-lg-9">
+        <!-- <div class="alert alert-success" role="alert" *ngIf="emailFlag">
+          {{emailFlag}}
+        </div> -->
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title" style="color: #333333;">My Orders</h2>
+            <h6 class="card-subtitle mb-2 text-muted">View your All Orders From Here !</h6>
+            <div class="">
+  
+              <table class="table table-hover" style="font-size: 14px;">
+                <thead>  
+                  <tr>
+                    <th colspan="2">Product</th>
+                    <th>Category</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Total Amount</th>
+                    <th>Status</th>
+                    <!-- <th>Order Date</th> -->
+                  </tr>
+                </thead>
+  
+                <!-- <tbody *ngFor="let order of viewOrders"> -->
+                    <!-- <tr *ngFor="let product of cartDetails;"> -->
+                <!-- <tbody *ngFor="let order of viewOrders | async">
+                    <tr *ngFor="let product of cartDetails | async">
+                    <td>{{order.id}}</td>
+                    <td>New</td>
+                    <td>{{product.product.category}}</td>
+                    <td>{{item.quentity}}</td>
+                    <td>{{product.price}}</td>
+                    <td>
+                        {{product.product.price * number(product.quentity) }}
+                      </td>
+                    <td *ngIf="order.status == 'Pending'"><button type="button"
+                        class="btn btn-outline-warning btn-sm">{{order.status}}</button></td>
+                    <td *ngIf="order.status == 'Accepted'"><button type="button"
+                        class="btn btn-outline-success btn-sm">{{order.status}}</button></td>
+                    <td>{{order.date | date}}</td>
+                  </tr>
+                </tbody> -->
+                <tbody>
+                  <tr *ngFor="let product of cartDetails;">
+                    <td>
+                      <img src="{{'data:image/jpeg;base64,'+product.product.image1}}" alt="Product 1"
+                        class="img-responsive" width="75px" height="75px">
+                    </td>
+
+                    <td>
+                      <a>{{product.product.title}}</a>
+                    </td>
+
+                    <td>
+                      {{product.product.category}}
+                    </td>
+                    <td>{{product.quentity}}</td>
+
+                    <td>
+                      {{product.product.price}}
+                    </td>
+                      <td>
+                      {{product.product.price * number(product.quentity) }}
+                    </td>
+
+                    <td>{{product.status}}</td>
+                  </tr>
+                </tbody>
+  
+                <!-- <tfoot>
+  
+                  <tr>
+  
+                    <th colspan="5">Total</th>
+  
+                    <th colspan="2">{{orderCount}}</th>
+  
+                  </tr>
+  
+                </tfoot> -->
+  
+              </table>
+            </div>
+          </div>
+        </div>
+        <br>
+      </div>
+      <!-- /.col-lg-9 -->
+  
+    </div>
+    <!-- /.row -->
+  
+  </div>
+  

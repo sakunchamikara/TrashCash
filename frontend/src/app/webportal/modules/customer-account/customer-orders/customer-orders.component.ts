@@ -5,14 +5,16 @@ import { Orders } from 'src/app/webportal/pojo/orders';
 import { CustomerCartService } from 'src/app/webportal/services/customer-cart.service';
 import { CustomerAuthService } from 'src/app/webportal/services/customer-auth.service';
 import { Cart } from 'src/app/webportal/pojo/cart';
+import { EmailService } from 'src/app/service/email.service';
+import { NewtermsService } from 'src/app/service/newterms.service';
+import { Customer } from 'src/app/webportal/pojo/customer';
 
 @Component({
-  selector: 'app-customer-orders',
-  templateUrl: './customer-orders.component.html',
-  styleUrls: ['./customer-orders.component.scss'],
+  selector: "app-customer-orders",
+  templateUrl: "./customer-orders.component.html",
+  styleUrls: ["./customer-orders.component.scss"],
 })
 export class CustomerOrdersComponent implements OnInit {
-
   orderCount: number;
   carts: Array<Cart>;
   date = new Date();
@@ -20,29 +22,57 @@ export class CustomerOrdersComponent implements OnInit {
   cart = new Cart();
   customerId: number;
   viewOrders: Array<Orders>;
+  completedOrder = new Orders();
+  customer = new Customer();
 
   orderId: string;
-
+  emailMsg: string;
+  customerMail: string;
+  emailFlag: string;
   constructor(
     private route: ActivatedRoute,
     private orderService: CustomerOrderService,
     private cartService: CustomerCartService,
-    private customerAuth: CustomerAuthService
+    private customerAuth: CustomerAuthService,
+    private emailService: EmailService,
+    private confirmationDialog: NewtermsService
   ) {}
 
   ngOnInit() {
-    this.orderId = this.route.snapshot.queryParamMap.get('order_id');
+    this.orderId = this.route.snapshot.queryParamMap.get("order_id");
     this.customerId = +this.customerAuth.getAuthenticatedCustomerId();
+    this.customerMail = this.customerAuth.getAuthenticatedCustomer();
 
     if (this.orderId) {
+      this.emailMsg = `Dear Customer,
+
+          Your payment was successful! .The payment for the order ${this.orderId} has been confirmed!
+
+
+
+      Thank You,
+      Regards.
+      TrashCash (PVT) Ltd.`;
       this.order.id = +this.orderId;
       this.order.date = this.date;
       this.order.status = 'Pending';
-      this.order.customerId = this.customerId;
 
-      this.orderService.setOrder(this.order).subscribe(
+      this.orderService.setOrder(this.order, this.customerId).subscribe(
         (data) => {
-          console.log(data);
+          this.emailService.setContent(this.emailMsg).subscribe(
+            (response) => {},
+            (error) => {
+              console.log(error);
+            }
+          );
+          this.emailService.sendEmail(this.customerMail).subscribe(
+            (data) => {
+              this.emailFlag = 'Order Id has been sent to your Email !';
+            },
+            (error) => {
+              console.log(error);
+            }
+          );
         },
         (error) => {
           console.log(error);
@@ -54,7 +84,6 @@ export class CustomerOrdersComponent implements OnInit {
           this.carts = data;
           this.carts.forEach((element) => {
             element.customerId = this.customerId;
-            // element.order.id = +this.orderId;
             element.status = 'Paid';
           });
           this.updatecartorder();
@@ -66,12 +95,13 @@ export class CustomerOrdersComponent implements OnInit {
     }
 
     this.getOrderDetails(this.customerId);
+    this.getAllOrderedItems();
   }
 
   updatecartorder() {
     this.cartService.updateCartOrder(this.carts, +this.orderId).subscribe(
       (data) => {
-        console.log(data);
+        // console.log(data);
       },
       (error) => {
         console.log(error);
@@ -84,11 +114,51 @@ export class CustomerOrdersComponent implements OnInit {
       (data) => {
         this.viewOrders = data;
         this.orderCount = data.length;
-        console.log(this.viewOrders);
+        // console.log(this.viewOrders);
       },
       (error) => {
         console.log(error);
       }
     );
+  }
+
+  getAllOrderedItems() {
+    this.orderService.getAllOrders().subscribe(
+      (data) => {
+        // console.log('data');
+        // console.log(data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  completeOrder(orderid: number) {
+    this.confirmationDialog
+      .confirm('Please confirm..', 'Do you really Confirm Order received?')
+      .then((confirmed) => {
+        if (confirmed) {
+          this.orderService.getOrderByOrderId(orderid).subscribe(
+            data => {
+              this.completedOrder = data;
+              console.log(data);
+              this.completedOrder.status = 'Completed';
+              this.orderService.setOrder(this.completedOrder, this.customerId).subscribe(
+                response => {
+                  console.log(response);
+                },
+                error => {
+                  console.log(error);
+                }
+              );
+            },
+            error => {
+              console.log(error);
+            }
+          );
+        }
+      })
+      .catch(() => console.log('cancelled'));
   }
 }

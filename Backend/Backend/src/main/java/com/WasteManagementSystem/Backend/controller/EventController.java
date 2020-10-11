@@ -44,24 +44,24 @@ public class EventController {
     private EventService eventservice;
 
     @PostMapping("/events")
-    public Event createEvent(@Valid @RequestBody Event event, BindingResult bindingResult)throws Exception {
+    public Object createEvent(@Valid @RequestBody Event event, BindingResult bindingResult)throws Exception {
         String tempName = event.getEventName();
 		if (tempName != null && !"".equals(tempName)) {
 			Event userObj = eventservice.fetchEventByEventName(tempName);
 			if (userObj != null) {
-				throw new Exception("Event with " + tempName + " is already exist !!!");
+				throw new Exception("Event " + tempName + " is already exist !!!");
 
 			}
 		}
         
         
         if (bindingResult.hasErrors()) {
-			return null;
+			return "Event " + tempName + " is already exist !!!";
         }
-        event.setImage(this.byts);
-        Event userObj = null;
-        userObj = eventservice.saveEvent(event);
-        return userObj;
+        event.setImage(this.byts); 
+        Event eventObj = new Event();
+        eventObj = eventservice.saveEvent(event);
+        return eventObj;
     }
 
     @PostMapping("/uploadImage")
@@ -96,7 +96,11 @@ public class EventController {
         event.setDate(eventDetails.getDate());
         event.setImage(eventDetails.getImage());
         event.setNotes(eventDetails.getNotes());
-
+        if(this.byts != null) {
+        event.setImage(this.byts);
+        }else {
+        	event.setImage(eventDetails.getImage());
+        }
         final Event updatedEvent = eventrepo.save(event);
         return ResponseEntity.ok(updatedEvent);
     }

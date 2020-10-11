@@ -71,4 +71,14 @@ export class CustomerAuthService {
       customer
     );
   }
+
+  getCustomerById(id) {
+    return this.http.get<Customer>(
+      `http://localhost:8080/getCustomerById/${id}`
+    );
+  }
+
+  getUserByType(email: string): Observable<String[]> {
+    return this.http.get<any>(`http://localhost:8080/getCustomerByType/${email}`);
+  }
 }

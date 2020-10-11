@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OutWasteRequest } from 'src/app/webportal/pojo/out-waste-request';
-import { CollectedWasteServiceService } from 'src/app/service/collected-waste-service.service';
+import { SummaryStockService } from 'src/app/service/summary-stock.service';
 import { OutsourceWasteRequsetService } from '../../services/outsource-waste-requset.service';
 import { CustomerAuthService } from '../../services/customer-auth.service';
 import {CollectedWaste} from 'src/app/pojo/collectedWaste'
@@ -22,7 +22,7 @@ export class OutRequestWasteComponent implements OnInit {
   collectwaste :CollectedWaste;
   name:string;
 
-  constructor(private service:CollectedWasteServiceService,private outsourceWasteRequsetService:OutsourceWasteRequsetService,private authService: CustomerAuthService,
+  constructor(private service:SummaryStockService,private outsourceWasteRequsetService:OutsourceWasteRequsetService,private authService: CustomerAuthService,
     private route: Router,private location: Location) { }
 
     public listItems: Array<string> = [];
@@ -90,7 +90,7 @@ export class OutRequestWasteComponent implements OnInit {
     this.service.getWasteCatDropdownValues().subscribe(data=>{
      console.log(data);
       data.forEach(element => {
-        this.listItems.push(element["wasteType"])
+        this.listItems.push(element["type"])
       });
     })
       }
@@ -99,8 +99,7 @@ export class OutRequestWasteComponent implements OnInit {
         //this.submitted = true;
         this.save();
         //this.updatesucessBox();
-        this.pageRefresh();
-        alert('SUCCESS!!');
+        
          
         
       }
@@ -128,7 +127,7 @@ export class OutRequestWasteComponent implements OnInit {
             this.wasteRequest = new OutWasteRequest();
             this.updateBox(this.wasteRequest.wasteType);
             // this.updatesucessBox();
-            //this.reloadData();
+            this.reloadData();
            
           },
         

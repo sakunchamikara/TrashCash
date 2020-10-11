@@ -43,6 +43,7 @@ export class NavbarComponent implements OnInit {
           this.currentCustomer = data;
           this.customerType = this.currentCustomer.type;
           this.customerName = this.currentCustomer.firstName;
+          
         },
         (error) => {
           console.log("error in getcustomer function");

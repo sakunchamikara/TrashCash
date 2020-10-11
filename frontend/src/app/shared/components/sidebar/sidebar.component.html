@@ -12,7 +12,7 @@
   <mat-divider></mat-divider>
 
 
-  <!-- <h2 matSubheader>Pages</h2> -->
+  <!-- <h2 matSubheader>Pages</h2> --->
   <div *ngIf="userType === 'admin'">
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/dashboard">Dashboard</a>
 
@@ -28,12 +28,14 @@
         Product Categories</button>
     </mat-menu>
 
-    <a mat-menu-item [matMenuTriggerFor]="product">Products</a>
+    <a mat-menu-item [matMenuTriggerFor]="product">Recycled Product</a>
     <mat-menu #product="matMenu">
       <a mat-menu-item [routerLink]="'/system/products'" class="btn btn-primary-outline pull-right"> Insert New
         Product</a>
       <a mat-menu-item [routerLink]="'/system/ViewProducts'" class="btn btn-primary-outline pull-right"> View
-        Products</a>
+        Products Add By System</a>
+        <a mat-menu-item [routerLink]="'/system/Viewall'" class="btn btn-primary-outline pull-right"> View
+         All Products</a>
     </mat-menu>
 
     <a mat-menu-item [matMenuTriggerFor]="wasteStock">Waste Stock</a>
@@ -47,13 +49,12 @@
 
     <button mat-menu-item [matMenuTriggerFor]="terms">Terms</button>
     <mat-menu #terms="matMenu">
-         <button  mat-menu-item [routerLink]="'/system/addterms'" class="btn btn-primary-outline pull-right">  Add Terms</button>  
-         <button  mat-menu-item [routerLink]="'/system/viewterms'" class="btn btn-primary-outline pull-right">  View Terms</button>
-         <button  mat-menu-item [routerLink]="'/system/acceptterms'" class="btn btn-primary-outline pull-right">  Accepted Terms Details</button>    
       <button mat-menu-item [routerLink]="'/system/addterms'" class="btn btn-primary-outline pull-right"> Add
         Terms</button>
       <button mat-menu-item [routerLink]="'/system/viewterms'" class="btn btn-primary-outline pull-right"> View
         Terms</button>
+      <button mat-menu-item [routerLink]="'/system/acceptterms'" class="btn btn-primary-outline pull-right"> Accepted
+        Terms Details</button>
     </mat-menu>
 
     <button mat-menu-item [matMenuTriggerFor]="events">Events</button>
@@ -64,7 +65,7 @@
     </mat-menu>
 
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/sendMail">Email</a>
-
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/contactdetails">Customer Inquiries</a>
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/displayCustomerFeedbacks">Customer
       Feedbacks</a>
     <!-- <mat-menu #productcat="matMenu">
@@ -103,10 +104,26 @@
     </a>
   </div>
 
+
+
+
+
+
+
   <div *ngIf="userType === 'staff'">
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/dashboard">Dashboard</a>
 
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/posts">Posts</a>
+
+
+    <a mat-menu-item [matMenuTriggerFor]="product">Recycled Product</a>
+    <mat-menu #product="matMenu">
+      <a mat-menu-item [routerLink]="'/system/products'" class="btn btn-primary-outline pull-right"> Insert New
+        Product</a>
+      <a mat-menu-item [routerLink]="'/system/ViewProducts'" class="btn btn-primary-outline pull-right"> View
+        Products Add By System</a>
+        <a mat-menu-item [routerLink]="'/system/Viewall'" class="btn btn-primary-outline pull-right"> View
+         All Products</a>
+    </mat-menu>
 
     <a mat-list-item routerLinkActive="list-item-active" [matMenuTriggerFor]="productcat">Recycled Product
       Categories</a>
@@ -114,25 +131,26 @@
       <button mat-menu-list-item [routerLink]="'/system/productCats'" class="btn btn-primary-outline pull-right"> Insert
         New Product Category</button>
       <button mat-menu-list-item [routerLink]="'/system/viewProductCat'" class="btn btn-primary-outline pull-right">
-        View
-        Product Categories</button>
-    </mat-menu>
-
-    <a mat-menu-item [matMenuTriggerFor]="product">Products</a>
-    <mat-menu #product="matMenu">
-      <a mat-menu-item [routerLink]="'/system/products'" class="btn btn-primary-outline pull-right"> Insert New
-        Product</a>
-      <a mat-menu-item [routerLink]="'/system/ViewProducts'" class="btn btn-primary-outline pull-right"> View
-        Products</a>
+        View Product Categories</button>
     </mat-menu>
 
     <a mat-menu-item [matMenuTriggerFor]="wasteStock">Waste Stock</a>
-
     <mat-menu #wasteStock="matMenu">
       <a mat-menu-item [routerLink]="'/system/insertCollectedWaste'" class="btn btn-primary-outline pull-right"> Insert
         Waste</a>
       <a mat-menu-item [routerLink]="'/system/collectedWaste'" class="btn btn-primary-outline pull-right"> View waste
         stock</a>
+    </mat-menu>
+
+    <a mat-list-item routerLinkActive="list-item-active" [matMenuTriggerFor]="orders">Customer Orders</a>
+    <mat-menu #orders="matMenu">
+      <button mat-menu-list-item [routerLink]="'/system/pendingOrders'"
+        class="btn btn-primary-outline pull-right">Pending
+        Orders</button>
+      <button mat-menu-list-item [routerLink]="'/system/acceptedOrders'"
+        class="btn btn-primary-outline pull-right">Accepted Orders</button>
+      <button mat-menu-list-item [routerLink]="'/system/completedOrders'"
+        class="btn btn-primary-outline pull-right">Completed Orders</button>
     </mat-menu>
 
     <button mat-menu-item [matMenuTriggerFor]="terms">Terms</button>
@@ -143,8 +161,8 @@
         Terms</button>
     </mat-menu>
 
-    <button mat-menu-item [matMenuTriggerFor]="events">Events</button>
 
+    <button mat-menu-item [matMenuTriggerFor]="events">Events</button>
     <mat-menu #events="matMenu">
       <a mat-menu-item [routerLink]="'/system/addEvent'" class="btn btn-primary-outline pull-right"> Add Event</a>
       <a mat-menu-item [routerLink]="'/system/viewEvent'" class="btn btn-primary-outline pull-right"> View Events</a>
@@ -152,8 +170,21 @@
 
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/sendMail">Email</a>
 
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/contactdetails">Customer Inquiries</a>
+
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/displayCustomerFeedbacks">Customer
       Feedbacks</a>
+
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/system/generateReports">Generate Reports</a>
+      <button mat-menu-item [matMenuTriggerFor]="outsource">Waste Requests Status</button>
+      <mat-menu #outsource="matMenu">
+         <a mat-menu-item [routerLink]="'/system/ViewOutRequest'" class="btn btn-primary-outline pull-right">Pending Waste
+        Requests</a>
+         <a mat-menu-item [routerLink]="'/system/viewoutSourceWasteRequest'"
+        class="btn btn-primary-outline pull-right">Confirmed Waste Requests</a>
+    </mat-menu>
+
+
     <!-- <mat-menu #productcat="matMenu">
       <button  mat-menu-list-item [routerLink]="'/system/productCats'" class="btn btn-primary-outline pull-right">  Insert New Product Category</button>
       <button  mat-menu-list-item [routerLink]="'/system/viewProductCat'" class="btn btn-primary-outline pull-right">  View Product Categories</button>
@@ -161,7 +192,7 @@
 
 
 
-    <mat-divider></mat-divider>
+    <!-- <mat-divider></mat-divider>
 
     <h2 matSubheader>Tools</h2>
 
@@ -173,24 +204,37 @@
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
       <mat-icon>contact_phone</mat-icon>
       Leads
-    </a>
+    </a> -->
   </div>
+
+
+
+
+
 
   <div *ngIf="userType === 'agent'">
     <button mat-menu-item [matMenuTriggerFor]="agent">Waste Requests</button>
     <mat-menu #agent="matMenu">
       <a mat-menu-item [routerLink]="'/system/viewPlacedRequests'" class="btn btn-primary-outline pull-right">Pending
         Waste Requests</a>
-      <a mat-menu-item [routerLink]="'/system/viewConfirmedRequests'" class="btn btn-primary-outline pull-right">Confirmed
+      <a mat-menu-item [routerLink]="'/system/viewConfirmedRequests'"
+        class="btn btn-primary-outline pull-right">Confirmed
         Waste Requests</a>
     </mat-menu>
-    <button mat-menu-item [matMenuTriggerFor]="outsource">Waste Requests Status</button>
+    <button mat-menu-item [matMenuTriggerFor]="orders">Recycled Product Orders</button>
+    <mat-menu #orders="matMenu">
+      <a mat-menu-item [routerLink]="'/system/viewPendingOrders'" class="btn btn-primary-outline pull-right">Pending
+        Orders</a>
+      <a mat-menu-item [routerLink]="'/system/viewConfirmedOrders'"
+        class="btn btn-primary-outline pull-right">Confirmed Orders</a>
+    </mat-menu>
+    <!-- <button mat-menu-item [matMenuTriggerFor]="outsource">Waste Requests Status</button>
     <mat-menu #outsource="matMenu">
       <a mat-menu-item [routerLink]="'/system/ViewOutRequest'" class="btn btn-primary-outline pull-right">Pending Waste
         Requests</a>
       <a mat-menu-item [routerLink]="'/system/viewoutSourceWasteRequest'"
         class="btn btn-primary-outline pull-right">Confirmed Waste Requests</a>
-    </mat-menu>
+    </mat-menu> -->
   </div>
 
 

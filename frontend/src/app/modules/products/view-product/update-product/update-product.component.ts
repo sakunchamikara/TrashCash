@@ -1,56 +1,59 @@
-import { Component, OnInit ,Input } from '@angular/core';
-import { Observable } from "rxjs";
+import { Component, OnInit, Input } from '@angular/core';
+import { Observable } from 'rxjs';
 import { NgForm } from '@angular/forms';
-import { Item} from 'src/app/pojo/item';
+import { Item } from 'src/app/pojo/item';
 import { ProductService } from 'src/app/service/product.service';
-import { ActivatedRoute,Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ProductcatService } from 'src/app/service/productcat.service';
 
 @Component({
   selector: 'app-update-product',
   templateUrl: './update-product.component.html',
-  styleUrls: ['./update-product.component.scss']
+  styleUrls: ['./update-product.component.scss'],
 })
 export class UpdateProductComponent implements OnInit {
-
   @Input()
   private selectedFile;
   imgURL: any;
+  id: number;
+  product: Item;
 
-  id : number;
-  product : Item;
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private productService: ProductService,
+    private httpClient: HttpClient,
+    private service: ProductcatService
+  ) {}
 
-  constructor(private route: ActivatedRoute,private router: Router,
-    private productService: ProductService, private httpClient: HttpClient , private service:ProductcatService) { }
-
-    public listItems: Array<string> = [];
-
+  public listItems: Array<string> = [];
 
   ngOnInit() {
-
     this.product = new Item();
 
     this.id = this.route.snapshot.params['id'];
 
-    this.productService.getProduct(this.id)
-    .subscribe(data => {
-      console.log(data)
-      
-      this.product = data;
-    }, error => console.log(error));
+    this.productService.getProduct(this.id).subscribe(
+      (data) => {
+        console.log(data);
+
+        this.product = data;
+      },
+      (error) => console.log(error)
+    );
 
     this.dropdownRefresh();
   }
 
-  dropdownRefresh(){
-    this.service.getProductCatDropdownValues().subscribe(data=>{
-     console.log(data);
-      data.forEach(element => {
-        this.listItems.push(element["name"])
+  dropdownRefresh() {
+    this.service.getProductCatDropdownValues().subscribe((data) => {
+      console.log(data);
+      data.forEach((element) => {
+        this.listItems.push(element['name']);
       });
-    })
-      }
+    });
+  }
 
   public onFileChanged(event) {
     console.log(event);
@@ -61,17 +64,19 @@ export class UpdateProductComponent implements OnInit {
     reader.onload = (event2) => {
       this.imgURL = reader.result;
     };
-
   }
 
   updateProduct() {
-
     // const uploadData = new FormData();
     // uploadData.append('imageFile', this.selectedFile, this.selectedFile.name);
     // this.selectedFile.imageName = this.selectedFile.name;
 
-    this.productService.updateProduct(this.id, this.product)
-      .subscribe(data => console.log(data), error => console.log(error));
+    this.productService.updateProduct(this.id, this.product).subscribe(
+      (data) => {
+        // console.log(data);
+      },
+      (error) => console.log(error)
+    );
     this.product = new Item();
     this.gotoList();
 
@@ -93,12 +98,10 @@ export class UpdateProductComponent implements OnInit {
   }
 
   onSubmit() {
-    this.updateProduct();  
-    alert('UPDATE SUCCESSFUL!!');  
+    this.updateProduct();
+    alert('UPDATE SUCCESSFUL!!');
   }
-  gotoList(){
+  gotoList() {
     this.router.navigate(['system/ViewProducts']);
-    
   }
-
 }

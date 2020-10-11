@@ -36,6 +36,7 @@ export class CartComponent implements OnInit {
       this.customerCartService.getCartDetails(this.cid).subscribe(
         (data) => {
           this.cartDetails = data;
+          console.log(data)
           this.setTotal();
           this.itemCount = data.length;
         },

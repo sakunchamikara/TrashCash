@@ -29,17 +29,24 @@ import {AgmCoreModule} from '@agm/core';
 import { OutprofileComponent } from '../../outsource/outprofile/outprofile.component';
 import { OutdashboardComponent } from '../../outsource/outdashboard/outdashboard.component';
 import { OutRequestWasteComponent } from '../../outsource/out-request-waste/out-request-waste.component';
+import { AddReProductComponent } from '../../outsource/add-re-product/add-re-product.component';
 // import { CheckOutComponent } from '../../modules/check-out/check-out.component';
 // import { NavbarComponent } from '../../includes/navbar/navbar.component';
 // import { CustomerAccountComponent } from '../../modules/customer-account/customer-account.component';
 // import { RecycledProductAddComponent } from '../../modules/Outsource-company/recycled-product-add/recycled-product-add.component';
+import { UpdateComponent } from '../../outsource/add-re-product/update/update.component';
+import { OrdersComponent } from '../../outsource/orders/orders.component';
+
 
 @NgModule({
   declarations: [
     OutsourceComponent,
     OutprofileComponent,
     OutdashboardComponent,
-    OutRequestWasteComponent
+    OutRequestWasteComponent,
+    AddReProductComponent,
+    UpdateComponent,
+    OrdersComponent,
     // WelcomeComponent,
     // ShopComponent,
     // CustomerLoginComponent,

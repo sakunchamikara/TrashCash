@@ -13,9 +13,9 @@
         </div>
       </div>
     
-      <div class="row">    
+     <!-- <div class="row">    
         <div class="col-lg-6">
-          <img class="img-fluid rounded mb-4 mb-lg-0" height="300" width="400" src="{{eventImage}}" alt="">
+          <img class="img-fluid rounded mb-4 mb-lg-0" height="300" width="400" src="{{eventImage}}" alt="center">
         </div>    
         <div class="col-md-12" >
           <div class="card h-100">
@@ -32,9 +32,31 @@
         </div>
     
       </div>
-    
-   
+    -->
+    <!-- Card -->
+    <div class="bs-example">
+    <div class="card" style="max-width: fit-content;">
+        <div class="row no-gutters">
+            <div class="col-sm-5" style="background: #868e96;">
+                <img src="{{eventImage}}" class="card-img-top h-300">
+            </div>
+            <div class="col-sm-7">
+                <div class="card-body">
+                    <h1 class="card-title">{{events.eventName}}</h1>
+                    <h6 class="text-muted">Event Date:{{events.date}}</h6>
+                    <h5 class="font-weight-bold indigo-text py-2">Location:{{events.location}}</h5>
+                    <br>
+                    <p class="card-text">{{events.notes}}</p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
+
+   
+<br>
     
     </div>
     

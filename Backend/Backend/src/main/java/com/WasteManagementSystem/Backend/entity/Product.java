@@ -3,6 +3,9 @@ package com.WasteManagementSystem.Backend.entity;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Range;
+
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,8 +24,56 @@ public class Product {
 	private String title;
 	@NotNull
 	private String category;
+	@NotNull
+	private int quantity;
+	private Date date;
+	private String email;
+	private String customer;
+	private String usertype;
 
 	// private String image1;
+
+	
+
+	public String getUsertype() {
+		return usertype;
+	}
+
+	public void setUsertype(String usertype) {
+		this.usertype = usertype;
+	}
+
+	public String getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(String customer) {
+		this.customer = customer;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 
 	@Column(name = "image1", length = 1000)
 	private byte[] image1;
@@ -44,7 +95,8 @@ public class Product {
 	public Product() {
 	}
 
-	public Product(int id, String title, String category, byte[] image1, String image2, float price, String details) {
+	public Product(int id, String title, String category, byte[] image1, String image2,
+			String customer,float price, String details,int quantity,Date date,String email,String usertype) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -53,6 +105,11 @@ public class Product {
 		this.image2 = image2;
 		this.price = price;
 		this.details = details;
+		this.quantity = quantity;
+		this.date = date;
+		this.email = email;
+		this.customer = customer;
+		this.usertype = usertype;
 	}
 
 	// public Product(@NotNull int id, @NotNull String title, @NotNull String

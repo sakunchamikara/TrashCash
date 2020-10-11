@@ -1,0 +1,49 @@
+<div class="col-container">
+  <br>
+
+  <div class="row p1">
+    <div class="">
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb shadow p-3 mb-5 bg-white rounded">
+          <li class="breadcrumb-item"><a href="#"><i class="fad fa-tachometer-alt-fastest"></i> Dashboard</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Completed Customer Orders</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-10 col-md-10">
+      <div class="card p2">
+        <div class="card-body ">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h4>Completed Customer Orders</h4>
+            </div>
+            <div class="panel-body">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Order ID</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let order of ordersList">
+                    <td>{{order.id}}</td>
+                    <td>
+                      <p class="text-danger">{{order.status}}</p>
+                    </td>
+                    <td>{{order.date | date}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

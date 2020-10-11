@@ -89,7 +89,7 @@ public class CollectedWasteController {
     }
 
 //	@GetMapping("/collectWaste/{wasteType}")
-//	
+	
 //	public CollectedWaste getProduct(@PathVariable String wasteType) {
 //        return service.fetchUserByCategory(wasteType);
 //    }

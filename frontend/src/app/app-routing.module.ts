@@ -62,6 +62,22 @@ import { OutdashboardComponent } from './webportal/outsource/outdashboard/outdas
 import { OutRequestWasteComponent } from './webportal/outsource/out-request-waste/out-request-waste.component';
 
 import { CustomerOrdersComponent } from './webportal/modules/customer-account/customer-orders/customer-orders.component';
+import { ContactusComponent } from './webportal/modules/contactus/contactus.component';
+import { CustomerInviteFriendsComponent } from './webportal/modules/customer-account/customer-invite-friends/customer-invite-friends.component';
+import { PendingOrdersComponent } from './modules/orders/pending-orders/pending-orders.component';
+import { AcceptedOrdersComponent } from './modules/orders/accepted-orders/accepted-orders.component';
+import { CompletedOrdersComponent } from './modules/orders/completed-orders/completed-orders.component';
+import { ContactdetailsComponent} from './modules/contactdetails/contactdetails.component';
+//import { CustomerMyFeedbacksComponent } from './webportal/modules/customer-account/customer-my-feedbacks/customer-my-feedbacks.component';
+import { CustomerMyFeedbacksComponent } from './webportal/modules/customer-acount/customer-my-feedbacks/customer-my-feedbacks.component';
+import { GenerateReportsComponent } from './modules/generate-reports/generate-reports.component';
+import { AddReProductComponent } from './webportal/outsource/add-re-product/add-re-product.component';
+import { UpdateComponent } from './webportal/outsource/add-re-product/update/update.component';
+import { AllviewComponent } from './modules/products/allview/allview.component';
+
+import { ViewConfirmedOrdersComponent } from './modules/agent/view-confirmed-orders/view-confirmed-orders.component';
+import { ViewPendingOrdersComponent } from './modules/agent/view-pending-orders/view-pending-orders.component';
+import { OrdersComponent } from './webportal/outsource/orders/orders.component';
 
 const routes: Routes = [
   {
@@ -92,6 +108,11 @@ const routes: Routes = [
       {
         path: 'wpterms',
         component: WptermsComponent,
+      },
+
+      {
+        path: 'contactus',
+        component: ContactusComponent,
       },
       {
         path: 'login',
@@ -147,10 +168,10 @@ const routes: Routes = [
         path: 'myAccount',
         component: CustomerAccountComponent,
       },
-      {
-        path: 'Productadd',
-        component: RecycledProductAddComponent,
-      },
+      // {
+      //   path: 'Productadd',
+      //   component: RecycledProductAddComponent,
+      // },
 
       // {
       //   path:'outsource',
@@ -159,6 +180,14 @@ const routes: Routes = [
       {
         path: 'myOrders',
         component: CustomerOrdersComponent,
+      },
+      {
+        path: 'myFeedbacks',
+        component: CustomerMyFeedbacksComponent,
+      },
+      {
+        path: 'inviteFriends',
+        component: CustomerInviteFriendsComponent,
       },
     ],
   },
@@ -178,6 +207,18 @@ const routes: Routes = [
         path: 'WasteRequsetAdd',
         component: OutRequestWasteComponent,
       },
+      {
+        path:'AddRecycledProduct',
+        component:AddReProductComponent,
+      },
+      {
+        path:'Update/:id',
+        component:UpdateComponent,
+      },
+      {
+        path:'ViewOrders',
+        component:OrdersComponent
+      }
     ],
   },
   {
@@ -214,6 +255,11 @@ const routes: Routes = [
       {
         path: 'ViewProducts',
         component: ViewProductComponent,
+        canActivate: [RouteGuardService],
+      },
+      {
+        path:'Viewall',
+        component:AllviewComponent,
         canActivate: [RouteGuardService],
       },
       {
@@ -289,6 +335,12 @@ const routes: Routes = [
         path: 'viewterms',
         component: ViewtermsComponent,
       },
+
+      {
+        path: 'contactdetails',
+        component: ContactdetailsComponent,
+      },
+
       {
         path: 'UpdateTerms/:id',
         component: UpdateTermsComponent,
@@ -316,6 +368,11 @@ const routes: Routes = [
         component: DisplayCustomerFeedbackComponent,
       },
       {
+        path: 'generateReports',
+        component: GenerateReportsComponent,
+      },
+      
+      {
         path: 'viewoutSourceWasteRequest',
         component: ConfirmWasteRequestComponent,
       },
@@ -334,6 +391,26 @@ const routes: Routes = [
       {
         path: 'viewConfirmedRequests',
         component: ViewAgentConfirmedRequestComponent,
+      },
+      {
+        path: 'pendingOrders',
+        component: PendingOrdersComponent,
+      },
+      {
+        path: 'acceptedOrders',
+        component: AcceptedOrdersComponent,
+      },
+      {
+        path: 'completedOrders',
+        component: CompletedOrdersComponent,
+      },
+      {
+        path: 'viewConfirmedOrders',
+        component: ViewConfirmedOrdersComponent,
+      },
+      {
+        path: 'viewPendingOrders',
+        component: ViewPendingOrdersComponent,
       },
     ],
   },

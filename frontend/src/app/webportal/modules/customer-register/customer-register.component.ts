@@ -37,6 +37,7 @@ export class CustomerRegisterComponent implements OnInit {
   registerCustomer() {
     // console.log(this.customer);
     this.customer.password = btoa(this.customer.password);
+    this.customer.termStatus = 1;
     this.authService.registerCustomer(this.customer).subscribe(
       (data) => {
         this.route.navigate(['/customer/login']);

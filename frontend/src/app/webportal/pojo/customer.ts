@@ -1,3 +1,5 @@
+import { Orders } from './orders';
+
 export class Customer {
   id: number;
   firstName: string;
@@ -6,9 +8,9 @@ export class Customer {
   contactNumber: number;
   address: string;
   password: string;
-  termStatus: boolean;
+  termStatus: number;
   location: string;
-
+  orders: Array<Orders>;
 
   constructor() {}
 }

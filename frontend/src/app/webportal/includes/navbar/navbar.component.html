@@ -44,6 +44,7 @@
       </ul>
     </div>
   </mat-toolbar-row>
+  <!-- shdsklkldk -->
 
   <mat-toolbar-row class="mat-toolbar-row-2">
     <img mat-card-image style="padding-top: 30px;width: 300px;height: 100px;"
@@ -72,9 +73,10 @@
 
         <button mat-button [matMenuTriggerFor]="others" [routerLinkActive]="['mat-raised-button']">OTHERS</button>
         <mat-menu #others="matMenu">
-          <button mat-button [routerLinkActive]="['mat-raised-button']">CONTACT US</button>
+          <button mat-button [routerLink]="['/customer/contactus']" [routerLinkActive]="['mat-raised-button']">CONTACT US</button>
           <button mat-button [routerLink]="['/customer/showevent']" [routerLinkActive]="['mat-raised-button']">EVENTS &
             CAMPAIGNS</button>
+          <button mat-button [routerLink]="['/customer/feedback']" [routerLinkActive]="['mat-raised-button']">CUSTOMER FEEDBACKS</button>
           <button mat-button [routerLink]="['/customer/wpterms']" [routerLinkActive]="['mat-raised-button']">TERMS &
             CONDITIONS</button>
         </mat-menu>
@@ -82,6 +84,8 @@
     </div>
 
     <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+
+      
       <ul fxLayout="row" fxLayoutGap="20px">
         <li>
           <button mat-flat-button style="background-color: #9CC026;color: white;" [routerLink]="['/customer/cart']">

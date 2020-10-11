@@ -6,6 +6,7 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
           <li class="breadcrumb-item " aria-current="page">My Account</li>
+          <li class="breadcrumb-item " aria-current="page">Order Histpry</li>
         </ol>
       </nav>
     </div>
@@ -16,7 +17,11 @@
     <div class="col-lg-3">
 
       <div class="list-group">
-        <a class="list-group-item " routerLink="/customer/shop">My Orders</a>
+        <a class="list-group-item " routerLink="/customer/myOrders">My Orders</a>
+        <a class="list-group-item " routerLink="/customer/myOrders">My Favourites</a>
+        <a class="list-group-item " routerLink="/customer/myOrders">Help</a>
+        <a class="list-group-item " routerLink="/customer/inviteFriends">Invite Friends</a>
+        <a class="list-group-item " routerLink="/customer/myOrders">Edit Account</a>
         <a class="list-group-item " routerLink="/customer/feedback">Manage Feedback</a>
         <a class="list-group-item ">Edit Account</a>
         <a class="list-group-item ">Message Center</a>
@@ -26,6 +31,9 @@
     <!-- /.col-lg-3 -->
 
     <div class="col-lg-9">
+      <div class="alert alert-success" role="alert" *ngIf="emailFlag">
+        {{emailFlag}}
+      </div>
       <div class="card">
         <div class="card-body">
           <h2 class="card-title" style="color: #333333;">My Orders</h2>
@@ -40,6 +48,7 @@
                   <th>Quentity</th>
                   <th>Unit Price</th>
                   <th>Status</th>
+                  <th>Action</th>
                   <th>Order Date</th>
                 </tr>
               </thead>
@@ -52,8 +61,19 @@
                   <td>{{item.product.price}}</td>
                   <td *ngIf="order.status == 'Pending'"><button type="button"
                       class="btn btn-outline-warning btn-sm">{{order.status}}</button></td>
-                  <td *ngIf="order.status == 'Shipped'"><button type="button"
+                  <td *ngIf="order.status == 'Accepted'"><button type="button"
                       class="btn btn-outline-success btn-sm">{{order.status}}</button></td>
+                  <td *ngIf="order.status == 'Completed'"><button type="button"
+                      class="btn btn-outline-danger btn-sm">{{order.status}}</button></td>
+
+                  <td *ngIf="order.status == 'Accepted'"><button type="button" class="btn btn-warning btn-sm"
+                      (click)="completeOrder(order.id)">Complete
+                      Order</button></td>
+                  <td *ngIf="order.status == 'Pending'"><button type="button"
+                      class="btn btn-warning btn-sm">Wait</button></td>
+                  <td *ngIf="order.status == 'Completed'"><button type="button" class="btn btn-warning btn-sm"
+                      [routerLink]="['/customer/feedback']" routerLinkActive="router-link-active">Give Feedback</button>
+                  </td>
                   <td>{{order.date | date}}</td>
                 </tr>
               </tbody>

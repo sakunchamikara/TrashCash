@@ -1,6 +1,6 @@
 package com.WasteManagementSystem.Backend.controller;
 
-import org.omg.CORBA.Object;
+//import org.omg.CORBA.Object;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -90,6 +90,11 @@ public class AuthController {
 		System.out.println("===============================================");
 		System.out.println(object);
 		System.out.println("===============================================");
+	}
+	
+	@GetMapping("/getUserByType/{type}")
+	public String[] getUserByType(@PathVariable String type) {
+		return service.findUsersByType(type); 
 	}
 }
 

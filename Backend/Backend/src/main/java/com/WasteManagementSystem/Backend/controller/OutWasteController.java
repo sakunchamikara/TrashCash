@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 //import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -105,9 +106,21 @@ public class OutWasteController {
 	        return ResponseEntity.ok(updateWaste);
 	    }
 	 
-	   //view status=confirmed data
+	   //view status=pending data
 	 @GetMapping("/getwasteStatus")
 	    public List<OutsourceWasteRequest> getWasteStatus() {
 	        return service.fetchUserByStatus();
 	    }
+	 
+	 //view status=pending data
+	 @GetMapping("/getwasteStatusCon")
+	    public List<OutsourceWasteRequest> getWasteStatusCon() {
+	        return service.fetchUserByStatusCon();
+	    }
+	 
+	 @GetMapping(path="/outWasteRequests/status")
+		public @ResponseBody List<String> getOutWStatus() {
+		    return outsourceWasteRequestRepo.getOutWStatus();
+		}
+
 }

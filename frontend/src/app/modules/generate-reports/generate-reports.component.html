@@ -1,0 +1,85 @@
+<div class="col-container">
+   
+    <br>
+    <div class="row p1">
+      <div class="">
+  
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb shadow p-3 mb-5 bg-white rounded">
+            <li class="breadcrumb-item"><a href="#"><i class="fad fa-tachometer-alt-fastest"></i> Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Generate Reports</li>
+          </ol>
+        </nav>
+
+        <div class="box-header with-border">
+            <h3 class="box-title">Search Options</h3>
+        </div>
+        <br>
+        <br>
+        <br>
+      </div>
+    </div>
+
+
+    <div class="row">
+    <div class="col-md-1"></div>
+   
+    <div class="col-md-5">
+        <div class="box box-solid">
+            
+            <!-- /.box-header -->
+            <div class="box-body">
+                <form >
+                    <label for="">Pick a Year</label>
+                    <div class="input-group input-group-sm">
+                        <input  name="date" id="date" class="form-control" type="date">
+                        <!-- @if($date!=null) value="{{$date}}" @endif type="date" required max="{{date('Y-m-d')}}" -->
+                        <!-- *ngIf="$date!=null" -->
+                        
+                    </div>
+                </form>
+            </div>
+            <!-- /.box-body -->
+        </div>
+    </div>
+
+    <div class="col-md-5">
+        <div class="box box-solid">
+           
+            <!-- /.box-header -->
+            <div class="box-body">
+                <form >
+                    <label for="">Pick a Month</label>
+                    <div class="input-group input-group-sm">
+                        <input  name="date" id="date" class="form-control" type="date">
+                        <!-- @if($date!=null) value="{{$date}}" @endif type="date" required max="{{date('Y-m-d')}}" -->
+                        <!-- *ngIf="$date!=null" -->
+                        <!-- <span class="input-group-btn">
+                            <button type="submit" class="btn btn-info btn-flat">Go!</button>
+                        </span> -->
+                    </div>
+                </form>
+            </div>
+            <!-- /.box-body -->
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+<div class="row">
+    <div class="col-md-5"></div>
+    <div class="col-md-2
+    
+    ">
+        <br>
+        <br>
+        <br>
+    <span class="input-group-btn">
+        <button type="submit" class="btn btn-info btn-flat">Generate Report Now!</button>
+    </span>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+</div>
+

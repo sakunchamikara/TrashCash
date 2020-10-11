@@ -15,4 +15,10 @@ public interface CartRepository extends JpaRepository<Cart, Integer> {
     public List<Cart> getData(int id);
 
     public void deleteById(int id);
+
+    public List<Cart> findByOrderId(int oid);
+    
+    @Query(value = "SELECT * FROM cart INNER JOIN product ON cart.product_id=product.id WHERE product.email=:email", nativeQuery = true)
+    public List<Cart> findByEmail(String email);
+//    public List<Cart> findByUsertype(String usertype);
 }

@@ -10,6 +10,7 @@ import { Orders } from 'src/app/webportal/pojo/orders';
 export class CompletedOrdersComponent implements OnInit {
   type: string;
   ordersList: Array<Orders>;
+  pendingOrder = new Orders();
 
   constructor(private ordersService: OrdersService) {}
 

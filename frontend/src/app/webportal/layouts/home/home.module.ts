@@ -30,6 +30,7 @@ import { RecycledProductAddComponent } from '../../modules/Outsource-company/rec
 import { CustomerOrdersComponent } from '../../modules/customer-account/customer-orders/customer-orders.component';
 import { ContactusComponent } from '../../modules/contactus/contactus.component';
 import { CustomerInviteFriendsComponent } from '../../modules/customer-account/customer-invite-friends/customer-invite-friends.component';
+import { UpdateCustomerProfileComponent } from '../../modules/customer-account/update-customer-profile/update-customer-profile.component';
 import { CustomerMyFeedbacksComponent } from '../../modules/customer-acount/customer-my-feedbacks/customer-my-feedbacks.component';
 
 
@@ -59,6 +60,7 @@ import { CustomerMyFeedbacksComponent } from '../../modules/customer-acount/cust
     CustomerOrdersComponent,
     ContactusComponent,
     CustomerInviteFriendsComponent,
+    UpdateCustomerProfileComponent,
     CustomerMyFeedbacksComponent,
   ],
   imports: [

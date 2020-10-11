@@ -31,4 +31,9 @@ export class CustomerCartService {
   public getByOrder(oid: number): Observable<any> {
     return this.http.get<any>(`http://localhost:8080/getCartByOrder/${oid}`);
   }
+
+  //view all data of cart
+  public getCartDetailsAll(email:String): Observable<any> {
+    return this.http.get<any>(`http://localhost:8080/getCart/${email}`);
+  }
 }

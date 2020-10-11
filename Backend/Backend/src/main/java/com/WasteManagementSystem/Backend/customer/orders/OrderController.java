@@ -57,10 +57,12 @@ public class OrderController {
 		return orderService.saveOrder(orderObj);
 	}
 
+
 	@GetMapping("/agentPendingOrders")
     public List<Orders> getAllPendingOrders(){
         return orderService.findAllPendingOrders();
     }
+
 	
 	@GetMapping("/getOrder/{oid}")
 	public Orders getorder(@PathVariable int oid) {

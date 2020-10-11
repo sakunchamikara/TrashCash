@@ -11,18 +11,34 @@ import com.sendgrid.Request;
 import com.sendgrid.Response;
 import com.sendgrid.SendGrid;
 import com.sendgrid.helpers.mail.Mail;
+
+
 import com.sendgrid.helpers.mail.objects.Content;
+
+
+import com.sendgrid.helpers.mail.objects.Content;
+
+//import com.sendgrid.helpers.mail.objects.Content;
+
 import com.sendgrid.helpers.mail.objects.Email;
 import com.sendgrid.helpers.mail.objects.Personalization;
 
 @Service
 public class EmailService {
+
+	@Value("${app.sendgrid.templateId}")
+	private String templateId;
+	
+//	@Autowired
+//	SendGrid sendGrid;
+
 //	@Value("${app.sendgrid.templateId}")
 //	private String templateId;
 	
 	@Autowired
 	SendGrid sendGrid;
 	Content content;
+
 	
 	public String sendEmail(String email) {
 		try {
@@ -50,7 +66,9 @@ public class EmailService {
 		Email to = new Email();
 		to.setEmail(email);
 		
-//		Content content = new Content("text/plain", "Dear customer, Thank you for being with us!");
+
+		Content content = new Content("text/plain", "and easy to do anywhere, even with Java");
+
 		String subject = "Sending with SendGrid is Fun";
 		
 		Personalization personalization = new Personalization();
@@ -65,8 +83,10 @@ public class EmailService {
 		return mail;
 	}
 
+
 	public void setcontent(String c) {
 		content = new Content("text/plain", c);
 		
 	}
+
 }

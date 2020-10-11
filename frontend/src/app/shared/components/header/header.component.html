@@ -21,20 +21,20 @@
         <li>
           <button mat-button [matMenuTriggerFor]="feed">
             <mat-icon>notifications</mat-icon>
-            <a><span class="badge badge-pill badge-danger count-notif">{{noNew}}</span></a>
+            <a><span class="badge badge-pill badge-danger count-notif">{{noNew2+noNew1}}</span></a>
           </button>
           <mat-menu #feed="matMenu">
 
-            <button mat-menu-item>
+            <button mat-menu-item routerLink="/system/ViewOutRequest">
               <i class="fas fa-address-card"></i>
-              Requests
-              <a><span class="badge badge-pill badge-danger"></span></a>
+              Waste Requests
+              <a><span class="badge badge-pill badge-danger">{{noNew2}}</span></a>
             </button>
 
             <button mat-menu-item routerLink="/system/displayCustomerFeedbacks">
               <i class="fas fa-comment"></i>
               Feedbacks
-              <a><span class="badge badge-pill badge-danger">{{noNew}}</span></a>
+              <a><span class="badge badge-pill badge-danger">{{noNew1}}</span></a>
             </button>
           </mat-menu>
         </li>

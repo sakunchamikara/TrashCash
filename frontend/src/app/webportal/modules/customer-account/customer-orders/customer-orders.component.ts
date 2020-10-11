@@ -10,9 +10,9 @@ import { NewtermsService } from 'src/app/service/newterms.service';
 import { Customer } from 'src/app/webportal/pojo/customer';
 
 @Component({
-  selector: 'app-customer-orders',
-  templateUrl: './customer-orders.component.html',
-  styleUrls: ['./customer-orders.component.scss'],
+  selector: "app-customer-orders",
+  templateUrl: "./customer-orders.component.html",
+  styleUrls: ["./customer-orders.component.scss"],
 })
 export class CustomerOrdersComponent implements OnInit {
   orderCount: number;
@@ -39,7 +39,7 @@ export class CustomerOrdersComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.orderId = this.route.snapshot.queryParamMap.get('order_id');
+    this.orderId = this.route.snapshot.queryParamMap.get("order_id");
     this.customerId = +this.customerAuth.getAuthenticatedCustomerId();
     this.customerMail = this.customerAuth.getAuthenticatedCustomer();
 

@@ -62,5 +62,15 @@ public class OrderController {
         return orderService.findAllPendingOrders();
     }
 	
+	@GetMapping("/getOrder/{oid}")
+	public Orders getorder(@PathVariable int oid) {
+		return orderService.findById(oid);
+	}
+	
+	@PutMapping("/saveOrder")
+	public Orders saveOrder(@RequestBody Orders order) {
+		return orderService.saveOrder(order);
+	}
+	
 }
 

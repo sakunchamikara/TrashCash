@@ -41,13 +41,14 @@
           <div class="">
 
             <table class="table table-hover" style="font-size: 14px;">
-              <thead>  
+              <thead>
                 <tr>
                   <th>Order Id</th>
                   <th>Product</th>
                   <th>Quentity</th>
                   <th>Unit Price</th>
                   <th>Status</th>
+                  <th>Action</th>
                   <th>Order Date</th>
                 </tr>
               </thead>
@@ -62,6 +63,17 @@
                       class="btn btn-outline-warning btn-sm">{{order.status}}</button></td>
                   <td *ngIf="order.status == 'Accepted'"><button type="button"
                       class="btn btn-outline-success btn-sm">{{order.status}}</button></td>
+                  <td *ngIf="order.status == 'Completed'"><button type="button"
+                      class="btn btn-outline-danger btn-sm">{{order.status}}</button></td>
+
+                  <td *ngIf="order.status == 'Accepted'"><button type="button" class="btn btn-warning btn-sm"
+                      (click)="completeOrder(order.id)">Complete
+                      Order</button></td>
+                  <td *ngIf="order.status == 'Pending'"><button type="button"
+                      class="btn btn-warning btn-sm">Wait</button></td>
+                  <td *ngIf="order.status == 'Completed'"><button type="button" class="btn btn-warning btn-sm"
+                      [routerLink]="['/customer/feedback']" routerLinkActive="router-link-active">Give Feedback</button>
+                  </td>
                   <td>{{order.date | date}}</td>
                 </tr>
               </tbody>

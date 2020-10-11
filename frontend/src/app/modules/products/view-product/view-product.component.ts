@@ -17,7 +17,7 @@ export class ViewProductComponent implements OnInit {
   productsRecieved: Array<Item>;
   user: User;
   email: any;
-  usertype:any;
+  usertype: any;
   // products : Observable<Item[]>;
   constructor(
     private productService: ProductService,
@@ -46,14 +46,14 @@ export class ViewProductComponent implements OnInit {
     this.usertype = "trashcash@gmail.com";
     this.productService
       .getsystemProductByUsername(this.usertype)
-      .subscribe((response) => 
+      .subscribe((response) =>
       this.handleSuccessfulResponse(response)
       );
   }
 
   handleSuccessfulResponse(response) {
     this.products = new Array<Item>();
-    //get books returned by the api call
+    // get books returned by the api call
     this.productsRecieved = response;
     for (const product of this.productsRecieved) {
       const bookwithRetrievedImageField = new Item();
@@ -61,7 +61,7 @@ export class ViewProductComponent implements OnInit {
       bookwithRetrievedImageField.title = product.title;
 
       bookwithRetrievedImageField.category = product.category;
-      //populate retrieved image field so that product image can be displayed
+      // populate retrieved image field so that product image can be displayed
       bookwithRetrievedImageField.retrievedImage =
         'data:image/jpeg;base64,' + product.image1;
       bookwithRetrievedImageField.image1 = product.image1;

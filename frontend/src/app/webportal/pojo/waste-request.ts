@@ -6,7 +6,9 @@ export class WasteRequest {
     date: Date;
     customer: string;
     status: string;
-    email:string
+    email:string;
+    year:number;
+    month:number;
 
     constructor(){}
 }

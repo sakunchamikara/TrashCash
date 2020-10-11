@@ -101,4 +101,9 @@ update(id: number, value: any): Observable<Object> {
   return this.http.put(baseUrl, value);
 }
 
+getCountPendingWasteRequests(): Observable<any> {
+  let url = `http://localhost:8080/outWasteRequests/status`;
+  return this.http.get(url)
+}
+
 }

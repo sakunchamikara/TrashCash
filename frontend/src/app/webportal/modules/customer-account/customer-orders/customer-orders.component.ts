@@ -8,9 +8,9 @@ import { Cart } from 'src/app/webportal/pojo/cart';
 import { EmailService } from 'src/app/service/email.service';
 
 @Component({
-  selector: 'app-customer-orders',
-  templateUrl: './customer-orders.component.html',
-  styleUrls: ['./customer-orders.component.scss'],
+  selector: "app-customer-orders",
+  templateUrl: "./customer-orders.component.html",
+  styleUrls: ["./customer-orders.component.scss"],
 })
 export class CustomerOrdersComponent implements OnInit {
   orderCount: number;
@@ -34,7 +34,7 @@ export class CustomerOrdersComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.orderId = this.route.snapshot.queryParamMap.get('order_id');
+    this.orderId = this.route.snapshot.queryParamMap.get("order_id");
     this.customerId = +this.customerAuth.getAuthenticatedCustomerId();
     this.customerMail = this.customerAuth.getAuthenticatedCustomer();
 

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CustomerFeedback } from 'src/app/webportal/pojo/customer-feedback';
 import { CustomerFeedbackService } from 'src/app/webportal/services/customer-feedback.service';
 import { Observable } from 'rxjs';
+import { CustomerAuthService } from '../../services/customer-auth.service';
+import { Customer } from '../../pojo/customer';
 
 @Component({
   selector: 'app-customer-feedback',
@@ -12,7 +14,14 @@ export class CustomerFeedbackComponent implements OnInit {
   submitted = false;
   customerFeed = new CustomerFeedback();
 
-  constructor(private customerFeedbackService: CustomerFeedbackService) {}
+  customerEmail: string;
+  customerType: string;
+  customerName: string;
+  currentCustomer: Customer;
+  feed;
+
+  constructor(private customerFeedbackService: CustomerFeedbackService,
+    private customerService: CustomerAuthService) {}
 
   successMsg: any;
 
@@ -29,6 +38,8 @@ export class CustomerFeedbackComponent implements OnInit {
       this.addedFeedbacks = data;
     });
   }
+
+  
 
   onSubmit() {
     this.submitted = true;
@@ -64,4 +75,40 @@ export class CustomerFeedbackComponent implements OnInit {
         }
       );
   }
+
+  // getUserFeedback(){
+
+  //   var dueDate;
+  //   var nowStatus;
+  
+  // this.customerEmail = this.customerService.getAuthenticatedCustomer();
+    
+  // this.customerFeedbackService.getFeedbackOfUser().subscribe(
+  //   (data)=>{
+  //     this.feed = data;
+  //     this.feed.forEach(element => {
+     
+
+  //       let val = data.find(fb => {
+  //                       if (fb.cusFeedEmail = this.customerEmail){
+  //                          dueDate = fb.date;
+  //                          nowStatus = fb.status;
+                         
+  //                         console.log("type = "+fb.type);
+  //                         console.log("id = "+fb.id);
+  //                         // return fb.total;
+                          
+  //                       }
+                        
+                        
+                        
+  //                     });
+                    
+                  
+  //     });
+  //   }
+  // );
+
+  
+  // }
 }

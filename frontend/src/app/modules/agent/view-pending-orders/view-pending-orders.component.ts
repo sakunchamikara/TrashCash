@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { element } from 'protractor';
 import { Observable } from 'rxjs';
+import { NewtermsService } from 'src/app/service/newterms.service';
+import { OrdersService } from 'src/app/service/orders.service';
 import { Customer } from 'src/app/webportal/pojo/customer';
 import { Orders } from 'src/app/webportal/pojo/orders';
 import { CustomerAuthService } from 'src/app/webportal/services/customer-auth.service';
@@ -19,31 +21,23 @@ export class ViewPendingOrdersComponent implements OnInit {
   id: number;
   cus : Customer;
 
-  constructor(private orderService: CustomerOrderService,private customerAuthService:CustomerAuthService) { }
+  type: string;
+  ordersList: Array<Orders>;
+  pendingOrder = new Orders();
+
+  constructor(private ordersService: OrdersService,private confirmationDialog: NewtermsService) { }
+
 
   ngOnInit() {
-    this.reloadData();
+    this.getPendingOrders();
   }
 
-  reloadData() {
-    
-    this.orderService.getAllOrders().subscribe(
+  getPendingOrders() {
+    this.type = 'Accepted';
+    this.ordersService.getOrdersByType(this.type).subscribe(
       (data) => {
-        this.retrieveOrders = data;
-        this.retrieveOrders.forEach(element=>{
-          this.id = element.id;
-          console.log(element.customer);
-            // this.customer(this.id);
-            
-        });
-
-        
-        if (data.length > 0) {
-          this.requestEmptyListFlag = false;
-          console.log('test' + this.retrieveOrders);
-        } else {
-          this.requestEmptyListFlag = true;
-        }
+        this.ordersList = data;
+        console.log(data);
       },
       (error) => {
         console.log(error);
@@ -51,13 +45,29 @@ export class ViewPendingOrdersComponent implements OnInit {
     );
   }
 
-  customer(id:number){
-        this.customerAuthService.getCustomerById(id).subscribe(
-          (data)=>{
-            console.log(data);
-            this.cus = data;
-          }
-        );
+  confirm(id:number){
+    console.log("Completed");
+
+    this.confirmationDialog
+      .confirm('Please confirm..', 'Do you really want to Update Order Status?')
+      .then((complete) => {
+        if (complete) {
+          this.pendingOrder.id = id;
+          this.pendingOrder.status = 'Completed';
+          this.ordersService
+            .updatePendingOrderStatus(this.pendingOrder)
+            .subscribe(
+              (data) => {
+                console.log(data);
+                this.getPendingOrders();
+              },
+              (error) => {
+                console.log('error in update ending orders');
+              }
+            );
+        }
+      })
+      .catch(() => console.log('cancelled'));
   }
 
 }

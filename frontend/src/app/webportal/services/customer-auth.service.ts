@@ -65,7 +65,7 @@ export class CustomerAuthService {
     return this.http.get<any>(uri);
   }
 
-  updateUserProfile(customer) {
+  updateUserProfile(customer){
     return this.http.put<Customer>(
       `http://localhost:8080/updateCustomerProfile`,
       customer
@@ -78,6 +78,10 @@ export class CustomerAuthService {
     );
   }
 
+  updateCustomerProfile(id:number,customer:any):Observable<Object> {
+    return this.http.put<Customer>(`http://localhost:8080/updateCustomer/${id}`,customer);
+
+  }
   getUserByType(email: string): Observable<String[]> {
     return this.http.get<any>(`http://localhost:8080/getCustomerByType/${email}`);
   }

@@ -30,18 +30,18 @@
           <div class="row" *ngIf="!requestEmptyListFlag">
 
            
-            <div class="col-lg-4 col-md-6 mb-4" *ngFor="let retrieveOrder of retrieveOrders;">
+            <div class="col-lg-4 col-md-6 mb-4" *ngFor="let order of ordersList;">
               <div class="card h-100 text-center">
               
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="#">Order No : {{retrieveOrder.id}}</a>
+                    <a href="#">Order No : {{order.id}}</a>
                     <!-- <a href="#">Date : {{retrieveOrder.customer}}</a> -->
                   </h4>
                   <!-- <h5>Location : </h5> -->
-                  <!-- <h5>Date : {{retrieveOrder.date}}</h5> -->
-                  <h5>Date : {{retrieveOrder.customer}}</h5>
-                  <button type="button" class="btn btn-outline-success" (click)="confirm(retrieveOrder.id)">Accept</button>
+                  <h5>Status : {{order.status}}</h5>
+                  <h5>Date : {{order.date | date}}</h5>
+                  <button type="button" class="btn btn-outline-success" (click)="confirm(order.id)">Accept</button>
                 </div>
              
               </div>
@@ -60,3 +60,19 @@
 
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

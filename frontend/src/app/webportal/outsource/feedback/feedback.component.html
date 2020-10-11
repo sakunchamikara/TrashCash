@@ -1,0 +1,132 @@
+
+<div class="main">
+    <div class="container">
+      <div class="form-row">
+        <div class="col-md-12">
+          <br>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/outsource/dashboard">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Feedbacks</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+      <div class="p1">
+      <div class="form-row">
+        
+            <form  class="col-md-7" (ngSubmit)="onSubmit()" #customerFeedbackForm="ngForm">
+            <div class="col-md-7">
+                <div class="contact-form"> 
+                    <br>
+                    <h4>Add Your Feedback Now!</h4>               
+                <br>
+                
+                    <div class="form-group">
+              <label class="control-label col-sm-2" for="name"> Category:</label>
+              <div class="col-sm-15">
+              <select class="form-control"  name="feedbackType" id="feedbackType" [(ngModel)]="customerFeed.feedbackType">
+                <option value="" style="display: none" >Select a Category</option>
+                <option>Delivery Related</option>
+                <option>Order Related</option>
+                <option>Payment Related</option>
+                <option>Technical Problem</option>
+                <option>Other</option>
+              </select>
+            </div>
+                    </div>
+    
+    
+                    <div class="form-group">
+                      <label class="control-label col-sm-6">First Name:</label>
+                      <div class="col-sm-15">          
+                <input type="text" class="form-control"  name="cusFeedFirstName" #fn="ngModel" id="cusFeedFirstName" [(ngModel)]="customerFeed.cusFeedFirstName" placeholder="First Name"
+                aria-describedby="" required [class.is-invalid]="fn.invalid && fn.touched">
+              </div>
+            </div>
+    
+            <div class="form-group">
+                      <label class="control-label col-sm-6">Last Name:</label>
+                      <div class="col-sm-15">          
+                <input type="text" class="form-control"  name="cusFeedLastName" id="cusFeedLastName" [(ngModel)]="customerFeed.cusFeedLastName" placeholder="Last Name">
+              </div>
+            </div>
+            
+                    <div class="form-group">
+                      <label class="control-label col-sm-2">Address:</label>
+                      <div class="col-sm-15">
+                <input type="text" class="form-control" name="cusFeedAddress" id="cusFeedAddress"
+                [(ngModel)]="customerFeed.cusFeedAddress" placeholder="Address">
+                      </div>
+            </div>
+            
+            <div class="form-group">
+                      <label class="control-label col-sm-8">Contact Number:</label>
+                      <div class="col-sm-15">
+                <input type="text" class="form-control" name="cusFeedContactNum" id="cusFeedContactNum" #cn="ngModel"
+                      [(ngModel)]="customerFeed.cusFeedContactNum" placeholder="Contact Number"
+                      pattern="07[0,1,2,5,6,7,8][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" aria-describedby="" required
+                      [class.is-invalid]="cn.invalid && cn.touched">
+                      </div>
+            </div>
+    
+            <div class="form-group">
+                      <label class="control-label col-sm-2">Email:</label>
+                      <div class="col-sm-15">
+                <input class="form-control" name="email" id="email" #email="ngModel"
+                pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" type="email"
+                aria-describedby="emailHelp" required [(ngModel)]="customerFeed.email" placeholder="Email"
+                [class.is-invalid]="email.invalid && email.touched"> 
+                      </div>
+            </div>
+         
+           
+                    <div class="form-group">
+                      <label class="control-label col-sm-2">Feedback:</label>
+                      <div class="col-sm-15">
+                <textarea class="form-control" rows="3" name="feedback" id="feedback"
+                [(ngModel)]="customerFeed.feedback"></textarea>
+                      </div>
+                    </div>
+    
+                    <div class="form-group">        
+                      <div class="col-sm-offset-2 col-sm-15">
+                        <button type="submit" class="btn btn-primary float-center" >Submit</button>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+    <div class="col-md-5">
+          <div class="contact-info">
+    
+    
+                    
+                    <h2>Published Feedbacks</h2>
+    
+                    <div *ngFor="let addedFeedback of addedFeedbacks" >
+                      <div class="image-flip">
+                        <div class="mainflip flip-0">
+                          <div class="frontside">
+                            <div class="card border-primary mb-3">
+                              <div class="card-body">
+                               
+                                <h4 class="card-title text-center">{{addedFeedback.cusFeedFirstName}}
+                                  {{addedFeedback.cusFeedLastName}} </h4>
+                                <p class="card">{{addedFeedback.feedback}}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                
+                </div>
+            </div>
+    
+      </div>
+    </div>
+    </div>
+    </div>
+    
